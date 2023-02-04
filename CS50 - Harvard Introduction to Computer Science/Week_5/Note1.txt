@@ -1,0 +1,1441 @@
+Recap
+Linked lists
+Growing arrays
+Growing linked lists
+Implementing linked lists
+Trees
+More data structures
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Recap (tools):
+
+	Recall that we’ve used these tools before:
+		struct   to create custom data types
+		.        to access fields, or values, in a structure
+		*        to go to an address in memory pointed to by a pointer
+		->       to access fields in a structure pointed to by a pointer
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Recap (array & memory):
+
+	Last week, we learned about memory. 
+	Before that, we learned about arrays, like lists of values back-to-back in memory.
+
+
+	Look at this scenario
+		- let’s say we have an array of three numbers, 
+		- that we want to add another number to. 
+
+		- but in our computer’s memory, 
+		- there might already be another value right after, like a string:
+		- {a visualization in pdf}
+
+
+	One solution might be 
+		- to allocate more memory where there’s enough space, 
+		- and move our array there. 
+		- but we’ll need to copy each of the original numbers first, 
+		- and then add our new number.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Linked lists (intro):
+
+Remember the scenario we talked about in the last concept,
+how to increase size when using an array container.
+
+
+Alternatively, we can use a linked list.
+with a linked list, we can store a list of values in different parts of memory
+
+
+For instance, We have the values 1, 2, and 3, 
+each stored in some address in memory, like 0x123, 0x456, and 0x789	
+{visualization}
+
+
+Notice via the addresses that the memory are not contiguous,
+this is what makes it different from arrays, such that we use memory that is free.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Linked lists ( concept ):
+
+	When we want to insert a new value, we allocate enough memory for both 
+		- the value we want to store, and 
+		- the address of the next value:
+
+
+
+	Such that we are no longer representing data as numbers 1, 2, 3, ....
+	rather has a structure containing the two fields (number & pointer to next) 	
+
+
+
+	Next to our value of 1, for example, 
+	we also store a pointer, 0x456, to the next "value and pointer". 
+
+
+
+	(We’ll draw them vertically for visualization, 
+	but in memory the value and pointer will be adjacent.)
+
+
+
+	For our last group of boxes with value 3, 
+	we have the null pointer, 0x0, since there’s no next group.
+
+
+
+	We can also visualize these addresses as just pointers, 
+	since we don’t need to know what the addresses actually are:
+
+
+	With a linked list, we have the tradeoff of 
+		- needing to allocate more memory for each value and pointer, 
+		- in order to spend less time adding values. 
+		- instead of alternatively with arrays just allocating memory for the value
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Linked lists ( structure ):
+
+	We’ll call the group of boxes with a value and pointer a node, 
+	a component of a data structure encapsulates some information. 
+
+
+	We can implement a node with a struct:
+
+		typedef struct node
+		{
+			int number;
+			struct node *next;
+		}
+		node;
+
+
+	Firstly
+		- we start this struct with "typedef struct node"  /
+		- so that we can refer to a "struct node" inside our struct.
+
+
+	Then, 
+		- we’ll have an int called "number", 
+		- for the value we want to store, 
+
+
+	Then
+		- a pointer to the next node with struct node. 
+		- since we haven’t fully defined "node" yet, 
+		- so the compiler needs to know it’s a custom struct still.
+
+
+	Finally, 
+		- node at the end lets us use just node in the rest of our program.
+		  instead of "struct node". you get!!!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Linked lists ( implementation step 1-2 ):
+
+	We can build a linked list in code starting with our struct. 
+
+
+	First, 
+		- we’ll want to remember an empty list, 
+		- so we can use the null pointer such as: 
+				node *list = NULL; >>
+
+
+	Second,
+		- to add a node,
+		- we’ll first need to allocate some memory:
+		- 		node *n = malloc(sizeof(node));
+
+		- recall that we can use sizeof to get the size of some data type, including structs. 
+		- we want to allocate enough memory for both a value and a pointer, 
+		- and we’ll point to that allocation with "n", 
+		- remember, n is just a pointer to a node, not the node itself
+		  do you get this last statement? read again. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Linked lists ( implementation step 3-4 ):
+
+
+	Third, 	  
+		- IF we were able to get memory back from malloc, 
+		- then we’ll set the value of pointer "n"
+		- which is a structure called "node" which has two field
+
+		- thus, the statement "setting the value of pointer n" /
+		- would mean setting the two fields "number" and "next".
+				if (n != NULL) 
+				{
+					(*n).number = 1 ;
+					(*n).next = NULL ;
+				}
+
+		- I want to believe you understant the code above
+		- that why i show you a syntactic sugar (->)
+				if (n != NULL)
+				{
+					n->number = 1;
+					n->next = NULL;
+				}
+
+
+	Finally,
+		- our "list" needs to point to the "node".	
+		- am pretty sure you have forgotten about our initial pointer "list"	
+
+		- the pointer "n" we created is just a stand-alone memory,
+		- it is not yet in our list structure.
+		- the last step is to add it to our list structure.	
+
+		- we want our list pointer to have the same address as n, 
+		- since "n" is a temporary variable and we want our "list" variable / 
+		- to refer to it as the first node in our list.
+
+				list = n ;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Codebase of Growing Array:
+
+	#include <stdlib.h>
+
+
+	int main(void)
+	{
+
+		/******************************************************
+
+			TODO : Initially, we create an array of size three
+
+		*******************************************************/	
+
+		// allocate memory for three number
+		int *array = malloc(3 * sizeof(int)) ;
+
+		if (array == NULL)
+		{
+			return 1;
+		}
+
+
+		// occupy allocated memory
+		array[0] = 1;
+		array[1] = 2;
+		array[2] = 3; 
+	
+
+
+
+
+		/******************************************************
+
+			TODO : Time Passes, we need to increment the array by one
+				   we will use a temporary array	
+
+		*******************************************************/
+
+
+
+
+		// memory for four numbers
+		int *temp = malloc(4 * sizeof(int)) ;
+
+		if (temp == NULL)
+		{
+			free(array);
+			return 2;
+		}
+
+
+
+		// copy from "array" into "temp"
+		for (int i = 0; i < 3; i++)
+		{
+			temp[i] = array[i]
+		}
+
+		temp[3] = 4;
+
+
+
+		// free "array" initial memory
+		free(array);
+
+
+
+		// make "array" point to "temp" memory
+		array = temp;
+
+
+		// show the values in "array"
+		for (int i = 0; i < 4; i++)
+		{
+			printf("%i\n", array[i]); 
+		}
+
+
+		// free allocated memory ("array")
+		free(array);
+		return 0;
+
+
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Realloc library function:
+
+	With reference to the codebase for growing array
+		- instead of allocating new memory and copying the old array to the new array,
+		- realloc automates this, it assigns memory just as malloc, 
+		- and also copies data from a location into another
+
+		int *tmp = realloc(list, 4 * sizeof(int));. 
+
+
+	realloc takes in
+		- the pointer to the original chunk of memory, 
+		- and how much memory we would like to use. 
+
+
+	realloc will 
+		- grow the original chunk for us  /
+		- if there’s enough free memory after it, 
+		- by allocating it to the same chunk. 
+
+		- Otherwise, 
+		- it will move the chunk of memory for us to a new area, 
+		- and free the original chunk of memory for us as well.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Growing linked lists (basics):
+
+	Let’s start with the list we saw earlier, with one node
+
+
+	Firstly, 
+		- we create a stand-alone node for the next data
+		- "n" is a temporary variable, we use to point to this node 
+
+			node *n = malloc(sizeof(node));
+			if (n != NULL)
+			{
+				n->number = 2;
+				n->next = NULL;
+			}
+
+
+
+	Lastly,
+		- we need to update the pointer in our list first node /
+		- to point to our new n, since we want to maintain a sorted list:
+
+			list->next = n ;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CodeBased for Linked list:
+
+	#include <stdlib.h>
+
+	int main(void)
+	{
+
+
+		/******************************************************
+
+			TODO : Create the linked list head	
+
+		*******************************************************/
+
+		// Create list structure
+		node *list = NULL;
+
+
+
+
+
+		/******************************************************
+
+			TODO : Allocate & Occupy memory for individual data in linked list	
+
+		*******************************************************/
+
+
+		// Create first data
+		node *data1 = malloc(sizeof(node));
+		if (data1 == NULL)
+		{
+			return 1;
+		}
+
+		data1->number = 1;
+		data1->next = NULL; 
+
+
+
+		// Create second data 
+		node *data2 = malloc(sizeof(node));
+		if (data2 == NULL)
+		{
+			free(data1);
+			return 2;
+		}
+
+		data2->number = 2;
+		data2->next = NULL; 
+
+
+
+		// Create third data
+		node *data3 = malloc(sizeof(node));
+		if (data3 == NULL)
+		{
+			free(data1);
+			free(data2);
+			return 3;
+		}
+
+		data3->number = 3;
+		data3->next = NULL; 
+
+
+
+
+
+		/******************************************************
+
+			TODO : link each data together, adding them to the list	
+
+		*******************************************************/
+
+		list = data1 ;
+		list->next = data2;
+		list->next->next = data3;
+
+
+
+
+
+		/******************************************************
+
+			TODO : show all the data in the list	
+
+		*******************************************************/
+
+		for (node *temp = list; temp != NULL; temp = temp->next)
+		{
+			printf("%i\n", temp->value);
+		}
+
+
+
+
+
+		/******************************************************
+
+			TODO : free each data in the list
+			       for linked list, we are responsible for free each node /
+			       unlike with arrays	
+
+		*******************************************************/
+
+		node *temp;
+		while (list != NULL)
+		{
+			temp = list->next;
+			free(list);
+			list = temp;
+
+			// do well to note the order,
+			// ma lo lose guard, lo orphan memory kan.
+
+		}
+
+
+
+
+
+		/******************************************************
+
+			TODO : Extra Note	
+
+		*******************************************************/
+
+		// Notice our sequence of our solution,
+		// we create all the stand-alone data first
+		// then link them up later when we are done with all creation
+
+		// Alternatively, we can create each stand-alond data in memory
+		// then immediately link the data to the list
+		// the advantage here is that we will only used one reference temp variable
+		// instead of three (data1, data2, data3)
+
+	}
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Trees:
+
+	Recall that with a sorted array, 
+		- we can use binary search to find an element, 
+		- starting at the middle (yellow), 
+		- then the middle of either half (red), 
+		- and finally left or right (green) as needed:
+
+
+
+	A tree 
+		- is another data structure 
+		- where each node points to other nodes. 
+		- we might have a tree where each node points / 
+		- to one to the left (with a smaller value)   /
+		- and one to the right (with a larger value).
+		- because of the order, this can be used as a binary search tree.
+
+		- each node has at most two children, or nodes it is pointing to.
+		- And like a linked list, 
+		- we’ll want to keep a pointer to just the beginning of the list, 
+		- but in this case we want to point to the root, 
+		- or topmost node of the tree (the 4).
+
+
+	tree structure:
+
+		typedef struct tree_node 
+		{
+			int value;
+			struct tree_node *left;
+			struct tree_node *right;
+		}
+		tree_node;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Codebase for tree structure (code main framework):
+
+	#include <stdint.h>
+
+
+	int main(void)
+	{ 
+
+
+
+		/******************************************************
+
+			TODO : establish the beggining of tree (container)	
+
+		*******************************************************/
+
+		tree_node *tree = NULL; 
+
+
+
+
+
+
+
+
+
+		/******************************************************
+
+			TODO : Create and link the first node (parent)	
+
+		*******************************************************/
+
+
+
+
+		tree_node *n = malloc(sizeof(tree_node));
+		if (n == NULL)
+		{
+			return 1;
+		}
+
+
+		n -> value = 2;
+		n -> left = NULL;
+		n -> right = NULL;
+		tree = n; 
+
+
+
+
+
+
+
+
+
+		/******************************************************
+
+			TODO : Create and link the second node (left-child)	
+
+		*******************************************************/
+
+
+		n = malloc(sizeof(tree_node));
+		if (n == NULL)
+		{
+			free_tree( tree );
+			return 2;
+		}
+
+		n -> value = 1;
+		n -> left = NULL;
+		n -> right = NULL;
+		tree -> left = n; 
+
+
+
+
+
+
+
+
+
+		/******************************************************
+
+			TODO : Create and link the third node (right-child)	
+
+		*******************************************************/
+
+		n = malloc(sizeof(tree_node));
+		if (n == NULL)
+		{
+			free_tree( tree );
+			return 3;
+		}
+
+		n -> value = 3;
+		n -> left = NULL;
+		n -> right = NULL;
+		tree -> right = n;
+
+
+
+
+
+
+
+
+
+		/******************************************************
+
+			TODO : Print values in the tree
+
+		*******************************************************/
+
+		print_tree(tree); 
+
+
+
+
+
+
+
+
+
+		/******************************************************
+
+			TODO : free all allocated memory in the tree structure	
+
+		*******************************************************/
+
+
+		free_tree(tree);
+
+
+
+		return 0;
+
+
+	}	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Codebase for tree structure ( print_tree recursive function ):
+	
+	The mental model for this recursion is:
+		- print my left hand side  (sub-tree)     
+		- print my value   				   					
+		- print my right hand side (sub-tree) 
+
+		- it goes through this sequence, 
+		- because all the values to the left are lower
+		- and all the values to the right are higher
+		- we can even swap it, so we can print the values of the tree in reverse order
+
+		  
+	The Recursive function breakdown	
+		name of function      - print_tree
+		parameter of function - a tree_node pointer
+		return value 		  - void
+
+		base case 			  - if pointer points to NULL, return
+		recursive case 		  - print the sub-tree at my left
+								print my numbber	
+								print the sub-tree at my right		
+
+
+	void print_tree(tree_node *tree_pointer)
+	{
+		if (tree_pointer == NULL)
+		{
+			return;
+		}
+
+
+		print_tree( tree_pointer -> left );
+		print( tree_pointer -> value );
+		print_tree( tree_pointer -> right ); 
+	}			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Codebase for tree structure ( free_tree recursive function ):	
+
+	The mental model for this recursiv function is
+		- free my left hand side (sub-tree)
+		- free my right hand side (sub-tree)
+		- free me	
+
+
+		void print_tree(tree_node *tree_pointer)
+		{
+			if (tree_pointer == NULL)
+			{
+				return;
+			}
+
+
+			free_tree( tree_pointer -> left );
+			free_tree( tree_pointer -> right ); 
+			free(tree_pointer);
+		}				
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Codebase for tree structure ( binary search recursive function ):
+
+	int search_tree(tree_node *tree_pointer, int number)
+	{
+		if (tree_pointer == NULL)
+		{
+			return "not found";
+		}
+
+
+		if (number < tree_pointer->value)
+		{
+			search_tree(tree_pointer->left, number);
+		}
+
+
+		else if (number > tree_pointer->value)
+		{
+			search_tree(tree_pointer->right, number);
+		}
+
+
+		else (number == tree_pointer->value)
+		{
+			return "found";
+		}
+	}		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Tree vs Linked List:
+
+	look at the visualization
+		- we started our tree with a node with value of 1, 
+		- then added the node with value 2, 
+		- and finally added the node with value 3. 
+
+
+	Even though this tree follows the constraints of a binary search tree, 
+	it’s not as efficient as it could be.
+
+
+	We can make the tree balanced, or more optimal, 
+	by making the node with value 2 the new root node.
+
+
+	With a balanced binary search tree, 
+	the running time for search and insert will be O(log n).
+
+
+	But if our tree isn’t balanced, it can devolve into a linked list, 
+	with running time for search and insert of O(n).	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Hash Table Structure (storing names):
+
+	A hash table is a data structure that allows us to associate keys with values. 
+
+
+	Lets think of an hash table that holds names
+		- it looks like an array, 
+		- where we can jump to each location by its index:
+		- we can think of each location as labeled with a letter from A through Z, 
+		- and insert names into each location {visualization}
+
+		- if we have multiple names with the same first letter, 
+		- we can add them with a linked list  {visualization}	
+		- meaning each value in the array is actually a pointer
+		- to a node that has two fields (name field & pointer field)
+
+			typedef struct node
+			{
+				char word[longest_word + 1];
+				struct node *next;
+			}
+			node; 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Hash Table Structure (size of table):
+
+	What determines how many slots how hash table will have?
+
+
+	To create the hash table, 
+		- we might write:  node *hash_table[NUMBER_OF_BUCKETS];
+		- the hash table will be an array of pointers to nodes, 
+		- with NUMBER_OF_BUCKETS as its size.
+
+
+	To decide which bucket, or location in the array, that a value should be placed in, 
+	we use a hash function, which takes some input and produces an index, or location. 
+
+
+	In our example, 
+		- the hash function just returns an index 
+		- corresponding to the first letter of the name, 
+		- such as “0” for “Albus” and “25” for “Zacharias”.
+		- in this case, the size of our hash table will be 25
+		- 25 buckets in total 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Hash Table Structure (optimization):
+
+	We can try to have smaller chains (linked list) in our hash table 
+		- by using two letters, instead of just one:
+		- now, we’ll have 676 buckets total, 
+		- for all the combinations of the first two letters.
+
+
+	We can consider the first three letters with even more buckets, 
+		- but we’ll be using more space in memory. 
+		- Some of those buckets will be empty, 
+		- but we’re more likely to only need one step to look for a value, 
+		- reducing our running time for searching.
+
+
+
+	It turns out that the worst case running time for searching a hash table is O(n) , 
+	since all of our values might be in the same bucket, devolving into a linked list as well. 
+
+
+	In practice, though, the running time will likely be much faster.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Tries Structure (intro):
+
+	We can use another data structure called a trie 
+	(pronounced like “try”, and is short for “retrieval”). 
+
+
+	A trie is a tree with arrays as nodes: 
+	{visualization - array with letters from A-Z in 26 locations}
+
+
+	Each array will have locations that represent each letter, A-Z.
+
+
+	Basically
+		- For each word e.g "HAGRID", 
+		- the first letter will point to an array, 
+		- where the next valid letter will point to another array, 
+		- and so on, until we reach a boolean value 
+		- indicating the end of a valid word, marked in green:	
+
+		- {visualization - array with H pointing to another array, 
+		                   with A pointing to another array, 
+		                   with G pointing to another array, 
+		                   with R pointing to another array, 
+		                   with I pointing to another array, 
+		                   with D marked in green}
+
+		- with multiple names, we start seeing some of the space 
+		- being reused for the first letters that are shared:
+
+		- {visualization - array with H pointing to another array, 
+		                   with A pointing to another array, 
+		                   with G pointing to another array, 
+		                   with R pointing to another array, 
+		                   with I pointing to another array, 
+		                   with D marked in green; 
+
+		                   the second array from H also has E pointing to R, M, I, O, N, and E; 
+		                   the third array from H, to A, has R pointing to R and Y}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Trie (stucture):
+
+	We might define a trie in code with:
+		typedef struct node
+		{
+		    bool is_word;
+		    struct node *children[SIZE_OF_ALPHABET];
+		}
+		node;
+
+
+
+	Basically,
+		- at each node, or array, 
+		- we’ll have a boolean value that indicates if it’s a valid word 
+		- (whether or not it should be green). Hmmm!!!!!
+
+		- Then, we’ll have an array of SIZE_OF_ALPHABET pointers to other nodes, 
+		  called children.
+
+
+
+	From an Optimization perspective
+		- the height of our tree 
+		- is the length of the longest word we want to store.
+
+		- and even if our data structure has lots of words, 
+		- the maximum lookup time will be just the length of the word we’re looking for. 
+		- this might be a fixed maximum, 
+		- so we have a constant time, O(1), for searching and insertion.
+
+		- the cost for this, though, 
+		- is that we need lots of memory to store mostly null pointers.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Abstract data structures:
+
+	There are even higher-level constructs,
+		- called abstract data structures, 
+		- where we use our building blocks of arrays, linked lists, 
+		- trees, hash tables, and tries to solve some other problem.
+
+
+	For example, one abstract data structure is a QUEUE,
+		- like a line of people waiting, 
+		- where the first value we put in are the first values that are removed, 
+		- or first-in-first-out (FIFO). 
+
+		- to add a value we enqueue it, and to remove a value we dequeue it. 
+		- we could use an array that we have to grow, or we could use a linked list.
+
+
+	Another abstract data structure is a STACK, 
+		- where items most recently added are removed first: 
+		- that is, last-in-first-out (LIFO). 
+
+		- in a dining hall, we might take, or pop, the top tray from a stack, 
+		- and clean trays would be added, or pushed, to the top as well.
+
