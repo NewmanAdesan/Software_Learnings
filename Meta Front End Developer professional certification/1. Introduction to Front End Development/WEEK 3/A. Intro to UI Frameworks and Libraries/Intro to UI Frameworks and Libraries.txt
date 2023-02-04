@@ -1,0 +1,463 @@
+
+
+
+
+Working with Libraries:
+
+	We will quickly go through four main concepts
+		- what are dependencies 
+		- CSS and JavaScript libraries inclusion. 
+		- package manager and 
+		- Bundling tools. 
+
+
+	DEPENDENCIES
+		- by now, you know you write code in your application 
+		- and that this code interacts 
+		- with APIs provided by libraries and frameworks. 
+
+		- since you'll be deploying your application 
+		- to a web server in the end, you must include 
+		- these libraries and frameworks with it. 
+
+		- if you do not include them, 
+		- your application won't be able to call 
+		- the API functions it needs to execute when you run it. 
+		- that is why the libraries and frameworks 
+		- are often referred to as dependencies. your application depends on them. 
+
+		- on the front end, you do this by referencing 
+		- the JavaScript or CSS files in your HTML file.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Working with Libraries:
+
+	LIBRARY INCLUSION ( css library )
+		- a link tag is positioned in the head element
+		- its "href attribute" specifies the location of the library
+		- its "rel attribute" specifies the file included is a "stylesheet"
+
+		- one popular css library you can use 
+		- to develop user interfaces is the Bootstrap library. 
+		- Bootstrap also have a javascript library that enables 
+		- enhanced functionality, such as drop-downs and tooltips. 
+
+
+
+	LIBRARY INCLUSION ( javascript library )
+		- a script tag is positioned in the body element
+		- this is positioned in the body element using a script element
+		- its "src attribute" specifies the location of the library. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Working with Libraries:
+
+	PACKAGE MANAGERS (need)
+		- what happens if your dependency 
+		- also depends on other libraries and frameworks? 
+		- this is known as a dependency tree. 
+
+		- a project could have hundreds of dependencies and its tree, 
+		- it will take a very long time 
+		- to download, setup, and configure all of them. 
+		- how do you deal with this
+
+		- how do you make sure you're using the same versions 
+		- that the rest of your team is using? 
+		- this is where package managers come in. 
+		- we also refer to dependencies as packages.
+
+
+
+
+	PACKAGE MANAGERS
+		- a package manager is a tool 
+		- that automatically downloads and installs dependencies. 
+		- for each dependency, you can specify a version 
+		- of that dependency and the package manager will download it for you.
+
+		- if there is a dependency tree, 
+		- the package manager takes care of that for you. 
+		- it will automatically download all of the dependency tree 
+		- so that you can use APIs without dependency issues.
+
+		- a package manager also provides 
+		- the capability to publish your own packages. 
+	 
+	 	- the most common package manager for front end development 
+		- is the Node Package Manager or npm. 
+
+
+
+
+
+
+
+
+
+
+
+
+Working with Libraries:
+
+	BUNDLING TOOL
+		- now that all your dependencies are downloaded, 
+		- you need to include them in your HTML file. 
+		- but adding all of them into an HTML file would take forever. 
+		- this is where you will use a bundling tool. 
+
+		- the purpose of a bundler is to automatically 
+		- combine them into a single file. 
+		- if your bundle is significantly large, 
+		- many bundling tool can split your dependencies into multiple bundles.
+
+		- there are many bundle available such as Gulp and Webpack. 
+		- we'll be exploring bundling in more depth later on. 
+
+
+
+
+
+
+
+
+
+
+
+Introduction to Responsive design (intro):
+
+	Have you ever wondered how the size of a website can so easily adjust
+	between different devices like laptops and mobile phones? 
+
+
+	Well, the answer is responsive design. 
+
+
+	Responsive design means that a web page can automatically stretch or shrink
+	depending on the screen is displayed on. 
+
+
+	In the world of web development, you use responsive design every day. 
+	Let me share how it works. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Introduction to Responsive design :
+
+	We would see Four concepts about responsive design 
+		- screen resolution
+		- Need for responsive design
+		- Techniques of responsive design 
+		- Breakpoint concept in responsive design (fixed, fluid, hybrid grids)
+
+
+	SCREEN RESOLUTIONS
+		- phone, tablet and computer screens are made up of 
+		- thousands of tiny lights called pixels. the resolution of your screen 
+		- refers to the number of pixels it contains 
+		- most often expressed as the number of horizontal pixels 
+		- multiplied by the number of vertical pixels. 
+		- For example, a common computer screen resolution 
+		- is 1920 pixels in width 1080 pixels in height. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Introduction to Responsive design :
+
+	RESPONSIVE DESIGN ( the need )
+		- thanks to responsive design websites can be 
+		- correctly displayed on any of your devices. 
+
+		- today we have many different screens with different resolutions, 
+		- which is why responsive design is so important. 
+		- also, we have devices that use complicated techniques 
+		- to achieve high resolution screen like mathematically combining
+		- neighboring pixels into one logical pixel 
+		- to display smoother images and text. 
+	 
+		- given all the possibilities and complicating factors, 
+		- it would be challenging to develop websites 
+		- that appear correctly on all kinds of devices 
+		- if it wasn't for responsive design. 
+
+
+
+
+	RESPONSIVE DESIGN ( three techniques )
+		- responsive design is a set of three practices 
+		- that allows a website to automatically change its visuals. 
+		- allowing a website, to respond based on the device it is displayed on. 
+		
+		- It is the combination of three techniques, 
+		- flexible grids, 
+		- fluid images and 
+		- media queries. 
+
+		- when these elements are used together, 
+		- you build a website that will automatically 
+		- adjust its layout based on the device, 
+		- thus delivering a responsive grid. 
+		- Let's have a look at each of them 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Introduction to Responsive design :
+
+	RESPONSIVE DESIGN ( flexible grids )
+		- flexible grids are made up of columns, gutters and margins. 
+		- The space between the columns is called the GUTTER and 
+		- the spaces between the content and the left and 
+		- right edges of the screen are called MARGINS.
+
+		- the idea of flexible grid is that,
+		- instead of defining website Element sizes based on pixels, 
+		- flexible grids are defined in percentage values, 
+		- allowing them to adjust depending on screen size. 
+
+
+
+
+	RESPONSIVE DESIGN ( fluid images )
+		- by setting the CSS max width property of images to 100%. 
+		- the images will scale down smaller if they're containing column 
+		- becomes narrower than the images size but never grow larger. 
+
+		- this enables an image to scale down to fit 
+		- in a flexibly sized column rather than overflow it 
+		- but not grow larger and become pixelated 
+		- if the column becomes wider than the image.  
+
+
+
+
+	RESPONSIVE DESIGN ( media queries )
+		- finally, there are media queries that are part of CSS. 
+		- They allow developers to query the DISPLAY SIZE,
+		- the ORIENTATION and the ASPECT RATIO
+		- in order to conditionally apply CSS rules. 
+
+		- for example, if you wanted your website background to appear blue 
+		- on a screen size less than or equal to 700 pixels. Like on a mobile phone, 
+		- you could use a media rule to set the background 
+		- depending on the size of the screen. 
+			@media only phone and (max-width: 700)
+			{
+				body { 
+					background-color: blue 
+				}
+			} 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Introduction to Responsive design :
+
+	BREAKPOINT IN RESPONSIVE DESIGN (intro)
+		- In responsive design, 
+		- the pixel value specified is often referred to as the breakpoint. 
+
+		- a breakpoint is the point at which a website's content 
+		- and layout will adapt to provide the best possible user experience. 
+
+		- a Breakpoint can function in different ways across three different grids 
+		- a FIXED GRIDS 
+		- a FLUID or full-width 
+		- an HYBRID GRIDS. 
+		- Let's explore each of these now, 
+
+
+
+
+
+	BREAKPOINT IN RESPONSIVE DESIGN ( fixed grid )
+		- a fixed grid has fixed with columns and flexible margins. 
+		- the fixed grid has a fixed content width 
+		- that doesn't change in a specific breakpoint range 
+		- while the flexible margins occupy the remaining space on screen. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Introduction to Responsive design :
+
+	BREAKPOINT IN RESPONSIVE DESIGN ( fluid grid ) 
+		- then we have fluid or full-width grids 
+		- with fluid width columns and fixed gutters and fixed side margins. 
+		- the fluid grid has a flexible content width 
+		- that goes edge to edge as per the screen size. 
+		- in a fluid grid, columns either grow or shrink to adapt to the available space. 
+
+
+
+
+
+	BREAKPOINT IN RESPONSIVE DESIGN ( hybrid grid ) 
+		- And finally there are hybrid grids 
+		- that have both fluid width and fixed with components. 
+		- Many responsive design frameworks provide multiple CSS rules 
+		- based on different device sizes to provide the best visual experience. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BOOTSTRAP (intro)
+	- bootstrap is often described as a way to "build fast, responsive sites" 
+	- and it is a "feature-packed, powerful, and extensible frontend toolkit". 
+
+	- some people refer to it as a "front-end" framework, 
+	- and some are trying to be more specific 
+	- by referring to it as a "CSS framework" or a “CSS library”. 
+
+
+
+BOOTSTRAP ( components - reusable code)
+	- simply put, Bootstrap is a library of CSS and JavaScript code 
+	- that you can combine to quickly build visually appealing websites.
+
+	- modern web development is all about components. 
+	- small pieces of reusable code that allow you to build websites quickly. 
+	- bootstrap comes with multiple components 
+	- for very fast construction of multiple components, or parts of components. 
+
+
+
+
+BOOTSTRAP ( responsive grid )
+	- another important aspect of modern development is responsive grids 
+	- which allow web pages to adapt their layout and content 
+	- depending on the device in which they are viewed. 
+	- Bootstrap comes with a pre-made set of CSS rules 
+	- for building a responsive grid.
+
+
+
+
+BOOTSTRAP ( development time )
+	- Bootstrap is very popular amongst developers 
+	- as it saves development time and provides a way for developers 
+	- to build visually appealing prototypes and websites.
+
+	- Bootstrap saves significant time because all the CSS code 
+	- that styles its grid and pre-built components is already written. 
+	- instead of having to have a high level of expertise in various CSS concepts, 
+	- you can just use the existing Bootstrap CSS classes 
+	- to produce nicely-looking websites. 
+	- this is indispensable when you need to quickly iterate on website layouts. 
+
+	- once you know how Bootstrap works, 
+	- you’ll have enough knowledge to tweak its styling 
+	- and a whole new world of development opens up to you.
+
+
+
+
+BOOTSTRAP ( popularity )
+	- since Bootstrap is so popular, understanding how to work with it, 
+	- is a prerequisite in many web development companies. 
+
+	- additionally, you can be safe in knowing that 
+	- both you and your team members have a common design system 
+	- and you don't have to spend time deciding how to build one.
+	- you are free to jump from team to team, from project to project, 
+	- even from one company to another, 
+	- and you don't need to re-learn "their way of doing things".
+
+
+
+
+
+BOOTSTRAP ( end-note )
+	- all of these points make investing time to learn Bootstrap 
+	- a great way to boost your web development skills. 
+	- in this lesson, you’ll be introduced to 
+	- the core concepts of Bootstrap and 
+	- learn how to build web pages using it.

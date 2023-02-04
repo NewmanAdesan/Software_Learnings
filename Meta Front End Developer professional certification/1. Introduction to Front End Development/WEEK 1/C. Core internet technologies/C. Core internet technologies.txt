@@ -1,0 +1,401 @@
+
+
+
+
+
+Internet Protocols:
+
+	IP ADDRESS 
+		- effective communication is possible across computer networks because of Internet Protocols.
+		- there has to be an addressing system and thats where the IP address comes in. 
+		- there are two commonly used versions. version four (IPv4) & version six (IPv6)
+
+		- IPv4 contains four octet(8bits), separated by periods or dots, For example 192.0.2.235. 
+		- IPv6 contains eight groups of hexadecimal digits separated by a colon 
+		- For example 4527:0a00:1567:0200:ff00:0042:8329. 
+
+
+	IP PACKETS
+		- when you send data across a network, 
+		- you send the data as a series of messages called IP packets. 
+		- also known as data grams at a high level. 
+
+		- IP packets contain a header and a payload or the data. 
+		- the header include the destination IP address and source IP address. 
+		- along with some additional information to help deliver the packet. 
+		- the payload contains the data of the packet 
+		- and some of the other protocols which will cover in a moment. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+Internet Protocols:
+
+	IP PACKETS ERROR
+		- IP packets can arrive out of order, 
+		- become damaged or corrupted to in transit or 
+		- be dropped or lost during transit. 
+		- to solve these problems, the payload part of the packets contains other protocols too. 
+		- you can think of them as another message inside the payload of the IP packet. 
+
+
+	IP PACKETS PAYLOAD PROTOCOLS
+		- the two most common protocols are 
+		- the Transmission Control Protocol (TCP) and the User Datagram Protocol (UDP) 
+
+		- TCP can solve all three of the previously mentioned issues 
+		- but at the cost of a small delay when sending the data. 
+		- this protocol is used for sending the data that must arrive correctly 
+		- and in order such as a text or image files. 
+
+		- UDP solves the corrupt packet issue 
+		- but packets can still arrive out of order or not arrive at all. 
+		- this protocol is used for sending data that can tolerate some data loss 
+		- such as voice calls or live video streaming. both of these protocols 
+		- contain payloads that contain further protocols inside of them and there you have it. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+HyperText Transfer Protocol :
+
+	Here, we will talk about four basic http concept
+		- http request
+		- http response
+		- http secure
+
+
+
+	HTTP 
+		- http is a core operational protocol of the world wide web. 
+		- it stands for Hypertext Transfer Protocol 
+		- it is a communication protocol used for transferring web resources 
+		- such as HTML documents, images, styles, and other files. 
+
+		- http is a request response based protocol. 
+		- a web browser or client sends an HTTP request to a server, 
+		- and the webserver sends the HTTP response back to the browser. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+HyperText Transfer Protocol ( http request ) :
+
+	HTTP REQUEST
+		- let's start exploring the makeup of an HTTP request. 
+		- an HTTP requests consists of 
+		- a method  (GET, POST, PUT, DELETE ), 
+		- a path    (https://example.com/index.html), 
+		- a version (Version 2.0) , and 
+		- a headers (additional info about the request) . 
+		- the request (body of content)
+
+
+
+	HTTP REQUEST (request line)	
+		- every HTTP request begins with the request line.
+		- this line consist of the HTTP method, the requested resource and the HTTP protocol version.
+		- GET /index.html HTTP/1.1
+
+
+
+	HTTP REQUEST (request headers)
+		- after the request line, the HTTP headers are followed by a line break.
+		- the request header consist of case-insentive name-value pair
+
+				Host: example.com
+				User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.0; rv:50.0) Gecko/20100101 Firefox/50.0
+				Accept: */*
+				Accept-Language: en
+				Content-type: text/json
+
+
+		- the HOST HEADER specifies the host of the server 
+		- and indicates where the resource is requested from.
+
+		- the USER-AGENT HEADER informs the web server 
+		- of the application that is making the request. 
+		- it often includes the operating system (Windows, Mac, Linux), 
+		- version and application vendor.
+
+		- the ACCEPT HEADER informs the web server 
+		- what type of content the client will accept as the response.
+
+		- the ACCEPT-LANGUAGE header indicates the language 
+		- and optionally the locale that the client prefers.
+
+		- the CONTENT-TYPE header indicates 
+		- the type of content being transmitted in the request body.
+
+
+
+	HTTP REQUEST ( request body ):
+		- HTTP requests can optionally include a request body. 
+		- a request body is often included when using 
+		- the HTTP POST and PUT methods to transmit data.
+		- let's look at examples
+
+			POST /users HTTP/1.1
+			Host: example.com
+
+			{
+				"key1":"value1",
+				"key2":"value2",
+				"array1":["value3", "value4"]
+			}	
+
+
+			PUT /users/1 HTTP/1.1
+			Host: example.com
+			Content-type: text/json
+
+			{"key1": "value1"}		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+HyperText Transfer Protocol ( http response ) :	
+
+
+	HTTP RESPONSES (concept)
+		- http responses follow a format similar to the request format. 
+		- following the header, the response will optionally contain a message body 
+		- consisting of the response contents such as the HTML document, 
+		  the image file, and so forth. 
+
+		- http STATUS CODES indicate if the HTTP requests successfully completed. 
+		- the code values are in the range of a 100-599 and a grouped by purpose. 
+		- the STATUS MESSAGE is a text representation of the status code. 
+		- during your web browsing, have you ever encountered pages 
+		- that display 404 error not found or 500 errors? Server is not responding? 
+		- these are HTTP status codes. 
+
+
+
+	HTTP RESPONSES (status codes grouping)
+		- there are five groups of status codes. 
+		- they're grouped by the first digit of the error number. 
+		- informational reponses is grouped from 100-199. 
+		- successful responses are grouped from 200-299. 
+		- redirection message are from 300-399. 
+		- client error responses ranged from 400-499 and 
+		- server error responses are from 500- 599. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+HyperText Transfer Protocol ( http response ) :	
+
+
+	HTTP RESPONSES (information responses)
+		- information responses are provisional responses sent by the server. 
+		- these responses are interim before the actual response. 
+
+		- the most common information response is "100 Continue", 
+		- which indicates that the web client should continue to request 
+		- or ignore the response if the request is already finished. 
+
+		- "100 Continue" : the server received the request headers 
+		- and should continue to send the request body.
+
+		- "101 Switching Protocols" : the client has requested the server 
+		- to switch protocols and the server has agreed to do so.
+
+
+
+	HTTP RESPONSES (succesful responses)
+		- successful responses indicate that the request 
+		- was successfully processed by the web server, 
+		- with the most common success response being 200 Ok. 
+
+		- "200 OK" : standard response returned by the server 
+		- to indicate it successfully processed the request.
+
+		- "201 Created" : the server successfully processed 
+		- the request and a resource was created.
+
+		- "202 Accepted" : the server accepted the request for processing 
+		- but the processing has not yet been completed.
+
+		- "204 No Content" : the server successfully processed the request 
+		- but is not returning any content. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+HyperText Transfer Protocol ( http response ) :	
+
+
+	HTTP RESPONSES (redirection responses)
+		- redirection responses indicate to the web client 
+		- that the requested resource has been moved to a different path. 
+		- the most common response codes used are "301 Moved Permanently" and "302 Found". 
+
+		- "301 Moved" : permanently This request and all future requests 
+		- should be sent to the returned location.
+
+		- "302 Found" : this request should be sent to the returned location.
+
+
+
+	HTTP RESPONSES (client error responses)
+		- client error responses indicate that the requests contained bad syntax 
+		- or content and cannot be processed by the webserver. 
+
+	- "400 Bad Request" : the server cannot process the request 
+	- due to a client error, e.g., invalid request or transmitted data is too large.
+
+	- "401 Unauthorized" : the client making the request is unauthorized 
+	- and should authenticate.
+
+	- "403 Forbidden" : the request was valid but the server 
+	- is refusing to process it. This is usually returned due to the client 
+	- having insufficient permissions for the website, 
+	- e.g., requesting an administrator action but the user is not an administrator.
+
+	- "404 Not Found" : the server did not find the requested resource.
+
+	- "405 Method Not Allowed" : the web server does not support the HTTP method used. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+HyperText Transfer Protocol ( http response ) :	
+
+
+	HTTP RESPONSES (server error responses)
+		- server error responses indicate that a failure occurred 
+		- on the webserver while trying to process the request. 
+		- the most common code used is 500 Internal Server Error, 
+
+		-  500 Internal Server Error : A generic error status code given 
+		- when an unexpected error or condition occurred while processing the request.
+
+		- 502 Bad Gateway : the web server received an invalid response 
+		- from the Application Server.
+
+		- 503 Service Unavailable : the web server cannot process the request.
+
+
+
+	HTTP RESPONSES ( response header ): 
+		- following the status line, there are optional 
+		- HTTP response headers followed by a line break.
+		- similar to the request headers, there are many possible 
+		- HTTP headers that can be included in the HTTP response.	
+		- lets look at a common one
+
+			Date: Fri, 11 Feb 2022 15:00:00 GMT+2
+			Server: Apache/2.2.14 (Linux)
+			Content-Length: 84
+			Content-Type: text/html 
+
+
+
+
+	HTTP RESPONSES ( response body ):
+		- let's look at an example
+			HTTP/1.1 200 OK
+			Date: Fri, 11 Feb 2022 15:00:00 GMT+2
+			Server: Apache/2.2.14 (Linux)
+			Content-Length: 84
+			Content-Type: text/html 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+HyperText Transfer Protocol ( http setup ) :	
+
+
+	HTTP SECURE
+		- HTTPS is the secure version of HTTP. 
+		- it enables used for secure communication by encryption technique. 
+		- like an HTTP, the requests and responses still behave 
+		- in the same way and have the same content. 
+
+		- the big difference is before the content is sent, it is turned into a secret code. 
+		- only the other computer can turn the secret code back into its original content. 
+		- when HTTPS is in use,there will be a lock icon you see beside the URL in your web browser.
+
+

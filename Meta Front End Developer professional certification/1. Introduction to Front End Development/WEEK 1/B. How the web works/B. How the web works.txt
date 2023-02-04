@@ -1,0 +1,419 @@
+
+
+
+
+
+How the Internet Works (basics):
+
+	Lets talk about & link Four concepts
+		- Two device connectivity
+		- Network switches connectivity
+		- The internet
+		- Client server model
+
+
+	TWO DEVICE CONNECTIVITY
+		- you open your favorite app on your device 
+		- and you're instantly connected to the world.
+
+		- this is all made possible because TWO DEVICES connect 
+		- and communicate via a wired or wireless connection, forming something called a network. 
+		- you can connect multiple devices to this network. but this becomes very complicated very quickly, 
+		- as each device needs to connect to every other device to communicate effectively.
+
+
+
+	NETWORK SWITCHES CONNECTIVITY
+		- this problem is solved by something called a NETWORK SWITCH 
+		- that connects multiple devices and allows them to communicate with each other.
+
+		- the network switch can connect to other network switches, and now two networks can connect. 
+		- these network switches then connect to more network switches 
+		- until you have something called an interconnected network. called THE INTERNET. 
+
+
+
+	INTERNET
+		- the internet connects the entire world. 
+		- have you ever had a video call with someone on another continent? 
+		- that video data travel through large undersea cables connecting the world's networks. 
+		- these cables can transfer huge volumes of data per second. 
+
+
+
+	CLIENT SERVER MODEL
+		- when we use websites or video streaming services on the Internet, 
+		- these are provided by computers called servers. Our devices are called clients. 
+		- This is known as the client-server model	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+How the Internet works (server & webserver):
+	We will discuss two concepts
+		- A Server
+		- A Webserver
+
+
+	SERVER (concept)
+		- a server is a computer that runs applications and services 
+		- ranging from websites to instant messaging. 
+		- it's called a server because it provides a service 
+		- to another computer(its user) also known as the client. 
+
+
+	SERVER (location)
+		- a server is typically stored in something called a DATA CENTER
+		- with hundreds or thousands of other servers, 
+		- all running different services connected to the internet. 
+
+
+	SERVER (component - hardware/software)
+		- A server consists of hardware & software.
+		- the hardware is the physical component of the server, 
+		- the code that runs on the server is called the software. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+How the Internet works (server & webserver):
+
+	WEBSERVER (functionality)
+		- Basically this is a special type of computer 
+		- that allows other computers to make requests for data. 
+		- it delivers contents of a websites to clients who needs it  
+		
+		- a web server has many functions which includes 
+		- website storage and administration, 
+		- data storage, 
+		- security and managing email. 
+		- and primarily handling web request. 
+
+
+	WEBSERVER (handling web request)
+		- when you open a browser on your device and type the name of the website, 
+		- it's the job of the web server to send you back to that website's content. 
+		- this process is known as the request response cycle. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+How the Internet works (webpage):
+
+	We will briefly discuss three concepts regarding webpages	
+		- Web page & websites
+		- Web page technology (html, css, javascript)
+		- Web page rendering
+
+
+	WEBPAGE & WEBSITE
+		- a web page is a document that displays 
+		- images, texts, videos and other content in the web browser, 
+		- a website is a collection of webpages that link together. 
+
+
+	WEB PAGE TECHNOLOGY
+		- if you want to work with a webpage, 
+		- you need to know about three technologies.
+		- you need to understand how they interact and work together, 
+
+		- they are HTML, CSS and JavaScript. 
+		- HTML structures the content you see, 
+		- CSS controls the colors and style and 
+		- JavaScript is responsible for the user interaction. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+How the Internet works (webpage):
+
+	HTML (describes content)
+		- this stands for hypertext markup language, it works by using something called markup tags. 
+		- these tags DESCRIBES the content that is displayed in the browser window, 
+		- this content can be things like headings, paragraphs, 
+		- images and even multimedia elements such as audio and video, 
+		- the way html describes the content is known as MARKUP. 
+
+
+	CSS (visual enhancements to content)
+		- this is short for cascading style sheets 
+		- basically ADDS VISUAL ENHANCEMENT like colors and layout to the web page, 
+		- it works by enhancing the HTML elements and telling them how to display. 
+		- this is commonly known as STYLING.
+
+
+	JAVASCRIPT (manipulate content)
+		- this is a programming language built into the browser. 
+		- JavaScript provides web developers with tools 
+		- for interactivity, data processing, control and action. 
+		- this is the powerhouse of a webpage, with the ability 
+		- to manipulate the content that you see on the screen as you interact with it
+
+
+	WEB PAGE RENDERING:
+		- using the technologies, through code to markup, style, or manipulate the content
+		- how exactly does this code get translated to display the content that you see on your screen? 
+
+		- when a copy of that webpage is sent from the web server to your browser, 
+		- each line of code is processed in sequential order from first to last. 
+		- as each line is interpreted, the browser creates the building blocks, 
+		- which is the visual representation you see on the screen. 
+		- this creation process is known as PAGE RENDERING. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+How the Internet works (webbrowser):
+	
+	Basically, we will briefly state 
+		- what a web browser is 
+		- how it receives and displays content.
+
+
+	WEB BROWSER (concept)
+		- this is a software application that you use to browse the World Wide Web. 
+		- it works by sending a request to a web server and then receives a response 
+		- containing the content that is to be displayed on the screen of your device. 
+
+	WEB BROWSER	(http/html)
+		- the information is transferred using the Hypertext Transfer Protocol, 
+		- which defines how text, images and video are transmitted on the web.
+		- the data received is written in Hypertext Markup Language (HTML) 
+		- and web browsers read this code to create what we see, hear and experience on the internet.
+		- it does this through the use of a browser engine(layout engine/ rendering engine))	
+
+
+	WEB BROWSER (process)
+		- once the browser is open on your device, 
+		- there is the address bar where you input the address of the website that you want to visit. 
+
+		- the address is commonly known as the Uniform Resource Locator or URL for short. 
+		- the URL contains 
+		- the protocol or the HTTP, 
+		- the domain name, usually the name of the website, 
+		- and the file path, or the path to the page that is displayed. 
+
+		- when you make a request using this URL, the browser and server communicate 
+		- using a protocol known as the Hypertext Transfer Protocol or HTTP. 
+		- once the web browser receives the content, it displays it on the screen of your device. 
+		- this exchange of information is made possible by something known as the request response cycle. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+How the Internet works (web hosting):
+
+	We will discuss two concepts:
+		- what is web hosting
+		- types of web hosting 
+
+
+	WEB HOSTING (need)
+		- you know that websites and files are stored on web servers located in datacenters. 
+		- if you wanted to create your own website? Do you really need your own datacenter? 
+		- Thankfully, the answer is no. this is where web hosting comes in 
+
+
+	WEB HOSTING (concept)
+		- web hosting IS A SERVICE where you place your website and files 
+		- on the hosting companies web server. essentially renting the space 
+		- in return for stable and secure storage. 
+		- you don't need to be accompanied to use a web host. Individuals can rent space too. 
+
+
+	WEB HOSTING TYPES
+		- we have shared hosting, virtual private hosting, dedicated hosting, and Cloud hosting. 
+		- let's explore each of these hosting types in a little more detail now. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+How the Internet works (web hosting):
+
+	SHARED HOSTING	
+		- the cheapest form of web hosting. 
+		- you pay for a location on a web server containing many web hosting accounts. 
+		- this means that you also share the service processing power, 
+		- memory, and bandwidth with other websites. That might slow your performance. 
+		- this option is best for a small website with a small number of visitors. 
+
+
+
+	VIRTUAL PRIVATE HOSTING
+		- A virtual private server is a virtual server 
+		- with dedicated CPU, memory, and bandwidth resources. 
+		- it will be running on a hardware server with other VPS instances 
+		- but as the resources are fixed per VPS instance, 
+		- your website is unlikely to be impacted by the performance of other VPS instances. 
+		- a VPS instance will be more expensive than shared hosting. 
+
+
+
+	DEDICATED HOSTING
+		- this will be a hardware server that is dedicated to you only. 
+		- all hardware, CPU, memory, and bandwidth resources are yours to use. 
+		- generally, this option is more expensive than a VPS hosting. 
+
+
+
+	CLOUD HOSTING
+		- your website is run in something called a Cloud environment, 
+		- which spans across multiple physical and virtual servers. if a physical or virtual server fails, 
+		- your website will run on a different server and stay online. 
+
+		- the main advantage of Cloud hosting is that you can use as many resources 
+		- as you need without hardware limitations. However, you pay based on resource use. 
+		- while this can quickly become more expensive, 
+		- it allows websites and web applications to scale their costs as popularity grows. 
+		- this is how many of the major web applications operate. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Additional Resources:
+
+	WEB SERVER (static & dynamic pages)
+		- a web server communicates with a web browser using the Hypertext Transfer Protocol (HTTP). 
+		- the content of most web pages is encoded in Hypertext Markup Language (HTML). 
+		- the content can be static (for example, text and images) 
+		- the content could be dynamic 
+		- (for example, a computed price or the list of items a customer has marked for purchase). 
+
+		- to deliver dynamic content, most web servers support server‑side scripting languages 
+		- to encode business logic into the communication. Commonly supported languages include 
+		- Active Server Pages (ASP), Javascript, PHP, Python, and Ruby.
+
+
+	WEB SERVER ( load balancer )
+		- a web server might also cache content to speed delivery of commonly requested content. 
+		- this process is also known as WEB ACCELERATION.
+
+		- web servers can also LIMIT THE SPEED of response to different clients 
+		- so as to prevent a single client from dominating resources that are 
+		- better used to satisfy requests from a large number of clients.
+
+
+	WEB SERVER ( application gateway )
+		- a web server can even be embedded in a device such a digital camera 
+		- so that the users can communicate with the device via any commonly available Web browser.
+

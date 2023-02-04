@@ -1,0 +1,632 @@
+
+
+
+Professional Certification topics: 
+
+	As you make your way through this certificate, you'll learn:
+		- HTML, CSS, Javascript
+		- Bootstrap & React
+		- final project
+		- version control
+		- ux basics
+		- coding interview prep
+		- meta job board
+
+
+	HTML, CSS, JAVASCRIPT 
+		- learning how to code interactive 
+		- web pages using HTML, CSS and JavaScript. 
+
+
+	BOOTSTRAP & REACT
+		- learning how to use the bootstrap framework before diving into the world of React, 
+		- learning React, a widely used JavaScript library that was created here at meta. 
+		- websites built using React are fast, scalable, secure and allow for rich user experience. 
+
+
+	FINAL PROJECT
+		- for your final project you will complete 
+		- a beautiful professional website for your portfolio, 
+		- complete with interactivity to showcase during your job search. 
+
+
+	VERSION CONTROL
+		- you'll also be ready to collaborate with other developers 
+		- as you will have learned to use GIT and GIT hub for version control. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Professional Certification topics: 
+
+
+	UX BASICS
+		- if you're hoping to operate independently or in a smaller team, not to worry. 
+		- you will learn basics of user experience. 
+		- you'll learn how to research a user's needs, 
+		- you will create wire frames using popular industry tools like Figma and design interactivity. 
+
+
+	CODING INTERVIEW PREPARATION
+		- in the final course, you will prepare for the coding interview. 
+		- you'll practice your interview skills, refine your resume 
+		- you'll tackle some common coding challenges 
+		- that typically form part of technical job interviews. 
+
+
+	META JOB BOARD
+		- Once you complete the program, you'll get access to the meta career programs job board. 
+		- A job search platform that connects you with over 200 employers 
+		- who have committed to sourcing talent through meta certificate programs. 
+		- Who knows where you'll end up? 
+
+
+
+	So, how can this professional certificate prepare you for a job at an organization like meta? 
+		- the front end developer professional certificate
+		- will help you build job ready skills for a front end development role 
+		- while earning a credential from meta. 
+
+		- from meta developers you will learn about how they collaborated, 
+		- create and test responsive, high performance websites and applications. 
+
+		- you'll also discuss interesting topics with other aspiring front end developers 
+		- and complete a range of coding exercises to improve your skills. 		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+In Module 1 (week-1):
+
+	In this module, we will discuss
+		- Roles and Responsibility
+		- How the web works
+		- Core internet technologies
+		- Best practices and standards
+
+
+	ROLES AND RESPONSIBILITY:
+		- describe the web developer job role
+		- distinguish between front-end, back-end, and full-stack developers	
+
+
+	HOW THE WEB WORKS
+		- you will cover an introduction to how the web works, 
+		- including an exploration of web-pages, web servers, and web browsers. 
+		- you will learn what each is and what their role is in bringing the Internet to you. 
+
+
+	CORE INTERNET TECHNOLOGIES
+		- you will also get hands-on practice 
+		- using core Internet technologies like HTML, CSS, and JavaScript. 
+		- you will learn how developers bring these technologies together 
+		- and build functional and interactive websites and web applications. 
+
+
+	BEST PRACTICES & STANDARDS
+		- you will explore some of the tools used by professional developers, 
+		- you will learn the fundamentals of coding using best practices and standards. 
+		- you will learn how to use the web browsers built-in developer tools 
+		- you will learn how to code using industry standard software, 
+		- known as an integrated development environment or IDE. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+Module 2 (week-2):
+
+	Basically two concepts will be discussed:
+		- Html & Css 
+		- Web accessibility
+
+
+	HTML & CSS	
+		- you will begin your coding journey with an introduction to HTML5 and CSS. 
+		- you will learn the basics of each of these languages 
+		- and how they compliment each other to layout and style elements on a web page. 
+		- this includes text, images and multimedia elements like video. 
+
+
+	WEB ACCESSIBILITY
+		- additionally, to make sure that your web-page is accessible to everyone, 
+		- you will learn how to code for web accessibility. 
+
+
+
+
+
+
+
+
+
+
+
+
+In Module 3 (week-3):  
+
+	this module will focus on responsive design, using frameworks and libraries.
+		- Bootstrap Library
+		- React Library
+
+
+	BOOTSTRAP LIBRARY	
+		- you will learn how to implement the Bootstrap library 
+		- so that web-page can offer a great browsing experience no matter what type of devices used. 
+		- you will use the Bootstrap CSS framework to create webpages. Use Bootstrap themes.
+		- leverage Bootstrap documentation to reproduce and modify CSS components.
+
+		- you will also learn about user interface or UI design 
+		- the concepts that exist in most UI frameworks will be outlined
+		- and how to work with common UI components and position them using the flexible Bootstrap grid. 
+
+
+ 
+	REACT LIBRARY
+		- you'll be introduced to react, a free and open source JavaScript library 
+		- that developers use to build user interfaces based on UI components. 
+		- you'll describe the basics of React in relation to other frameworks and web technologies.
+		- You will then learn about the difference between static and dynamic content 
+		- and the benefits of using single-page applications. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+Module 4 (week-4): 
+
+	Basically in this module, you will have an opportunity to put your new skills into practice 
+
+	You will Create and Style your own biographical Page 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Web Developer Job roles (intro):
+
+	When you eat at a restaurant, 
+		- there are often many cooks preparing different parts of your meal. 
+		- similarly for the websites and applications you use every day. 
+		- many roles are involved in delivering these projects to users. 
+
+
+
+	FINDING THE RIGHT AREA FOR YOU 
+	WILL DEPEND ON A GREATER UNDERSTANDING OF WEB DEVELOPERS ROLES, RESPONSIBILITIES AND TECHNOLOGIES
+
+
+	for example, 
+		- suppose you are a visual person 
+		- in that case you might want to design a stunning website 
+		- that offers an excellent experience for its end users. 
+
+		- Or if you're more analytical, you might be interested in working 
+		- with the technologies that power, a high performing e commerce site. 
+
+		- likewise, if your interest is mobile devices, 
+		- your passion may lie in creating the next big social media app. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Web Developer Job roles ( front-end ):
+
+	While job roles and titles may vary, web developer roles are usually split into 
+		- front end, 
+		- back end and 
+		- full stack in this video. 
+
+
+	A front end developer (basic concept)
+		- is someone that works on all parts of a website 
+		- or web app that users will interact with. this can be anything from 
+		- the style colors, buttons, menus or user interactions 
+		- as they click swipe and interact with the site. 
+
+
+	A front end developer (basic skill)
+		- the skills of a front end developer can vary, 
+		- but they will always focus on three leading technologies. 
+		- Html CSS and javascript 
+
+
+
+	A front end developer (use case)
+		- suppose you are a front end developer assigned 
+		- the task of adding a newsletter, sign up option to the home page of a website. 
+
+		- you would use HTML to build the display elements 
+		- such as the input area for the user to type their email address 
+		- and then the button to click to send it. 
+
+		- you can then use CSS 
+		- to position, color and style these elements on the page. 
+
+		- And finally, you can use JAVASCRIPT 
+		- to process the activity when the user clicks the button. 
+		- this could be something like checking the email address is valid 
+		- and then sending that email address 
+		- to the website for storage under newsletter members. 
+
+		- basically, you use javascript to process the activity when user interacts 
+		  with the display created by html & css
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Web Developer Job roles ( front-end ):
+
+	A front end developer (critical skill)
+		- while html and CSS skills are essential. 
+		- the most critical skill is usually javascript. 
+		- basically,
+
+
+		- it is the powerhouse of front end technology. 
+		- this is mainly because of its versatility and the fact that it is paired 
+		- with powerful libraries and frameworks such as REACT by meta. 
+		- these can be used to build rich user interface driven enterprise websites 
+		- and web apps that are FAST, SECURE and HIGHLY SCALABLE. 
+
+
+
+	A front end Engineer (highly collaborative environment):
+		- I think why front-end development is different 
+		- is you have to work with designers, you've got to work with product managers. 
+		- it's fundamentally very collaborative. what you're doing is 
+		- building products for people and you're helping people solve their own problems.
+
+		- it's good to recognize that you're a software engineering 
+		- and your job is to bring a lot of their vision to life. 
+		- basically knowing how to write code, how to make it work, 
+		- how to make it accessible, and to shipping it to people.
+
+		- it's got the right-brain algorithmic thinking and how to make things performant and work and then 
+		- it's got the left-brain. How do you make things usable and enjoyable to use? 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Web Developer Job roles ( front-end ):
+
+	A front end Engineer (soft skills - empathy)
+		- when it comes to soft skills, there's a lot of empathy, 
+		- trying to understand other people's perspectives. 
+
+		- engineers, we care about performance, we care about accessibility, 
+		- we care about things being correct. it usually takes engineers a long time 
+		- to understand designer's perspective or product manager's perspective 
+		- and when this happens, empathy and an highly collaborative attitude develops
+		- a good front-end engineer will actually dip their toes into back-end. 
+
+
+
+
+	A front end Engineer (psychology)
+		- problem-solving is consistently hard.  
+		- whenever you're learning and pushing yourself, you're going to run into roadblocks. 
+		- best advice is go easy on yourself. Going with the mentality 
+		- that your goal is to grow and become a software engineer or a better person. 
+
+		- adopting a growth mindset to developing is going to be critical.
+		- Find time for yourself. i mean, it's not my place to talk about 
+		- the psychology of being easy on yourself, 
+		- but that's just as important as any of the engineering stuff you learn. 
+
+		- For me personally, the role grows. As you build things and you solve problems, 
+		- you get perspective into other problems and it's this idea of growing your scope. 
+
+
+
+	A front end developer (end-note) 	
+		- front and developer roles will be available 
+		- for junior, intermediate and senior level professionals. 
+
+		- as an aspiring developer, this is a great area to get started in entry into the job market. 
+		- for a junior position is possible with some fundamental demonstrations 
+		- of core concepts and skills and an eye catching sample portfolio. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Web Developer Job roles ( back-end ):
+
+	A back end developer (basic concept)
+		- works on the parts of a website or web app that the end users don't see. 
+		- these activities occur behind the scenes, 
+		- particularly on the web server in the database or in constructing the architecture. 
+
+
+	A back end developer (concept)
+		- is responsible for creating and maintaining functionality when users request information or 
+		- when the website needs to communicate to another part of the web architecture. 
+		- For processing for example, performing an account, log in 
+		- or completing an online purchase using a credit card. 
+
+		- A back end developer will facilitate 
+		- the interaction of the website and the content stored in database. 
+
+
+	A back end developer (skills)	
+		- as a result, back end development requires different languages, skills and tools. 
+		- while these can vary, they generally consist of knowledge relating to 
+		- back end programming language, 
+		- database management systems, 
+		- API's and web servers, 
+
+
+	A back end developer (the road)
+		- the road to back end development is generally long 
+		- as you must have a proficient understanding of the needs of front end technologies. 
+		- this can include things like the inner workings of the Internet networks and servers. 
+		- it's pretty common for aspiring developers to first start with the front end 
+		- and then move to the back end. Once they have acquired specialist knowledge. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Web Developer Job roles ( back-end ):
+
+	A full stack developer (concept)
+		- is someone equally comfortable working with front end and back end technologies. 
+		- they have skills and knowledge in all areas of the web development project cycle. 
+		- for example they have relevant expertise in 
+		- the planning architecture, 
+		- design, 
+		- development, 
+		- deployment and 
+		- maintenance of the website or web. 
+
+
+	A full stck developer (end-note)
+		- full stack developer positions are generally at a more senior level. 
+		- it can take some time to gain the knowledge, 
+		- professional experience and skills to become a full stack developer. 
+		- as a result roles in this area are in high demand 
+		- and are some of the best paid jobs in the IT Industry.	
+
+
+
+
+
+
+
+
+
+IP ADDRESS 
+	- effective communication is possible across computer networks because of Internet Protocols.
+	- there has to be an addressing system and thats where the IP address comes in. 
+	- there are two commonly used versions. version four (IPv4) & version six (IPv6)
+
+	- IPv4 contains four octet(8bits), separated by periods or dots, For example 192.0.2.235. 
+	- IPv6 contains eight groups of hexadecimal digits separated by a colon 
+	- For example 4527:0a00:1567:0200:ff00:0042:8329. 
+
+
+IP PACKETS
+	- when you send data across a network, 
+	- you send the data as a series of messages called IP packets. 
+	- also known as data grams at a high level. 
+
+	- IP packets contain a header and a payload or the data. 
+	- the header include the destination IP address and source IP address. 
+	- along with some additional information to help deliver the packet. 
+	- the payload contains the data of the packet 
+	- and some of the other protocols which will cover in a moment. 
+
+
+IP PACKETS ERROR
+	- IP packets can arrive out of order, 
+	- become damaged or corrupted to in transit or 
+	- be dropped or lost during transit. 
+	- to solve these problems, the payload part of the packets contains other protocols too. 
+	- you can think of them as another message inside the payload of the IP packet. 
+
+
+IP PACKETS PAYLOAD PROTOCOLS
+	- the two most common protocols are 
+	- the Transmission Control Protocol (TCP) and the User Datagram Protocol (UDP) 
+
+	- TCP can solve all three of the previously mentioned issues 
+	- but at the cost of a small delay when sending the data. 
+	- this protocol is used for sending the data that must arrive correctly 
+	- and in order such as a text or image files. 
+
+	- UDP solves the corrupt packet issue 
+	- but packets can still arrive out of order or not arrive at all. 
+	- this protocol is used for sending data that can tolerate some data loss 
+	- such as voice calls or live video streaming. both of these protocols 
+	- contain payloads that contain further protocols inside of them and there you have it. 
+
+
+
+
+
+
+
+
+
+
+
+Have you ever noticed the lock icon beside the URL in your web browser? 
+This means the secure version of HTTP is being used. 
+
+HTTP is a core operational protocol of the world wide web. 
+It is what enables your web browser to communicate with a web server that hosts a website. 
+HTTP is the communication protocol you use whenever you browse the web. 
+HTTP stands for Hypertext Transfer Protocol is a protocol 
+used for transferring web resources such as HTML documents, images, styles, and other files.
+HTTP is a request response based protocol. 
+A web browser or client sends an HTTP request to a server, 
+and the webserver sends the HTTP response back to the browser. 
+
+
+Next, let's start exploring the makeup of an HTTP request. 
+An HTTP requests consists of a method, path, version, and headers. 
+
+The HTTP method describes the type of action that the client was to perform. 
+The primary or the most commonly used HTTP methods are GET, POST, PUT and DELETE. 
+The GET method is used to retrieve information from the given server. 
+The POST request is used to send data to the server. 
+The PUT method updates whatever currently exist on the website with something else and 
+the DELETE method removes the resource. 
+
+The path is the representation of where the resource is stored on the webserver. 
+For example, if you requested an image at https://example.com/index.html, the path would be /index.html. 
+There are multiple versions of the HTTP protocol. I won't explore these right now, 
+but I want you to be aware that Version 1.1 and 2.0 are the most used. 
+Finally, there are the headers. Headers contain additional information about the request, 
+and the client that is making the request. For certain requests methods, 
+the requests will also contain a body of content that the client is sending. 
+
+
+Now, let's cover some details about the makeup of an HTTP response. 
+HTTP responses follow a format similar to the request format. Following the header, 
+the response will optionally contain a message body consisting of the response contents such as 
+the HTML document, the image file, and so forth. 
+HTTP status codes indicate if the HTTP requests successfully completed. 
+The code values are in the range of a 100-599 and a grouped by purpose. 
+The status message is a text representation of the status code. 
+During your web browsing, have you ever encountered pages that display 404 error not found or 
+500 errors? Server is not responding? These are HTTP status codes. 
+
+
+
+
+
+I want to briefly explain to you about the status codes and their grouping. There are five groups of status codes. They're grouped by the first digit of the error number. Informational is grouped from 100-199. Successful responses are grouped from 200-299. Redirection message are from 300-399. Client error responses ranged from 400-499 and server error responses are from 500- 599. Information responses are provisional responses sent by the server. These responses are interim before the actual response. The most common inflammation response is 100 Continue, which indicates that the web client should continue to request or ignore the response if the request is already finished. Successful responses indicate that the request was successfully processed by the web server, with the most common success response being 200 Ok. You're receiving these responses every day when you receive content successfully from a website. The meaning of Ok depends on the HTTP method. If the method is GET, it means that the resource is found and is included in the body of the HTTP response. If it's POST, it means that the resource was successfully transmitted to the webserver. If it's PUT, the resource was successfully transmitted to the webserver. Finally, if the method is DELETE, it means the resource was deleted. Redirection responses indicate to the web client that the requested resource has been moved to a different path. The most common response codes used are 301 Moved Permanently and 302 Found. The difference between the redirection messages 301 and 302 is that 302 indicates a temporary redirection. The resource has been temporarily moved. When web browsers receive these responses, they will automatically submit the request for the resource at the new path. Client error responses indicate that the requests contained bad syntax or content and cannot be processed by the webserver. The most common codes used are, 400 is used where the web browser or client submitted bad data to the webserver. 401 is used to indicate that the user must log into an account before the request can be processed. 403 is used to indicate the request was valid, but that the webserver is refusing to process it. This is often used to indicate that a user does not have sufficient permissions to execute an action in a web application. 404 is used to indicate that the request resource was not found on the webserver. 
+
+
+
+
+Server error responses indicate that a failure occurred on the webserver while trying to process the request. The most common code used is 500 Internal Server Error, which is a generic error status indicating that the server fail to process the request. Now, have you ever bought something online and needed to enter your credit card information? You wouldn't want someone else to get this information from the HTTP request. This is where HTTPS is involved. HTTPS is the secure version of HTTP. It is used for secure communication between two computers so that nobody else can see the information being sent and received. It does this by using something called encryption. We won't cover encryption right now. Like an HTTP, the requests and responses still behave in the same way and have the same content. The big difference is before the content is sent, it is turned into a secret code. Only the other computer can turn the secret code back into its original content. If someone else was to look at the code, it wouldn't be understandable. You use HTTPS every day. This is the lock icon you see beside the URL in your web browser. Before I finish, I want to leave you with a brief summary of HTTP. Firstly, it is a protocol used by web clients and web servers. It works to transfer web resources such as HTML files and as the foundation of any data exchanges on the web. Also, remember that by using HTTPS, we send the information securely. Requests are sent by the client, usually a web browser, and the server replies with responses which may be the return of an image or an HTML page. HTTP requests have a syntax that includes method, path, versions, and headers. HTTP responses follow a similar format to the request. An HTTP status codes indicate whether the HTTP requests successfully completed. The status code is a three-digit number that corresponds with groups representing different types of results. Now you know how the HTTP protocol request and response cycle works. You know about its methods and the elements that make up an HTTP request. Good job.

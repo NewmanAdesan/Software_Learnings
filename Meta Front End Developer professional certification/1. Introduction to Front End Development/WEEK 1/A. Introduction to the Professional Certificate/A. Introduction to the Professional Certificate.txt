@@ -1,0 +1,520 @@
+
+
+
+
+
+
+
+Professional Certification topics: 
+
+	As you make your way through this certificate, you'll learn:
+		- HTML, CSS, Javascript
+		- Bootstrap & React
+		- final project
+		- version control
+		- ux basics
+		- coding interview prep
+		- meta job board
+
+
+	HTML, CSS, JAVASCRIPT 
+		- learning how to code interactive 
+		- web pages using HTML, CSS and JavaScript. 
+
+
+	BOOTSTRAP & REACT
+		- learning how to use the bootstrap framework before diving into the world of React, 
+		- learning React, a widely used JavaScript library that was created here at meta. 
+		- websites built using React are fast, scalable, secure and allow for rich user experience. 
+
+
+	FINAL PROJECT
+		- for your final project you will complete 
+		- a beautiful professional website for your portfolio, 
+		- complete with interactivity to showcase during your job search. 
+
+
+	VERSION CONTROL
+		- you'll also be ready to collaborate with other developers 
+		- as you will have learned to use GIT and GIT hub for version control. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Professional Certification topics: 
+
+
+	UX BASICS
+		- if you're hoping to operate independently or in a smaller team, not to worry. 
+		- you will learn basics of user experience. 
+		- you'll learn how to research a user's needs, 
+		- you will create wire frames using popular industry tools like Figma and design interactivity. 
+
+
+	CODING INTERVIEW PREPARATION
+		- in the final course, you will prepare for the coding interview. 
+		- you'll practice your interview skills, refine your resume 
+		- you'll tackle some common coding challenges 
+		- that typically form part of technical job interviews. 
+
+
+	META JOB BOARD
+		- Once you complete the program, you'll get access to the meta career programs job board. 
+		- A job search platform that connects you with over 200 employers 
+		- who have committed to sourcing talent through meta certificate programs. 
+		- Who knows where you'll end up? 
+
+
+
+	So, how can this professional certificate prepare you for a job at an organization like meta? 
+		- the front end developer professional certificate
+		- will help you build job ready skills for a front end development role 
+		- while earning a credential from meta. 
+
+		- from meta developers you will learn about how they collaborated, 
+		- create and test responsive, high performance websites and applications. 
+
+		- you'll also discuss interesting topics with other aspiring front end developers 
+		- and complete a range of coding exercises to improve your skills. 		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+In Module 1 (week-1):
+
+	In this module, we will discuss
+		- Roles and Responsibility
+		- How the web works
+		- Core internet technologies
+		- Best practices and standards
+
+
+	ROLES AND RESPONSIBILITY:
+		- describe the web developer job role
+		- distinguish between front-end, back-end, and full-stack developers	
+
+
+	HOW THE WEB WORKS
+		- you will cover an introduction to how the web works, 
+		- including an exploration of web-pages, web servers, and web browsers. 
+		- you will learn what each is and what their role is in bringing the Internet to you. 
+
+
+	CORE INTERNET TECHNOLOGIES
+		- you will also get hands-on practice 
+		- using core Internet technologies like HTML, CSS, and JavaScript. 
+		- you will learn how developers bring these technologies together 
+		- and build functional and interactive websites and web applications. 
+
+
+	BEST PRACTICES & STANDARDS
+		- you will explore some of the tools used by professional developers, 
+		- you will learn the fundamentals of coding using best practices and standards. 
+		- you will learn how to use the web browsers built-in developer tools 
+		- you will learn how to code using industry standard software, 
+		- known as an integrated development environment or IDE. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+Module 2 (week-2):
+
+	Basically two concepts will be discussed:
+		- Html & Css 
+		- Web accessibility
+
+
+	HTML & CSS	
+		- you will begin your coding journey with an introduction to HTML5 and CSS. 
+		- you will learn the basics of each of these languages 
+		- and how they compliment each other to layout and style elements on a web page. 
+		- this includes text, images and multimedia elements like video. 
+
+
+	WEB ACCESSIBILITY
+		- additionally, to make sure that your web-page is accessible to everyone, 
+		- you will learn how to code for web accessibility. 
+
+
+
+
+
+
+
+
+
+
+
+
+In Module 3 (week-3):  
+
+	this module will focus on responsive design, using frameworks and libraries.
+		- Bootstrap Library
+		- React Library
+
+
+	BOOTSTRAP LIBRARY	
+		- you will learn how to implement the Bootstrap library 
+		- so that web-page can offer a great browsing experience no matter what type of devices used. 
+		- you will use the Bootstrap CSS framework to create webpages. Use Bootstrap themes.
+		- leverage Bootstrap documentation to reproduce and modify CSS components.
+
+		- you will also learn about user interface or UI design 
+		- the concepts that exist in most UI frameworks will be outlined
+		- and how to work with common UI components and position them using the flexible Bootstrap grid. 
+
+
+ 
+	REACT LIBRARY
+		- you'll be introduced to react, a free and open source JavaScript library 
+		- that developers use to build user interfaces based on UI components. 
+		- you'll describe the basics of React in relation to other frameworks and web technologies.
+		- You will then learn about the difference between static and dynamic content 
+		- and the benefits of using single-page applications. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+Module 4 (week-4): 
+
+	Basically in this module, you will have an opportunity to put your new skills into practice 
+
+	You will Create and Style your own biographical Page 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Web Developer Job roles (intro):
+
+	When you eat at a restaurant, 
+		- there are often many cooks preparing different parts of your meal. 
+		- similarly for the websites and applications you use every day. 
+		- many roles are involved in delivering these projects to users. 
+
+
+
+	FINDING THE RIGHT AREA FOR YOU 
+	WILL DEPEND ON A GREATER UNDERSTANDING OF WEB DEVELOPERS ROLES, RESPONSIBILITIES AND TECHNOLOGIES
+
+
+	for example, 
+		- suppose you are a visual person 
+		- in that case you might want to design a stunning website 
+		- that offers an excellent experience for its end users. 
+
+		- Or if you're more analytical, you might be interested in working 
+		- with the technologies that power, a high performing e commerce site. 
+
+		- likewise, if your interest is mobile devices, 
+		- your passion may lie in creating the next big social media app. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Web Developer Job roles ( front-end ):
+
+	While job roles and titles may vary, web developer roles are usually split into 
+		- front end, 
+		- back end and 
+		- full stack in this video. 
+
+
+	A front end developer (basic concept)
+		- is someone that works on all parts of a website 
+		- or web app that users will interact with. this can be anything from 
+		- the style colors, buttons, menus or user interactions 
+		- as they click swipe and interact with the site. 
+
+
+	A front end developer (basic skill)
+		- the skills of a front end developer can vary, 
+		- but they will always focus on three leading technologies. 
+		- Html CSS and javascript 
+
+
+
+	A front end developer (use case)
+		- suppose you are a front end developer assigned 
+		- the task of adding a newsletter, sign up option to the home page of a website. 
+
+		- you would use HTML to build the display elements 
+		- such as the input area for the user to type their email address 
+		- and then the button to click to send it. 
+
+		- you can then use CSS 
+		- to position, color and style these elements on the page. 
+
+		- And finally, you can use JAVASCRIPT 
+		- to process the activity when the user clicks the button. 
+		- this could be something like checking the email address is valid 
+		- and then sending that email address 
+		- to the website for storage under newsletter members. 
+
+		- basically, you use javascript to process the activity when user interacts 
+		  with the display created by html & css
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Web Developer Job roles ( front-end ):
+
+	A front end developer (critical skill)
+		- while html and CSS skills are essential. 
+		- the most critical skill is usually javascript. 
+		- basically,
+
+
+		- it is the powerhouse of front end technology. 
+		- this is mainly because of its versatility and the fact that it is paired 
+		- with powerful libraries and frameworks such as REACT by meta. 
+		- these can be used to build rich user interface driven enterprise websites 
+		- and web apps that are FAST, SECURE and HIGHLY SCALABLE. 
+
+
+
+	A front end Engineer (highly collaborative environment):
+		- I think why front-end development is different 
+		- is you have to work with designers, you've got to work with product managers. 
+		- it's fundamentally very collaborative. what you're doing is 
+		- building products for people and you're helping people solve their own problems.
+
+		- it's good to recognize that you're a software engineering 
+		- and your job is to bring a lot of their vision to life. 
+		- basically knowing how to write code, how to make it work, 
+		- how to make it accessible, and to shipping it to people.
+
+		- it's got the right-brain algorithmic thinking and how to make things performant and work and then 
+		- it's got the left-brain. How do you make things usable and enjoyable to use? 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Web Developer Job roles ( front-end ):
+
+	A front end Engineer (soft skills - empathy)
+		- when it comes to soft skills, there's a lot of empathy, 
+		- trying to understand other people's perspectives. 
+
+		- engineers, we care about performance, we care about accessibility, 
+		- we care about things being correct. it usually takes engineers a long time 
+		- to understand designer's perspective or product manager's perspective 
+		- and when this happens, empathy and an highly collaborative attitude develops
+		- a good front-end engineer will actually dip their toes into back-end. 
+
+
+
+
+	A front end Engineer (psychology)
+		- problem-solving is consistently hard.  
+		- whenever you're learning and pushing yourself, you're going to run into roadblocks. 
+		- best advice is go easy on yourself. Going with the mentality 
+		- that your goal is to grow and become a software engineer or a better person. 
+
+		- adopting a growth mindset to developing is going to be critical.
+		- Find time for yourself. i mean, it's not my place to talk about 
+		- the psychology of being easy on yourself, 
+		- but that's just as important as any of the engineering stuff you learn. 
+
+		- For me personally, the role grows. As you build things and you solve problems, 
+		- you get perspective into other problems and it's this idea of growing your scope. 
+
+
+
+	A front end developer (end-note) 	
+		- front and developer roles will be available 
+		- for junior, intermediate and senior level professionals. 
+
+		- as an aspiring developer, this is a great area to get started in entry into the job market. 
+		- for a junior position is possible with some fundamental demonstrations 
+		- of core concepts and skills and an eye catching sample portfolio. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Web Developer Job roles ( back-end ):
+
+	A back end developer (basic concept)
+		- works on the parts of a website or web app that the end users don't see. 
+		- these activities occur behind the scenes, 
+		- particularly on the web server in the database or in constructing the architecture. 
+
+
+	A back end developer (concept)
+		- is responsible for creating and maintaining functionality when users request information or 
+		- when the website needs to communicate to another part of the web architecture. 
+		- For processing for example, performing an account, log in 
+		- or completing an online purchase using a credit card. 
+
+		- A back end developer will facilitate 
+		- the interaction of the website and the content stored in database. 
+
+
+	A back end developer (skills)	
+		- as a result, back end development requires different languages, skills and tools. 
+		- while these can vary, they generally consist of knowledge relating to 
+		- back end programming language, 
+		- database management systems, 
+		- API's and web servers, 
+
+
+	A back end developer (the road)
+		- the road to back end development is generally long 
+		- as you must have a proficient understanding of the needs of front end technologies. 
+		- this can include things like the inner workings of the Internet networks and servers. 
+		- it's pretty common for aspiring developers to first start with the front end 
+		- and then move to the back end. Once they have acquired specialist knowledge. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Web Developer Job roles ( back-end ):
+
+	A full stack developer (concept)
+		- is someone equally comfortable working with front end and back end technologies. 
+		- they have skills and knowledge in all areas of the web development project cycle. 
+		- for example they have relevant expertise in 
+		- the planning architecture, 
+		- design, 
+		- development, 
+		- deployment and 
+		- maintenance of the website or web. 
+
+
+	A full stck developer (end-note)
+		- full stack developer positions are generally at a more senior level. 
+		- it can take some time to gain the knowledge, 
+		- professional experience and skills to become a full stack developer. 
+		- as a result roles in this area are in high demand 
+		- and are some of the best paid jobs in the IT Industry.
