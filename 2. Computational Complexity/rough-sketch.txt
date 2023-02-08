@@ -1,0 +1,936 @@
+
+
+
+Introduction <<free-hand: a lot of work>>:
+``````````````````````````````````````````
+In the last chapter we developed a drawing program. 
+
+To hold the drawing commands we built the PyList container class 
+which is a lot like the built-in Python list class,
+but helps illustrate our first data structure. 
+
+When we added a drawing command to the sequence we called the append method. 
+
+It turns out that this method is called a lot. 
+
+In fact, the flower picture in the first chapter took around 700 commands to draw. 
+
+You can imagine that a complex picture with lots of free-hand drawing 
+could contain thousands of drawing commands. 
+
+
+
+
+Introduction <<free-hand: a lot of work>>:
+``````````````````````````````````````````
+When creating a free-hand drawing 
+we want to append the next drawing command to the sequence quickly 
+
+because there are so many commands being appended. 
+
+How long does it take to append a drawing command to the sequence? 
+Can we make a guess? 
+Should we care about the exact amount of time?
+
+In this chapter 
+	- you’ll learn how to answer these questions and 
+	- you’ll learn what questions are important for you 
+	  as a computer programmer. 
+
+	- First you’ll read about some principles of computer architecture 
+	- to understand something about how long it takes 
+	- a computer to do some simple operations. 
+
+	- With that knowledge you’ll have the tools you’ll need 
+	- to make informed decisions about how much time 
+	- it might take to execute some code you have written.
+
+
+
+
+
+Introduction << chapter goals >>:
+`````````````````````````````````
+• What are some of the primitive operations that a computer can perform?
+• How much time does it take to perform these primitive operations?
+
+• What does the term computational complexity mean?
+• Why do we care about computational complexity?
+
+• When do we need to be concerned about the complexity of a piece of code?
+• What can we do to improve the efficiency of a piece of code?
+
+• What is the definition of Big-Oh notation?
+• What is the definition of Theta notation?
+
+• What is amortized complexity and what is its importance?
+• How can we apply what we learned to make the PyList container class better?
+
+
+
+
+
+
+
+
+
+
+
+
+
+"""-------------------------  Computer Architecture  -------------------------"""
+
+Computer <<basic function>>:
+````````````````````````````
+A computer consists of a Central Processing Unit 
+that interacts with Input/Output  devices like 
+	- a keyboard, 
+	- mouse, 
+	- display, and 
+	- network interface.
+
+
+
+Computer << program execution: memory >>:
+`````````````````````````````````````````
+When you run a program 
+	- it is first read from a storage device like a hard drive 
+	- into the Random Access Memory, or RAM, of the computer. 
+
+RAM 
+	- loses its contents when the power is shut off, 
+	- so copies of programs are only stored in RAM while they are running. 
+
+	- The permanent copy of a program is stored on the hard drive 
+	- or some other permanent storage device.
+
+	- The RAM of a computer holds a program as it is executing and 
+	- also holds data that the program is manipulating. 
+
+
+
+
+Computer << program execution: processing(cpu) >>:
+``````````````````````````````````````````````````
+While a program is running, 
+	- the CPU reads input from the input devices and 
+	- stores data values in the RAM. 
+
+	- the CPU also contains a very limited amount of memory, 
+	- usually called registers. 
+
+	- When an operation is performed by the CPU, 
+	- such as adding two numbers together, 
+	- the operands must be in registers in the CPU. 
+
+Typical operations that are performed by the CPU are 
+	- addition, 
+	- subtraction,
+	- multiplication, 
+	- division, and 
+	- storing and retrieving values from the RAM.
+
+
+
+
+Computer <<program execution process>>:
+```````````````````````````````````````
+When a user runs a program on a computer, the following actions occur:
+	1. The program is read from the disk or other storage device into RAM.
+
+	2. The operating system sets up two more areas of RAM 
+	   called the run-time stack and the heap for use by the program.
+
+	3. The operating system starts the program executing 
+	   by telling the CPU to start executing the first instruction of the computer.
+
+	4. The program reads data from the 
+		- keyboard, 
+		- mouse, 
+		- disk, and 
+		- other input sources.
+
+	5. Each instruction of the program 
+		- retrieves small pieces of data from RAM, 
+		- acts on them, and 
+		- writes new data back to RAM.
+
+	6. Once the data is processed the result is provided 
+	   as output on the screen or some other output device.
+
+
+
+
+Computer <<program execution - RAM/CPU interaction>>:
+`````````````````````````````````````````````````````
+Because there is so little memory in the CPU, 
+
+the normal mode of operation is to store values in the RAM 
+until they are needed for a CPU operation. 
+
+The RAM is a much bigger storage space than the CPU. 
+But, because it is bigger, it is also slower than the CPU. 
+
+Storing a value in RAM or retrieving a value from RAM can take as
+much time as several CPU operations. 
+
+When needed,
+	- the values are copied from the RAM into the CPU, 
+	- the operation is performed, and 
+	- the result is then typically written back into the RAM. 
+
+The RAM of a computer is accessed frequently as a program runs, 
+so it is important that we understand what happens when it is accessed (Fig. 2.1).
+
+
+
+
+Computer << post office analogy: RAM similitude >>:
+```````````````````````````````````````````````````
+One analogy that is often used is that of a post office. 
+
+The RAM of a computer is like a collection of post office boxes. 
+
+Each box has an address and can hold a value.
+
+The values you can put in RAM are called bytes (i.e. eight bits grouped together).
+With eight bits, 256 different values can be stored. 
+
+Usually bytes are interpreted as integers, 
+so a byte can hold values from 0 to 255. 
+
+If we want to store bigger values, we can group bytes together into WORDS. 
+
+The word size of a computer is either 32 bits(i.e. four bytes) or 64 bits, 
+depending on the architecture of the computer’s hardware.
+
+All modern computer hardware is capable of 
+retrieving or storing a word at a time.
+
+
+
+
+Computer << post office analogy: searching/RAM difference>>:
+````````````````````````````````````````````````````````````
+The post office box analogy 
+	- helps us to visualize how the RAM of a computer is organized, 
+	- but the analogy does not serve well to show us 
+	- how the RAM of a computer behaves. 
+
+	- If we were going to get something from a post office box, 
+	- or store something in a post office box, 
+	- there would have to be some kind of search done 
+	- to find the post office box first. 
+
+	- Then the letter or letters could be placed in it or taken from it. 
+	- The more post office boxes in the post office, 
+	- the longer that search would take. 
+
+This helps us understand the fundamental problem we study in this text. 
+
+As the size of a problem space grows, 
+	- how does a program or algorithm behave? 
+
+In terms of this analogy, as the number of post office boxes grows, 
+how much longer does it take to store or retrieve a value?
+
+The RAM of a computer does not behave like a post office. 
+
+The computer does not need to find the right RAM location 
+before the it can retrieve or store a value. 
+
+
+
+
+
+Computer << group of people analogy: RAM similitude >>:
+```````````````````````````````````````````````````````
+A much better analogy is a group of people, 
+	- each person representing a memory location 
+	- within the RAM of the computer. 
+	- Each person is assigned an address or name. 
+
+	- To store a value in a location, 
+	- you call out the name of the person and 
+	- then tell them what value to remember. 
+
+	- It does not take any time to find the right person 
+	- because all the people are listening, just in case their name is called. 
+
+	- To retrieve a value, you call the name of the person and 
+	- they tell you the value they were told to remember. 
+
+	- In this way it takes exactly the same amount of time 
+	- to retrieve any value from any memory location. 
+
+	- This is how the RAM of a computer works. 
+
+It takes exactly the same amount of time 
+to store a value in any location within the RAM. 
+
+Likewise, retrieving a value takes the same amount of time 
+whether it is in the first RAM location or the last.
+
+
+"""---------------------------------------------------------------------------"""
+
+
+
+
+
+
+
+
+
+"""------------------  Accessing Elements in a Python List  ------------------"""
+
+Computer << group of people analogy: Experimentation >>:
+````````````````````````````````````````````````````````
+With experimentation 
+	- we can verify that all locations 
+	- within the RAM of a computer
+	- can be accessed in the same amount of time. 
+
+A Python list is a collection of contiguous memory locations. 
+
+The word "contiguous" means that the memory locations of a list
+are grouped together consecutively in RAM. 
+
+If we want to verify 
+	- that the RAM of a computer behaves like a group of people 
+	- all remembering their names and their values, 
+	- we can run some tests with Python lists of different sizes 
+	- to find the average time to retrieve from or 
+	- store a value into a random element of the list.
+
+
+
+
+Computer << group of people analogy: Experiment >>:
+```````````````````````````````````````````````````
+To test the behavior of Python lists 
+	- we can write a program that randomly stores
+	- and retrieves values in a list. 
+
+We can test two different theories in this program.
+	1. The size of a list does not affect 
+	   the average access time in the list.
+
+	2. The average access time at any location 
+	   within a list is the same, 
+	   regardless of its location within the list.
+
+To test these two theories, 
+we’ll need to time retrieval and storing of values within a list. 
+
+Thankfully, Python includes a datetime module 
+that can be used to record the current time. 
+
+By subtracting two datetime objects 
+we can compute the number of microseconds (i.e. millionths of a second) 
+for any operation within a program. 
+
+
+
+
+
+Computer << group of people analogy: Experiment >>:
+```````````````````````````````````````````````````
+The program @ projects/list access time/main.py
+	- was written to test list access and 
+	- record the access time for retrieving values and 
+	- storing values in a Python list.
+
+The program writes an XML file with its results. 
+
+The XML file format 
+	- supports the description of experimentally collected data 
+	- for a two dimensional plot of one or more sequences of data
+
+we have written a Tkinter program @ projects/plotting/PlotData.py
+	- that will read an XML file conveying graph data and
+	- plot the sequences to the screen.
+ 
+
+
+
+
+
+Computer << group of people analogy: Experiment analysis >>:
+````````````````````````````````````````````````````````````
+When running a program like this 
+	- the times that you get will depend 
+	- not only on the actual operations being performed, 
+	- but the times will also depend on what other activity 
+	- is occurring on the computer where the test is being run. 
+
+All modern operating systems, like Mac OS X, Linux, or Microsoft Windows, are multi-tasking.
+
+This means the operating system can switch between tasks 
+so that we can get email while writing a computer program, for instance. 
+
+When we time something 
+	- we will not only see the effects of our own program running, 
+	- but all programs that are currently running on the computer. 
+	- It is nearly impossible to completely isolate one program in a multi-tasking system. 
+	- However, most of the time a short program will run 
+	- without too much interruption.
+
+
+
+
+
+
+Computer << group of people analogy: Experiment analysis >>:
+````````````````````````````````````````````````````````````
+
+If we use the program to plot the data gathered by the list access experiment, 
+we see a graph like the one in Fig. 2.2. 
+
+This graph provides the experimental data 
+to back up the two statements we made earlier about lists in Python. 
+	- The red line shows the average element access time 
+	- of 1,000 element accesses on a list of the given size. 
+
+	- The average access time (computed from a sample of 1,000 random list accesses) 
+	- is no longer on a list of 10,000 than it is on a list of 160,000. 
+
+	- While the exact values are not printed in the graph, 
+	- the exact values are not important. 
+
+
+
+
+
+
+Computer << group of people analogy: Experiment analysis >>:
+````````````````````````````````````````````````````````````
+What we would be interested in seeing, 
+is any trend toward longer or shorter average access times. 
+
+Clearly the only trend is that the size of the list 
+does not affect the average access time. 
+
+There are some ups and downs in the experimental data, 
+but this is caused by the system being a multi-tasking system. 
+
+Another factor is likely the caching of memory locations. 
+	- A cache is a way of speeding up access to memory in some situations and 
+	- it is likely that the really low access times benefited 
+	- from the existence of a cache for the RAM of the computer.
+
+The experimental data backs up the claim that the size of a list does
+not affect the average access time in the list.
+"""---------------------------------------------------------------------------"""
+
+
+
+
+
+
+
+
+
+"""----------------------------   Big-Oh Notation  ---------------------------"""
+
+Big-Oh << upper-bound >>:
+`````````````````````````
+Whichever line we look at in the experimental data, 
+	- the access time never exceeds
+	- 100µs for any of the memory accesses,  
+	- even with the other things the computer might be doing. 
+	- We are safe concluding that accessing memory takes less than 100µs. 
+
+In fact, 100µs is much more time than is needed 
+to access or store a value in a memory location. 
+
+Our experimental data backs up the two claims we made earlier. 
+
+HOWEVER, TECHNICALLY, 
+IT DOES NOT PROVE OUR CLAIM THAT ACCESSING MEMORY TAKES A CONSTANT AMOUNT OF TIME. 
+
+The actual time to access the RAM of a computer 
+	- may vary a little bit if a cache is available, 
+	- but at least we can say that there is an upper bound 
+	- to how much time accessing a memory location will take.
+
+
+
+
+
+
+Big-Oh << upper-bound >>:
+`````````````````````````
+This idea of an upper bound can be stated more formally. 
+
+The formal statement of an upper bound is called Big-Oh notation. 
+
+As computer programmers, our number one concern 
+is how our programs will perform when we have large amounts of data. 
+
+In terms of the memory of a computer, 
+	- we wanted to know how our program would perform 
+	- if we have a very large list of elements. 
+	- We found that all elements of a list are accessed 
+	- in the same amount of time independent of how big this list is. 
+
+
+
+
+
+Big-Oh << experiment - technical analysis >>:
+`````````````````````````````````````````````
+Let’s represent the size of the list by a variable called "n". 
+
+Let the average access time 
+for accessing an element of a list of size "n" be given by f(n).
+
+Now we can state the following
+O(g(n)) = { f | ∃d > 0,  n0 ∈ Z+ ∋ 0 ≤ f(n) ≤ d g(n),  ∀n ≥ n0}
+
+In English this reads as follows: 
+	- The class of functions designated by O( g(n)) 
+	- consists of all functions f, 
+
+	- where there exists 
+	- a "d" greater than 0 and   (∃d > 0)
+	- an n0 (a positive integer) (n0 ∈ Z+)
+
+	- such that (∋)
+	- 0 is less than or equal to f(n) is less than or equal to d times g(n) 
+	- for all n greater than or equal to n0.
+
+
+
+
+
+Big-Oh << experiment - technical analysis >>:
+`````````````````````````````````````````````
+If "f" is an element of O( g(n)), we say that f(n) is O( g(n)). 
+
+The function "g" is called an asymptotic upper bound for "f" in this case. 
+
+You may not be comfortable with the mathematical description above. 
+
+Stated in English 
+	- the set named O( g(n)) consists of the set of all functions, f(n), 
+	- that have an upper bound of d* g(n), 
+	- as n approaches infinity. 
+
+This is the meaning of the word asymptotic. 
+	- The idea of an asymptotic bound means that 
+	- for some small values of "n" 
+	- the value of f(n) might be bigger than the value of d* g(n), 
+	- but once "n" gets big enough (i.e. bigger than n0), 
+	- then for all bigger "n" 
+	- it will always be true that f(n) is less than d* g(n). 
+
+This idea of an asymptotic upper bound is pictured in Fig. 2.3. 
+	- For some smaller values 
+	- the function’s performance, shown in green, 
+	- may be worse than the blue upper bound line, 
+	- but eventually the upper bound is bigger for all larger values of n.
+
+
+
+
+
+
+Big-Oh << experiment - technical analysis >>:
+`````````````````````````````````````````````
+We have seen 
+	- that the average time to access an element in a list is constant and
+	- does not depend on the list size. 
+
+	- From the graph plot, the list size is the "n" in the definition and 
+	- the average time to access an element in a list of size "n" is the f(n).
+
+	- Because the time to access an element does not depend on "n", 
+	- we can pick g(n) = 1.
+
+	- So, we say that the average time 
+	- to access an element in a list of size "n" is O(1). 
+
+	- If we assume it never takes longer than 100µs 
+	- to access an element of a list in Python,
+	- then a good choice for d would be 100. 
+
+	- According to the definition above then it must be the case that 
+	- f(n) is less than or equal to 100 once "n" gets big enough
+
+
+
+
+
+
+
+Big-Oh << experiment - technical analysis >>:
+`````````````````````````````````````````````
+The choice of g(n) = 1 
+	- is arbitrary in computing the complexity of accessing an element of a list. 
+	- We could have chosen g(n) = 2. 
+	- If g(n) = 2 were chosen, d might be chosen to be 50 instead of 100. 
+
+	- But, since we are only concerned with the overall growth in the function g, 
+	- the choice of 1 or 2 is irrelevant 
+	- and the simplest function is chosen, in this case O(1). 
+
+In English, when an operation or program is O(1), 
+we say it is a constant time operation or program. 
+
+This means the operation does not depend on the size of "n"
+
+
+
+
+
+
+Big-Oh << O(1) >>:
+``````````````````
+It turns out that most operations that a computer can perform are O(1). 
+
+For instance, adding two numbers together is a O(1) operation. 
+So is multiplication of two numbers.
+
+While both operations 
+	- require several cycles in a computer,  
+	- the total number of cycles does not depend on 
+	- the size of the integers or floating point numbers being added or multiplied. 
+	- A cycle is simply a unit of time in a computer. 
+
+Comparing two values is also a constant time operation. 
+
+When computing complexity, any arithmetic calculation or comparison 
+can be considered a constant time operation.
+
+This idea of computational complexity is especially important 
+when the complexity of a piece of code depends on "n". 
+
+
+"""---------------------------------------------------------------------------""" 
+
+
+
+
+
+
+
+
+"""---------------------------  PyList Efficiency  ---------------------------"""
+
+
+PyList << previously >>:
+````````````````````````
+We have established 
+	- that accessing a memory location or 
+	- storing a value in a memory location is a O(1), 
+	- or constant time, operation. 
+
+	- The same goes for accessing an element of a list 
+	- or storing a value in a list. 
+
+	- The size of the list does not change the time 
+	- needed to access or store an element AND
+
+	- there is a fixed upper bound for the amount of time
+	- needed to access or store a value in memory or in a list.
+
+
+
+
+
+PyList << need for efficiency >>:
+`````````````````````````````````
+With this knowledge, let’s look at the drawing program again and 
+specifically at the piece of code that appends graphics commands to the PyList. 
+
+This code is used a lot in the program. 
+	- Every time a new graphics command is created, 
+	- it is appended to the sequence. 
+
+	- When the user is doing some free-hand drawing, 
+	- hundreds of graphics commands are getting appended every minute or so. 
+	- Since free-hand drawing is somewhat compute intensive, 
+	- we want this code to be as efficient as possible
+
+
+
+
+PyList << append analysis >>:
+`````````````````````````````
+	class PyList:
+		def __init__(self):
+			self.items = []
+
+		def append(self,item):
+			self.items = self.items + [item]
+
+1. 
+	- The item is made into a list by putting [and] around it. 
+	- We should be careful about how we say this. 
+	- The item itself is not changed. 
+	- A new list is constructed from the item.
+
+
+2. 
+	- The two lists are concatenated together using the + operator. 
+	- The + operator is an accessor method 
+	- that does not change either original list. 
+	- The concatenation creates a new list 
+	- from the elements in the two lists.
+
+3. 
+	- The assignment of self.items to this new list 
+	- updates the PyList object so it now refers to the new list.
+
+
+
+
+
+PyList << append analysis >>:
+`````````````````````````````
+The question we want to ask is, 
+how does this append method perform as the size of the PyList grows? 
+
+What's to note here 
+	- is the computation of the "+" operator,
+	- how many element does it access?
+
+	- the first time, just one which is from the list [item]
+	- the second time, two. one from self.items and another from [item]
+	- the third time, three. since self.items now has two items
+
+	- this pattern continues for each new element that is appended to the PyList. 
+	- When the nth element is appended to the sequence 
+	- there will have to be n elements copied to form the new list. 
+
+	- Overall, how many elements must be accessed to append "n" elements?
+	- OVERALL, HOW MUCH TIME WOULD IT TAKE?
+	- IN COMPUTER WORDS, HOW MANY CYCLES WOULD IT TAKE?
+	- 1 + 2 + 3 + .... + n
+
+	- to have a clear view of this complexity lets understand
+	- proof by induction
+
+
+
+
+
+
+
+Proof by Induction << previously >>:
+````````````````````````````````````
+We have already established 
+that accessing each element of a list takes a constant amount of time. 
+
+So,
+	- if we want to calculate the amount of time 
+	- it takes to append "n" elements to the PyList 
+	- we would have to add up all the list accesses and 
+	- multiply by the amount of time it takes to access a list element 
+	- plus the time it takes to store a list element. 
+
+	- To count the total number of access and store operations 
+	- we must start with the number of access and store operations 
+	- for copying the list the first time an element is appended. That’s one element copied. 
+	- The second append requires two, third append requires three
+
+	- 1 + 2 + 3 + .... + n
+	- it turns out with a little work that equals n(n+1)/2
+
+
+
+
+
+Proof by Induction << meta-proof >>:
+````````````````````````````````````
+
+We can prove this is true using a proof technique from Mathematics 
+called mathematical induction. 
+
+There are a couple of variations of mathematical induction. 
+We’ll use what is called weak induction to prove this. 
+
+When proving something using induction you are really constructing a META-PROOF. 
+	- A meta-proof is a set of steps
+	- that you can repeat over and over again 
+	- to find your desired result. 
+
+The power of induction is that once we have constructed the meta-proof, 
+we have proved that the result is true for all possible values of n
+
+
+
+
+
+
+Proof by Induction << base case >>:
+```````````````````````````````````
+We want to prove that the formula given above is valid for all "n". 
+
+To do this we first show it is true for a simple value of "n". 
+In our case we’ll pick 1 as our value of n. In that case we have the following
+
+	1 = 1 (1+1) / 2  {this is true}
+
+This is surely true. This step is called the base case of the inductive proof. 
+
+Every proof by induction must have a base case and it is usually trivia.
+
+
+
+
+
+Proof by Induction << inductive case >>:
+````````````````````````````````````````
+The next step is to create the meta-proof. 
+This meta-proof is called the inductive case. 
+
+When forming the inductive case 
+	- we get to assume that the formula holds for all values, m, 
+	- where m is less than n. This is called strong induction. 
+
+	- In weak induction we get to assume that the formula is valid for n−1 
+	- and we want to show that it is valid for n
+
+We’ll use weak induction in this problem to finish our proof.
+
+Again, 
+	- this step helps us form a set of steps 
+	- that we can apply over and over again 
+	- to get from our base case to whatever value of n we need to find. 
+
+
+
+
+
+Proof by Induction << inductive case >>:
+````````````````````````````````````````
+
+To begin we will make note of the following.
+	1+2+3+....+n = 1+2+...+(n-1)  + n
+
+This is true by the definition of summation. 
+
+But now we have a sum that goes to n−1 and 
+weak induction says that we know the equation is valid for n − 1 . 
+
+This is called the inductive hypothesis. Thus
+	1+2+...+(n-1) = (n-1)(n) / 2  
+
+Therefore, Since we said 
+	- 1+2+3+....+n = n(n+1)/2  AND we said 
+	- 1+2+3+....+n = 1+2+...+(n-1)  + n  THEN
+
+	- 1+2+3+....+n  =  n(n+1)/2  =  (n-1)(n) / 2  + n
+
+	- and true enough by simply working our the RHS we get LHS 
+
+
+
+
+
+Proof by Induction << conclusion >>:
+````````````````````````````````````
+This concludes our proof by induction. 
+
+The meta-proof is in the formula above. 
+	- It is a template that we could use to prove 
+	- that the equality holds for n = 2. 
+
+	- To prove the equality holds for n = 2 
+	- we needed to use the fact that the equality holds for n = 1.
+	- This was our base case. 
+
+	- Once we have proved that it holds for n = 2 
+	- we could use that same formula to prove 
+	- that the equality holds for n = 3. 
+
+Mathematical induction doesn’t require us to go through all the steps. 
+	- As long as we’ve created this meta-proof
+	- we have proved that the equality holds for all n. 
+	- That’s the power of induction
+
+
+
+
+
+
+PyList << append analysis - (bigOh) >>:
+```````````````````````````````````````
+Now, going back to our original problem, 
+	- we wanted to find out 
+	- how much time it takes to append n items to a PyList. 
+	- It turns out, using the append method we showed in ,
+	- it will perform in O(n*2) time. 
+
+	- remember we concluded that the timing was
+	- 1 + 2 + 3 + ··· + n  which equals n*(n + 1)/2. 
+	- which is (n*2 + n) / 2
+
+The highest powered term in this formula is the n*2 term. 
+
+Therefore, the append method exhibits O(n2) complexity. 
+This is not really a good result. 
+
+
+
+
+
+PyList << append analysis - (bigOh implication) >>:
+```````````````````````````````````````````````````
+The red curve in the graph of Fig. 2.4 
+	- shows the actual results of how much time it takes 
+	- to append 200,000 elements to a PyList. 
+	- The line looks somewhat like the graph of f(n) = n*2 
+
+	- What this tells us is that if we were to draw a complex program 
+	- with say 100,000 graphics commands in it, 
+	- to add one more command to the sequence it would take around 27 s.
+
+This is unacceptable! 
+	- We may never draw anything that complex, 
+	- BUT A COMPUTER SHOULD BE ABLE TO ADD ONE MORE GRAPHIC COMMAND 
+	- QUICKER THAN THAT!
+
+In terms of big-Oh notation we say that the append method is O(n2).
+
+
+
+
+
+PyList << append analysis -  O(n*2) >>:
+```````````````````````````````````````
+When n gets large, 
+programs or functions with O(n2) complexity are not very good. 
+
+You typically 
+	- want to stay away from writing code 
+	- that has this kind of computational complexity associated with it 
+	- unless you are absolutely sure it will never be called on large data sizes.
+
+One real-world example of this occurred a few years ago. 
+	- A tester was testing some code and placed a CD in a CD drive. 
+	- On this computer all the directories and file names on the CD 
+	- were read into memory and sorted alphabetically. 
+
+	- The sorting algorithm that was used in that case had O(n2) complexity. 
+	- This was OK because most CDs put in this computer 
+	- had a relatively small number of directories and files on them. 
+
+	- However, along came one CD 
+	- with literally hundreds of thousands of files on it. 
+	- The computer did nothing but sort 
+	- those file names alphabetically for around 12H
+	- HAAA!!!!. 
+
+	- When this was discovered, the programmer rewrote the sorting code 
+	- to be more efficient and reduced 
+	- the sorting time to around 15 s. 
+	- DAMN!!!.
+
+	- That’s a BIG difference! 
+	- It also illustrates just how important this idea of computational complexity is.
+
+"""---------------------------------------------------------------------------"""
+

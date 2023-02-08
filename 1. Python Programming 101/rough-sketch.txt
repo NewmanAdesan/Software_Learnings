@@ -1,0 +1,1868 @@
+
+
+
+
+
+
+
+
+
+
+
+"""--------------------------------  Preface  --------------------------------"""
+
+introductory and Advanced <<two courses>>:
+``````````````````````````````````````````
+Thanks for choosing Data Structures and Algorithms with Python. 
+
+This text was written based on classroom notes for two courses, 
+	- an introductory data structures and algorithms course and 
+	- an advanced data structures and algorithms course. 
+
+The material contained in this text can be taught in two semesters. 
+
+The early chapters in this text are intended 
+as an introductory text for data structures and algorithms,
+
+while the later chapters cover advanced topics 
+that are suitable for the second course in data structures and algorithms. 
+
+
+
+
+
+Algorithms <<goal 1>>:
+``````````````````````
+In this text the next steps are taken to teach you 
+HOW TO HANDLE LARGE AMOUNTS OF DATA EFFICIENTLY. 
+
+A number of algorithms are introduced and the need for them is motivated 
+through examples that bring meaning to the problems we face as computer programmers. 
+
+An algorithm is a well-defined procedure for accomplishing a task. 
+
+Algorithms are an important part of Computer Science and 
+this text explores many algorithms to give you the background 
+you need when writing programs of your own. 
+
+The goal is that having seen some of the sorts of algorithms presented in this text, 
+you will be able to apply these techniques to other programs you write in the future.
+
+
+
+
+
+Computational analysis <<goal 2>>:
+``````````````````````````````````
+Another goal of this text is to introduce you to the idea of computational complexity.
+
+While there are many unique and interesting algorithms that we could explore, 
+it is important to understand that some algorithms are more efficient than others. 
+
+While computers are very good at doing calculations quickly, 
+an inefficient algorithm can make the fastest computer seem very slow or 
+even make it appear to come to a halt. 
+
+This text will show you what can and cannot be computed efficiently. 
+
+The text builds this idea of efficiency from the most basic of facts 
+giving you the tools you will need to determine just how efficient any algorithm is 
+so you can make informed judgements about the programs you write.
+
+
+
+
+
+Python Language:
+````````````````
+The Python language is used throughout the text
+and some familiarity with Python or some other object-oriented language is assumed. 
+
+However, the first chapter contains a Python primer for those coming
+from a different language background.
+
+The text assumes that you have some prior experience in computer programming, 
+
+probably from an introductory programming course where you learned to
+break simple problems into steps that could be solved by a computer. 
+
+The language you used may have been Python, but not necessarily. 
+Python is an excellent language for a text on data structures and algorithms 
+whether you have used it before or not. 
+
+Python is an object-oriented programming language with operator overloading and dynamic typing. 
+
+Whether this is your first exposure to Python or you used it in your first course, 
+you will learn more about the language from this text.
+
+
+
+
+
+Chapter Structure:
+``````````````````
+The first chapter of the text reviews some of the fundamentals of computer programming 
+along with the basic syntax of Python to get you up to speed in the language. 
+
+Then subsequent chapters dive into more advanced topics and should be read in sequence.
+
+At the beginning of every chapter the goals of the chapter are stated. 
+
+At the end of every chapter is a set of review questions that reinforce the goals of the chapter.
+
+These review questions are followed in each chapter by a few programming problems 
+that relate to the chapter goals by asking you to use the things 
+you learned in the chapter and apply them to a computer program. 
+
+You can motivate your reading of a chapter by first consulting the review questions 
+and then reading the chapter to answer them. 
+
+Along the way, there are lots of examples to illustrate the concepts being introduced.
+
+
+
+
+
+Introductory Course Structure:
+``````````````````````````````
+A typical introductory data structures course 
+covers the FIRST SEVEN chapters of this text. 
+
+Chapter 1 introduces Python programming and the Tkinter module 
+which is used in various places in the text. 
+
+Tkinter comes with Python, so no special libraries need be installed for students to use it. 
+Tkinter is used to visualize many of the results in this text.
+
+Chapter 2 introduces complexity analysis and depending on your needs, 
+some of the material in Chap. 2 could be skipped in an introductory data structures course. 
+
+In particular, the material on Θ notation and amortized complexity can be skipped. 
+
+BIG-OH NOTATION IS ENOUGH FOR THE FIRST SEVEN CHAPTERS. 
+
+Typically, Chap. 7 is covered lightly and near the end of a semester course. 
+It seems there is generally not enough time in a semester to cover graph theory in much detail.
+
+
+
+
+
+
+Advanced Course Structure:
+``````````````````````````
+Advanced courses in data structures and algorithms should start with Chap. 1 
+if students are unfamiliar with Python or Tkinter. 
+
+A brief refresher may not be bad even for those that have programmed using Python before. 
+
+Chapter 2 should be covered in detail including the material on Θ notation and amortized complexity.
+
+Some review of hashing as it is used in sets and maps in Chap. 5 
+may be good review earlier in the advanced course along 
+with a brief discussion of binary search trees and tree traversals in Chap. 6. 
+
+Depending on your needs, Chap. 7 would be a good chapter to cover next 
+including the material on depth first search of a graph.
+
+Chapter 8 is where the advanced material begins with assumptions made that
+students understand the concepts presented in the earlier chapters. 
+
+The two introductory chapters along with Chaps. 8–12 
+make a seven-chapter sequence that will fill a semeseter in an advanced course nicely.
+
+
+
+
+
+Remarks:
+````````
+This text is very project oriented. 
+
+Solutions for all projects are available from Kent D. Lee.
+You can contact Kent at kentdlee@luther.edu for instructor solutions.
+
+You must provide proof (through a website or other reference) that you are an
+instructor at an educational institution to get access to the instructor materials.
+
+"""---------------------------------------------------------------------------"""
+
+
+
+
+
+
+
+
+
+"""-----------------------------   Introductions  ----------------------------"""
+
+
+Chapter Introduction:
+`````````````````````
+This Computer Science text further develops the skills you learned 
+in your first CS text or course.
+
+It adds to your bag of tricks by teaching you 
+HOW TO USE EFFICIENT ALGORITHMS FOR DEALING WITH LARGE AMOUNTS OF DATA. 
+
+Without the proper understanding of efficiency, 
+it is possible to bring even the fastest computers to a grinding halt 
+when working with large data sets. 
+
+This has happened before, and soon you will understand just how easy it can occur. 
+
+But first, we’ll review some patterns for programming and
+look at the Python programming language 
+to make sure you understand the basic structure and syntax of the language.
+
+
+
+
+
+Python <<Installation(Wing IDE)>>:
+``````````````````````````````````
+To begin writing programs using Python you need to install Python on your computer. 
+The examples in this text use Python 3. 
+
+Python 2 is not compatible with Python 3 
+so you’ll want to be sure you have Python 3 or later installed on your computer.
+
+When writing programs in any language 
+a good Integrated Development Environment (IDE) is a valuable tool 
+so you’ll want to install an IDE, too. 
+
+Examples within this text will use Wing IDE 101 as pictured in Fig. 1.1, 
+although other acceptable IDEs are available as well. 
+
+The Wing IDE 
+	- is well maintained, 
+	- simple to use, and has
+	- a nice debugger which will be useful as you write Python programs. 
+
+
+
+
+
+
+Python <<general concepts>>:
+````````````````````````````
+There are some general concepts about Python that you should know when reading the text.
+
+Python is an interpreted language. 
+That means that you don’t have to go through any extra steps 
+after writing Python code before you can run it. 
+
+You can simply press the debug button in the Wing IDE (it looks like an insect) 
+and it will ask you to save your program if you haven’t already done so at least once.
+
+Python is also dynamically typed. 
+This means that you will not get any type errors before you run your program 
+as you would with some programming languages. 
+
+It is especially important for you to understand the types of data 
+you are using in your program. More on this in just a bit. 
+
+Finally, your Python programs are interpreted by the Python interpreter. 
+The shell is another name for the Python interpreter and 
+Wing IDE 101 gives you access to a shell within the IDE itself. 
+
+You can type Python statements and expressions 
+into the window pane that says Python Shell 
+to quickly try out a snippet of code before you put it in a program
+
+
+
+
+
+
+Python <<Error and Error Tools(Wing IDE)>>:
+```````````````````````````````````````````
+Like most programming languages, 
+there are a couple kinds of errors you can get in your Python programs. 
+
+Syntax errors are found before your program runs. 
+These are things like missing a colon or forgetting to indent something. 
+
+Run-time errors are found when your program runs. Run-time errors come from 
+things like variables with unexpected values and operations on these values. 
+
+To find a run-time error in Wing IDE software,
+you can look at the Stack Data tab as it appears in Fig. 1.1. 
+
+When a run-time error occurs the program will stop executing and 
+the Stack Data tab will let you examine the run-time stack where you can see the program variables.
+
+In the event that you still don’t understand a problem, 
+the Wing IDE 101 (and most other IDEs) lets you step through your code 
+so you can watch as an error is reproduced. 
+
+The three icons in the upper right corner of Fig. 1.1 let you 
+	- Step Into a function, 
+	- Step Over code, and 
+	- Step Out Of a function, respectively. 
+
+Stepping over or into your code can be valuable 
+when trying to understand a run-time error and how it occurred.
+
+One other less than obvious tool is provided by the Wing IDE. 
+By clicking on the line number on the left side of the IDE 
+it is possible to set a breakpoint. 
+
+A breakpoint causes the program to stop execution just before the breakpoint. 
+
+From there it is possible to begin stepping over your code to determine how an error occurred.
+
+
+
+
+
+Introduction <end-note>:
+````````````````````````
+To motivate learning or reviewing Python in this chapter, 
+
+the text will develop a simple drawing application 
+using turtle graphics and a Graphical User Interface(GUI) framework called Tkinter. 
+
+Along the way, you’ll discover some patterns for programming including 
+	- the accumulator pattern and 
+	- the loop and a half pattern for reading records from a file. 
+
+You’ll also see functions in Python and begin to learn
+how to implement your own datatypes by designing and writing a class definition.
+
+
+
+
+
+
+Chapter Goals:
+``````````````
+By the end of this chapter, you should be able to answer these questions.
+	• What two parts are needed for the accumulator pattern?
+	• When do you need to use the loop and a half pattern for reading from a file?
+	• What is the purpose of a class definition?
+	• What is an object and how do we create one?
+	• What is a mutator method?
+	• What is an accessor method?
+	• What is a widget and how does one use widgets in GUI programming?
+
+
+
+
+
+Creating Objects << Objects Thinking(data-item) >>:
+```````````````````````````````````````````````````
+Python is an object-oriented language. 
+All data items in Python are objects. 
+
+In Python, data items that could be thought of as similar, 
+are named by a "type" or "class".(HMM...) 
+
+The term type and class in Python are synonymous: 
+they are two names for the same thing. 
+
+So when you read about types in Python you can think of classes or vice versa.
+
+There are several "built-in types of data" in Python including 
+int, float, str, list, and dict which is short for dictionary. 
+
+These types of data and their associated operations
+are included in the appendices at the end of the text 
+so you have a quick reference if you need to refer to it while programming. 
+
+You can also get help for any type by typing help(typename) in the Python shell, 
+
+where typename is a type or class in Python. 
+
+A very good language reference can be found at http://python.org/doc, 
+the official Python documentation website.
+
+
+
+
+
+Creating Object <<Literal Values (assignments)>>:
+`````````````````````````````````````````````````
+There are two ways to create objects in Python. 
+
+In a few cases, you can use a literal value to create an object. 
+
+Literal values are used when we want to set some variable
+to a specific value within our program. 
+
+For example, the literal 6 denotes any object with the integer value of 6.
+x = 6
+
+This creates an int object containing the value 6. 
+It also points the reference calledbx at this object  
+
+All assignments in Python point references at objects. 
+
+Any time you see an assignment statement, you should remember that 
+	- the thing on the left side of the equals sign is a reference and 
+	- the thing on the right side is either another reference or a newly created object. 
+
+In this case, writing x = 6 makes a new object and then points x at this object.
+
+
+
+
+
+Creating Object <<Literal Values (built-in types)>>:
+````````````````````````````````````````````````````
+Other literal values may be written in Python as well. 
+Here are some literal values that are possible in Python.
+	• int literals: 6, 3, 10, −2, etc.
+	• float literals: 6.0, −3.2, 4.5E10
+	• str literals: ‘hi there’, “how are you”
+	• list literals: [], [6, ‘hi there’]
+	• dict literals: {}, {‘hi there’:6, ‘how are you’:4}
+
+
+Python lets you specify float literals with an exponent.
+So, 4.5E10 represents the float 45000000000.0. 
+
+Any number written with a decimal point is a float, 
+whether there is a 0 or some other value after the decimal point. 
+
+If you write a number using the E or exponent notation, it is a float as well. 
+
+Any number without a decimal point is an int, unless it is written in E notation. 
+
+String literals are surrounded by either single or double quotes. 
+
+List literals are surrounded by [ and ].
+The [] literal represents the empty list. 
+
+The {} literal is the empty dictionary.
+You may not have previously used dictionaries. 
+
+A dictionary is a mapping of keys to values. 
+	{
+		"hi there": 6,
+		"how are you": 4
+	}
+In the dictionary literal, the key ‘hi there’ is mapped to the value 6, and
+the key ‘how are you’ is mapped to 4. 
+
+
+
+
+
+
+
+Creating Object <<Non-Literal Values>>:
+```````````````````````````````````````
+Most of the time, when an object is created, 
+it is not created from a literal value.
+
+Of course, we need literal values in programming languages, 
+but most of the time we have an object already and want 
+to create another object by using one or more existing objects. 
+
+For instance, if we have a string in Python, like ‘6’ and want to
+create an int object from that string, we can do the following.
+	y = ’6’
+	x = int(y)
+	print(x)
+
+	DO YOU GET!!!
+
+	- y is a reference to the str object created from the string literal.
+
+	- The variable x is a reference to an object that is created 
+	  by using the object that y refers to. 
+
+	- In general, when we want to create an object based on other object values 
+	  we write the following:  
+	  	variable = type(other_object_values)
+
+	- The type is any type or class name in Python, 
+      like int, float, str or any other type. 
+
+    - The "other_object_values" is a comma-separated sequence of references 
+      to other objects that are needed by the class or type 
+      to create an instance (i.e. an object) of that type. 
+
+
+Here are some examples of creating objects from non-literal values.
+	z = float('6.3')
+	w = str(z)
+	u = list(w) # this results in the list [’6’, ’.’, ’3’]
+
+
+
+
+
+
+Calling Methods on Objects <<Accessor methods>>:
+````````````````````````````````````````````````
+Objects are useful because they allow us to collect related information and 
+group them with behavior that act on this data. 
+
+These behaviors are called methods in Python. 
+
+There are two kinds of methods in any object-oriented language: 
+	- mutator and 
+	- accessor methods. 
+
+Accessor methods access the current state of an object but don’t change the object. 
+
+Accessor methods return new object references when called.
+	x = ’how are you’
+	y = x.upper()
+	print(y)
+
+	- the "method upper" is called on the object that x refers to. 
+
+	- The upper accessor method returns a new object, a str object, 
+      that is an upper-cased version of the original string. 
+
+    - Note that x is not changed by calling the upper method on it.
+
+    -The upper method is an accessor method. 
+
+There are many accessor methods available on the str type 
+which you can learn about in the appendices.
+
+
+
+
+
+Calling Methods on Objects <<Mutator methods>>:
+```````````````````````````````````````````````
+Some methods are mutator methods. 
+These methods actually change the existing object. 
+
+One good example of this is the reverse method on the list type.
+	myList = [1, 2, 3]
+	myList.reverse()
+	print(myList) # This prints [3, 2, 1] to the screen
+
+	- The reverse method mutates the existing object, 
+	  in this case the list that myList refers to. 
+
+	- Once called, a mutator method can’t be undone. 
+	  The change or mutation is permanent until mutated again by some other mutator method.
+
+
+
+
+
+Calling Methods on Objects <<immutability>>:
+````````````````````````````````````````````
+All classes contain accessor methods. 
+Without accessor methods, the class would be pretty uninteresting. 
+
+We use accessor methods 
+	- to retrieve a value that is stored in an object or 
+	- to retrieve a value that depends on the value stored in an object.
+
+If a class had no accessor methods 
+we could put values in the object but we could never retrieve them.
+
+Some classes have mutator methods and some don’t. 
+For instance, the list class has mutator methods, including the reverse method. 
+
+There are some classes that don’t have any mutator methods. 
+For instance, the str class does not have any mutator methods. 
+
+When a class does not contain any mutator methods, 
+we say that the class is immutable. 
+
+We can form new values from the data in an immutable class, 
+but once an immutable object is created, it cannot be changed. 
+
+Other immutable classes include int and float.
+
+
+
+
+Class Implementation <<constructor job>>:
+`````````````````````````````````````````
+Programming in an object-oriented language usually means
+	- implementing classes that describe objects 
+	- which hold information that is needed by the program you are writing. 
+
+Objects contain data and methods operate on that data. 
+
+A class is the definition of the data and methods for a specific type of object.
+
+Every class contains one special method called a constructor. 
+
+The constructor’s job is to create an instance of an object 
+by placing references to data within the object itself. 
+
+For example, consider a class called Dog. A dog has
+	- a name, 
+	- a birthday, and 
+	- a sound it makes when it barks. 
+
+
+
+
+
+Class Implementation <<Dog example>>:
+`````````````````````````````````````
+When we create a Dog object, we write code like that appearing in Sect. 1.4.1.
+	boyDog = Dog("Mesa", 5, 15, 2004, "WOOOF")
+	girlDog = Dog("Sequoia", 5, 6, 2004, "barkbark")
+	print(boyDog.speak())
+	print(girlDog.speak())
+	print(boyDog.birthDate())
+	print(girlDog.birthDate())
+	boyDog.changeBark("woofywoofy")
+	print(boyDog.speak())
+
+Each object is referenced by the variable reference assigned to it,
+either girlDog or boyDog in this case. 
+
+The objects themselves are a collection of references that point 
+to the information that is stored in the object. 
+
+Each object has name, month, day, year, and speakText references 
+that point to the associated data that make up a Dog object.
+
+To be able to create Dog objects like these two objects 
+we need a Dog class to define these objects. 
+
+In addition, we’ll need to define speak, birthDate, and changeBark methods. 
+
+We can do this by writing a class as shown in Sect. 1.4.2. 
+
+	class Dog:
+		def __init__(self, name, month, day, year, speakText):
+			self.name = name
+			self.month = month
+			self.day = day
+			self.year = year
+			self.speakText = speakText
+
+		def speak(self):
+			return self.speakText
+
+		def birthDate(self):
+			return f"Year: {self.year}\nMonth: {self.month}\nDay: {self.day}"
+
+		def changeBark(self, speakText):
+			self.speakText = speakText
+
+The special variable self always points at the current object and 
+must be the first parameter to each method in the class.
+
+Python takes care of passing the self argument to the methods. 
+
+The other arguments are passed by the programmer when the method is called 
+
+
+
+
+Operator Overloading <<intro>>:
+```````````````````````````````
+
+BASICALLY, USING AN OPERATOR TO CALL A METHOD,
+
+Python provides operator overloading, 
+which is a nice feature of programming languages because it makes 
+it possible for the programmer to interact with objects IN A VERY NATURAL WAY. 
+
+Operator overloading is already implemented 
+for a variety of the built-in classes or types in Python. 
+
+For instance, integers (i.e. the int type) 
+understand how they can be added together to form a new integer object. 
+
+Addition is implemented by a special method in Python called the __add__ method. 
+
+When two integers are added together, this method is called to create a new integer object. 
+
+If you look in the appendices, 
+you’ll see examples of these special methods and how they are called.
+
+For example, the __add__ method is called by writing x + y 
+where x is an integer. 
+
+The methods that begin and end with two underscores 
+are methods that Python associates with a corresponding operator.
+
+
+
+
+Operator Overloading <<where to look>>:
+```````````````````````````````````````
+When we say that Python supports operator overloading 
+we mean that if you define a method for your class with a name that is operator overloaded, 
+your class will support that operator as well. 
+
+Python figures out which method to call based on the types of the operands involved. 
+
+For instance, writing x + y calls the int class __add__ method when x is an integer, 
+
+but it calls the float type’s __add__ method when x is a float. 
+
+This is because in the case of the __add__ method, 
+	- the object on the left hand side of the + operator 
+	- corresponds to the object on the left hand side of the dot (i.e. the period) 
+	- in the equivalent method call x.__add__(y). 
+
+The object on the left side of the dot determines which add method is called. 
+The + operator is overloaded.
+
+If we wanted to define addition for our Dog class, 
+we would include an __add__method in the class definition. 
+
+It might be natural to write boyDog+girlDog to create a new puppy object. 
+
+If we wished to do that we would extend our Dog class we wrote previously
+
+
+
+
+Operator Overloading <<magic methods>>:
+```````````````````````````````````````
+There are many operators that are defined in Python. 
+
+Python programmers often call these operators Magic Methods.
+
+Because a method automatically gets called when an operator is used in an expression. 
+
+Many of the common operators are given in the table
+
+__add__(self,y):
+	x+y 
+	The addition of two objects. 
+	The type of x determines which add operator is called.
+
+
+__contains__(self,y) 
+	y in x 
+	When x is a collection you can test to see if y is in it.
+
+
+__eq__(self,y) 
+	x == y 
+	Returns True or False depending on the values of x and y.
+
+
+__ge__(self,y) 
+	x >= y 
+	Returns True or False depending on the values of x and y.
+
+
+__getitem__(self,y) 
+	x[y] 
+	Returns the item at the yth position in x.
+
+
+__gt__(self,y) 
+	x>y 
+	Returns True or False depending on the values of x and y.
+
+
+__hash__(self) 
+	hash(x) 
+	Returns an integral value for x.
+
+
+__int__(self) 
+	int(x) 
+	Returns an integer representation of x.
+
+
+__iter__(self) 
+	for v in x 
+	Returns an iterator object for the sequence x.
+
+
+__le__(self,y) 
+	x <= y 
+	Returns True or False depending on the values of x and y.
+
+
+__len__(self) 
+	len(x) 
+	Returns the size of x where x has some length attribute.
+
+
+__lt__(self,y) 
+	x<y 
+	Returns True or False depending on the values of x and y.
+
+
+__mod__(self,y) 
+	x%y 
+	Returns the value of x modulo y. This is the remainder of x/y.
+
+
+__mul__(self,y) 
+	x*y 
+	Returns the product of x and y.
+
+
+__ne__(self,y) 
+	x != y 
+	Returns True or False depending on the values of x and y.
+
+
+__neg__(self) 
+	-x 
+	Returns the unary negation of x.
+
+
+__repr__(self) 
+	repr(x) 
+	Returns a string version of x suitable to be evaluated by the eval function.
+
+
+__setitem__(self,i,y) 
+	x[i] = y 
+	Sets the item at the ith position in x to y.
+
+
+__str__(self) 
+	str(x) 
+	Return a string representation of x suitable for user-level interaction.
+
+
+__sub__(self,y)
+	x-y 
+	The difference of two objects.
+
+
+For each operator the magic method is given, 
+how to call the operator is given, and a short description of it as well. 
+
+In the table, self and x refer to the same object. 
+The type of x determines which operator method is called in each case
+in the table.
+
+
+
+
+
+Operator Overloading <<repr VS str>>:
+`````````````````````````````````````
+The repr(x) and the str(x) operators deserve a little more explanation. 
+
+Both operators return a string representation of x. 
+
+The difference is that the str operator should return a string 
+that is suitable for human interaction 
+
+while the repr operator is called when a string representation is needed that can be evaluated. 
+
+For instance, if we wanted to define these two operators on the Dog class, 
+
+the repr method would return the string “Dog(‘Mesa’, 5,15,2004, ‘WOOOF’)” 
+
+while the str operator might return just the dog’s name. 
+
+The repr operator, when called, will treat the string as an
+expression that could later be evaluated by the eval function in Python 
+
+whereas the str operator simply returns a string for an object.
+
+
+
+
+
+Importing Modules <<intro>>:
+````````````````````````````
+In Python, programs can be broken up into modules. 
+
+Typically, when you write a program in Python 
+you are going to use code that someone else wrote. 
+
+Code that others wrote is usually provided in a module. 
+
+To use a module, you import it. 
+
+There are two ways to import a module. 
+For the drawing program we are developing in this chapter, 
+we want to use turtle graphics. 
+
+
+
+Turtle graphics <<intro>>:
+``````````````````````````
+Turtle graphics was first developed a long time ago for a programming language called Logo. 
+
+Logo was created around 1967 so the basis for turtle graphics 
+is pretty ancient in terms of Computer Science.
+
+It still remains a useful way of thinking about Computer Graphics. 
+
+The idea is that a turtle is wandering a beach and 
+as it walks around it drags its tail in the sand leaving a trail behind it. 
+
+All that you can do with a turtle is discussed in the Chap. 18.
+
+
+
+
+Importing Modules <<methods>>:
+``````````````````````````````
+There are two ways to import a module in Python: 
+	- the convenient way and 
+	- the safe way. 
+
+CONVENIET:
+Which way you choose to import code may be a personal preference, 
+but there are some implications about using the convenient method of importing code.
+
+The convenient way to import the turtle module would be to write the following.
+   from turtle import *
+   t = Turtle()
+
+This is convenient, because whenever you want to use the Turtle class, 
+you can just write Turtle which is convenient, 
+
+but not completely safe because you then have
+to make sure you never use the identifier Turtle for anything else in your code. 
+
+In fact, there may be other identifiers that the turtle module defines 
+that you are unaware of that would also be identifiers you should not use in your code. 
+
+
+SAFE:
+The safe way to import the turtle module would be as follows
+   import turtle
+   t = turtle.Turtle()
+
+While this is not quite as convenient,
+it is safe because the namespace of your module and the turtle module are kept separate. 
+
+All identifiers in the turtle module are in the turtle namespace, 
+while the local identifiers are in the local namespace. 
+
+This idea of namespaces is an important feature of most programming languages. 
+
+It helps programmers keep from stepping on each others’ toes. 
+
+
+
+Indentation:
+````````````
+Indentation plays an important role in Python programs. 
+
+An indented line belongs to the line it is indented under. 
+	- The body of a function is indented under its function definition line. 
+	- The then part of an if statement is indented under the if. 
+	- A while loop’s body is indented under it. 
+	- The methods of a class are all indented under the class definition line. 
+
+All statements that are indented the same amount and grouped together are called a block. 
+
+It is important that all statements within a block are indented exactly the same amount. 
+If they are not, then Python will complain about inconsistent indentation.
+
+
+
+
+The Main Function:
+``````````````````
+Programs are typically written with many function definitions and function calls.
+
+One function definition is written by convention in Python, 
+usually called the main function. 
+
+This function contains code the program typically executes when it is first started. 
+
+	import turtle
+
+	# other function definitions followed by the main function definition
+	def main():
+		# The main code of the program goes here
+		t = turtle.Turtle()
+
+	# this code calls the main function to get everything started. The condition in this
+	# if statement evaluates to True when the module is executed by the interpreter, but
+	# not when it is imported into another module.
+	if __name__ == "__main__":
+		main()
+
+Later you will have the opportunity to write a module to be imported 
+into another module so it is a good habit to form to always call the main function in this way.
+
+
+"""---------------------------------------------------------------------------"""
+
+
+
+
+
+
+
+
+
+"""--------------------------  Reading from a File  --------------------------"""
+
+Drawing <<a perspective>>:
+``````````````````````````
+To begin our drawing program, 
+let’s assume that a picture is stored in a file 
+
+and we wish to read this file when the program is started. 
+
+We’ll assume that each line of the file contains a drawing command and its associated data. 
+
+We’ll keep it simple and stick to drawing commands that look like this in the input file:
+	• goto, x, y, width, color
+	• circle, radius, width, color
+	• beginfill, color
+	• endfill
+	• penup
+	• pendown
+
+Each line of the file will contain a record with the needed information. 
+
+We can draw a picture by providing a file with the right sequence of these commands. 
+
+The file below contains records that describe a pickup truck.
+
+	1 beginfill, black
+	2 circle, 20, 1, black
+	3 endfill
+	4 penup
+	5 goto, 120, 0, 1, black
+	6 pendown
+	7 beginfill, black
+	8 circle, 20, 1, black
+	9 endfill
+	10 penup
+	11 goto, 150, 40, 1, black
+	12 pendown
+	13 beginfill, yellow
+	14 goto, -30, 40, 1, black
+	15 goto, -30, 70, 1, black
+	16 goto, 60, 70, 1, black
+	17 goto, 60, 100, 1, black
+	18 goto, 90, 100, 1, black
+	19 goto, 115, 70, 1, black
+	20 goto, 150, 70, 1, black
+	21 goto, 150, 40, 1, black
+	22 endfill
+
+
+
+Drawing <<file processing (single line records>>:
+`````````````````````````````````````````````````
+
+# obtain the file name for picture (strip)
+# create a Turtle graphic window
+# obtain file object for filename
+# loop through each line in the file (strip)
+# split each line by "comma"
+# write an if/elif statement to handle the command
+
+import turtle
+
+def main():
+
+  filename = input("Please enter drawing filename: ")
+
+  # Create a Turtle Graphics window to draw in.
+  t = turtle.Turtle()
+
+  # obtain screen object for the window, will be used at end of program.
+  screen = t.getscreen()
+
+  # obtain the file object
+  file = open(filename, "r")
+
+  # The following for loop reads the lines of the file, 
+  for line in file:
+    text = line.strip()
+
+	  # splits the text variable into its pieces.
+	  commandList = text.split(",")
+
+	  # get the drawing command
+	  command = commandList[0]
+
+	  if command == "goto": 
+	  	x = float(commandList[1])
+	  	y = float(commandList[2])
+			width = float(commandList[3])
+			color = commandList[4].strip()
+
+			t.width(width)
+			t.pencolor(color)
+			t.goto(x,y)
+
+		elif command == "circle":
+			radius = float(commandList[1])
+			width = float(commandList[2])
+			color = commandList[3].strip()
+
+			t.width(width)
+			t.pencolor(color)
+			t.circle(radius)
+
+		elif command == "beginfill":
+			color = commandList[1].strip()
+			t.fillcolor(color)
+			t.begin_fill()
+
+		elif command == "endfill":
+			t.end_fill()
+
+		elif command == "penup":
+			t.penup()
+
+		elif command == "pendown":
+			t.pendown()
+
+		else:
+			print("Unknown command found in file:",command)
+	  
+	#close the file
+	file.close()
+
+	#hide the turtle that we used to draw the picture.
+	t.ht()
+
+  # hold the turtle graphics window open until the mouse is clicked.
+	screen.exitonclick()
+
+	print("Program Execution Completed.")
+
+
+# This code calls the main function to get everything started.
+if __name__ == "__main__":
+	main()
+
+
+
+
+
+Loop and a Half Pattern:
+````````````````````````
+	beginfill
+	black
+	circle
+	20
+	1
+	black
+	endfill
+	penup
+	.....
+
+Sometimes records of a file are not one per line. 
+Records of a file may cross multiple lines. 
+
+In that case, you can’t use a for loop to read the file. 
+You need a while loop instead. 
+
+This thing is that while loop is not quite compact.
+
+When you use a while loop, 
+you need to be able to check a condition to see if you are done reading the file. 
+
+But, to check the condition you must first try to read at least a little of a record. 
+This is a kind of chicken and egg problem. 
+Which came first, the chicken or the egg? 
+
+Computer programmers have a name for this problem as it relates to reading from files. 
+It is called the Loop and a Half Pattern. 
+
+To use a while loop to read from a file, we need a loop and a half. 
+The half comes before the while loop.
+
+
+
+
+
+Drawing <<file processing (multi-line records):
+```````````````````````````````````````````````
+
+	....
+
+	command = file.readline().strip()
+
+	while command != "":
+
+	# Now we must read the rest of the record and then process it. Because
+	# records are variable length, we’ll use an if-elif to determine which
+	# type of record it is and then we’ll read and process the record.
+
+	if command == "goto":
+		x = float(file.readline())
+		y = float(file.readline())
+		width = float(file.readline())
+		color = file.readline().strip()
+		t.width(width)
+		t.pencolor(color)
+		t.goto(x,y)
+
+	elif command == "circle":
+		radius = float(file.readline())
+		width = float(file.readline())
+
+	....
+
+	command = file.realine().strip()
+
+
+NOTICE THE TECHNIQUES BEHIND THIS CODE
+based on the start of a record, 
+we readline the numbe of the lines that should belong to the record.
+
+THE MAJOR TRICK HERE IS HOW readline() WORKS
+
+
+
+
+
+Drawing <<Container class>>:
+````````````````````````````
+
+To further enhance our drawing program 
+we will first create a data structure to hold all of our drawing commands. 
+
+To begin let’s figure out what we want to do with this container class.
+
+Our program will begin by creating an empty container. To do this, 
+	graphicsCommands = PyList()
+
+Then, we will want to add graphics commands to our list using an append method
+	command = GotoCommand(x, y, width, color)
+	graphicsCommands.append(command)
+
+We would also like to be able to iterate over the commands in our list.
+	for command in graphicsCommands:
+	 # draw each command on the screen using the turtle called t.
+	 command.draw(t)
+
+At this point, our container class looks a lot like a list. 
+
+We are defining our own list class to illustrate a first data structure 
+and to motivate discussion of how lists can be implemented efficiently in this 
+and the next chapter.
+
+
+
+
+
+
+Polymorphism:
+`````````````
+One important concept in Object-Oriented Programming is called polymorphism.
+
+The word polymorphic literally means many forms. 
+
+As this concept is applied to computer programming, 
+the idea is that there can be many ways that a particular behavior might be implemented.
+
+In relationship to our PyList container class that we are building, 
+the idea is that each type of graphics command will know how to draw itself correctly
+
+For instance, one type of graphics command is the GoToCommand.
+
+When a GoToCommand is drawn it draws a line on the screen 
+from the current point to some new (x,y) coordinate.
+
+But, when a CircleCommand is drawn, it draws a circle on the screen with a particular radius.
+
+This polymorphic behavior can be defined by
+creating a class and draw method for each different type of behavior/command.
+
+
+
+
+
+Polymorphism <<graphic command classes>>:
+`````````````````````````````````````````
+
+class GoToCommand:
+	def __init__(self, x, y, width, color):
+		self.x = x
+		self.y = y
+		self.width = width
+		self.color = color
+
+	def draw(self, turtle):
+		turtle.width(self.width)
+		turtle.pencolor(self.color)
+		turtle.goto(self.x, self.y)
+
+
+
+class CircleCommand:
+	def __init__(self, radius, width, color):
+		self.radius = radius
+		self.width = width
+		self.color = color
+
+	def draw(self, turtle):
+		turtle.width(self.width)
+		turtle.pencolor(self.color)
+		turtle.circle(self.radius)
+		
+
+
+class BeginFillCommand:
+	def __init__(self, color):
+		self.color = color
+
+	def draw(self, turtle):
+		turtle.fillcolor(self.color)
+		turtle.begin_fill()
+
+
+
+class EndFillCommand:
+	def __init__(self):
+		pass
+
+	def draw(self, turtle):
+		turtle.end_fill()
+
+
+
+class PenUpCommand:
+	def __init__(self):
+		pass
+
+	def draw(self, turtle):
+		turtle.penup()
+
+
+
+class PenDownCommand:
+	def __init__(self):
+		pass
+
+	def draw(self, turtle):
+		turtle.pendown()
+
+
+To use the different command classes that we have just defined, 
+
+our program will read the variable length records from the file 
+as it did before using the loop and a half pattern that we have already seen.
+
+Convert the command records in the file, into a Command data structure,
+and place each Command structure into our explicitly defined list. 
+
+
+
+
+
+
+Accumulator Pattern:
+````````````````````
+
+Patterns of programming, sometimes called idioms, are important in Computer Science. 
+Once we have learned an idiom we can apply it over and over in our programs. 
+
+This is useful to us because as we solve problems its nice to say, 
+		“Oh, yes, I can solve this problem using that idiom”. 
+
+Having idioms at our fingertips frees our minds 
+to deal with the tougher problems we encounter while programming.
+
+One important pattern in programming is the Accumulator Pattern. 
+
+This pattern is used in nearly every program we write. 
+
+When using this pattern you initialize an accumulator before a loop 
+and then inside the loop you add to the accumulator. 
+
+For instance, 
+
+accumulator = []
+for i in range(6):
+	accumulator += [i ** 2]
+
+
+
+
+Graphical User Interface <<intro>>:
+```````````````````````````````````
+The word GUI means Graphical User Interface. 
+
+Implementing a Graphical User Interface in Python is very easy 
+using a module called Tkinter. 
+
+The Tcl/Tk language and toolkit was designed 
+as a cross-platform method of creating GUI interfaces.
+
+Python provides an interface to this toolkit via the Tkinter module.
+A GUI is an event-driven program. 
+
+This means that you write your code to respond to events that occur in the program. 
+
+The events occur as a result of 
+	- mouse clicks,
+	- dragging the mouse, 
+	- button presses, and 
+	- menu items being selected.
+
+To build a GUI you place widgets in a window. 
+
+Widgets are any element of a GUI like 
+	- labels, 
+	- buttons, 
+	- entry boxes, and 
+	- sometimes invisible widgets called frames. 
+	  A frame is a widget that can hold other widgets. 
+
+
+
+
+
+GUI <<basic function (widget & event)>>:
+````````````````````````````````````````
+To construct a GUI you need to create a window. 
+It is really very simple to do this using Tkinter.
+	root = tkinter.Tk()
+
+This creates an empty window on the screen, 
+but of course does not put anything in it. 
+
+We need to PLACE WIDGETS in it and 
+we also need to CREATE EVENT HANDLERS to handle events in the drawing application.
+
+Putting widgets in a window is called lAYOUT. 
+Laying out a window relies on a LAYOUT MANAGER of some sort. 
+
+Windowing toolkits support some kind of layout. 
+In Tkinter you either 
+	- pack, 
+	- grid, or 
+	- place widgets within a window. 
+
+
+
+
+
+GUI <<layout manager>>:
+```````````````````````
+When you pack widgets it’s like packing a suitcase 
+and each widget is stacked either beside or below the previous widget packed in the GUI. 
+
+Packing widgets will give you the desired layout in most situations, 
+but at times a grid may be useful for laying out a window.
+
+The place layout manager lets you place widgets at a particular location within a window. 
+
+We’ll use the pack layout manager to layout our drawing application.
+
+When packing widgets, to get the proper layout, 
+sometimes you need to create a Frame widget. 
+
+Frame widgets hold other widgets. 
+
+In Fig. 1.7 two frame widgets have been created. 
+
+The DrawingApplication frame is the size of the whole window
+and holds just two widgets that are placed side by side within it: 
+	- the canvas and 
+	- the sideBar frame. 
+
+A canvas is a widget on which a turtle can draw. 
+The sideBar widget holds all the buttons, entry boxes, and labels.
+
+
+
+
+The DrawingApplication frame inherits from Frame. 
+
+When programming in an object-oriented language, 
+sometimes you want to implement a class, but it is almost like another class. 
+
+In this case, the DrawingApplication is a Frame.
+
+This means there are two parts to DrawingApplication objects, 
+the Frame part of the DrawingApplication and the rest of it, 
+which in this case is the PyList sequence of graphics commands. 
+
+Our frame will keep track of the graphics commands 
+that are used to draw the picture on the canvas.
+
+Portions of the code appear in Sect. 1.14.1.
+
+The code in Sect. 1.14.1 shows you all the widgets that are created and 
+how they are packed within the window.
+
+The canvas and the sideBar widgets are added side by side 
+to the Drawing Application frame. 
+
+Then all the entry, label, and button widgets are added to the sideBar frame.
+
+
+In addition, there is a menu with the Draw application. 
+
+The menu is another widget that is added to the window 
+(called self.master in the code in Sect. 1.14.1).
+
+The fileMenu is what appears on the menu bar. 
+
+The menu items “New”, “Load...”, “Load Into...”, “Save As...”, and “Exit” are all added to this menu. 
+
+Each menu item is linked to an event handler that is executed when it is selected.
+
+When theTurtle object is created in Sect. 1.14.1, it is created as a RawTurtle. 
+
+A RawTurtle is just like a turtle except that a RawTurtle can be provided 
+a canvas to draw on. 
+
+A Turtle object creates its own canvas when the first turtle is created. 
+
+Since we already have a canvas for the turtle, we create a RawTurtle object.
+
+
+
+In addition to the event handlers for the widgets, 
+there are three other event handlers. 
+ - The onclick event occurs when you click the mouse button on the canvas.
+ - The ondrag event handler occurs when the turtle is dragged around the canvas. Finally,
+ - The undoHandler is called when the u key is pressed on the keyboard.
+
+
+
+
+
+"""---------------------------------------------------------------------------"""
+
+
+
+
+
+
+
+
+
+
+"""-------------------------------  XML Files  -------------------------------"""
+
+
+XML Files << initial problem >>:
+````````````````````````````````
+Reading a standard text file, like the graphics commands file 
+we read using the loop and a half pattern in Sect. 1.13.2, is a common task in computer programs. 
+
+The only problem is that the program must be written 
+to read the specific format of the input file. 
+
+If we later wish to change the format of the input file to include, 
+for example, 
+	- a new option like fill color for a circle, 
+	- change from multi-line command to single-line command description
+
+This means
+	- we will be stuck updating the program and 
+	- updating all the files it once read. 
+
+	- think about it,
+	- since we are going to change how the program works
+	  so it can read files with the new format
+
+	- so for the program to now read those old files, 
+	- the old files have to be in the new format
+	- thus leading to us updating all the files it once read.
+
+	- the input file format and the program must always be synchronized.
+	- meaning the program should be able to parse the input file format correctly
+
+	- when a program is able to understand new & old format,
+	  this is called BACKWARD COMPATIBILITY. 
+
+This means that all old formatted input files must be converted to
+the new format or they must be thrown away. 
+
+That is simply not acceptable to most businesses because data is valuable.
+
+
+
+
+
+XML Files << solution >>:
+`````````````````````````
+To deal with this problem, computer programmers designed a language 
+for describing data input files called XML which stands for eXtensible Markup Language. 
+
+XML IS A META-LANGUAGE FOR DATA DESCRIPTION. 
+A META-LANGUAGE IS A LANGUAGE FOR DESCRIBING OTHER LANGUAGES. 
+
+The XML meta-language is universally accepted. In fact, 
+the XML format is governed by a standards committee, 
+
+which means that we can count on the XML format 
+remaining very stable and backwards compatible forever. 
+
+Any additions to XML will have to be compatible with what has already been defined.
+
+
+
+
+XML Files << basic structure A>>:
+`````````````````````````````````
+An XML document begins with a special line to identify it as an XML file. 
+
+This line looks like this.
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+
+
+THE REST OF AN XML FILE CONSISTS OF ELEMENTS OR NODES. 
+
+Each node is identified by a tag or a pair of beginning and ending tags. 
+Each tag is delimited (i.e. surrounded) by angle brackets. 
+	- <GraphicsCommands>   (begin tag)
+	- </GraphicsCommands>  (close tag)
+
+
+An opening and closing tag 
+	- may have text or 
+	- other XML elements in between the two tags 
+	- so XML documents may contain XML elements nested as deeply as necessary 
+	- depending on the data you are trying to encode.
+
+
+
+
+
+XML Files << basic structure B>>:
+`````````````````````````````````
+Each XML element may have attributes associated with it. 
+
+For instance, consider an XML element that encapsulates the information 
+needed to do a GoTo graphics command. 
+
+To complete a GoTo command we need 
+	- the x and y coordinates, 
+	- the width of the line, and 
+	- the pen color. 
+
+Here is an example of encoding that information in XML format.
+  <Command x="1.0" y="1.0" width="1.0" color="#000000">GoTo</Command>
+
+In this example the attributes are x, y, width, and color. 
+Each attribute is mapped to its value as shown above. 
+
+The GoTo text is the text that appears between the opening and closing tags. 
+
+That text is sometimes called the child data.
+
+By encoding an entire graphics commands input file in XML format we eliminate
+some of the dependence between the Draw program and its data. 
+
+Except for the XML format (i.e. the grammar) 
+	- the contents of the XML file are completely 
+	- up to the programmer or programmers using the data. 
+
+
+
+
+
+XML Files << basic example>>:
+`````````````````````````````
+The Truck XML File
+The truck picture’s XML input file.
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<GraphicsCommands>
+  <Command color="black">BeginFill</Command>
+  <Command radius="20.0" width="1" color="black">Circle</Command>
+  <Command>EndFill</Command>
+  <Command>PenUp</Command>
+  <Command x="120.0" y="0.0" width="1.0" color="black">GoTo</Command>
+  <Command>PenDown</Command>
+  <Command color="black">BeginFill</Command>
+  <Command radius="20.0" width="1" color="black">Circle</Command>
+  <Command>EndFill</Command>
+  <Command>PenUp</Command>
+  <Command x="150.0" y="40.0" width="1.0" color="black">GoTo</Command>
+  <Command>PenDown</Command>
+  <Command color="yellow">BeginFill</Command>
+  <Command x="-30.0" y="40.0" width="1.0" color="black">GoTo</Command>
+  <Command x="-30.0" y="70.0" width="1.0" color="black">GoTo</Command>
+  <Command x="60.0" y="70.0" width="1.0" color="black">GoTo</Command>
+  <Command x="60.0" y="100.0" width="1.0" color="black">GoTo</Command>
+  <Command x="90.0" y="100.0" width="1.0" color="black">GoTo</Command>
+  <Command x="115.0" y="70.0" width="1.0" color="black">GoTo</Command>
+  <Command x="150.0" y="70.0" width="1.0" color="black">GoTo</Command>
+  <Command x="150.0" y="40.0" width="1.0" color="black">GoTo</Command>
+  <Command>EndFill</Command>
+</GraphicsCommands>
+
+
+
+XML files are text files. 
+They just contain extra XML formatted data to help standardize how XML files are read. 
+
+Writing an XML file is as simple as writing a text file. 
+
+While indentation is not necessary in XML files, 
+it is often used to highlight the format of the file. 
+
+In the xml file above the GraphicsCommands element 
+contains one Command element for each drawing command in the picture. 
+
+Each drawing command contains the command type as its text. 
+The command types are GoTo, Circle, BeginFill, EndFill, PenUp, and PenDown. 
+
+The attributes of a command are data like x, y, width, radius, and color 
+that are used by the various types of commands.
+
+To write the commands to a file, 
+each of the Command classes can be modified to produce an XML element 
+when converted to a string using the special __str__ method. 
+
+
+
+
+
+XML Files << how this program synchronise with xml file format>>:
+`````````````````````````````````````````````````````````````````
+The GoToCommand with XML Creation Code
+For instance, below is the modified GoToCommand class 
+supporting the creation of an XML element.
+
+class GoToCommand:
+	def __init__(self, x, y, width=1, color="black"):
+		self.x = x
+		self.y = y
+		self.width = width
+		self.color = color
+
+
+	def draw(self, turtle):
+		turtle.width(self.width)
+		turtle.color(self.color)
+		turtle.goto(self.x, self.y)
+
+	def __str__(self):
+		return f"<Command x="{self.x}" y="{self.y}" width="{self.width}" color="{self.color}">GoTo</Command>"
+
+
+By returning a string like this from each of the command objects, 
+the code to write the draw program’s data to a file is very simple. 
+
+
+file = open(filename, "w")
+file.write("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\" ?>\n")
+file.write("<GraphicsCommands>\n")
+
+for cmd in self.graphics_command:
+	file.write("\t" + str(cmd) +"\n")
+
+file.write("</GraphicsCommands>\n")
+
+
+
+
+XML <<reading - parser>:
+````````````````````````
+XML files would be difficult to read if we had to read them like we read a regular text file. 
+
+This is especially true because XML files are not line-oriented. 
+
+They conform  to the XML grammar, 
+but the grammar does not specify anything about the lines in the file. 
+
+Instead of reading an XML file by reading lines of the file, 
+we use a special tool called a parser. 
+
+A parser is written according to the rules of a grammar, in this case the XML grammar. 
+
+There are many XML parsers that have been written and different parsers have different features. 
+
+The one we will use in this text is one of the simpler parsers called minidom. 
+
+The minidom parser reads an entire XML file by calling the parse method on it. 
+
+It places the entire contents of an XML file into an sequence of Element objects. 
+
+An Element object contains the child data and attributes of an XML element 
+along with any other elements that might be defined inside this element.
+
+
+
+
+
+XML <<minidom parser>>:
+```````````````````````
+To use the minidom parser, 
+	- import the module where the minidom parser is defined.
+	     import xml.dom.minidom
+
+	- read XML file by calling the parse method on an XML document.
+	  xmldoc = xml.dom.minidom.parse(filename)
+
+	- read a specific type of element by the method getElementsByTagName on it. 
+    graphicsCommands = xmldoc.getElementsByTagName("GraphicsCommands")[0]
+
+
+The XML document contains the GraphicsCommands element.
+
+Calling "getElementsByTagName" on GraphicsCommands 
+returns a list of all elements that match this tag name. 
+
+Since we know there is only one of these tags in the file, 
+we can write [0] to get the first element from the list. 
+
+Then, the graphicsCommands element contains just the one element from the file and 
+
+all the Command elements of the file are located within it.
+
+
+
+XML <<reading example>>:
+````````````````````````
+for command_element in graphics_command:
+	print(type(command_element))
+	command = command_element.firstChild.data.strip()
+	attr = command_element.attributes
+
+	if command == "GoTo":
+		x = float(attr["x"].value)
+		y = float(attr["y"].value)
+		width = float(attr["width"].value)
+		color = attr["color"].value.strip()
+		command_structure = GoToCommand(x, y, width, color)
+
+	elif command == "Circle":
+		radius = float(attr["radius"].value)
+		width = float(attr["width"].value)
+		color = attr["color"].value.strip()
+		cmd = CircleCommand(radius,width,color)
+
+	elif command == "BeginFill":
+		color = attr["color"].value.strip()
+		cmd = BeginFillCommand(color)
+
+	elif command == "EndFill":
+		cmd = EndFillCommand()
+
+  elif command == "PenUp":
+		cmd = PenUpCommand()
+
+	elif command == "PenDown":
+		cmd = PenDownCommand()
+
+	else:
+		raise RuntimeError("Unknown Command: " + command)
+
+	self.append(cmd)
+
+
+the attr variable is a dictionary mapping the attribute names(i.e. keys) to their associated values. 
+
+The child data of a Command node can be found by looking at the firstChild.data for the node. 
+
+The strip method is used to strip away 
+any unwanted blanks, tabs, or newline characters that might appear in the string.
+
+
+	
+
+
+
+
+
+
+
+
+"""---------------------------------------------------------------------------"""

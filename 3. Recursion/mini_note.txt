@@ -1,0 +1,133 @@
+
+
+
+* One of the central themes of recursive thinking,
+  is not to think too hard.
+
+  here, we think much more about the definition of what you are programming
+	than how you are going to program it. 
+
+
+
+
+
+
+* An interpreter reads each line of code, 
+  its understand what that line wants to do and interacts with the operating system
+  to achieve the objective, working with the systems Network, I/O, and other devices
+
+
+
+
+ 
+* Scope refers to a part of a program where a collection of identifiers are visible. 
+  Local Scope is the scope of the function that the computer is currently executing.
+
+
+
+
+
+* Local Scope Identifier is
+    reference to an object in the function
+    reference to an object passed into the function
+
+
+
+
+
+
+* scopes are nested. the final enclosing scope of a module is the module itself. 
+  each module has its own scope. identifiers that are defined outside of any other functions, 
+  but inside the module, are at the module level.   
+
+
+
+
+
+* every function definition within a module defines a different scope. 
+  the scope never includes the function name itself, 
+  but includes its parameters and the body of the function. 
+
+
+
+
+
+
+* defining variables at the Global level is considered as bad practice
+  BECAUSE it will generally lead to name conflicts 
+  and will likely lead to unwanted side effects
+  poor use of global variables contributes to spaghetti code (entangle mess)  
+
+
+
+
+
+
+
+* when there is a look-up for an identifier, the interpreter
+  checks local scope, enclosing scope, global scope, built-in scope
+  in order. once the identifer is found, it stops searching. 
+  meaning you can control access (knowingly or unknowingly) by how you name your identifiers
+
+
+
+
+
+
+
+
+* values are stored in the RAM. Python splits the ram into two parts
+  run-time stack, heap  
+
+
+
+
+
+
+
+* the run-time stack is a stack of activation records
+  which gets pushed in when a function is called.
+  the activation records, stores the identifiers defined in the local scope
+
+
+
+
+
+
+
+* The Heap is the area of RAM where all objects are stored. 
+  The run-time stack never contains objects. 
+  references to objects are stored within the run-time stack   
+
+
+
+
+
+
+
+* four rules to adhere to when writing a recursive function
+    - decides function name, function argument & function return value
+    - write a base case for the recursive function first
+    - formulate the recursive case, as function is called, how will the argument reduce  
+    - look at a concrete example, (like pick values to try your function out)
+      take the result from that recursive call  and use it to form the result 
+      you want your function to return.
+      (use concrete example, to help you see how you form that result)
+
+
+
+
+
+* the base case is an if statement that handles a very simple case 
+  in the recursive function by returning a value.      
+
+
+
+
+
+
+
+* Reflection refers to the ability for code to be able to examine 
+  attributes about objects that might be passed as parameters to a function. 
+  we used this in the Note.txt to generalize a recursive reverse function
+  for strings, lists, and any other sequence that supports slicing and concatenation

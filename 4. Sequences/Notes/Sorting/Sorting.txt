@@ -1,0 +1,121 @@
+
+
+4.5 Selection Sort
+
+in the last section we learned that we can call a method called sort on a list 
+to sort the items in the list in ascending order. 
+ascending order is determined by the less than operator as defined on the items. 
+so how does the sorting algorithm work. 
+
+one of the early sorting algorithms was called Selection Sort 
+and it serves as a good starting place to understand sorting algorithms. 
+
+However, this is not the sorting algorithm
+used by Python. We’ll find out why soon.
+
+
+
+
+the selection sort algorithm is pretty simple to describe. 
+The algorithm begins by finding the smallest value 
+to place in the first position in the list. 
+
+it does this by doing a linear search through the list 
+and along the way remembering the index of the smallest item it finds. 
+
+the algorithm uses the guess and check pattern 
+by first guessing that the smallest item is the first item in the list 
+and then checking the subsequent items to see if it made an incorrect guess. 
+this part of the algorithm is the selection part. 
+
+The select function does this selection.
+
+Selection Sort’s Select Function
+1 def select(seq, start):
+2 minIndex = start
+3
+4 for j in range(start+1, len(seq)):
+5 if seq[minIndex] > seq[j]:
+6 minIndex = j
+7
+8 return minIndex
+
+
+the start argument tells the select function where to start looking for the smallest item. 
+it searches from start to the end of the sequence for the smallest item.
+
+The selection sort algorithm works by finding the smallest item using the select function 
+and placing that item into the first position of the sequence. 
+now the value in the first position must be put someplace else. 
+it is simply swapped with the location of the value that is being moved. 
+the algorithm proceeds by next looking for the second smallest value in the sequence. 
+since the smallest value is now in the first location in the sequence, 
+the selection sort algorithm starts looking from the second position in the list for the smallest value. 
+when the smallest value is found (which is really the second smallest value for the list) 
+the value in the second position and this value are swapped. 
+then the selection sort algorithm looks for the smallest item
+starting at the third location in the sequence. 
+this pattern repeats until all the items in the sequence have been sorted. 
+the selSort function does the actual sorting for the algorithm.
+
+
+
+
+def selSort(seq):
+	for i in range(len(seq)-1):
+	minIndex = select(seq, i)
+	tmp = seq[i]
+	seq[i] = seq[minIndex]
+	seq[minIndex] = tmp
+
+we can visualize the selection sort algorithm by running an animation of it sorting.
+the animation is pictured in fig. 4.3 
+having sorted more than half the values in a sequence. 
+the green dots represent items that are now in their proper location in the sequence. 
+the height of the dot from the x-axis (i.e. the y-value) is its value. 
+the  x-axis is the position in the list. 
+
+in this animation all the values between 0 and 199 are being sorted into ascending order. 
+the upper-right corner represents those values that have not yet been sorted. 
+
+the algorithm starts looking for the next smallest value just to the right of the green diagonal line. 
+it finds the minimum value (i.e. closest to the x-axis) 
+by going through all the remaining unsorted dots. 
+
+once it finds the small, shortest dot, 
+it swaps it with the left-most dot 
+to put it into is sorted position in the list. 
+the complete code for this animation is given in sect. 20.3 
+and can be downloaded from the website accompanying this text. 
+try it out!
+
+
+
+
+
+
+
+consider sorting the list [58269107] as depicted in Fig. 4.4. After each call
+of the select function from the selSort function the next element of the list is placed
+in its final location. Sorting the list leads to the intermediate steps as shown. Each
+time the select function is called the new smallest element is swapped with the first
+location in the rest of the list to move the next smallest element into its location
+within the sorted list.
+To find each new smallest element we call select which must run through the rest
+of the list looking for the minimum element. After each pass the list in Fig. 4.4 is one
+item closer to sorting the whole list. It turns out that this early attempt at writing a
+sorting algorithm is not that great. The complexity of this algorithm is O(n2
+) because
+each time through the for loop in the selSort function we call the select function
+which has its own for loop. The for i loop is executed n times and each time it is
+executed the for j loop must go through one less item looking for the smallest value
+that is left to be sorted. So, the first time we execute the body of the for j loop n − 1
+times, then n − 2 times the second time select is called, then n − 3 times and so on.
+We have seen this pattern before. The sum of the first n integers has an n2
+term in its
+formula. Therefore, selection sort is O(n2
+). This means as we try to sort some larger
+lists the algorithm will really start to slow down. You should never use this algorithm
+for sorting. Even on small lists we can do much better.
+
+

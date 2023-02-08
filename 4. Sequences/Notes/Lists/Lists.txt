@@ -1,0 +1,1055 @@
+
+
+Introduction :
+
+	Intro Speech
+		- computers are really good at dealing with large amounts of information. 
+		- they can repeat a task over and over again without getting bored. 
+		- when they repeat a task they are generally 
+		- doing the same thing to similar data or objects. 
+
+		- it is natural to want to organize those objects into some kind of structure 
+		- so that our program can easily switch from one object to the next. 
+
+		- how objects are added to a sequence or collection 
+		- and how we move from one items to the next has some impact on 
+		- how we might want to organize the collection of data in a program.
+
+
+
+	In this chapter 
+		- we look at different ways of organizing data into a sequence.
+		- we’ll also examine how to use Python to make working with sequences convenient. 
+		- we’ll also examine how the organization of a sequence
+		  affects the computation complexity of operations on it.
+
+		- we'll discuss and explore several Abstract Data Type:
+		- ascending and descending sequences, linked lists, stacks, and queues  
+		- ADT is a term that is used to describe a way of organizing data
+
+
+
+	Operator overloading in Python lets us build sequences 
+	that we can manipulate with intuitive operations.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Chapter Goals:
+
+	In this chapter you will read about different ways of organizing data within a program.
+	By the end of the chapter you should be able to answer these questions.
+
+
+	+ When presented with an algorithm that requires you to maintain 
+	  a sequence of data, which organizational scheme fits best?
+
+
+	+ What are the trade-offs of selecting one type of sequence as opposed to another?
+
+
+	+ What are some interesting algorithms that use lists, linked lists, stacks, or queues?
+
+
+	+ What sorting algorithm is most commonly used when sorting a sequence of ordered values?
+
+
+	+ What search algorithms are possible in a sequence?
+
+
+	+ What is the complexity of many of the common operations on sequences 
+	  and how is that complexity affected by the underlying organization of the data.
+
+
+	+ You will also be presented with a few interesting programming problems 
+	  that will help you learn to select and use appropriate data structures 
+	  to solve some interesting problems
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+4.2 Lists 
+
+
+	In this section we want to look more deeply into how lists are implemented. 
+
+
+	In the first and second chapter we developed a sequence called PyList. 
+	we made the PyList class just a repackaging of the Python list class. 
+
+
+	The actual Python Lists supports many operations. Chapter 16 contains the full list. 
+	The table in Fig. 4.1 is a subset of the operations supported by lists.
+
+
+	In this section, we will enhance the "PyList" datatype
+	using the built-in list ONLY FOR setting and getting elements
+	whilst the other operation in that table will be manually implemented by us.
+
+
+	REMINDER
+		- notice in the table The indexed get and indexed set operations 
+		- can be observed to have O(1) complexity. 
+		
+		- this complexity is achieved because the memory of a computer 
+		- is randomly accessible, which is why it is called Random Access Memory. 
+
+		- In Chap. 2 we spent some time demonstrating that each location within a list 
+		- is accessible in the same amount of time 
+		- regardless of list size and location being retrieved. 
+
+
+
+
+
+
+
+
+
+
+	Operation 		Complexity 		 		Usage 				Method
+	List creation 		O(n) or O(1) 		x = list(y) 	calls __init__(y)
+	indexed get 		O(1) 		 		a=x[i] 			x.__getitems__(i)
+	indexed set 		O(1) 		 		x[i] = a 		x.__setitems__(i,a)
+	concatenate 		O(n) 		 		z=x+y 			z=x.__add__(y)
+	append 		 		O(1) 		 		x.append(a) 	x.append(a)
+	insert 		 		O(n) 		 		x.insert(i,e) 	x.insert(i,e))
+	delete 		 		O(n) 		 		del x[i] 		x.__delitem__(i)
+	equality 		 	O(n) 		 		x == y 			x.__eq__(y)
+	iterate 		 	O(n) 		 		for a in x: 	x.__iter__()
+	length 		 		O(1) 		 		len(x) 			x.__len__()
+	membership 		 	O(n) 		 		a in x 			x.__contains__(a)
+	sort 		 		O(n log n) 	 		x.sort() 		x.sort()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+PyList Datatype (init operation):
+
+	In the first couple of chapters we began developing our PyList data structure. 
+
+
+
+	INIT OPERATION (concept)
+		- to support the O(1) complexity of the append operation, 
+		- the PyList contains empty locations that can be filled when append is called 
+
+
+
+	INIT OPERATION (technique)
+		- we’ll keep track of the number of locations being used 
+		- and the actual size of the internal list in our PyList objects. 
+
+		- so, we’ll need three pieces of information: 
+		- the list itself called itemss, 
+		- the size of the internal list called size, 
+		- and the number of locations in the internal list 
+		  that are currently being used called numItems.
+
+		- while we wouldn’t have to keep track of the size of the list, 
+		- because we could call the len function, 
+		- we’ll store the size in the object to avoid the overhead 
+		  of calling len in multiple places in the code.
+
+		- indexing into the PyList will simply index into the internal itemss list 
+		- to find the proper element as seen in the next sections.  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+PyList Datatype (init operation):
+
+	INIT OPERATION (invariant)
+		- all the used locations in the internal list will occur at the beginning of the list. 
+		- in other words, there will be no holes in the middle of a list 
+		- this way, we don't have to search for the proper location of an element. 
+
+		- we’ll call this assumption an invariant on our data structure. 
+		- an invariant is something that is true before 
+		- and after any method call on the data structure. 
+		- the invariant for this list is that the internal list 
+		  will have the first numItems filled with no holes. 
+
+
+
+	INIT CODEBASE
+		def __init__(self, contents=[], size=10):
+			self.items = [None] * size
+			self.num_items = 0
+			self.size = size 
+
+			for items in contents:
+				self.append(items)
+
+
+	INIT COMPLEXITY
+		- the complexity of creating a PyList object is 
+		- O(1) if no value is passed to the constructor and 
+		- O(n) if a sequence is passed to the constructor, 
+		  where n is the number of elements in the sequence.
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+PyList Datatype (get/set operation):
+
+
+	GET/SET (concept)
+		- our PyList class is a wrapper for the built-in list class. 
+		- so, to implement the get items and set items operations on PyList, 
+		- we’ll use the get and set operations on the built-in list class. 
+		- the complexity of both operations is O(1).
+
+
+	GET/SET (technique)
+		- we will just make sure get & set operation will not work
+		- for unused aspect to the list. checking the index to get/set 
+		- in both cases, we want to make sure the index is in the range of acceptable indices.
+		- if it is not, we’ll raise an IndexError exception just as the built-in list class does.
+
+
+	GET/SET CODEBASE
+
+		def __getitems__(self, index):
+
+			if index >= 0 and index < self.num_items:
+				return self.items[index] 
+
+			raise IndexError("PyList index out of range")	
+
+
+
+		def __setitems__(self, index, items):
+			if index >= 0 and index < self.num_items:
+				self.items[index] = num_items
+
+			raise IndexError("PyList assignment index out of range")
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+PyList Datatype (concatenate operation):
+
+	CONCATENATE (concept)
+		- to concatenate two lists we must build a new list 
+		- that contains the contents of both. 
+
+		- this is an accessor method because it does not mutate either list. 
+		- instead, it builds a new list. 
+
+		- we can do this operation in O(n) time 
+		- where n is the sum of the lengths of the two lists. 
+		- the size is set to the needed size for the result of concatenating the two lists. 
+		- using the size of the two list.	
+
+
+	CONCATENATE (codebase)
+
+		def __add__(self, other):
+			
+			# create a new list
+			new_list = PyList(size = self.num_items + other.num_items) 
+
+
+			# add to new list items in "self" list
+			for i in range(self.num_items):
+				 new_list.append(self.items[i])
+
+
+			# add to new list itemss in "other" list
+			for i in range(other.num_items):
+				new_list.append(other.items[i])
+
+
+			# return new list		 
+			return new_list	 
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+PyList Datatype (append operation):
+
+	APPEND OPERATION (concept)
+		- in Sect. 2.10 we learned that 
+		- the append method has O(1) amortized complexity.
+		- where we compared it to how the list (+) operator works
+		- since it copies itemss in both list into a new list
+
+		- when appending, we will just add one more items 
+		- to the end of the self.itemss list if there is room. 
+		- in the description of the constructor we decided the PyList objects 
+		- would contain a list that had room for more elements. 
+
+		- once in a while the internal self.itemss list will fill up. 
+		- at that time we must increase the size of the itemss list 
+		- to make room for the new items we are appending 
+		- by a size proportional to the current length of self.itemss.
+
+
+
+	APPEND OPERATION (space)
+		- as we learned in Chap. 2, to make the append operation 
+		- run in O(1) time we can’t just add one more location 
+		- each time we need more space. 
+
+		- it turns out that adding 25% more space each time is enough 
+		- to guarantee O(1) complexity. The choice of 25% is not significant. 
+		- if we added even 10% more space each time we would get O(1) complexity. 
+
+		- at the other extreme we could double the internal list size 
+		- each time we needed more room as we did in Sect. 2.10. 
+		- however, 25% seems like a reasonable amount 
+		- to expand the list without gobbling up too much memory in the computer.
+
+		- integer division by 4 is very quick in a computer 
+		- because it can be implemented by shifting the bits of the integer to the right, 
+		- so computing our new length, when needed, is relatively quick.
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+PyList Datatype (append operation):
+
+
+	APPEND OPERATION (python interpreter)
+		- the Python interpreter implements append in a similar way. 
+		- the Python interpreter is implemented in C, so the interpreter uses C code. 
+
+		- python also chooses to increase the list size by other values. 
+		- in Python list sizes increase by 4, 8, 16, 25, and so on.
+
+		- the additional space to add to the internal list 
+		- is calculated from the newly needed size of the list 
+		- and grows by 4, 8, 16, 25, 35, 46, 58, 72, 88, and so on.
+
+		- you can see that the amount to add grows as the list grows 
+		- and that leads to an amortized complexity of O(1) 
+		- for the append operation in the Python interpreter.
+
+
+
+	APPEND OPERATION (codebase)
+
+		def __makeroom(self):
+			new_size = self.size + (self.size // 4) + 1
+			new_list = [None] * new_size
+
+			for i in range(self.num_items):
+				new_list[i] = self.items[i]
+
+			self.items = new_list
+			self.size = new_size	
+
+
+
+		def append(self, items):
+
+			# not enough room
+			if self.num_items == self.size :
+				self.__makeroom()
+
+			# add items to list
+			self.items[self.num_items] = items
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+PyList Datatype (insert operation):
+
+	INSERT OPERATION (concept)
+		- to insert into this sequential list 
+		- we must make room for the new element. 
+		- given the way the list is organized, there is no choice 
+		- but to copy each element AFTER the point 
+		- where we want to insert the new value to the next location in the list. 
+
+		- but why AFTER? think about it
+		- let's we have enough room in the list
+		- if we start moving elements one position from the back
+		- we only need to move elements after the insertion point
+		- also we can carry out moving on the same array
+		- think about it, think, it's quite interesting
+
+		- therefore the complexity of this operation is O(n)
+		- where n is the number of elements in the list AFTER THE INSERTION POINT   
+
+
+
+	INSERT OPERATION (design)
+		- the function takes in two arguments, the index "i", the value "e"
+		- the index "i" is the location where 
+		- the new value "e" is to be inserted. 
+
+		- if the index provided is larger than the size of the list 
+		- the new item, e, is appended to the end of the list.
+
+
+
+	INSERT OPERATION (codebase)
+		def insert(i, e):
+
+			# insert at end in this case
+			if i > self.num_items-1:
+				self.append(e)
+				return
+
+
+			# list is full	
+			if self.num_items == self.size:
+				self.__makeroom()
+
+
+			# from the rear, shift the elements  
+			for j in range(self.num_items-1, i-1, -1):
+				self.items[j+1] = self.items[j]	
+
+			self.items[j] = e
+			self.num_items += 1	
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+PyList Datatype (delete operation):
+
+	DELETE OPERATION (concept)
+		- when deleting an item at a specific index in the list, 
+		- we must move everything after the item down to preserve our invariant 
+		- that there are no holes in the internal list. 
+		- this results in a O(n) implementation in the average and worst case 
+
+		- in the Python interpreter, to conserve space, 
+		- if a list reaches a point after deletion 
+		- where less than half of the locations within the internal list are being used, 
+		- then the size of the available space is reduced by one half.
+		- we can implement this via a "__lessroom" function similar to "__makeroom"
+
+
+
+	DELETE OPERATION (codebase)
+
+		def __delitems__(self, i):
+			
+			if i >= self.num_items:
+				raise IndexError("PyList deletion index out of range")
+			
+
+			# shift the list back word	
+			for index in range(i, self.num_items):
+
+				# not last element in the list 
+				if index == self.num_items-1:
+					self.items[index] = self.items[index + 1]
+
+				# last element in the list	
+				else:
+					self.items[index] = None
+
+			self.num_items -= 1		
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+PyList Datatype (equality operation):
+
+
+	EQUALITY OPERATION 
+		- the two list must pass three checks
+		- the type check: must be of the same type
+		- the length check: must be of the same length
+		- the elemental check: elements must be the same
+
+
+	EQUALITY OPERATION
+
+			def __eq__(self, other):
+
+				# CASE 1: type check
+				if type(self) != type(other):
+					return False
+
+				# CASE 2: length check
+				if self.num_items != other.num_items:
+					return False
+
+				# CASE 3: elemental check
+				for i in range(self.num_items):
+					if self[i] != other[i]:
+						return False
+
+				return True 
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+PyList Datatype (iteration operation):
+
+	ITERATION OPERATION ( need )
+		- sequences hold a collection of similar data items and 
+		- we frequently want to do something with each item in a sequence. 
+		- of course, the complexity of iterating over any sequence is O(n)
+		- where n is the size of the sequence. 
+
+
+	ITERATION OPERATION ( yield )
+		- the yield call in Python suspends 
+		- the execution of the __iter__ method
+		- and returns the yielded item to the iterator.
+		- it continues from where it stops when the method is called again
+		- this is pretty cool!!! 
+
+
+	ITERATION OPERATION ( codebase )
+		def __iter__(self):
+		
+			for i in range(self.num_items):
+				yield(self[i])
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+PyList Datatype (length operation):
+
+	Since we kept track of how many items were in out list, 
+	as it was being added, length querry becomes O(1) complexity
+
+		def __len__(self):
+			return self.numItems
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+PyList Datatype (membership operation):
+
+	MEMBERSHIP OPERATION
+		- testing for membership in a list 
+		- means checking to see if an item is one of the items in the list. 
+		- the only way to do this is to examine each item in sequence in the list. 
+
+		- this idea of searching for an item in a sequence is so common 
+		- that computer scientists have named it. this is called linear search. 
+		- it is named this because of its O(n) complexity.
+
+			def __contains__(self, item):
+
+				for i in range(self.num_items):
+					if self.items[i] == item:
+						return True
+
+				return False
+
+
+
+STRING REPRESENTATION ( str )
+	- it is convenient to be able to convert 
+	- a list to a string so it can be printed. 
+	- python includes two methods that can be used for converting to a string. 
+	- the str function & the repr function
+	- i believe you are familiar with the first
+
+
+STRING REPRESENTATION ( repr )
+	- python includes a function called "eval" 
+	- that will take a string containing an expression 
+	- and evaluate the expression in the string. 
+
+	- for instance, eval(“6+5”) results in 11 
+	- and eval(“[1,2,3]”) results in the list [1,2,3]. 
+
+	- the repr function in Python calls the __repr__ method on a class. 
+	- this method, if defined, should return a string representation of an object 
+	- that is suitable to be given to the eval function. 
+
+
+
+STRING REPRESENTATION ( codebase )
+	def __str__(self):
+		s = "["
+
+		for i in range(self.numItems):
+			s = s + repr(self.items[i])
+			if i < self.numItems - 1:
+				s = s + ", "
+
+		s = s + "]"
+
+		return s
+
+
+
+	def __repr__(self):
+		s = "PyList(["
+		for i in range(self.numItems):
+			s = s + repr(self.items[i])
+			if i < self.numItems - 1:
+				s = s + ", "
+		s = s + "])"
+
+		return s
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+PyList DataType ( cloning objects )
+
+	CLONING ( deep copy )
+		- there are two ways we can clone or copy an object
+		- deep clone/copy & shallow clone/copy
+
+		- if x is a PyList object, 
+		- then eval(repr(x)) is a copy or clone of this object. 
+		- since all the items in the PyList object are also cloned 
+		- by evaluating the representation of the object, 
+		- cloning an object like this is called a deep clone or deep copy of the object x.
+
+
+	CLONING ( shallow copy )
+		- a shallow copy occurs when the object is copied, 
+		- but items in the object are shared with the clone. 
+		- if we wish to create a shallow copy of a PyList object called x, 
+			x = PyList([1,2,3])
+			y = PyList(x)
+
+		- here, y is a shallow copy of x because both x and y share the items 1, 2, and 3.
+		- in most cases whether some items are shared or not probably doesn’t matter. 
+		- in this case it doesn’t matter if items are shared 
+		- because 1, 2, and 3 are integers and integers are immutable. 
+
+		- however, if the shared items are mutable, 
+		- then you may care about shallow or deep clones of objects. 
+		- when working with a shallow clone of an object that contains mutable items 
+		
+		- the programmer must be aware that the items 
+		- in the collection might change values 
+		- without any call to a method on the object. 
+		- this won’t happen to a deep clone of an object 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+PyList DataType ( sorting operation ):
+
+	SORTING OPERATION ( ordering system )
+		- to sort a sequence of items, 
+		- the items in the sequence must be ordered in some way. 
+		- what i mean is that you can take two items 
+		- and there is a function you can call 
+		- to know which of the two is lesser
+		- my point is that the items of sequence must have an ordering system
+
+		- this is where the less than operator(<) comes in
+		- operator overloaded by the "__lt__" function
+		- once a datatype defines this function, it defines a way to order it's object
+
+		- most of the built-in classes or types in Python 
+		- already have an implementation for the __lt__ method
+		- thus their objects can be ordered 
+
+
+	SORTING OPERATION ( lexicographical ordering )
+
+		- strings are compared lexicographically in Python 
+		- lexicographic ordering means that strings are compared 
+		- from left to right until one character is found to be different 
+		- than the character at the corresponding position in the other string. 
+
+		- in other words, 
+		- sorting a sequence of strings means 
+		- they will end up alphabetized like you would see in a dictionary. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+PyList DataType ( sorting operation ):
+
+	SORTING OPERATION ( list ordering )
+		- under some conditions lists are orderable, too. 
+		- for lists to have an ordering, 
+		- the elements at corresponding indices within the lists must be orderable. 
+		- Consider these sample comparisons.
+
+			lst = [1,2,3]
+			lst2 = list("abc")
+			lst2
+			[’a’, ’b’, ’c’]
+			lst < lst2
+
+			Traceback (most recent call last):
+			File "<string>", line 1, in <fragment>
+			builtins.TypeError: unorderable types: int() < str()
+
+			lst3 = [4,5,6]
+			lst < lst3
+			True
+
+			lst4 = [1,3,2]
+			lst < lst4
+			True
+
+			lst5 = [1,2,2]
+			lst5 < lst
+			True
+
+			lst6 = [1,1,’a’]
+			lst6 < lst
+			True
+
+		- notice that list ordering is lexicographical
+		- checking the order of the items from the first item
+		- and if need be going to the last item "IF NEED BE"
+		- and it does this checking via the "__lt__" function (<)
+		- notice the traceback 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+PyList DataType ( sorting operation ):
+
+	SORTING OPERATION ( Point class )
+		- consider a class that is used to 
+		- represent Cartesian coordinates on a plane. 
+		- we’ll call the class Point and it will contain an (x,y) pair. 
+
+		- we’ll order the point objects by their directed distance from the x axis. 
+		- in other words, our ordering system for the objects
+		- will be based on their y-coordinates. 
+
+		- here is our Point class. 
+		- for reasons that will be obvious soon, our Point class will inherit from RawTurtle.
+
+			class Point(turtle.RawTurtle):
+				def __init__(self, canvas, x, y):
+					super().__init__(canvas)
+					canvas.register_shape("dot",((3,0),(2,2),(0,3),(-2,2),(-3,0),(-2,-2),(0,-3),5 (2,-2)))
+
+					self.shape("dot")
+					self.speed(200)
+					self.penup()
+					self.goto(x,y)
+
+
+				def __str__(self):
+					return "("  +  str(self.xcor())  +  ","  +  str(self.ycor())  +")"
+
+				def __lt__(self, other):
+					return self.ycor() < other.ycor() 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+PyList DataType ( sorting operation ):
+
+	SORTING OPERATION ( sort method )
+		- once we have an ordering of elements in a list, 
+		- we can sort the elements according to that ordering. 
+		- lists have a sort method 
+		- that will sort the items of a list according to their ordering. 
+
+			def main():
+
+				# turtle graphics: hide initial turtle
+				t = turtle.Turtle()			
+				t.ht()
+				screen = t.getscreen()
+
+
+				# list container
+				lst = []
+
+
+				# place items
+				for i in range(10):
+					for j in range(10):
+						pair = Point(screen,i,j)
+					    lst.append(pair)
+
+
+				# sort list
+				lst.sort()
+
+
+				# view list
+				for p in lst:
+					print(p)
+
+		- but, just how does this sort method work and what is its cost? 
+		- in other words, what kind of sorting algorithm does Python use 
+		- and what is its computational complexity?
+
+		- We explore these questions in the next sections.

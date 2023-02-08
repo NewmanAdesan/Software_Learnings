@@ -1,0 +1,347 @@
+
+1. What is an interpreter?
+
+		an interpreter reads each line of code in a programming language,
+		understands the objective for the line of code, 
+		and interacts with the computer operating system to carry out the objective
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2. What is the Python interpreter called?
+
+		Python interpreter is called "python"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+3. When the Python interpreter sees an identifier, 
+   in which scope does it look for the identifier first?
+
+	   the python interpreter checks that local scope first
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+4. What order are the various scopes 
+   inspected to see where or if a variable is defined?
+
+	   Local Scope
+	   Enclosing Scope
+	   Global Scope
+	   Built-in Scope
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+5. Pick a sample program from among the programs you have written, preferably a
+short one, and identify three scopes within it by drawing a box around the scopes.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+6. When is an activation record pushed onto the run-time stack?
+	
+	when a function is called that is when a local scope is created,
+	an activation record is pushed onto the run-time stack
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+7. When is an activation record popped from the run-time stack?
+
+	When a function returns, its activation record is popped off the run-time stack
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+8. What goes in the Heap in a computer?
+
+	Objects that are used in a program are stored in the Heap
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9. What goes in an activation record on the run-time stack?
+
+		an activation record stores identifiers of function
+		those defined in the function, and those passed to the function
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+10. When writing a recursive function,
+    what are the two cases for which you must write code?
+
+    	base case & recursive case
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+11. If a recursive function did not have a base case, 
+    what would happen when it was called?
+
+    	The function will keep calling itself, 
+    	and eventually, the run-time stack will be full
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+12. What must be true of the recursive call in a recursive function? 
+    In other words, what must you ensure when making this recursive call?
+
+    we must ensure that when the function calls itself again,
+    there must be a system of reduction in its parameter
+
+    such that depite the parameters having the same signature,
+    they will have different state
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+13. What does the type function return in Python? 
+
+	 If you call the type function in a program, what aspect of Python are you using?
+
+	 Python type() function returns the "class object" of the object passed to it
+	 this involve utilizing the reflection feature of Python    	

@@ -1,0 +1,343 @@
+
+
+QUESTION 1
+
+	Write a recursive function called "intpow" 
+	that given a number, x, and an integer, n,
+	will compute x ^ n. 
+
+	You must write this function recursively to get full credit. 
+
+	Be sure to put it in a program with several test cases 
+	to test that your function works correctly.
+
+
+
+		def main():
+
+			print(f"5 ^ 0 = { intpow(5, 0) } = {5**0}")
+			print(f"0 ^ 5 = { intpow(0, 5) } = {0**5}")
+			print(f"5 ^ 1 = { intpow(5, 1) } = {5**1}")
+			print(f"5 ^ 5 = { intpow(5, 5) } = {5**5}")
+			print(f"5.0 ^ 5 = { intpow(5.0, 5) } = {5.0**5}")
+			print(f"5.5 ^ 5 = { intpow(5.5, 5) } = {5.5**5}")
+
+
+
+		def intpow(base_number, power):
+
+			# base case
+			if power == 0:
+				return 1
+
+
+			# recursive case
+			return base_number * intpow(base_number, power -1)
+
+
+
+		if __name__ == "__main__":
+			main() 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+QUESTION 2
+
+	Write a recursive function to compute the factorial of an integer. 
+
+	The factorial of 0 is 1. 
+	The factorial of any integer, n, greater than zero is n times the factorial Of n−1. 
+
+	Write a program that tests your factorial function 
+	by asking the user to enter an integer and printing the factorial of that integer. 
+
+	Be sure your program has a main function. 
+
+	Comment your code with the base case and recursive case in your recursive function.
+
+
+
+	import math
+
+	def main():
+		print( f" 5!  ==   {factorial(5)}   ==  {math.factorial(5)}" )
+
+
+	def factorial(n):
+
+		# base case	
+		if n==0:
+			return 1
+
+		# recursive case
+		return  n * factorial(n-1)	
+
+
+	if __name__ == "__main__":
+		main()	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+QUESTION 3
+
+	Write a recursive function that computes the length of a string. 
+
+	You cannot use the len function while computing the length of the string. 
+
+	You must rely on the function you are writing. 
+
+	Put this function in a program that prompts the user to enter a string 
+	and then prints the length of that string.	
+
+
+	def main():
+
+		user_input = input("Enter a string")
+
+		print(f"user input has {count_string(user_input)} items")
+
+
+	def count_string(input_string):
+
+		if input_string == "":
+			return 0
+
+		return 1 + count_string(input_string[1:])	
+
+
+	if __name__ == "__main__":
+		main()	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+QUESTION 4
+
+	Write a recursive function 
+	that takes a string like “abcdefgh” and returns “badcfehg”. 
+
+	Call this function swap 
+	since it swaps every two elements of the original string. 
+
+	Put this function in a program and call it with at least a few test cases.
+
+
+	def main():
+		print(swap("abcdefgh"))
+
+
+	def swap(input_string):
+		if input_string == "":
+			return ""
+
+
+		return input_string[1] + input_string[0] + swap(input_string[2:])	
+
+	if __name__ = "__main__":
+		main()	
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+Question 5
+
+	+ Write a recursive function that draws a tree. 
+
+
+	+ Call your function drawBranch, with parameters 
+		- a turtle to draw with, 
+		- an angle, 
+		- number of littler branches to draw 
+		  like the tree that appears in Fig. 3.9. 
+
+
+	+ Each time you recursively call this function 
+	  you can decrease the number of branches and the angle. 
+
+
+	+ Each littler branch is drawn at some angle from the current branch 
+	  so your function can change the angle of the turtle by turning left or right. 
+
+
+	+ When your number of branches gets to zero, 
+	  you can draw a leaf as a little green square. 
+
+
+	+ If you make the width of the turtle line thicker
+	  for bigger branches and smaller for littler branches, 
+	  you’ll get a nice tree. 
+
+
+	+ You might write one more function called drawTree 
+	  that will set up everything (except the turtle) to draw a nice tree. 
+
+
+	+ Put this function in a program that draws at least one tree. 
+
+
+	HINT: 
+		- In your drawBranch function, 
+		- after you have drawn the branch (and all sub-branches) 
+		- you will want to return the turtle to the original position
+		- and direction you started at. 
+
+		- This is necessary so after calling drawBranch 
+		- you will know where the turtle is located. 
+		- If you don’t return it to its original position, 
+		- the turtle will end up stranded out at a leaf somewhere.
+
+
+
+	Implementation details
+	**********************
+
+	Story line (size 3 tree):
+
+		draw branch 3 @ angle 0 (root branch )
+		  draw branch 2 @ angle 30 (left branch)	
+		    draw branch 1 @ angle 30 (left branch)
+		    	draw leaf
+		    draw branch 1 @ angle -30 (right branch)
+		    	draw leaf
+		  draw branch 2 @ angle -30 (right branch)   	
+		  	draw branch 1 @ angle 30 (left branch)	
+		  		draw leaf
+		  	draw branch 1 @ angle -30 (right branch)	
+		  		draw leaf
+
+
+	
+	Non-GUI Implementation:
+		import turtle
+
+		TREE_LENGTH = 3
+
+		def main():
+
+			# create dummy turtle object, 
+			t = turtle.Turtle()
+
+			# start drawing tree, by drawing root branch
+			drawBranch( t, 0, 3 )
+			
+
+		def drawBranch( t, angle, branch_number ):
+
+			# state case : what should be done at this state
+			turtle_draw_branch(t, angle, branch_number)	
+
+
+			# base case
+			if branch_number <= 1:
+				turtle_draw_leaf()
+				return
+
+			# recursive case
+			drawBranch( t, 30, branch_number - 1 )		# left branch		
+			drawBranch( t, -30, branch_number - 1)		# right branch
+
+
+
+		def turtle_draw_leaf():
+			print("draw leaf")
+
+
+
+		def turtle_draw_branch(t, angle, branch_number):
+			if angle == 0:
+				print(f"draw branch {branch_number} @ angle {angle} (root branch")
+			elif angle > 0 :
+				print(f"draw branch {branch_number} @ angle {angle} (left branch)")
+			elif angle < 0 :
+				print(f"draw branch {branch_number} @ angle {angle} (right branch)")			
+
+
+		if __name__ == "__main__":
+			main()
+
+
+
+	GUI-IMPlEMENTATION:
+		for this implementation, we would just change the implementation
+		of turtle_draw_leaf() & turtle_draw_branch to instruct a turtle to draw 
+
+		based on the branch-number, the branch-width (turtle pen size)
+		and the branch-length (turtle forward distance)
+
+		basically we would use the cross mutiplication technique
+			tree-size	   =   full-branch-width	
+			branch-number  =        x 
+
+			tree-size	   =   full-branch-length	
+			branch-number  =        x
+
+
+		With this setting, all we need to tweak for control is 
+		the full-branch-width & full-branch-length	
+
+
+
+
+
+

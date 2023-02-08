@@ -1,0 +1,493 @@
+
+Chapter Goals
+
+Scope (python interpreter search pattern)
+	- local scope
+	- enclosing scope
+	- global scope
+	- built-in scope
+	- LEGB
+
+Interpreter and Storage
+	- runtime stack
+	- heap
+
+
+Introduction << programming style >>:
+`````````````````````````````````````
+DON'T THINK TOO HARD! That’s one of the central themes of this chapter. 
+
+It’s not often that you tell computer programmers not to think too hard, 
+but this is one time when it is appropriate. 
+
+
+Most computer science students start by learning 
+to program in a style called IMPERATIVE PROGRAMMING. 
+	- This simply means that you are likely used to thinking about 
+	- creating variables, 
+	- storing values, 
+	- and updating those values as a program proceeds. 
+
+In this chapter you are going to begin learning 
+a different style of programming called FUNCTIONAL PROGRAMMING. 
+	- Here, you think much more 
+	- about the definition of what you are programming
+	- than how you are going to program it. 
+	HMMM....
+
+Some say that writing recursive functions
+is a declarative approach rather than an imperative approach. 
+
+You’ll start to learn what that means for you very soon. 
+
+When you start to get good at writing recursive
+functions you’ll be surprised how easy it can be!
+
+
+
+
+
+
+Introduction << the interpreter >>:
+```````````````````````````````````
+Python programs are executed by an interpreter. 
+	- An interpreter is a program 
+	- that reads another program as its input and does what it says. 
+	- The Python interpreter,usually called python, 
+	- was written in a language called C. 
+
+	- that C program reads a Python program 
+	- and does what the Python program says to do in its statements. 
+
+	- an interpreter interprets a program 
+	- by running or executing what is written within it. 
+	- the interpreter interacts with the operating system of the computer to use 
+		the network,
+		the keyboard, 
+		the mouse, 
+		the monitor, 
+		the hard drive, 
+		and any other I/O device 
+	- that it needs to complete the work 
+	- that is described in the program it is interpreting. 
+
+In this chapter 
+	- we’ll introduce you to 
+		scope, 
+		the run-time stack, and 
+		the heap 
+	- so you understand HOW THE INTERPRETER CALLS FUNCTIONS 
+	- and WHERE LOCAL VARIABLES ARE STORED.
+
+	- Then 
+	- we’ll provide several examples of recursive functions 
+	- so you can begin to see how they are written, the framework of thinking. 
+	- we’ll apply recursion to drawing pictures as well.
+
+
+
+
+
+
+
+Introduction << chapter goals >>:
+`````````````````````````````````
+• How does Python determine the meaning of an identifier in a program?
+
+• What happens to the run-time stack when a function is called?
+
+• What happens to the run-time stack when a function returns from a call?
+
+• What are the two important parts to a recursive function 
+  and which part comes first?
+
+• Exactly what happens when a return statement is executed?
+
+• Why should we write recursive functions?
+
+• What are the computational complexities of various recursive functions?
+
+
+
+
+
+
+
+Scope << variables as references >>:
+````````````````````````````````````
+To form a complete mental picture of how your programs work 
+we should further explore just how the Python interpreter executes a Python program. 
+
+In the first chapter
+	- we explored how references are the things which we name 
+	- and that references point to objects, which are unnamed. 
+
+However, we sometimes call an object 
+by the name of the reference that is pointing at it. 
+
+For instance, 
+	- if we write: x = 6
+	- it means that "x" is a reference 
+	- that points to an object with a 6 inside it. 
+
+	- But sometimes we are careless and just say that x equals 6.
+	- although the latter is less wordy, 
+	- if everyone knows exactly what we mean then its alright.
+
+	- The rest of this text will make this assumption at times. 
+	- When it is really important, we’ll make sure we distinguish
+	- between references and objects.
+
+Part of our mental picture must include SCOPE in a Python program. 
+
+
+
+
+
+
+
+
+Scope << local scope >>:
+````````````````````````
+Scope 
+	- refers to a part of a program 
+	- where a collection of identifiers are visible. 
+	- Let’s look at a simple example program.
+
+Local Scope
+	- this is the scope of the function 
+	- that the computer is currently executing. 
+
+	- When your program is executing a line of code, 
+	- the scope that surrounds that line of code is called the local scope. 
+
+	- When you reference an identifier in a statement in your program,
+	- Python first examines the local scope 
+	- to see if the identifier is defined there, within the local scope. 
+
+An identifier, "id", is defined under one of three conditions.	
+ 	- Condition 1
+	    A statement like id = … 
+	    appears somewhere within the current scope. 
+	    in this case
+	    id would be a reference to an object in the local scope.
+
+	- Condition 2    	
+			id appears as a parameter name of the function in the current scope. 
+			In this case
+			id would be a reference to an object that was passed 
+			to the current function as an argument.
+
+	- Condition 3		
+			id appears as a name of a function or class 
+			through the use of a function def or class definition 
+			within the current scope. 
+			(so function & class names are included as identifiers)
+
+If Python finds id in the local scope, 
+it looks up the corresponding value and retrieves it.
+
+
+
+
+
+
+
+
+Scope << enclosing scope - intro >>:
+````````````````````````````````````
+If Python does not find the reference id within the local scope, 
+it will examine the Enclosing scope to see if it can find id there. 
+
+Again, Python looks for the identifier 
+using the same conditions as defined for the local scope.
+	- the identifier must be defined using id = …, 
+	- it must be a parameter to the enclosing function, 
+	- or it must be an identifier for a class or function definition 
+	  in the enclosing scope’s function.
+
+Which scope is local depends on where your program is currently executing.
+
+Module Scope
+	- scopes are nested. 
+	- this means that each scope is nested inside another scope.
+	- the final enclosing scope of a module is the module itself. 
+	- each module has its own scope. 
+
+	- identifiers that are defined outside of any other functions, 
+	- but inside the module, are at the module level.   
+
+
+
+
+
+Scope << enclosing scope - visibility >>:
+`````````````````````````````````````````
+While executing line 23 of the program in Fig. 3.2 
+identifier val is defined in the local scope. 
+But, val is also defined in the enclosing scope. 
+This is acceptable and often happens in Python programs. 
+
+Each scope has its own copy of identifiers.
+	- the choice of which "id" is visible 
+	- is made by always selecting 
+	- the innermost scope that defines the identifier. 
+	- whilst the outer scope with the "id" identifier will be hidden
+
+This is why it is important 
+	- that we choose our variable names 
+	- and identifiers carefully in our programs. 
+
+	- if we use an identifier that is already defined in an outer scope, 
+	- we will no longer be able to access it 
+	- from an inner scope where the same identifier is defined.
+
+Every function definition (including the definition of methods) 
+within a module defines a different scope. 
+
+The scope never includes the function name itself, 
+but includes its parameters and the body of the function. 	
+
+
+
+
+
+
+
+Scope << global scope >>:
+`````````````````````````
+Using Python it is possible to define variables at the Global level. 
+
+Generally this is a bad programming practice 
+and we will not do this in this text. 
+
+If interested you can read more about global variables in Python online. 
+
+But, using too many global variables will generally lead to name conflicts 
+and will likely lead to unwanted side effects. 
+
+Poor use of global variables contributes to spaghetti code which is named
+for the big mess you would have trying to untangle it to figure out what it does.
+
+
+
+
+
+
+
+
+Scope << built-in scope >>:
+```````````````````````````
+The final scope in Python is the Built-In scope. 
+	- if an identifier is not found 
+	- within any of the nested scopes within a module 
+	- and it is not defined in the global scope, 
+
+	- then Python will examine the built-in identifiers 
+	- to see if it is defined there. 
+	- For instance, consider the identifier "int". 
+
+	- x = int("6")
+	- the Built-In scope defines the "int" class or type
+	- if you define an identifier called "int" as we explained before,
+	- you wont be able to use the Built-In functionality
+
+This is why you should not use identifiers
+that already exist in the built-in scope.
+
+The word "LEGB" is an acronym meaning
+	- local scope
+	- enclosing scope
+	- global scope
+	- built-in scope
+	(highlighting the python interpreter search pattern)
+
+
+
+
+
+
+
+
+Storage << intro >>:
+````````````````````
+As we learned in the last section, 
+	- the parameters and body of each function 
+	- define a scope within a Python program. 
+
+The parameters and variables defined within the local scope of a function 
+must be stored someplace within the RAM of a computer.
+
+Python splits the RAM up into two parts called 
+	- the Run-time Stack 
+	- and the Heap.
+
+
+
+
+
+
+
+Storage << stack >>:
+````````````````````
+Typical Stack
+	- the run-time stack is like a stack of trays in a cafeteria. 
+	- most cafeterias have a device that holds these trays. 
+	- when the stack of trays gets short enough 
+	- a SPRING below the trays pops the trays up 
+	- so they are at a nice height. 
+	- as more trays are added to the stack, 
+	- the spring in this device compresses and the stack pushes down. 
+
+Run-Time Stack 	
+	- this is similar in many ways to the typical stack. 
+	- the run-time stack is a stack of ACTIVATION RECORD. 
+	- the Python interpreter pushes an activation record 
+	- onto the run-time stack when a function is called. 
+
+	- when a function returns 
+	- the python interpreter pops the corresponding activation record 
+	- off the run-time stack.
+
+	- Thus the state of the run-time Stack 
+	- is dependent on the current line the interpreter is executing
+	- interesting
+
+
+
+
+
+
+
+Storage << activation record >>:
+````````````````````````````````
+Activation Record
+	- python stores the identifiers defined 
+	- in the local scope in an activation record.
+
+	- when a function is called, 
+	- a new scope becomes the local scope. 
+
+	- At the same time 
+	- a new activation record is pushed onto the run-time stack. 
+	- this new activation record holds all the variables 
+	- that are defined within the new local scope. 
+
+	- when a function returns 
+	- its corresponding activation record 
+	- is popped from the run-time stack.
+
+
+
+
+
+
+
+
+Storage << heap >>:
+```````````````````
+The Heap 
+	- this is the area of RAM where all objects are stored. 
+	- when an object is created it resides in the heap. 
+	- The run-time stack never contains objects. 
+	- references to objects are stored within the run-time stack 
+	- and those references point to objects in the heap.
+	HMMM......
+
+
+
+
+
+
+
+Storage << extra-note >>:
+`````````````````````````
+
+Two things happen in a scope.
+	- an identifier value is used	
+	- an identifier value is created/assigned
+
+When a Scope uses an identifier it did not create
+	- in this scenario, when an identifier value is used, 
+	- the interpreter searches via LEGB for this identifier value
+	- so it can use it.
+
+	- the Activation Record of this scope
+	- will include that identifier.
+	- remember this should be a record of the scope local variables
+
+	- even if the identifier actually dwells in an outer scope
+	- its reference, the same reference will be in the scope activation record
+	- python implementation makes this so.
+
+
+When a Scope uses an identifier it did create/assign
+	- if the identifier name is the same with another 
+	- in an outer encapsulating scope 
+	- the other identifier will be hidden
+
+
+
+
+
+
+
+Recursive Function << intro >>:
+```````````````````````````````
+A recursive function is simply a function that calls itself. 
+It’s really very simple to write a recursive function, 
+
+Stack Overflow 
+	- if a function just kept calling itself 
+	- it would never finish. 
+
+	- actually, 
+	- it would finish when run on a computer 
+	- because we just learned that every time you call a function, 
+	- an activation record is pushed on the run-time stack. 
+
+	- if a recursive function continues to call itself over and over 
+	- it will	eventually fill up the run-time stack 
+	- and you will get a stack overflow error 
+	- when running such a program
+
+Base Case
+	- to prevent a recursive function from running forever, 
+	- or overflowing the runtime stack, 
+	- every recursive function must have a base case, 
+	- just like an inductive proof must have a base case. 
+
+	- there are many similarities 
+	- between inductive proofs and recursive functions. 
+	- the base case in a recursive function must be written first,
+	- before the function is called recursively.
+
+
+
+
+
+
+
+Recursive Function << thinking approach >>:
+```````````````````````````````````````````
+Now, 
+	- wrapping your head around just how a recursive function works 
+	- is a little difficult at first. 
+
+	- Actually, 
+	- understanding how a recursive function works 
+	- isn’t all that important. 
+
+	- When writing recursive functions 
+	- we want to think more about 
+	- what it does than how it works. 
+
+	- It doesn’t pay to think too hard 
+	- about how recursive functions work, 
+	- but in fact even that will get much easier with some practice.
+
+
+
+
+
+
