@@ -1,0 +1,207 @@
+ 
+
+
+Course Introduction: 
+
+	Version control is a system that records all changes and modifications 
+	to files for tracking purposes, and is essential to your day-to-day development activities.
+
+
+
+	In this course, 
+		- familiarity with version control and how it relates to development.  
+
+		- understanding centralized and distributed control systems
+
+		- examination of different types of workflows 
+
+		- understanding conflict resolution. an important aspect of version control 
+		  as it helps users manage file and version conflict issues. 
+
+		- version tracking with version control technologies such as git & github
+
+		- create and clone a repository in github. 
+
+		- familiarity with git concepts such as 
+		  add, commit, push and pull, branching and forking, diff and blame. 
+	 
+		- exploring the use of command-line syntax with an emphasis on unix commands. 
+
+
+
+	In this course, 
+		- you will learn about how modern software developers 
+		  collaborate across the world without messing up each other's code. 
+
+		- you will look at the different version control systems 
+		  and how to create an effective software development workflow. 
+
+		- you will be introduced to some of the most commonly used Linux commands 
+		  that you can use to work with files on your hard drive and 
+		  create powerful workflows that will automate your work, saving you time and effort.
+
+		- Finally, you will see how Git can be used in software development projects 
+		  to manage team files, you will create a repository that can manage code revisions.
+
+
+
+	After completing this course, you will be able to:
+		- implement Version Control systems.
+		- navigate and configure using the command line.
+		- manage code revisions.
+		- create and use a GitHub repository.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Module 1 - Software Collaboration:
+
+	Basically in this module
+		- you will learn about using version control or subversion 
+		  to bring order to the chaos of massive software projects 
+		  that have the potential for mistakes and bugs. 
+
+		- you will look at the different version control systems and 
+		  how to create an effective software development workflow.
+
+
+	After completing this module, you will be able to: 
+		- describe how modern software teams collaborate and work on the same codebase.
+		- list different version control systems and methodologies. 
+		- illustrate a standard software development workflow.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Module 2 - Command Line:
+
+	Basically in this module,
+		- you will learn how to use the command line to execute commands in Linux. 
+		  you will be introduced to some of the most commonly used commands 
+		  that traverse, create, rename, and delete files on your hard drive. 
+
+		- you will learn how easy it is to use piping and redirection 
+		  to create powerful workflows that will automate your work, saving you time and effort.
+
+
+	After completing this module, you will be able to: 
+		- describe how the command line is and how it is used.
+		- practice traversing your hard drive via the command line.
+		- create, rename and delete files and folders on your hard drive using Unix commands.
+		- use pipes and redirection.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Module 3 - Git:
+
+	Basically in this module,
+		- you will develop a strong conceptual understanding of the Git technology and
+		  how it is used in software development projects to manage team files. 
+
+		- you will install Git, create a local repository, create a commit, 
+		  create a remote repository and push commits to a remote repository. 
+
+
+	After completing this module, you will be able to: 
+		- outline the Git principles.
+		- use a GitHub repository.
+		- describe the steps in a standard GitHub workflow.
+		- create branches and merge different branches and sources.
+		- describe how code goes from local development to version control and then to live production.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Module 4 - Graded Assessment:
+
+	Basically in this module,
+		- you'll learn about the graded assessment. 
+
+		- after you complete the individual units in this module, 
+		  you'll synthesize the skills you gained from the course to manage a project on GitHub.
+
+		- you'll also have to opportunity to reflect on the course content 
+		  and the learning path that lies ahead.   
+
+
+
+	After completing this module, you will be able to: 
+		- recap on all of the topics covered throughout the course.
+		- apply all the skills you have learned in a graded project.
+		- practical Exercises 
+
+
+
+	We encourage you to complete the practical exercises in this course. 
+	By completing these exercises you will have a more practical understanding 
+	of how to explore Version Control.

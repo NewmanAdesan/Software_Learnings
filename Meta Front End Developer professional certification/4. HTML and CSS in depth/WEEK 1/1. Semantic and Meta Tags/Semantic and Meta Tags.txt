@@ -1,0 +1,1587 @@
+
+
+Search engines and assistive technologies being able 
+to better understand the context and content of your website, 
+meaning a better experience for your users.
+
+
+
+
+
+
+
+Semantic Tags:
+
+	<header>, <main>, <footer>, <nav>
+
+	SEMANTICS ( intro )
+		- by now you know that html describes the content of a web page. 
+		- but how do you describe the meaning of a web page, 
+		- to understand this in a real world context think of buttons in an elevator. 
+
+		- the vertical arrangement of buttons isn't enough 
+		- for someone to understand their meaning. 
+		- to convey the meaning or semantics of the buttons,
+		- numbers are added so that people know 
+		- which button will take them to which floor. 
+
+		- when you write html it's good practice to semantically describe the content. 
+		- this allows search engines and accessibility software 
+		- such as screen readers to understand the contents of a page.
+		- as a developer, you can do this using semantic html elements
+
+
+
+	SEMANTICS ( header, main, footer, nav )
+		- let's see a structured approach you can take 
+		- to make sure that you create a well formed web page. 
+ 
+		- inside the body tag you can lay out the website 
+		- with very semantic tags to describe each of the sections. 
+		- for a typical html page the structure can be semantically described 
+		- using the header, main and footer semantic html tags. 
+
+		- header section contains some company logo and navigation links. 
+		- main section contains sections and articles. 
+		- footer section contains contact information, secoundary links
+		- copyright notice, privacy policy, cookie policy, social media links e.t.c
+
+		- the navigation links can be semantically described 
+		- by placing them in a nav tag, the main links of your website 
+		- are then added inside the nav element. 
+		- in most design, the nav element is below the header element
+		- it is common practice for developers to specify their links 
+		- as an unordered list inside the nav element. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Semantic Tags:
+
+	<article>, <section>
+
+	SEMANTICS ( article element )
+		- the two key semantic elements for your main content 
+		- are the ARTICLE and SECTION elements. 
+		- first let's examine the article element. 
+
+		- according to the world wide web consortium's website, 
+		- the article element indicates content which represents 
+		- a complete or self contained composition 
+		- in a document page application or site 
+		- that is independently distributable. 
+
+		- think of a page in a newspaper. 
+		- there are many articles on the page and you can cut out 
+		- the individual articles with scissors if you want to. 
+		- the articles you can remove are the article element. 
+
+		- examples of this include a forum post, 
+		- a magazine or a newspaper article, 
+		- a blog entry, a user submitted comment, 
+		- an interactive widget or gadget 
+		- or any other independent item of content. 
+
+
+
+	SEMANTICS ( section element )
+		- let's examine the section element. 
+		- you can add a section element to semantically define 
+		- individual sections of the article. 
+
+		- it is important to note that sections 
+		- should contain heading elements to semantically describe the section. 
+		- it is also possible to use section elements 
+		- to describe different sections of your webpage, 
+
+		- the section element doesn't require the article element. 
+		- it all depends on how you want to semantically describe your page. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Semantic Tags:
+
+	<aside>, <detail>, <summary>
+
+	SEMANTICS COMMON GROUPING 
+		- common semantics tags can be grouped into five
+		- sectioning tags, content tags, inline tags, 
+		- embedded content and media tags, table tags 
+
+
+
+	SEMANTICS COMMON GROUPING ( sectioning tags)
+		- <header>, <nav>, <footer>, <main>
+
+		- <aside>
+		- a secondary set of content that is not required 
+		- to understand the main content.
+
+		- <article>
+		- an independent, self-contained block of content 
+		- such as a blog post or product.
+
+		- <section>
+		- a standalone section of the document that is often used 
+		- within the body and article elements.
+
+		- <details>
+		- a collapsed section of content that can be expanded 
+		- if the user wishes to view it.
+
+		- <summary>
+		- specifies the summary or caption of a <details> element.
+		- such that during hidden mode, it is the summary that shows
+
+		- <h1><h2><h3><h4><h5><h6>
+		- headings on the web page. 
+
+
+		- <hgroup>
+		- basically, this element contains a group of headers <h1> to <h6>
+		- including nested <hgroup> elements
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Semantic Tags:
+
+	<dl>, <dd>, <dt>, <pre>, <figcaption>, <figure>, <menu>
+
+
+
+	SEMANTICS COMMON GROUPING ( content tags)
+		- <blockquote> 
+		- used to describe a quotation.
+
+		- <dl>, <dt>, <dd>
+		- this are HTML elements that can be used to create definition lists.
+		- a definition list is a list of terms and their definitions. 
+		- the terms kept in the dt element 
+		- the definition of the term in the dd element. 
+		- the dl element acts as a container for the entire definition list.
+
+		- <figcaption> 
+		- defines a caption for a photo image.
+
+		- <figure> 
+		- applies markup to a photo image.
+		- it acts as a container for the img and figcaption element
+
+		- <pre>
+		- used to represent preformatted text. 
+		- typically rendered in the web browser using a monospace font.
+		- the text inside a pre element is displayed exactly 
+		- as it is written in the HTML code, 
+		- with all whitespace and line breaks preserved
+
+		- <menu>
+		- a semantic alternative to <ul> tag.
+
+		- <hr>, <ol>, <ul>, <li>, <p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Semantic Tags:
+	
+	<data>, <time>, <code>, <samp>, sup, sub, s, ...
+
+	SEMANTICS COMMON GROUPING ( inline tags ):
+
+		- <time>
+		- provide a machine-readable date and/or time
+		- in conjuction with its human-readable representation
+		- as computers read ISO 8601 date format
+			<p>
+				The next meeting is scheduled for 
+			    <time datetime="2023-03-10T10:00:00">
+			    March 10th, 2023 at 10:00 AM</time>.
+			</p>
+
+
+		- <data>
+		- used to associate machine-readable data 
+		- with its human-readable representation.
+			<p>
+				The cost of the item is 
+				<data value="19.99">$19.99</data>.
+			</p>
+
+
+		- <code>
+		- indicates that the containing text is a block of computer code.
+
+		- <samp>
+		- the containing text represents a sample.
+		- used to represent sample output from a computer program or system. 
+
+		- <var>
+		- the containing text is a variable in a mathematical expression.
+
+		- <sub>
+		- the containing text is subscript text, 
+		- displayed with a lowered baseline.
+
+		- <sup>
+		- the containing text is superscript text, 
+		- displayed with a raised baseline.
+
+		- <mark>
+		- the containing text should be marked or highlighted.
+
+		- <q>
+		- the containing text is a short quotation.
+
+		- <s>
+		- displays the containing text with a strikethrough or line through it.
+
+		- <small>
+		- used to represent small text, such as copyright and legal text.
+
+		- <u>
+		- displays the containing text with a solid underline.
+
+		- <abbr>
+		- specifies that the containing text is an abbreviation or acronym.
+
+		- <cite>
+		- defines the title of creative work 
+		- the text in the <cite> element is usually rendered in italics.
+
+		- <b>
+		- bolds the containing text. 
+		- when used to indicate importance use <strong> instead.
+
+		- <br>
+		- a line break. 
+		- moves the subsequent text to a new line.
+
+		- <em>
+		- emphasizes the containing text.
+
+		- <i>
+		- the containing text is displayed in italics. 
+		- used to indicate idiomatic text or technical terms.
+
+		- <span>
+		- a generic element for grouping content for css styling.
+
+		- <strong>
+		- displays the containing text in bold. 
+		- used to indicate importance.
+
+		- <a>
+		- an anchor link to another html document.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Semantic Tags:
+
+	<audio>, <video>, <embed>, <canvas>, iframe>, <object>, ...
+
+	SEMANTICS COMMON GROUPING ( embedded contents and media tags ):
+		- <audio>
+		- used to embed audio in web pages.
+
+		- <video>
+		- embeds a video on a web page. 
+
+		- <picture>
+		- an element that contains one <img> element 
+		- and one or more <source> elements to offer 
+		- alternative images for different displays/devices.
+
+		- <source>
+		- specifies media resources for <picture>, <audio> and <video> elements.
+
+		- <embed>
+		- used as a containing element for external content provided 
+		- by an external application such as a media player or plug-in application. 
+
+		- <iframe>
+		- used to embed a nested web page. 
+
+		- <object>
+		- similar to <embed> but the content is provided by a web browser plug-in.
+
+		- <canvas>
+		- used to render 2d and 3d graphics on web pages.
+
+		- <svg>
+		- used to define scalable vector graphics within a web page.
+
+		- <img>
+		- embeds an image on a web page.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Semantic Tags:
+
+	<thead>, <tbody>, <tfoot>, <col>, <colgroup>, <caption>
+
+	SEMANTICS COMMON GROUPING ( table tags ):
+		- <table>
+		- defines a table element to display table data within a web page.
+
+		- <thead>
+		- represents the header content of a table. 
+		- typically contains one <tr> element.
+
+		- <tbody>
+		- represents the main content of a table. 
+		- contains one or more <tr> elements.
+
+		- <tfoot>
+		- represents the footer content of a table. 
+		- typically contains one <tr> element.
+
+		- <tr>
+		- represents a row in a table. 
+		- contains one or more <td> elements when used within <tbody> or <tfoot>. 
+		- when used within <thead>, contains one or more <th> elements.
+
+		- <td>
+		- represents a cell in a table. 
+		- contains the text content of the cell.
+
+		- <th>
+		- defines a header cell of a table. 
+		- contains the text content of the header.
+
+		- <caption>
+		- defines the caption of a table element.
+
+		- <colgroup>
+		- defines a semantic group of one or more columns in a table for formatting.
+
+		- <col>
+		- defines a semantic column in a table.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Semantic Tags:
+
+	SEMANTICS IN ACTION ( intro )
+		- before we get to the problem statement,
+		- i want to say this;
+		- you use proper HTML semantic design that ensures 
+		- accessibility and search engine optimization
+
+		- The Little Lemon Restaurant 
+		- has asked me to add a new blog page to their website. 
+		- they've told me that the page will contain several blog posts, 
+		- and that it must use semantic html so that 
+		- search engines and accessibility software can understand the semantics of the page
+
+
+	SEMANTICS IN ACTION ( approach )
+		...
+		...
+		<body>
+			<header>
+				<img src="logo.png" />
+			</header>
+
+
+			<nav>
+				<ul>
+					<li><a href="home.html"></a>Home</li>
+					<li><a href="location.html"></a>Location</li>
+					<li><a href="blog.html"></a>Blog</li>
+				</ul>
+			</nav>
+
+
+			<main>
+				<h1>Blog</h1>
+				<article>
+					<h2>20% off this weekend</h2>
+					<p>Come down to Little Lemon and your meal will be 20% off!</p>
+				</article>
+				<article>
+					<h2>Our new menu</h2>
+					<p>We've updated our menu with new dinner.</p>
+				</article>
+
+			</main>
+
+
+			<footer>
+				<p>Copyright Little Lemon</p>
+			</footer>
+		</body>
+		...
+		...
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Metadata:
+
+	METADATA ( intro )
+		- the search engine you use will return a list of results 
+		- that were most relevant to what you searched for. 
+		- but how does a search engine determine which web pages are most relevant 
+
+		- in this video? you will learn how search engines analyze web pages 
+		- and how meta tags help provide information for search engines. 
+
+
+	METADATA ( seo process)
+		- a major part of launching a website is a process 
+		- called search engine optimization or seo. 
+		- this process involves making improvements to a 
+		- website's content,
+		- website's semantics and 
+		- website's delivery
+		- to improve its ranking in search results.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Metadata:
+
+
+	METADATA ( search engine analysis & ranking )
+		- you might be wondering what exactly does a search engine do 
+		- when it analyzes a web page? well when a search engine visits your website, 
+		- it analyzes the html document and media content. 
+
+		- if it finds a link to another html document, 
+		- it follows the link to that document and continues following links 
+		- until it is finished analyzing the entire website. 
+
+		- based on the results of the analysis and the content on your website, 
+		- the search engine will rank the website for various search terms. 
+		- so while your website might be the number one result for one search term, 
+		- it could rank very low for another. 
+
+		- every search engine has its own algorithm for ranking websites. 
+		- and while it's not disclosed how the ranks are determined, 
+		- there are many best practices you can follow 
+		- to influence how search engines analyze and rank your website. 
+
+
+	METADATA ( meta tag )
+		- let's just focus on how meta tags influence website ranking. 
+		- meta tags define metadata about a web page. 
+
+		- what is metadata? you ask? it's data about other data 
+		- which in this case is data about the web page. 
+		- meta tags are added inside the head element of your html document 
+
+		- and as you know, nothing inside the head element is displayed in the web browser. 
+		- in other words, meta tags are unseen elements within the browser. 
+		- note that there is no closing tag for the meta tag. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Metadata:
+
+
+	METADATA ( name & content attribute )
+		- the meta element has two attributes, name and content. 
+		- the name attribute specifies the name of the metadata and 
+		- the content attribute specifies the value of the metadata. 
+		- let's examine some examples of metadata. 
+
+
+	METADATA ( author metadata )
+		- the author metadata specifies the author of the web page. 
+		- the name attribute is the string "author" and 
+		- the content attribute is the person and company who are the author of the web page. 
+
+
+	METADATA ( description metadata )
+		- the "description metadata" describes the content of the web page. 
+		- this is often used by search engines as descriptive text in search results. 
+		- the name attribute is set to the string "description" and 
+		- the content attribute is the descriptive text. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Metadata:
+
+
+	METADATA ( keywords metadata )
+		- the keywords metadata was previously used 
+		- to provide search keywords for search engines. 
+		- however, this led to a lot of websites using the keywords metadata 
+		- to manipulate search rankings.
+
+		- one of the major search engines now ignores this metadata 
+		- and another uses keywords metadata as a spam indicator because of this, 
+		- IT'S RECOMMENDED NOT TO INCLUDE THIS METADATA IN MODERN WEB PAGES.
+
+
+	METADATA ( robots metadata )
+		- the robot's metadata tells search engines 
+		- if and how they should analyze your web page. 
+
+		- the name robots comes from the automated software often referred to as bots, 
+		- that search engines used to analyze websites. 
+
+		- the content attribute for robots has four possible values. 
+		- "index", "follow", "noindex", "nofollow"
+
+		- index tells the bot to analyze the page. 
+		- follow tells the bot to also visit all links on the web page. 
+		- noindex tells the bot not to analyze the page. 
+		- no follow tells the bot not to visit links on the web page.
+
+		- some bots will ignore the "noindex" & "nofollow" rule,
+		- so it's best not to rely on this to stop bots from analyzing your page 
+		- also, you can specify two or more values in the content attribute
+		- simply by separating them by comma & space ", "
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Metadata:
+
+	METADATA ( viewport metadata - responsive solution )
+		- the view port metadata is important when designing responsive web pages. 
+		- why you might ask; 
+
+		- because when web pages are viewed on a phone or tablet, 
+		- the device will by default attempt to render the web page 
+		- as if it is being viewed on a desktop. 
+		- this results in a poor browsing experience for the user. 
+
+		- the solution is to define view ports metadata. 
+		- there are many values available for view ports metadata. 
+		- you can learn more about viewport in the additional readinig
+		- the most used value for the mobile experiences is 
+				content="width=device-width, initial-scale=1.0"
+
+		- it's important to note that view port metadata 
+		- does not solve all the issues with browsing websites on mobile devices. 
+		- the other part of the solution is responsive web design. 
+
+
+	METADATA ( viewport metadata - ranking strategy )
+		- view port metadata is important for the user experience 
+		- and it's also important for search engine optimization. 
+		- this is because many search engines now include 
+		- websites mobile experience as a part of their ranking algorithms, 
+
+		- there is more metadata that you can define on you web page 
+		- to specifically improve its presence on social media. 
+		- but that's for later video. 
+
+		- for now it's important to know that 
+		- author description, keywords, robots and view ports metadata 
+		- all play a role in the search engine optimization of web pages.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Metadata:
+
+	METADATA CHEATSHEET
+		- in addition to the "name" and "content" attribute of the meta tags
+		- we have "charset" and "http-eqiuv" attributes
+
+		- the charset attribute 
+		- the charset is a special field that lets you specify 
+		- the character encoding used for the page 
+		- so that the browser can display it properly. 
+		- the most frequently used is utf-8,  <meta charset="utf-8">  
+
+
+		- the http-equiv attribute 
+		- this field stands for http equivalent, 
+		- it’s used to simulate http response headers. this is rare to see, 
+		- and it’s recommended to use http headers over html http-equiv meta tags. 
+		- for example, the next tag would instruct the browser 
+		- to refresh the page every 30 minutes: <meta http-equiv="refresh" content="30">
+
+
+
+
+	METADATA CHEATSHEET ( basic meta tags for seo ) 
+		<meta name="google"/> 
+		tells google not to show the sitelinks search box for your page when showing search results 
+
+
+		<meta name="googlebot" content=”notranslate” /> 
+		tells google you don’t want to provide an automatic translation 
+		for your page if the user uses a different language  
+
+
+		<meta name="revised" content="sunday, july 18th, 2010, 5:15 pm" /> 
+		specifies the last modified date and time 
+		on which you have made certain changes 
+
+
+		<meta name="rating" content="safe for kids"> 
+		specifies the expected audience for your page 
+
+
+		<meta name="copyright" content="copyright 2022"> 
+		specifies a copyright 
+
+
+		<meta name="description"/> 
+		provides a brief description of the web page 
+
+
+		<meta name=”title”/> 
+		specifies the title of the web page 
+
+
+		<meta name="author" content="name"> 
+		specifies the author of the web page  
+
+
+		<meta name="language" content="english"> 
+		specifies the language of the web page 
+
+
+		<meta name="robots" content="index,follow" /> 
+		tells search engines how to crawl or index a certain page
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Metadata:
+
+	METADATA CHEATSHEET ( basic http-equiv specification ) 
+
+		<meta http-equiv="content-type" content="text/html"> 
+		specifies the format of the document returned by the server 
+
+
+		<meta http-equiv="default-style"/>  
+		specifies the format of the styling document 
+
+
+		<meta http-equiv="refresh"/> 
+		specifies the duration of the page before it’s considered stale 
+
+
+		<meta http-equiv=”Content-language”/> 
+		specifies the language of the page 
+
+
+		<meta http-equiv="Cache-Control" content="no-cache"> 
+		instructs the browser how to cache your page
+
+
+
+
+
+	METADATA CHEATSHEET ( responsive design/mobile meta tags ) 
+
+		<meta name="format-detection" content="telephone=yes"/> 
+		indicates that telephone numbers should appear 
+		as hypertext links that can be clicked to make a phone call 
+
+
+		<meta name="HandheldFriendly" content="true"/> 
+		specifies that the page can be properly visualized on mobile devices 
+
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
+		specifies the area of the window in which web content can be seen
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Bare bones layout:
+
+	basically, i would show a template for starting a web project
+	the folder of your project initial setup
+		index.html
+		js/ 		-> scripts.js
+		css/		-> styles.css
+
+
+	<!DOCTYPE html>
+	<html lang="en">
+
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<title>Bare Bones Layout</title>
+		<meta name="description" content="A brief description">
+		<meta name="author" content="your Site Name">
+
+		<!-- Open Graph Protocol -->
+		<meta property="og:title" content="A brief description">
+		<meta property="og:type" content="website">
+		<meta property="og:url" content="https://www.mysite">
+		<meta property="og:description" content="A brief description">
+		<meta property="og:image" content="image.png">
+
+		<link rel="icon" href="/favicon.ico">
+		<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+		<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+
+		<!-- Include your CSS files here -->
+		<link rel="stylesheet" href="css/styles.css">
+
+	</head>
+
+
+	<body>
+		<header>
+			<!-- Add your website name or logo here -->
+			<p>Header</p>
+		</header>
+		<nav>
+			<!-- Add your website navigation here -->
+		</nav>
+		<main>
+			<!-- Add your main content here -->
+			<h1>Heading</h1>
+		</main>
+		<footer>
+			<!-- Add copyright notices and other footer content here -->
+			<p>Footer</p>
+		</footer>
+
+		<!-- Include your JavaScript files here -->
+		<script src="js/scripts.js"></script>
+	</body>
+
+
+	</html> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Layout design:
+
+	LAYOUT ( concept )
+		- as you build web pages throughout your career, 
+		- you’ll notice that many pages follow similar layouts and structures. 
+
+		- this is the outcome of many years of research 
+		- into user interface design and user experience. 
+
+		- different companies, libraries and frameworks 
+		- then adopt the resulting best practices.
+
+		- many examples of these layouts can be seen in the popular bootstrap framework. 
+		- however, many other frameworks provide similar designs.
+
+
+	LAYOUT ( examples)
+		TOP NAVBAR LAYOUT
+		CAROUSEL LAYOUT
+		BLOG LAYOUT
+		DASHBOARD LAYOUT
+		e.t.c
+
+		- you can explore more of these layouts 
+		- - on the bootstrap examples page in the additional resources.
+
+		- consider these layouts when building websites and web applications 
+		- so that you provide your audience with the best user experience possible.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+OPEN GRAPH PROTOCOL METADATA:
+
+
+	<meta property="og:{property-type}" content="{property-content}">
+
+
+	OPEN GRAPH PROTOCOL ( intro )
+		- when you share a link, most social networks 
+		- generate a preview of the link to let users know 
+		- what the linked webpage is about before clicking into it. 
+
+		- how are this preview generated,
+		- this is done by using meta tags 
+		- different from the tradional SEO meta tags
+		- as it is oriented towards search results, not direct links.
+
+		- the open graph protocol defines meta elements
+		- that illustrate how a link should be preview
+
+		- facebook established the OPEN GRAPH PROTOCOL in 2010. 
+		- the open graph protocol is a set of metadata rules 
+		- that allow web pages to describe themselves to social networks. 
+		- there are many metadata options available within the protocol, 
+
+
+	OPEN GRAPH PROTOCOL ( basics ) 
+		- the open graph protocol also uses meta tags added to the head element, 
+		- this meta tags have two basic attributes "property" and "content"
+		- the property attribute is similar to the "name" attribute
+
+		- the "property" attribute to define the metadata name. 
+		- the "content" attribute to define the metadata value. 
+		- each property in the open graph protocol starts with "og:" 
+		- as a convention to identify it as an open graph protocol related tag.
+
+			<meta property="og:title" content=""> 
+			<meta property="og:type" content="">
+			<meta property="og:url" content="">
+			<meta property="og:image" content="">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+OPEN GRAPH PROTOCOL METADATA:
+
+
+OPEN GRAPH PROTOCOL ( property types - required )
+		- the open graph protocol requires that 
+		- you must always include four properties on a webpage. 
+		- these are title, type, url, and image. 
+
+		- THE TITLE PROPERTY defines the title of the page, 
+		- this is the text that will appear in the preview. 
+
+		- THE TYPE PROPERTY defines the type of content, 
+		- such as website, video, music, or article. 
+		- depending on the value you specify as the type, 
+		- other properties may be required. 
+		- you will learn about these in a later video. 
+
+		- THE URL PROPERTY defines the permanent web address 
+		- that the social network must use for the specific page. 
+
+		- THE IMAGE PROPERTY defines a url to an image 
+		- that must display when the website is shared. 
+
+		- together, these open graph protocol properties 
+		- enables social media platforms to create a preview of the shared web link. 
+
+
+
+
+OPEN GRAPH PROTOCOL ( property types - optional )
+		- there are several other optional properties 
+		- that you will learn more about later. 
+
+		- they add more additional information about the website
+		- this is usefull to add since different social media platforms
+		- vary in how they preview a website.
+
+		- let's briefly explore three of these. 
+
+		- THE DESCRIPTION PROPERTY 
+		- provides a description of the webpage. 
+
+		- THE LOCALE PROPERTY 
+		- describes the language and territory of the webpage's content. 
+		- for example, "en_us" specifies that the page is in english 
+		- and the locale is the united states. 
+
+		- THE SITE_NAME PROPERTY 
+		- describes the name of the overall website that the webpage belongs to. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+OPEN GRAPH PROTOCOL METADATA:
+
+	OPEN GRAPH PROTOCOL ( social media cards ):
+			- little lemon restaurant has hired a marketing firm 
+			- to help them advertise their business. 
+
+			- the firm recommends that the restaurant will run a social media campaign. 
+			- so the owners of the restaurant asked me to make sure 
+			- that the website is ready to be shared on different social media platforms
+
+			- i am going to add preview capabilities to the website link
+			- via open graph protocol metadata
+
+				<!-- minimum metadata required -->
+				<meta property="og:title" content="Our Menu"> 
+				<meta property="og:type" content="website">
+				<meta property="og:url" content="https://littlelemon">
+				<meta property="og:image" content="logo.png">
+
+
+				<!-- optional metadata to provide additional info to the platforms -->
+				<meta property="og:locale" content="en_US">
+				<meta property="og:site_name" content="Little Lemon">
+				<meta property="og:description" content="Little Lemon is a family-owned Mediterranean restaurant, focused on traditional recipes served with a modern twist."> 
+
+
+
+
+	OPEN GRAPH PROTOCOL ( end-note )
+			- you've now learned how to use metadata to describe web pages 
+			- so that social networks can improve user experience 
+			- by previewing shared content. 
+
+			- next time you share a website on a social network, 
+			- you can use what you've learned about open graph protocol properties 
+			- to generate more clicks.
+
+			- ‘type’ is an important OGP tag in Social media cards 
+			- that help describe the details of a link such as 
+			- if it’s a book, article, movie and so on, 
+			- and provide more detailed metadata for specific types. 
+
+			- For example, in case of the music type, 
+			- you can add details for the song, album, duration 
+			- or any other information about the song
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Twitter Cards Metadata:
+
+	TWITTER CARDS ( intro )
+		- twitter cards are a metadata specification used by twitter to display 
+		- rich text, imagery, and video when links are shared on the service.
+
+		- the full twitter card markup specification has many options, 
+		- but you can start with the most basic information and expand from there.
+
+			<meta name="twitter:card" content="summary_large_image" />
+			<meta name="twitter:site" content="@digitalocean" />
+			<meta name="twitter:title" content="Sammy the Shark" />
+			<meta name="twitter:description" content="Senior Selachimorpha at DigitalOcean" />
+			<meta name="twitter:image" content="https://html.sammy-codes.com/images/large-profile.jpg" />
+
+
+	TWITTER CARDS ( name attributes )
+		- twitter:card: 
+		- this tag specifies the type of twitter card that should be displayed. 
+		- the summary_large_image type displays a short summary with a large image preview.
+
+		- twitter:site: 
+		- your twitter username, or your site or company’s username.
+		
+		- twitter:title: 
+		- the title you’d like used in the card. 
+		- this could match what you’ve put in your <title> tags, but it doesn’t have to.
+
+		- twitter:description: 
+		- a brief description of the page that will be displayed under the title. 
+		- this should be a maximum of 200 characters, and may be truncated even further when displayed.
+
+		- twitter:image: 
+		- an image to show. most standard image formats (jpg, png, gif) are acceptable, 
+		- but it must be less than 5mb in size. 
+		- the image may be automatically cropped to display in differently sized cards, 
+		- so it is a good idea to have the main focal point in the center.
+
+		- different social media platform have specifications
+		- for the size, dimension & aspect ratio of the image,
+		- so be sure to check that out
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Twitter Cards Metadata:
+
+	TWITTER CARDS ( testing tools ):
+		- there are a few tools you can use 
+		- to preview how your meta tags would display on a website. 
+
+		- the "Open Graph Debugge"r is an unofficial simulator 
+		- that shows both Twitter Card and Open Graph information, 
+		- and doesn’t require an account to use.
+
+		- the following official validators all require you to log into their service before using:
+		- Twitter Card validator
+		- Facebook Sharing Debugger
+		- LinkedIn Post Inspector
+		- Pinterest Rich Pins Validator
+		
+		- many other sites have similar tools. 
+		- if a site or community is important to you or your business, 
+		- look for their developer documentation 
+		- to see if they provide a similar service to test with
+
+
+	TWITTER CARDS ( reconciling tags ):
+		- instead of having redundant meta tags
+		- some based on twitter protocols & others on open graph protocols
+
+		- we can leverage the fact that twitter allows us 
+		- to substitute Open Graph <meta> tags for its own. 
+
+		- in the end, except for the necessity of specifying a display format, 
+		- none of the custom Twitter <meta> tags are needed.
+			<meta property="og:title" content="European Travel Destinations">
+			<meta property="og:type" content="article" />
+			<meta property="og:description" content="Offering tour packages for individuals or groups.">
+			<meta property="og:image" content="http://euro-travel-example.com/thumbnail.jpg">
+			<meta property="og:url" content="http://euro-travel-example.com/index.htm">
+			<meta name="twitter:card" content="summary_large_image">
+
+		- reconciling the guidelines for the image is simple: 
+		- follow facebook’s (open graph protocol) recommendation 
+		- of a minimum dimension of 1200×630 pixels and an aspect ratio of 1.91:1, 
+		- but adhere to twitter’s file size requirement of less than 1mb.
+		- facebook uses open graph protocol
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Twitter Cards Metadata:
+
+
+	TWITTER CARDS ( social media analytics ):
+		- what facebook is indicating is that 
+		- if you’re going to use their analytics tool, 
+		- which they call "Domain Insights", 
+		- you must provide the unique id number associated with your account. 
+		- the tag would then look something like this:
+			<meta property="fb:app_id" content="your_app_id" />
+
+		- twitter has something similar that they call twitter card analytics. 
+		- to get the most out of this tool, 
+		- twitter recommends using the following tag 
+		- that contains the twitter username that you want associated with the shared web page:
+			<meta name="twitter:site" content="@website-username">
+
+		- keep in mind, though, 
+		- that if you have no particular interest in using these analytic tools, 
+		- then omitting the above two <meta> tags 
+		- has no effect on how a shared web page appears on a facebook timeline or twitter feed.
+
+
+	TWITTER CARDS ( anything else ):
+		- facebook documentation recommends one additional <meta> tag, 
+		- though it’s not required. 
+		- a tag that denotes the name of the web site in which the shared page resides:
+			<meta property="og:site_name" content="european travel, inc.">
+
+		- twitter suggests one other tag as well that is recommended, but not required:
+			<meta name="twitter:image:alt" content="alt text for image">
+		- this provides an alternative image description for those who are visually impaired.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Twitter Cards Metadata:
+
+
+	TWITTER CARDS ( summary ):
+
+		<!--  Essential META Tags -->
+		<meta property="og:title" content="European Travel Destinations">
+		<meta property="og:type" content="article" />
+		<meta property="og:image" content="http://euro-travel-example.com/thumbnail.jpg">
+		<meta property="og:url" content="http://euro-travel-example.com/index.htm">
+		<meta name="twitter:card" content="summary_large_image">
+
+		<!--  Non-Essential, But Recommended -->
+		<meta property="og:description" content="Offering tour packages for individuals or groups.">
+		<meta property="og:site_name" content="European Travel, Inc.">
+		<meta name="twitter:image:alt" content="Alt text for image">
+
+		<!--  Non-Essential, But Required for Analytics -->
+		<meta property="fb:app_id" content="your_app_id" />
+		<meta name="twitter:site" content="@website-username"> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Additional Resources ( open graph protocol ):
+
+	ADDITIONAL RESOURCES - open graph protocol ()
+		- the open graph protocol enables any web page 
+		- to become a rich object in a social graph. 
+		- for instance, this is used on facebook 
+		- to allow any web page to have the same functionality as any other object on facebook.
+
+		- you can read more online when you have a project
+		- but i will just add a few things
+
+
+	ADDITIONAL RESOURCES - open graph protocol ( structured properties )
+		- some properties can have extra metadata attached to them. 
+		- these are specified in the same way as other metadata with "property" and "content", 
+		- but the property will have extra ":"
+
+		- the "og:image", "og:video", "og:audio" all have structured properties
+		- i will show an example with "og:image"
+
+		<meta property="og:image" content="https://example.com/ogp.jpg" />
+		<meta property="og:image:secure_url" content="https://secure.example.com/ogp.jpg" />
+		<meta property="og:image:type" content="image/jpeg" />
+		<meta property="og:image:width" content="400" />
+		<meta property="og:image:height" content="300" />
+		<meta property="og:image:alt" content="A shiny red apple with a bite taken out" />
+
+
+	ADDITIONAL RESOURCES - open graph protocol ( arrays )
+		- if a tag can have multiple values, 
+		- just put multiple versions of the same <meta> tag on your page. 
+		- the first tag (from top to bottom) is given preference during conflicts
+			<meta property="og:image" content="https://example.com/rock.jpg" />
+			<meta property="og:image" content="https://example.com/rock2.jpg" />
+
+
+	ADDITIONAL RESOURCES - open graph protocol ( arrays )
+		- put structured properties after you declare their root tag. 
+		- whenever another root element is parsed, 
+		- that structured property is considered to be done and another one is started.
+		- this is what i mean
+
+			<meta property="og:image" content="https://example.com/rock.jpg" />
+			<meta property="og:image:width" content="300" />
+			<meta property="og:image:height" content="300" />
+			<meta property="og:image" content="https://example.com/rock2.jpg" />
+			<meta property="og:image" content="https://example.com/rock3.jpg" />
+			<meta property="og:image:height" content="1000" />
+
+		- there are 3 images on this page, 
+		- the first image is 300x300, 
+		- the middle one has unspecified dimensions, 
+		- and the last one is 1000px tall.
+
+
+

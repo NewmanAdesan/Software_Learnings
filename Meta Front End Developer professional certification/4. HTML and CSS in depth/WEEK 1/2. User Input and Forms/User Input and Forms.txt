@@ -1,0 +1,1217 @@
+
+
+
+Form Validation:
+
+	input type attribute, input required attribute
+
+
+	FORM VALIDATION ( intro )
+		- as a developer, you'll use html forms 
+		- to CAPTURE USER INPUT, to VALIDATE USER INPUT.
+
+		- form validation is a process that ensures that 
+		- the data entered by the user in a form is valid 
+		- and conforms to rules defined by the developer. 
+
+		- there are two methods of form validation, 
+		- client-side validation and server-side validation. 
+
+
+	FORM VALIDATION ( client-side validation)
+		- client-side validation checks for errors 
+		- as soon as they are typed into the form. 
+		- this is done by the web browser or by javascript code, 
+		- it provides the user with immediate feedback. 
+
+		- if there are no errors, the form will be submitted to the server for processing. 
+		- if there are errors, an error message 
+		- will alert the user of the invalid data 
+		- and how to change it for successful submission. 
+
+		- for example, you decide 
+		- to use the input element with its type attributes set to email. 
+		- if the user does not enter a valid email address, 
+		- the web browser will display an error message 
+		- informing them that the data they entered is not a valid email address.
+
+
+	FORM VALIDATION ( server-side validation )
+		- server-side validation checks for errors 
+		- after the data has been submitted to the web server. 
+
+		- server-side validation is more secure 
+		- because it prevents malicious users from tampering 
+		- with your website's code and submitting invalid data to your server. 
+
+		- when the form data is received by the web server, 
+		- the backend will validate the data before processing it. 
+
+		- this validation can run more complex checks, 
+		- such as checking the data against a database, or 
+		- validating the data against business requirements. 
+
+		- most websites use both client-side and server-side validation 
+		- to provide immediate feedback to users, 
+		- but also to protect against 
+		- malicious data submission and to ensure data integrity.
+
+
+
+	FORM VALIDATION ( type attribute )
+		- let's examine how html allows you to do simple client-side validation. 
+
+		- one example is the html input element type attribute
+		- that are validated by the web browser. 
+
+		- <input type="email"> for email addresses
+		- <input type="tel"> for telephone numbers
+		- <input type="url"> for urls
+		- <input type="date"> for date values
+		- <input type="time"> for time values
+		- <input type="number"> for numeric values
+		- <input type="range"> for numeric values with min & max value
+		- <input type="color"> for color selection
+
+
+	FORM VALIDATION ( requird attribute )
+		- another example is the html input element required attribute (valueless)
+		- this ensures user supply a value to an input field. 
+		- the web browser will alert a user if a required value is outstanding.
+		- <input type="text" required>
+
+
+	FORM VALIDATION ( minlength & maxlength attribute )
+		- this specifies the maximum and minimum number of character
+		- that can be entered for a specific field
+		- <input type="text" minlength="3" maxlength="12" required>
+
+
+	FORM VALIDATION ( min & max attribute )
+		- determine the minimum and maximum values 
+		- allowed for an input field. 
+		- they are usually applied to numerical text inputs.
+
+
+	FORM VALIDATION ( multiple attribute )
+		- indicates that the user can enter 
+		- more than one value in a single input field. 
+		- this attribute can only be used for email and file input types. 
+		- <input type="file" multiple> 
+
+
+	FORM VALIDATION ( pattern attribute )
+		- defines a particular pattern that an input field value 
+		- has to fulfill to be considered valid. 
+
+		- this attribute expects a regular expression to specify the pattern. 
+		- it works with text, date, search, URL, tel, email and password input types. 
+
+		- for example, you can restrict phone numbers to be only from the UK. 
+		- <input 
+				type="tel" 
+				id="phone" 
+				name="phone" 
+				pattern=”^(?:0|\+?44)(?:\d\s?){9,10}$” > 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Input Types:
+
+	HIDDEN TYPE
+	  - defines a control that is not displayed 
+	  - but whose value is still submitted to the server.
+
+
+	BUTTON TYPE
+	  - this displays a clickable button 
+	  - it’s mostly used in HTML forms 
+	  - to activate a script when clicked. 
+		<input type="button" value="Click me" onclick="msg()" />
+	  - alternatively you can use the <button> tag
+	  - with added benefits of placing content like text or images INSIDE the tag
+
+
+	SEARCH TYPE
+	  - defines a text field for entering a search query. 
+	  - these are functionally identical to text inputs, 
+	  - but may be styled differently depending on the browser.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Input Types:
+
+
+	IMAGE TYPE
+	  - defines an image as a graphical submit button. 
+	  - you should use the “src” attribute 
+	  - to point to the location of your image file
+
+
+	RESET TYPE
+	  - displays button that can reset 
+	  - the contents of the form to their default values
+
+
+	RANGE TYPE
+	  - displays a range widget 
+	  - for specifying a number between two values. 
+
+	  - the precise value, however, is not considered important. 
+	  - this is typically represented using a slider or dial control. 
+
+	  - to define the range of acceptable values, 
+	  - use the “min” and “max” properties.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Input Types:
+
+	FILE TYPE
+	  - displays a control that lets the user 
+	  - select and upload a file from their computer. 
+
+	  - to define the types of files permissible 
+	  - you can use the "accept" attribute. 
+
+	  - also, to enable multiple files to be selected, 
+	  - add the "multiple" attribute.
+
+
+	RANGE TYPE
+	  - displays a range widget 
+	  - for specifying a number between two values. 
+
+	  - the precise value, however, is not considered important. 
+	  - this is typically represented using a slider or dial control. 
+
+	  - to define the range of acceptable values, 
+	  - use the “min” and “max” properties.
+
+
+	DATETIME-LOCAL TYPE
+	  - defines a control for entering a date and time, 
+	  - including the year, month and day, 
+	  - as well as the time in hours and minutes.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Input Types:
+
+	Date Time Types
+		DATE TYPE, TIME TYPE, WEEK TYPE, MONTH TYPE
+
+	Text Based Types
+		TEXT TYPE, PASSWORD TYPE, EMAIL TYPE, NUMBER TYPE, URL TYPE
+
+	Selection Types
+		CHECKBOX TYPE, RADIO TYPE, SUBMIT TYPE
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Form Feedback Control With CSS:
+
+	FORM FEEDBACK CONTROL ( intro )
+		- let's focus on the way the browser communicates errors to the users, 
+		- like a form field that turns red when the data is invalid.
+
+		- this can be readily implemented using CSS.
+		- using the input element selector and its pseudo-class selectors.
+
+		- pseudo-class selectors are used to select elements 
+		- based on their state, such as whether the input data is valid or invalid.
+
+
+	FORM FEEDBACK CONTROL ( input:invalid )
+		- using the pseudo-class selector called invalid
+		- on the input element selector
+		- you can specify styles when the form element is invalid
+
+			input:invalid{
+				border: 2px solid red;
+			}
+
+		- but since all the form fields are empty when the form loads initially, 
+		- their state is still practically invalid. 
+		- this will cause all form fields to display red from the start 
+
+
+	FORM FEEDBACK CONTROL ( input:focus:invalid )
+		- ideally, you only want fields to appear red 
+		- as the user enters invalid data. 
+
+		- to do this, you need to apply another pseudo-class called focus, 
+		- which checks if the user is currently entering data into this field. 
+		- now the form will appear normal when the page first loads, 
+		- and when the user starts inputting data, 
+		- the field will turn red if the data is invalid. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Radio Buttons:
+
+	RADIO BUTTONs ( problem statement )
+		- the little lemon restaurant is adding 
+		- a table booking system to their website. 
+		- html form will be an ideal solution for that
+		- but which form element are we going to incoporate
+
+		- little lemon has different table sizes,
+		- little lemon has different sections in the restaurant where customers can be seated. 
+
+		- therefore, the html form must allow customers to decide 
+		- between the available table sizes, as well as 
+		- if they want to sit indoors or outdoors. 
+
+		- since both choices have limited options available, 
+		- it will be best to use radio buttons for the input. 
+
+		- radio buttons are ideal for this forum 
+		- because they allow me to set up groups of options 
+		- of which only one option and the group can be selected. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Radio Buttons:
+
+	<fieldset>, <label>
+
+
+	RADIO BUTTONS ( solution )
+		...
+		<form method="POST">
+			<fieldset id="size">
+				<label>
+				<input type="radio" value="2" name="size"> 2-peerson table
+				</label>
+
+				<label>
+				<input type="radio" value="4" name="size" checked> 4-person table
+				</label>
+
+				<label>
+				<input type="radio" value="6" name="size"> 6-person table
+				</label>
+			</fieldset>
+
+			<fieldset id="location">
+				<label>
+				<input type="radio" value="indoors" name="location" checked> Indoors
+				</label>
+
+				<label>
+				<input type="radio" value="outdoors" name="location"> Outdoors
+				</label>
+			</fieldset>
+
+			<button type="submit">Book Table</button>
+		</form>
+
+
+
+	RADIO BUTTONS ( solution design )
+		Fieldset element
+		  - two fieldset elements
+		  - one for table size,
+		  - one for table location
+
+		  - the fieldset element defines a group for the radio buttons. 
+		  - without the fieldset elements, 
+		  - all radio buttons will belong to the same group, 
+		  - but for this form, we need two groups. 
+
+
+		Table Size Option
+		  - there are three different tables availble at little lemon
+		  - two-person, four-person, and six person tables
+		  - we create radio button for each option
+
+		  - it is important to set the name attribute value 
+		  - to match the value of the id attribute in the fieldset. 
+		  - this tells the browser, which fieldset the input belongs to.
+
+		  - since the four-person table is the most common booking, 
+		  - this option will selected by default.
+
+
+		Table Location Option
+		  - two location availble at little lemon, indoors & outdoors
+		  - we create radio button for each option
+
+		  - it is important to set the name attribute value 
+		  - to match the value of the id attribute in the fieldset. 
+		  - this tells the browser, which fieldset the input belongs to.
+
+		  - since the indoors table is the most common booking, 
+		  - this option will selected by default.
+
+
+		Label Element Importance
+		  - without the label element,
+		  - to select an option, you must click on the radio button directly
+		  - on smaller screens, the will lead to low user experience
+
+		  - with label element,
+		  - we group each radio button to its associated text
+		  - such that clicking the text area with select & deselect the button
+
+		  - to select options will be much easier on smaller screens
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Advanced Form Features:
+
+	ADVANCED FEATURES ( intro )
+		- little lemon restaurant is becoming very popular 
+		- in their local area, so much so 
+		- that they've opened a second little lemon 
+		- in another area nearby. 
+
+		- because of this, 
+		- they want to update the form of their table booking system. 
+		- you will learn how to add advanced html features to a form. 
+
+
+	ADVANCED FEATURES ( problem statement )
+		- they've also added some new tables to the restaurant. 
+		- thus they've asked to replace the table size field 
+		- with a field for the number of people 
+
+		- they've asked to remove the table location field. 
+		- instead they want customers to be able 
+		- to choose which restaurant they want to book at. 
+
+		- the owners have told me that they're hoping 
+		- for continued success and growth of the business, 
+		- and so i should plan for more restaurant locations to be added.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Advanced Form Features:
+
+	<datalist>, <output>, <option>, range input type
+
+
+	ADVANCED FEATURES ( solution )
+		...
+		<form method="POST">
+
+			<div>
+				<label for="booking_date">Booking Date</label>
+				<input type="date" id="booking_date" name="booking_date">
+			</div>
+
+			<div>
+				<label for="booking_people">Number of People</label>
+				<input type="range" id="booking_people" name="booking_people" min="1" max="10" value="4" oninput="this.nextElementSibling.value=this.value">
+				<output>4</output>
+			</div>
+
+			<div>
+				<label for="booking_location">Location</label>
+				<input id="booking_location" name="booking_location" list="locations">
+				<datalist id="locations">
+					<option value="Uptown"></option>
+					<option value="Downtown"></option>
+				</datalist>
+			</div>
+
+			<div>
+				<button type="submit">Book Table</button>
+			</div>
+		</form>
+		...
+
+
+	ADVANCED FEATURES ( solution design )
+		Division
+		  - this form would contain three main divisions
+		  - Booking Date, Booking Number of people and 
+		  - Restaurant location
+
+		Booking Date
+		  - for date input, we use the date type input element
+		  - adding a label element for this input elemenet
+		  - this form element is very key for user experience
+		  - a calender pops up and user can easily select
+
+		Booking Number of People
+		  - we implement this with a range input type
+		  - which allows for minimum and maximum values
+		  - we also set the default value to "4" as it is common
+
+		  - the range input is pretty much a slider
+		  - and a slider isnt much use without displaying it's value
+		  - therefore we add an output element after the input element
+		  - and we set it's text content to "4" to match the default value
+
+		  - the output element is a semantic html element
+		  - that contains the result of a calculation.
+		  - in this case we want it to display the value of the slider.
+
+		  - but if the value of the range input is changed,
+		  - the value of the output text content will not automatically change
+		  - therefore we add a bit of javascript
+
+		  - using the "oninput" attribute on the input element
+		  - we write a javascript which sets the value of the output element
+		  - via "this.nextSiblingElement.value" to the value of the input element
+		  - which is "this.value"
+
+		Restaurant Location
+		  - there are currently two locations
+		  - but they said they might add more later
+		  - to allow for expansion later, 
+		  - we will use a data list input type
+
+		  - the data list input type allows me 
+		  - to specify a list of available options 
+		  - that will appear in a drop-down list
+
+		  - what's really cool is that 
+		  - there can be tens and hundreds of options
+		  - so the field allows the user to begin typing, 
+		  - and it will narrow down the available options based on their input
+
+
+		Restaurant Location (data-list implementation)
+		  - setting up the data list type
+		  - requires a few mor steps that the other input types
+
+		  - add an input element 
+		  - setting it's id & name attribute to "booking_location"
+
+		  - add a list attribute with the value "locations"
+		  - this value is important for the next step
+
+		  - add a datalist element below the input element
+		  - set it's id attribute to the value of the list attribute "locations"
+		  - to match the value of the list attribute on the input element
+
+		  - add two options element inside the datalist element
+		  - whose value attribut will be set to the two location
+		  - "Uptown" & "Downtown"
+
+		  - add a label element that targets the input element
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Form Submission:
+
+FORM SUBMISSION ( how )
+	- what happens when forms are submitted in the web browser?
+
+	- by now, you know that the web browser communicates 
+	- with a web server using a HTTP request response cycle. 
+
+	- this means that the web browser sends requests to the web server, 
+	- and the web server sends back a response. 
+
+	- up to now, the main type of requests you've been introduced to 
+	- were for resources such as HTML documents, images, 
+	- CSS files, and JavaScript files. 
+
+	- but it is also possible to send data AS PART of a request. 
+	- this is how form send data to the web server. 
+
+
+FORM SUBMISSION ( submission method )
+	- there are two ways a form can send data to the web server 
+	- one using the HTTP GET method,
+	- another using the HTTP POST method. 
+
+	- you can specify which method the form should use 
+	- with the "method" attribute of the form element. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Form Submission:
+
+	"GET" method & it's problems
+
+
+	FORM SUBMISSION ( submission get method )
+		- when the submit button is clicked,
+		- user data is appended to the end of the URL 
+		- in the web browser navigation bar
+
+		- such as "example.com/login?username=admin&password=secret"
+		- notice how the username & password data are appended
+
+		- the web server receives the HTTP GET request, 
+		- and extracts the form data from the URL.
+
+		- WHILE THIS IS AN EASY WAY TO SUBMIT DATA
+		- IT HAS THREE KEY PROBLEMS.
+
+		- URL length limited by web browser
+		- URL length limited by web server
+		- Security threats
+
+
+	FORM SUBMISSION ( submission get method problems )
+		URL length limited by web browser
+		  - the length of a URL is limited to around 2,000 characters 
+		  - depending on the web browser you're using. 
+
+		  - some web browsers allow more, 
+		  - but there are inconsistencies between browsers. 
+
+		  - so if you have a large form, some data may be lost 
+		  - when it sent via the GET Method to the web server.
+
+		URL length limited by web server
+		  - popular web server software such as Apache web server or NGINX, 
+		  - have a default limit of around 4,096 characters. 
+		  - again, if you have a large form, some data may be lost.
+
+		Security threats
+		  - since the data is included as part of the URL, 
+		  - it means that your data is stored in your web browser history 
+		  - and possibly in the request logs on the web server. 
+
+		  - if you're transmitting personal information 
+		  - such as addresses or credit card numbers, 
+		  - this is a major privacy and security risk. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Form Submission:
+
+	"POST" method, form's action attribute
+
+
+	FORM SUBMISSION ( submission post method )
+		- when the form is submitted using the post method, 
+		- the form data is inserted into the content of the HTTP request
+		- and set to the web server via an HTTP post request.
+
+			POST / HTTP/1.1
+			Host: example.com
+			Content-Type: application/x-
+			www-form-urlencoded 
+			Content-Length: 28
+
+			username=bob&password=secret
+
+		- the HTTP post method is more secure than the HTTP GET method. 
+		- however, the data could still be read 
+		- by a third party listening to the HTTP request. 
+
+		- to secure this completely, 
+		- HTTPS is used to encrypt the data 
+		- so that only the sender and receiver can understand the data.
+
+		- once the web server receives the request, 
+		- it processes it and sends back an HTTP response
+
+
+	FORM SUBMISSION ( form submission attributes - action )
+		- how the form is submitted is determined 
+		- by two essential attributes: action and method
+
+		- action attribute specifies 
+		- to which web address the form must be sent. 
+		- this is address is location of 
+		- the server-side code that will process the request.
+
+		- it is important to note that "action" 
+		- can be a full URL address such as https://meta.com, 
+		- an absolute path such as /login, 
+		- or a relative path such as login.
+
+		- if it is an absolute path or relative path
+		- the value will be combined with the base address of the current website 
+		- the absolute path starts with a forward slash
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Form Submission:
+
+	other ways, form's method attribute
+
+
+	FORM SUBMISSION ( form submission attributes - method )
+		- the method attribute specifies 
+		- which HTTP method is used to submit the form; 
+		- GET or POST
+
+		- the form will default to the HTTP GET method 
+		- when the method attribute is not provided.
+
+
+	FORM SUBMISSION ( other ways )
+		- as a front-end developer, 
+		- it is essential to know that forms are not the only way 
+		- to submit data to the web server. 
+
+		- as you learn more about JavaScript and front-end libraries, 
+		- you’ll discover that developers often submit HTTP requests 
+		- directly via code and send data as part of the HTTP request body 
+		- in a text format called JavaScript Object Notation, or JSON. 
+
+		- But that is a topic for another course.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Browser Difference:
+
+	Tailwind CSS, Bootstrap, Foundation
+
+
+	BROWSER DIFFERENCE ( ux problem ):
+		- there are many web browsers available today 
+		- for browsing the World Wide Web. 
+
+		- each one is developed by a different company 
+		- using different technologies. 
+
+		- as a result, you will find that your HTML forms elements
+		- will appear differently when you view them on different web browsers. 
+
+		- a form element may even appear differently on the same browser 
+		- when you view the form on a Windows PC or a Mac. 
+
+		- this makes the creation of a consistent user experience challenging. 
+		- how then do we to solve this problem?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Browser Difference:
+
+
+	BROWSER DIFFERENCE ( solution 1 )
+		- as you know, CSS allows you to define 
+		- the visual styling of HTML elements. 
+
+		- defining CSS rules for the different HTML form elements 
+		- will ensure that your element is styled 
+		- consistently across web browsers.
+
+		- you can style all inputs element via the "input" selector
+		- of style specifie inputs elment via "input[type=email]" selector
+
+
+	BROWSER DIFFERENCE ( solution 2 )
+		- luckily, there are a lot of resources 
+		- that simplify the styling of forms. 
+
+		- popular libraries and frameworks such as 
+		- Bootstrap, Tailwind CSS, and Foundation 
+		- provides CSS rules for forms and ensure visual consistency 
+		- across different devices and browsers. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Form Elements:
+
+
+	FORM ELEMENTS ( fieldset & legend element )
+		- the fieldset element is used to group 
+		- related input elements in a form
+
+		- the legend element defines a caption
+		- for the fieldset element, 
+		- it is located in the fieldset element
+
+		- for instance, elements related to 
+		- the user’s personal information 
+		- and educational qualification 
+		- can be grouped separately in two field sets.
+
+
+	FORM ELEMENTS ( select element )
+		- defines a drop-down list of options 
+		- presented to the user. it has a couple of attributes;
+		- form, name, multiple, required, size
+
+		- "form" the id of the form in which the drop-down appears 
+		- "name" specifies the name of the control  
+		- "size" mentions the number of visible options in a drop-down list
+
+		- "multiple" boolean attribute, when specified, 
+		- indicates if a user can select multiple options out of the list 
+
+		- "required" indicates if the user is required 
+		- to select an option before submitting a form 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Form Elements:
+
+	FORM ELEMENTS ( datalist element )
+		- specifies a list of pre-defined options for an input element. 
+		- it differs from <select> since the user 
+		- can still provide textual or numeric input 
+		- other than the listed options.
+
+
+	FORM ELEMENTS ( output element )
+		- represents the result of a calculation 
+		- (typically the output of a script) 
+		- or the outcome of the user action. 
+
+
+	FORM ELEMENTS ( option element )
+		- defines an option for the drop-down list. 
+
+
+	FORM ELEMENTS ( optgroup element )
+		- defines a group of related options in a drop-down list. 
+		- its attribute label names the group.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Form Elements:
+
+
+	FORM ELEMENTS ( textarea element )
+		- defines a multi-line input field, 
+		- typically to allow the user to input longer textual data. 
+		- the common attributes for this element include: 
+
+		- "cols" defines the width of the text area, the default value is 20 
+		- "form" the form element the text area is associated with 
+
+		- "maxlength" when specified, limits the maximum 
+		- number of characters that can be entered in the text area 
+
+		- "minlength" the minimum number of characters that the user should enter 
+		- "readonly" once set, the user cannot modify the contents 
+		- "rows" defines the number of visible text lines for the text area 
+
+
+	FORM ELEMENTS ( button element )
+		- defines a clickable button. 
+		- the "onclick" attribute defines the behavior 
+		- when the button is clicked by the user. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Form Elements:
+
+
+	FORM ELEMENTS ( input element )
+		- it is used to create interactive controls, 
+		- for example, buttons and various types of text fields and so on, 
+		- to accept input or data from the user. 
+
+		- the key attribute of this element is "type".
+		- some common values for the type include: 
+		- button, checkbox, date, email, 
+		- number, password, submit, text, and url. 
+
+		- these values dictate the appearance of the element.
+
+
+	FORM ELEMENTS ( label element ))
+		- defines a label for an element. 
+		- it has an attribute "for", 
+		- the value of which should be equal 
+		- to the id attribute of the element it is associated with. 

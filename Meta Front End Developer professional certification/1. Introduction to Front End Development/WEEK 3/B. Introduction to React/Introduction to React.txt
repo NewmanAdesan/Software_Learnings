@@ -1,0 +1,917 @@
+
+
+Static and Dynamic Content:
+
+	We will look into two basic concepts
+		- the difference between static and dynamic content. 
+		- the role of a web server and the role of an application server. 
+
+
+
+	WEB SERVER & APPLICATION SERVER ( intro )
+		- i'm sure you've noticed that when you shop online, 
+		- websites will often provide you with personalized recommendations. 
+		- but when your friends login to those same websites, 
+		- the recommendations will differ. 
+		- but did you ever wonder how websites adapt to different user profiles? 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Static and Dynamic Content:
+
+	WEB SERVER & APPLICATION SERVER ( content )
+		- by now, you know that when you open a website,
+		- a web server sends the website's content to your browser.
+		- the content can be static or dynamic. 
+
+		- static content is files that the server transfers 
+		- just as they are stored on the web server, such as videos or images. 
+
+		- dynamic content, on the other hand, is generated when the http request is made. 
+		- for example, the content may be generated based on input from a user, 
+		- or when you visit a news website, it would be based on the current date. 
+
+		- what actually happens, is that 
+		- the web server communicates with another kind of server, 
+		- called an application server or a back-end. 
+		- the application server generates the dynamic content 
+		- that the web server sends back to the user's browser.
+
+
+
+	WEB SERVER & APPLICATION SERVER ( workload )
+		- because dynamic content is generated while you use a website, 
+		- it typically takes longer to generate than it takes to send back static content. 
+		- application servers perform more complex processing than web servers. 
+		- running the application logic, 
+		- communicate with the database, 
+		- and check permissions. 
+
+		- to improve performance, 
+		- different application servers have specific purposes. 
+		- there are application servers for every type of content out there, 
+		- from music streaming to creating your own blog. 
+		- you can even create your own application servers, 
+		- such as building a back-end for a web application. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Static and Dynamic Content:
+
+	WEB SERVER & APPLICATION SERVER ( caching - concept )
+		- but hang on, if dynamic content is slower to generate, 
+		- isn't that a problem for big websites? yes, it is. 
+		- application servers typically have a limited capacity 
+		- on how many requests they can process per second. 
+		- but fortunately, this is where the web server can help out. 
+
+		- web servers use a process called caching 
+		- instead of generating content dynamically for every request. 
+		- caching means the web server keeps a copy of dynamic content. 
+		- if the content is requested again, 
+		- the web server can immediately send this cached version 
+		- instead of passing the request again to the application server. 
+
+
+
+	WEB SERVER & APPLICATION SERVER ( caching - process )
+		- on the first request for dynamic content, 
+		- the web server checks if the content exists in the cache. 
+		- if it does not exist, 
+		- the content is requested from the application server and stored in the cache. 
+		- the web server then sends back the dynamic content to the browser. 
+
+		- on subsequent requests, the web server immediately 
+		- sends back the content stored in the cache. 
+		- this reduces the amount of dynamic content 
+		- that the application server has to generate. 
+		- then, after a period of time or with the next user interaction, 
+		- the web server updates the cache with the latest content. .
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Single Page Applications:
+
+	SPA INTRO
+		- let's say that you're thinking of building a web app. 
+		- you probably want a user-friendly, mobile-friendly experience. 
+		- then you should consider using single-page applications or SPA's 
+		- to build a unique, speedy, and engaging experience for your users. 
+
+		- you're probably using many spas every day. 
+		- think of your favorite social network 
+		- or messaging app or the map application you use to find local businesses. 
+		- the great user experience you get is driven by single-page applications. 
+
+		- so, what exactly is an spa? how does it work? 
+		- how is it different from a traditional website? 
+
+
+	SPA ( traditional Websites )
+		- let's first explore how traditional website works. 
+		- before the advent of modern javascript frameworks, 
+		- most websites were implemented as multi-page applications. 
+
+		- but this makes traditional applications 
+		- RESOURCE INTENSIVE TO WEB SERVERS. 
+		- because sending entire web pages for every request 
+		- consumes excessive bandwidth 
+		- and uses cpu time to generate dynamic pages. 
+
+		- if your website is complex, 
+		- the site browsing experience may appear slow to users. 
+		- it will be even slower if they have a poor or limited internet connection. 
+
+		- to solve this problem, many web developers build their web applications as SPA's. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Single Page Applications:
+
+	SPA ( concept )
+		- it's called single-page, 
+		- but that doesn't mean your website has only one page of content. 
+
+		- what it means is that 
+		- THERE IS ONLY ONE HTML PAGE THAT GETS SENT FROM THE SERVER TO THE BROWSER 
+		- but that page will update its content 
+		- as your users interact with your website. 
+
+		- a spa allows the user to interact with the website 
+		- without the application needing to download entire new web pages. 
+		- instead, it rewrites parts of the current web page 
+		- as the user interacts with it. 
+
+		- the result is a browsing experience 
+		- that feels faster and more responsive to user input. 
+
+		- when the user navigates to the web application in the browser, 
+		- the web server returns the necessary resources to run the application. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Single Page Applications:
+
+	SPA ( two approaches )
+		- a spa has two approaches to serving code and resources. 
+			bundling
+			lazy loading/ code splitting
+
+		- with BUNDLING, 
+		- when the browser requests the application, 
+		- the server returns and loads "all necessary" 
+		- html, css, and javascript immediately. 
+
+		- with LAZY LOADING, 
+		- the browser requests the application 
+		- and the server returns only "the minimum" 
+		- html, css, and javascript needed to load the application. 
+		- additional resources are downloaded as required, for example, 
+		- when a user navigates a specific section of the application, 
+
+
+
+
+	SPA ( two approaches )
+		- both approaches are valid. the choice depends on 
+		- the size, complexity, and bandwidth requirements of the application. 
+
+		- for instance, with the bundling approach, 
+		- if your application is complex and has a lot of resources, 
+		- your bundles will grow quite large and take a long time to download. 
+		- you could end up with a site that is slower than a traditional web application. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Single Page Applications:
+
+	SPA ( example 1 - brief)
+		- imagine you have a site dedicated to reviewing movies, 
+		- people never know what to watch next 
+		- so you decide to install a feature 
+		- that randomly suggests the movie for a user. 
+
+		- you create a web page that has a "what to watch next" button. 
+		- you want to display a random movie name when the button is clicked. 
+
+
+
+	SPA ( example 1 - trad approach)
+		- in a traditional website, when the button is clicked, 
+		- the browser will send a post request to the web server. 
+		- the web server returns a NEW web page 
+		- containing the button and movie name. 
+		- the web browser then renders the new page.  
+
+
+
+	SPA ( example 1 - spa approach)
+		- in an SPA, when the button is clicked, 
+		- the browser will send a post request to the web server. 
+		- the web server will return a json object. 
+
+		- the application reads the object and updates 
+		- by displaying the text of the movie name.
+
+		- that's more efficient 
+		- because the rest of the page remains as it was 
+		- and it's content does not need to be sent by the server 
+		- and rendered by the browser. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Single Page Applications:
+
+	SPA ( example 2 - brief)
+		- but what if you need to update the majority of the page 
+		- to display a different form of content? 
+		- well, let's explore that scenario. 
+
+		- suppose you are building a web application that has two pages. 
+		- one page shows the latest news and 
+		- the other page shows the current user's profile page. 
+		- navigation bar at the top of the site contains a link to each page. 
+
+
+	SPA ( example 2 - trad approach )
+		- in the traditional websites, 
+		- when the user clicks a profile link, 
+		- the web browser sends the request to the web server. 
+		- the web server generates the entire html page 
+		- and sends it back to the web browser. 
+		- the web browser then renders a new web page. 
+
+
+	SPA ( example 2 - spa approach)
+		- in a single-page application, 
+		- different pages are broken into templates, also known as VIEWS. 
+		- each view will have html code that can be updated by the application. 
+		- for instance, the profile page would have a username, a first name, and a last name. 
+
+		- the web browser sends the request to the web server 
+		- and the web server sends back a file 
+		- called a javascript object notation or json object. 
+
+		- this contains only the data to be displayed, 
+		- such as the user's first name and last name, 
+		- and the SPA will update the html. 
+		- this is much smaller than sending an entire web page. 
+
+		- the web browser then updates the web page 
+		- by inserting the template with items replaced 
+		- by the values in the json object. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Single Page Applications:
+
+	SPA END-NOTE ( two methods of delivery - CACHING )
+		- for your next website, consider whether its complexity 
+		- suits a traditional multi-page application 
+		- or would perform better as an SPA. 
+
+		- remember that a single-page application 
+		- has two methods of delivery resources. 
+		- delivering all resources immediately or 
+		- delivering resources dynamically as required. 
+
+
+
+	SPA END-NOTE ( delivery all )
+		- if all resources are delivered when the application is loaded, 
+		- the single-page application must include 
+		- the views for every page on initial load. 
+
+
+
+	SPA END-NOTE ( delivery dynamic - caching  )
+		- if resources are loaded dynamically, 
+		- the single-page application requests the views as required 
+		- and STORES VIEWS IN THE BROWSER FOR SUBSEQUENT REQUEST. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+What is React:
+
+	REACT INTRO (reinventing the wheel)
+		- i'm sure you've created something from scratch before. 
+		- i bet you realize how challenging it can be 
+		- as opposed to using pre made components. 
+
+		- think about the effort that goes into building a brand new house 
+		- versus the convenience of constructing a modular building 
+		- with pre made components that you just need to put together. 
+
+
+	REACT INTRO (idea)
+		- react is focused on working with components, 
+		- which makes it simple to build functional user interfaces on web and mobile. 
+
+		- since react is one of the most popular javascript libraries,
+		- it's important that you can explain what its purposes 
+		- and describe how its components work together. 
+
+		- available since 2013 react is an open source library 
+		- with a community of core contributors and companies that maintain it. 
+		- developers use react to develop single page applications and 
+		- you can also develop mobile applications with react native. 
+
+		- what makes react so useful is that 
+		- it allows developers to write less code to create functionality. 
+		- this in turn makes it easier 
+		- to maintain code in the long term and simplifies testing. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+What is React:
+
+	REACT COMPONENTS ( composition )
+		- now that you have a better idea of what react is 
+		- let me tell you more about reacts components. 
+
+		- the key concept behind react is that 
+		- it allows you to define components 
+		- that you can combine to build a web application. 
+		- this leads to better design
+
+		- a component is basically a small piece of user interface, 
+		- such as a music player or photo gallery. 
+
+
+	REACT COMPONENTS ( abstraction & reuse )
+		- this component model allows you to do several things, 
+		- it enables abstraction and reuse, 
+
+		- this in order words means
+		- you can develop and test parts of the application in isolation and 
+		- it also allows you to reuse components
+		- across multiple sections of the application as well. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+What is React:
+
+	REACT COMPONENTS ( example )
+		- let's explore an example. 
+		- most web applications have user profiles with pictures. 
+		- normally several parts of the application 
+		- use a version of this profile picture, 
+
+		- for example,
+		- in the navigation bar beside the user's name. 
+		- it could also show in a user search result along with several other user pictures 
+		- it might also display as/with an instant message notifications. 
+
+		- instead of programming the logic for every instance of a user profile picture 
+		- react allows you to create a user icon component 
+		- that displays a version of a profile picture every time it is used. 
+		- you can then reuse this component throughout the application. 
+
+		- can you imagine how it will improve your efficiency. 
+
+
+
+	REACT COMPONENTS ( collaboration )
+		- there are in fact many open source libraries 
+		- that provide pre made components for react projects. 
+
+		- for example, if you want to add a video player to your website, 
+		- there's a react component library for that. 
+
+		- maybe you want to embed a map. 
+		- there's a react component library for that too.
+
+		- as the react community grows bigger, 
+		- it continues to add new features and improvements continuously. 
+		- annual react conferences, encourage community sharing 
+		- and introduce upcoming developments in the library. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+How React Works:
+
+	REACT HOW ( main question )
+		- by now you've learned, 
+		- that you can build components in react to develop user interfaces. 
+		- but how do react components 
+		- turn into the elements on the web page that you use?
+
+
+	REACT HOW ( browser dom )
+		- remember when your web browser receives an html page, 
+		- it constructs a dom, to represent it. 
+		- but updating the dom is considered expensive, 
+		- because it is very time intensive for the web browser to do so. 
+
+		- every time the browser dom is updated, 
+		- it causes the browser to re compute the page. 
+
+		- yet many big and popular websites still load in no time today. how can it be? 
+		- how does react solve this problem? 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+How React Works:
+
+	REACT HOW ( virtual dom - need )
+		- let's start with how react components 
+		- relate to the website displayed in your browser. 
+		- a react component, has a one to one relationship 
+		- to an html element that is displayed on the webpage. 
+
+		- but how does react keep track of which html elements need to be updated. 
+		- this is where reacts VIRTUAL DOM comes into play. 
+		- when react builds out its tree of components, 
+		- it builds out its own DOM in memory called the virtual dom. 
+
+
+
+	REACT HOW ( virtual dom - aim )
+		- the virtual dom is a representation of the browser DOM that is kept in memory. 
+		- react uses this virtual dom to update the browser dom, 
+		- ONLY WHEN IT NEEDS TO & ONLY WHAT IT NEEDS TO. 
+		- this ensures that your application is fast and responsive to user input.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+How React Works:
+
+	REACT HOW ( virtual dom - how )
+		- let me explain how it works, 
+		- react checks to see if the html components 
+		- in the virtual dom matches the browser dom. 
+		- if a change is required, the browser dom is updated. 
+
+		- if nothing has changed, then no update is performed. 
+		- this process is called RECONCILATION. 
+
+
+
+	REACT HOW ( virtual dom - steps )
+		step 1: The virtual DOM is updated.
+
+		step 2: The virtual DOM is compared to the previous version 
+		        of the virtual DOM and checks which elements have changed.
+
+		step 3: The changed elements are updated in the browser DOM.
+
+		step 4: The displayed webpage updates to match the browser DOM. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+How React Optimize:
+
+	REACT OPTIMIZATION ( why optimize )
+		- as updating the browser dom can be a slow operation, 
+		- this process helps to reduce the number of updates 
+		- to the browser dom by only updating when it is necessary.
+
+		- but even with this process, 
+		- if a lot of elements are updated by an event, 
+		- pushing the update to the browser dom can still be expensive 
+		- and cause slow performance in the web application.
+
+		- the react team invested many years of research into solving this problem. 
+		- the outcome of that research is what’s known as the REACT FIBRE ARCHITECTURE.
+
+
+
+	REACT OPTIMIZATION ( fibre architecture - basic idea )
+		- the fiber architecture allows react to incrementally render the web page. 
+		- what this means is that instead of immediately updating the browser dom 
+		- with all virtual dom changes, react can spread the update over time. 
+		- but what does "over time" mean? 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+How React Optimize:
+
+	REACT OPTIMIZATION ( fibre architecture - idea )
+		- imagine a really long web page in the web browser. 
+		- if the user scrolls to the bottom, 
+		- the top of the web page is no longer visible. 
+
+		- the user then clicks a button on the bottom of the web page 
+		- that updates some text on the top of the web page.
+		- but the top of the page isn’t visible. 
+		- therefore, why update it immediately?
+
+		- perhaps there is text currently displayed 
+		- on the bottom of the page that also updates when the button is clicked. 
+		- wouldn’t that be a higher priority to update than the non-visible text? 
+
+
+
+	REACT OPTIMIZATION ( fibre architecture - principle )
+		- this is the principle of the react fiber architecture. 
+		- react can optimize WHEN AND WHERE updates occur to the browser dom 
+		- to significantly improve application performance and responsiveness to user input. 
+
+		- think of it as a priority system. 
+		- the highest priority changes, the elements visible to the user, are updated first. 
+		- while lower priority changes, the elements not currently displayed, are updated later. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+How React Optimize:
+
+	REACT OPTIMIZATION ( react developer tools )
+		- while you’re unlikely to interact 
+		- with the virtual dom and fiber architecture yourself, 
+		- it’s good to know what’s going on 
+		- if issues occur during the development of your web application.
+
+		- there are many tools available 
+		- to help you investigate how react is processing your webpage. 
+		- the official react developer tools web browser plugin 
+		- developed by meta will be one of the key tools in your developer toolbox. 
+
+		- so, if you do have to look deeper into the code, 
+		- you’ll have the right toolbox available to help you. 
+		- these tools will be explored later on
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Component Hierarchy:
+
+	Every react application contains at least one component, 
+	the root component or app component. 
+
+
+	Components are added to the app component to build out 
+	a tree structure of components that make up the application. 
+
+
+
+
+
+	

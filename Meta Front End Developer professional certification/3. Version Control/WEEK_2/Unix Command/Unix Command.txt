@@ -1,0 +1,914 @@
+1/9/23
+
+
+
+
+
+The Command Line
+
+	"cd", "touch", "mkdir", "history", "code"
+
+
+	COMMAND LINE ( basic tasks )
+		- the command line is a very powerful alternative to gui
+		- because it allows developers to perform tasks quicker 
+		- and with enough experience, less potential for errors. 
+
+		- to use this powerful tool effectively, 
+		- you need to have a certain level of knowledge. 
+		- by learning just a few commands, you can perform various tasks, such as 
+			| creating new directories, 
+			| combining directories, 
+			| creating new files, 
+			| copying and moving files around different directories, and 
+			| searching through files using various criteria and keywords. 
+
+
+
+	COMMAND LINE ( advanced tasks )
+		- as you become more advanced in using the command line, 
+
+		- you will be able to perform tasks such as 
+			| track software, 
+			| access and control remote servers, 
+			| search for files using specific criteria, 
+			| unzip archives,
+
+			| access software manually and display them in the command line. 
+			| install, upgrade, and uninstall software, and 
+			| mount and unmount computer drives, or 
+			| check disk space and so on. 
+
+		- pretty advanced stuff, don't you think? but the list goes on. 
+			| you can write scripts to automate various tasks, 
+			| control user access to files and programs, 
+			| stop, start and restart programs. 
+			| download files from the internet, 
+			| run various software, and finally, 
+			| run and control self-contained virtual software, which is also known as containerization. 
+			| create aliases of only a few characters long to initiate very long commands, 
+
+
+
+	COMMAND LINE ( basic commands )
+		- there are many, many ways to use the command line. 
+		- but for now, i will guide you through some basic commands to get you started.
+			"cd ~/Destop" 		 --  i will point the command line to the desktop of my computer. 
+			"cd .." 	  		 --  you will move out of the current directory and back into the parent directory. 
+			"touch example.txt"  --  build a brand new empty file  
+			"mkdir example"  	 --  make a new folder at the current directory
+		    "history" 			 --  view the most recently typed commands. 
+		    "code example.js"	 --  opens with file with the default software
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+What are Unix commands:
+
+
+	"man"
+
+
+	UNIX COMMAND ( unix & linux )
+		- unix preceded linux and was developed 
+		- by ken thompson and dennis ritchie and team at at&t labs in 1969. 
+		- linux came much later on and was originally developed 
+		- as a hobby by linus torvalds, hence the name linux. 
+		- the commands that you will explore in this video originated from the unix platform, 
+		- but you can use them in most modern environments that run some flavor of linux. 
+
+
+
+	UNIX COMMAND ( helper instruction )
+		- before i delve into some of the most common commands, 
+		- it's important to note that each command has a set of HELPER INSTRUCTION. 
+		- these helpers give detailed information about how the commands can be run 
+		- and how something we call FLAGS can be passed. 
+
+
+
+	UNIX COMMAND ( helper instruction - man command )
+		- one of these helpers is the "man" command. 
+		- "man" is short for manual, and when called against a command, 
+		- it will display a detailed manual of instructions for that given command. 
+			"man ls"  --  shows the detailed manual of instructions for the list command ls. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+What are Unix commands:
+
+	
+	"ls", "ls -l", "ls -a", "ls -la"
+
+
+	UNIX COMMAND ( flags )
+	we can also use something called flags in conjunction with unix commands. 
+	flags are used to modify the behavior of a command. 
+	think of them as options that can either change or extend the functionality of the given command. 
+
+
+
+	UNIX COMMAND ( basic command - cd & ls )
+		- the cd or change directory command is used 
+		- to move from different directories of the file system. 
+		- you can learn more about working with relative and absolute paths 
+		- from the additional reading at the end of this lesson. 
+
+		- ls is used to show the contents of the current working directory. 
+		- the ls command can accept many different types of flags 
+		- that will change what is returned in the response.
+
+		  	ls -l, lists the file out, in list order, 
+		  	       shows the read or write permissions, 
+		  	       shows the owners and 
+		  	       shows the groups it belongs to. 
+
+			ls -a, simply list all files and directories including hidden ones.
+
+
+			ls -la, combination of -l & -a
+					shows all information about the files including hidden ones
+
+
+
+	UNIX COMMAND ( basic command - pwd & cp & mv )
+		- the pwd or print working directory command 
+		- shows the full path of the current working directory. 
+
+		- the copy or cp command copies files or folders from one destination to another, and 
+		- the mv, move command, moves files from one directory to another. 
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Using Bash on Windows:
+
+	
+	"less"
+
+
+	WINDOWS BASH ( .bashrc file )
+		# cd ~    --  navigate to my home directory
+		# ls -la  --  return all of the files in a list including all hidden files. 
+					  notice two files, a ".bashrc" file and a ".profile" which is a bash profile file. 
+		#less .bashrc  -- to view the .bashrc file
+
+		- the bashrc file is mainly for cmaonfigurations. 
+		- it is essentially a script file that's executed 
+		- when you first open the terminal window. 
+		- what's in there will be configurations for the shell itself, 
+		- for example, the types of colors that i'm using. 
+
+		- i can also add in things around my shell history, 
+		- like how much history of previous commands i want to store and so on. 
+		- any configuration options that i put in here 
+		- will be executed when the terminal session begins. 
+
+		- i press the "q" key to exit the "less" environment. 
+
+
+
+	WINDOWS BASH ( .profile )
+		- the other file is the bash profile file "profile". 
+			# less .profile"  --  to view the .profile file
+		- this tends to be used more for environment variables. 
+
+		- for example, i can use it for setting environment variables 
+		- for my java home directory or my python home directory 
+		- or whatever is needed during development. 
+		- again, i press the q key to exit. 
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Using Bash on Windows:
+
+
+	"vim", "echo"
+
+
+	WINDOWS BASH ( hello_world bash script  -  setup )
+		- now, i will create a simple shell script. 
+		- for this example, i will use vim, 
+		- which is an editor that i can use which accepts input. 
+			# vim testshell.sh
+		- this opens a file called testshell.sh 
+exho
+		- then at the top of the file, 
+		- i put in what type of file i want it to be. 
+		- in this case, it's going to be a bash file. 
+
+		- if i press the "i key" on my keyboard, it'll set INSERT MODE.
+		- if that is not working, first press escape key to remove it 
+		- from whatever mode, now press the "i key" 
+		- then at that line, i type in "#!/bin/bash"
+		- this let's to the operating system know that this is a bash script. 
+		- then press enter to go to the next line where our script will be
+
+
+	WINDOWS BASH ( hello_world bash script  -  script )
+		- this script will be very simple. 
+		- when this script runs, 
+		- i want to print out some type of text onto the screen. 
+
+		- i use the "echo" command 
+		- typing < echo "Hello World!" >
+		- press "escape" to get out of insert mode. 
+		- then i type ":wq!" to save the file. press "enter". 
+
+		- if i look in the directories with "ls -la", 
+		- there's now a file named testshell.sh. 
+			...
+			-rw-r--r-- 1 root root 32 May 1 13:04 testshell.sh
+			...
+
+
+		
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Using Bash on Windows:
+
+
+	"chmod"
+
+
+	WINDOWS BASH ( hello_world bash script  -  script execution )
+
+		- this file can't be run at the moment. in other words, it's not executable. 
+		- it's just a read write file. notice the "rw" at the begginning
+		- but i want it to be executable, 
+		- which requires that i have an x being set on it. 
+		- in order to do that, i use the "chmod command"
+			# chmod 755 testshell.sh
+
+
+		- 755 is used to set the type of permission
+		- 755 means read and execute access for everyone 
+		- and also write access for the owner of the file
+
+
+		- if i use the ls -la command again, 
+		- i notice that the file has now been turned into an executable file. 
+		- this means i can now run the file from the command line
+			...
+			-rwxr-xr-x 1 root root 32 May 1 13:04 testshell.sh
+			...
+
+
+		- to run the file, i press "./testshell.sh" 
+		- this prints "Hello World!" unto the screen.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+File Types in Bash:
+
+	WINDOWS BASH ( files type )
+		- when using ls to view list of files in a directory
+		- you can see different types of files
+		- a link file, a directory, a standard file
+
+		- you can distinguish between each type of file
+		- based on the permission attached at the beggining of the file row
+
+		- understanding the different symbols and name convention 
+		- is important when you are trying to find specific files
+
+
+
+	WINDOWS BASH ( files type - link file )
+		- link file starts with the letter "l" 
+			...
+				lrwxrwxrwx  1 root root      8 Dec 26 12:44 bin -> usr/bin
+			... 
+		- the bin directory has an arrow beside it which points to usr/bin
+		- this means bin is the same link to the actual directory usr/bin
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+File Types in Bash:
+
+	WINDOWS BASH ( files type - directory file )
+		- the directory file is represented by "d"
+		- in the example below, notice the "d" in front.
+			...
+				drwxr-xr-x  1 root root   4096 Dec  9 20:15 boot
+			...
+
+
+
+	WINDOWS BASH ( files type - standard file )
+		- the standard file such as a text file, 
+		- or a configuration file starts with the "-" symbol
+			...
+				-rwxr-xr-x  1 root root 644432 Dec 15 03:16 init
+			...
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Piping in Bash:
+
+	WINDOWS BASH ( pipes )
+		- with pipes, you can chain command together
+		- wherein you pass the result of a command into another command
+
+		- take for instance the "cat" command
+		- "cat file1.txt"  --  this shows the content of the file1.txt file
+		- "cat file1.txt file2.txt"  --  it will concatenate the content of the two files and shows it in console
+
+		- the wc command can be used for counting, 
+		- counting words, bytes e.t.c
+		- "wc file1.txt -w"  --  this will count the number of words in the file
+
+		- now lets show what we mean by piping
+		- "cat file1.txt | wc -w"  --  this will count the number of words in file1.txt
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Redirections in Bash:
+
+	REDIRECTION ( mental model )
+		- the basic workflow of any linux command is this, 
+		- there is input that is given to a command
+		- which processes the input and gives out an out. 
+
+		- so we have three entities, "input", "command" &"output"
+		- where is the input comming from and 
+		- where is the output going to
+
+		- the standard input device is the keyboard. 
+		- the standard output device is the screen. 
+
+		- with redirection, you can change the standard input and/or output. 
+		- for example, we can make so that the input 
+		- that will be passed to the command will be stored in a file
+		- thereby changing the input stream. it is no longer from the keyboard directly
+
+		- we can also make it so the output from the command is also stored in a file
+		- thereby changing the output stream. no longer is it the screen.
+		- this is the power of redirection.
+
+
+
+	REDIRECTION ( types )
+		- there are three types of io or input/output redirections. 
+		- standard input, standard output, and standard error. 
+
+		- the shell keeps a reference of standard input, output, and error by a numbering system. 
+		- we would later see where this numbering system is used
+		- zero(0) is for standard input, 
+		- one(1) is for standard output, and 
+		- two(2) is for standard error. 
+
+		- to redirect a command, telling it where to get its input from, you use a less than sign(<)
+		- to redirect the output of a command, you use a greater than sign(>)
+		- to redirect the error of a command, you use the code (2>) 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Redirections in Bash:
+
+	REDIRECTION ( example 1 )
+		- for example, the cat command can be used to record user input and save it to a file
+			# cat  --  this would allow user to type anything into the console
+					   once enter is pressed, it output user input to the console
+					   with redirction, we can control where to place user input
+					   and we can control where to output user input
+
+			# cat > input.txt  -- this would allow user type anything into the console 
+								  and output what was typed into an input.txt file,
+								  creating it if it does not exist.
+								  (press Enter & then Ctrl-d to tell cat to end file)
+
+			# cat < input.txt  -- with this, the input of cat is no more a key press
+								  but is now "input.txt". this is the same thing as
+								  writing the command "cat input.txt" in this usecase
+
+
+	 
+	REDIRECTION ( example 2 )
+		- Another example, we can control where the output of ls goes to.
+		- by default, when you run the ls command the output is shown on the console right
+		- that is the standard output. 
+
+		- in linux, everything is a file
+		- more precisely, with ls the output is written to a file called stdout file
+		- the content of this file is then shown on the console.
+
+		- we can redirect ls to output to another file instead of the stdout file
+			# ls -l > output.txt  --  the output of the ls -l command will be placed
+									  in the output.txt file. if non-existent it will be created
+
+			# less output.txt  --  the shows the content of the output.txt file
+								   press q to exit 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Redirections in Bash:
+
+	REDIRECTION ( error redirection )
+		- output redirection is actually succesful output redirection
+		- such that, it is only if the command ran successfully 
+		- that it result will be sent to the "stdout" file or your specified file
+
+		- if the case error happens, if you used the ">" sign
+		- it will not be sent to your specfied file 
+		- since that file is for successful output
+
+		- to redirect where the error should be sent, use "2>"
+		- to redirect error and successful output to the same file
+		- use "2>&1". thus whatever happens will be placed in the specified file
+
+			# ls this_directory_does_not_exist  --  this shows an error on the console
+
+			# ls this_directory_does_not_exist > error.txt  --  this still shows an error on the console
+
+			# ls this_directory_does_not_exist 2> error.txt  --  this sends the error message to "error.txt"
+
+			# ls this_directory_exist 2>&1 error_output.txt  --  no matter what happens error or success output
+																 it will be sent to "error_output.txt"
+
+			# less error_output.txt  --  view the content of "error_output.txt" file
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Grep in Bash:
+
+	GREP ( intro )
+		- Grep stands for global regular expression print. 
+		- it's used for searching across files and folders 
+		- as well as the contents of files. 
+		- lets run through how to do this
+
+
+	GREP ( basic )
+		- we have a file called "names.txt"
+		- which is a list of first names that are not in sequential order
+		- we are going to use grep to find names that allign with a specific pattern
+			# grep Sam names.txt  --  returns a list of names that has the word "Sam" in them (case sensitive)
+			# grep -i Sam names.txt  --  this performs a case insensitive search because of flag (-i)
+			# grep -w Sam names.txt  --  this performs an exact matching search
+			# ls /bin | grep zip     --  a list of folders at the "/bin" directory is passed to grep
+									     which shows a list of folders with "zip" in there names
+			# ls | grep .txt         --  grep searches through the list passed to it, for names with .txt in them 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+What Is Agile?
+
+AGILE 
+	- “the ability to create and respond to change. 
+	- it is a way of dealing with, and ultimately succeeding in, 
+	- an uncertain and turbulent environment.”
+
+
+AGILE
+	- the Agile manifesto characterizes agile values as:
+	- individuals and interactions over processes and tools
+	- working software over comprehensive documentation
+	- customer collaboration over contract negotiation
+	- responding to change over following a plan
+
+
+AGILE 
+	- “the power of moving quickly and easily; nimbleness,” 
+	- “the ability to think and draw conclusions quickly; intellectual acuity.” 
+
+
+AGILE
+	- this describes the specific set of 
+	- practices, values, and beliefs that aim to enable business agility.
+
+
+AGILE
+	- “the ability to quickly reconfigure 
+	- strategy, structure, processes, people, and technology 
+	- toward value-creating and value-protecting opportunities.” 	
+
+
+AGILE ( mindset )
+	- these definitions reflect that agile itself is a mindset, not a technique. 
+	- that’s where agile methodologies come in.
+
+
+
+
+
+What Are Agile Methodologies?
+
+AGILE METHODOLOGIES ( definition )
+	- this are frameworks that teams and organizations 
+	- use to put the Agile mindset into practice. 
+	- if Agile is the what, Agile methodologies are the how.
+
+	- the purpose of implementing any Agile methodology is to increase your business’s agility.
+	- it’s how you go about trying to achieve agility 
+	- that determines whether or not you are practicing Agile. 
+
+	- there are many methodologies that could be considered Agile methodologies, 
+	- as well as many frameworks that can be utilized 
+	- to effectively scale Agile across organizations.
+
+
+AGILE METHODOLOGIES ( examples )
+	Scrum
+	Extreme Programming (XP)
+	Lean Software Development
+	Kanban
+	Crystal
+	Feature-Driven Development (FDD)
+	Dynamic Systems Development Method (DSDM)
+
+
+AGILE METHODOLOGIES  ( SCRUM )
+	- scrum is one of the most widely used agile methodologies. a prescriptive framework, 
+	- scrum excels at managing ITERATIVE AND INCREMENTAL PROJECTS. 
+	- using the scrum agile methodology, a product owner sets a list of priorities, 
+	- the product backlog, to be completed by a cross-functional team. 
+	- 
+	- the team works to deliver “potentially shippable increments” of software 
+	- in 2-4-week sprints, at the end of which the product backlog is re-evaluated and prioritized.
+
+	- agile teams like scrum because it’s easy to follow and scale. 
+	- it enables management teams to identify problems early on 
+	- and fosters strong, active collaboration between teams and colleagues.
+
+
+
+AGILE METHODOLOGIES  ( Extreme Programming )
+	- extreme Programming (XP) also emphasizes speed and continuous delivery. 
+	- like Scrum, XP enables closely-knit teams to deliver 
+	- working software increments at frequent intervals, usually every 1-3 weeks. 
+	
+	- it relies on customers to communicate the most useful features of a software product 
+	- and developers to work towards implementing that feedback.
+	
+	- XP is frequently recommended for small teams of experienced developers 
+	- that are experienced in the XP Agile methodology 
+	- and comfortable collaborating with stakeholders outside of IT.
+
+
+
+AGILE METHODOLOGIES  ( Lean Software Development )
+	- Lean software development is more flexible than Scrum or XP, 
+	- with fewer strict guidelines, rules, or methods. 
+	- Lean relies on five principles of Lean management:
+		Identify value
+		Value stream mapping
+		Create continuous workflow
+		Create a pull system
+		Continuous improvement
+
+	- Lean particularly emphasizes eliminating waste. 
+	- in the context of software development, 
+	- that includes cutting out wasted time and unproductive tasks, 
+	- efficiently using team resources, 
+	- giving teams and individuals decision-making authority, and 
+	- prioritizing only the features of a system that deliver true value.
+
+
+
+AGILE METHODOLOGIES  ( Kanban )
+like other Agile methodologies, 
+Kanban focuses on helping teams work together more effectively 
+to enable continuous delivery of quality products. 
+
+kanban is unique, however, 
+for offering a highly visual method for actively managing the creation of products.
+the kanban agile methodology relies on six fundamental practices:
+	visualize the workflow
+	limit work in progress
+	manage flow
+	make process policies explicit
+	implement feedback loops
+	improve collaboratively
+
+kanban achieves these practices through the use of a kanban board. 
+the kanban board facilitates the visual approach to agile 
+using columns to represent work that is to do, doing, and done. 
+this agile methodology improves collaboration and efficiency and 
+helps define the best possible team workflow.
+
+
+
+
+
+ 
+AGILE METHODOLOGIES  ( Crystal )
+the crystal agile methodology focuses more 
+on the interactions of the people involved in a project 
+versus the tools and techniques of development. 
+
+a lightweight model, crystal emphasizes 
+interaction, people, community, skills, communications, and talents.
+
+crystal categorizes projects based on three criteria:
+*team size, *system criticality, *project priorities
+
+the approach is similar to other agile methodologies 
+in its attention to early and often delivery of software, 
+high involvement of users, and removal of red tape. 
+
+crystal’s assertion that every project is unique, 
+however, has led to its reputation as one of the most flexible agile methodologies.
+
+
+
+
+
+
+AGILE METHODOLOGIES  ( Feature-Driven Development (FDD)
+feature-driven development, or fdd, provides a framework for product development 
+that starts with an overall model and gets progressively more granular. 
+like other agile methodologies, fdd aims to deliver working software quickly in a repeatable way. 
+
+it uses the concept of “just enough design initially” (jedi) to do so, 
+leveraging two-week increments to run “plan by feature, design by feature, build by feature” iterations.
+
+organizations that practice agile like feature-driven development for its feature-centric approach and its scalability.
+
+
+
+
+
+AGILE METHODOLOGIES  ( Dynamic Systems Development Method (DSDM)
+the dynamic systems development method (dsdm) 
+rounds out our list of well-known agile methodologies. 
+dsdm originated in the 1990s as a way to provide 
+a common industry framework for rapid software delivery. 
+
+today, it has matured into a comprehensive agile methodology that revolves around:
+*business needs and value, *active user involvement, *empowered teams, *frequent delivery,
+*integrated testing, *stakeholder collaboration.
+
+the dsdm framework is particularly useful for prioritizing requirements. 
+it also mandates that rework is to be expected, 
+so any development changes must be reversible. 
+
+dsdm relies on sprints, similar to other agile methodologies, 
+and is often used in conjunction with approaches like scrum and xp.
+
+
+

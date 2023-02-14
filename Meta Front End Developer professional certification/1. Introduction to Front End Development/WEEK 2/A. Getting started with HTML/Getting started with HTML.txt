@@ -1,0 +1,32 @@
+
+
+
+What is Hyper Text Markup Language:
+
+	
+	HTML ( a framework )
+		- just as a building starts with a frame of beams and rafters.
+		- such that once in place, the frame guides the rest of the construction
+		- an html supplies the basic structure, the framework of a webpage, 
+		- it is assembled with different components such as tags and elements. 
+		- html elements with their opening and closing tags 
+		- in angle brackets build up an html document
+
+
+	HTML ( history )
+		- the first web page was created in 1999 by sir tim berners-lee. 
+		- the first version of html was released in 1991 
+		- along with the first web browser and web server. 
+
+		- html stands for hypertext markup language. 
+		- but what does that mean exactly? 
+		- hypertext is text which contains links to other text. 
+		- markup refers to tags and elements used within a document. 
+
+
+	HTML ( W3C )
+	- the rules and structure for elements and tags are known as the html specification. 
+	- the html specification is maintained by the world wide web consortium (W3C). 
+	- whenever the html specification changes a new version of html is standardized, 
+	- the current version is html5. to summarize. 
+

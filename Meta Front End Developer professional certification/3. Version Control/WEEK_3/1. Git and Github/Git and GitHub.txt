@@ -1,0 +1,1126 @@
+CURRENT GITHUB TOKEN: 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
+
+
+What is Git and Github:
+
+	GIT 
+		- git is a version control system designed to 
+		- help users keep track of changes to files within their projects.
+
+		- the benefits that git offers over similar VC systems include, 
+		- better speed and performance, 
+		- reliability, 
+		- free and open source axis, and 
+		- an accessible syntax. 
+
+
+	GITHUB
+		- github is a cloud-based hosting service 
+		- that lets you manage git repositories from a user interface. 
+
+		- a git repository is used to track all changes to files in a specific folder, 
+		- and keep a history of all those changes. 
+		- it incorporates git version control features and 
+		- extends these by providing its own features on top. 
+
+		- some of the most common of these features include 
+		- access control, pull requests, and automation.  
+		- the features are split out into different pricing models 
+		- to suit different sized teams and organizations. 
+
+		- github is like a social network
+		- users have their own profile which other users can follow
+		- projects can be private or public
+		- public projects can accept code contributions from anyone across the globe. 
+		
+		- github also includes multiple features 
+		- outside of its core development tools like 
+		- documentation, ticketing, and project features. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Creating and Cloning a Repository:
+
+
+	readme.md, git clone "https url"
+
+
+	CREATING A REPOSITORY ( name & description )
+		- i have just logged in to the github website. once there, 
+		- i click on the green button with the text create repository. 
+		- when i click on the button, i am redirected to the "create a new repository" screen 
+		- where i'll be prompted for who the owner is. 
+		- i choose my account as the owner option for this example. next, 
+		- i need to input a repository name. i type a name called "my-first-repo". 
+		- i need to type a value for the description input. i type "practice account for learning git". 
+
+
+	CREATING A REPOSITORY ( access )
+		- the next option is if you want the repository to be public or private. 
+		- public just means that anyone on the internet can see the repository. 
+		- i still have control over who can make changes to it. 
+		- it's just available on the viewable aspect of it on the internet. 
+		- the next option is private, meaning it's not available for anyone to see. 
+		- i can only allow access by granting people access to the repository. 
+
+
+	CREATING A REPOSITORY ( initialization )
+		- the next few options are about initialization. i can initialize a repository with 
+		- a readme file, a gitignore file, and a license if one is required. 
+		- for now, i'm just going to choose the readme file option 
+		- and then click the "create repository" button. 
+
+
+	CREATING A REPOSITORY ( initialization - readme.md )
+		- a repo has now been set up and i can see 
+		- that i have one single file in the repository called "readme.md". 
+		- "md" is just short for markdown, 
+
+		- a popular method for creating documentation 
+		- because it's shorthand for creating html pages. 
+		- this allows me to do things like creating titles and texts. 
+		- i can insert images and various other webpage elements. 
+
+
+	CREATING A REPOSITORY ( main branch )
+		- notice that the main branch has also been created and 
+		- it's important to know that every repository you create 
+		- will have a single main branch at the start. 
+		- this is also known as the MAIN LINE. 
+
+
+	CLONING A REPOSITORY ( Code button )
+		- you will see some button options. 
+		- the first is labeled "Go to file", 
+		- then there is "Add file", which you can use to add a new file from the ui. 
+		- finally, a green button labeled "Code". 
+		- clicking this button provides me with a github ui options 
+		- for cloning down the repository. 
+
+
+	CLONING A REPOSITORY ( methods )
+		- there are basically three options to clone a repository
+		- "https", "ssh", "github cli"
+
+		- first is the option for "https", 
+		- which contains the https url of the repository 
+		- and i can use this to pull it down by using the GIT CLONE command. 
+
+		- next, there is an option for ssh but to use that, 
+		- i have to set up my ssh keys and assign them to the user accounts. 
+
+		- finally, i have the github cli option. underneath this option, 
+		- notice that there are additional options for g"ithub desktop" if i would like to use that. 
+		- and to download a compressed zip file containing all the files and folder structures. 
+
+
+	CLONING A REPOSITORY ( demo )
+		- for this demo, i will show you how to use https. 
+		- to begin, select the "https" option and 
+		- click on the "copy" button to copy the https url for cloning. 
+		- now i go to my command line . i'm currently in my home directory. 
+
+			# mkdir projects
+			# cd projects
+			# git clone "https url"
+			# ls -la  
+			# cd "repo cloned" 
+
+		- once inside the cloned directory run the "list all command" (ls -la)
+		- you will see a ".git" file 
+		- since it starts with a "dot" it is an hidden folder
+		- automatically created when the repo is created
+		- this folder is used to track all changes
+		- more on this later on
+
+		- know this though, the ".git" folder is intialized 
+		- # git init .
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+flow. now, let's focus on git workflow. 
+
+
+	GIT WORKFLOW ( 3-states )
+		- git uses workflows which can be broken 
+		- into three states namely, MODIFIED, STAGED, COMMITTED. 
+
+			Modified -----------> Staged -----------> Committed
+					   (git add) 		 (git commit)
+
+
+	GIT WORKFLOW ( modified state )
+		- let's start with the first state, 
+		- adding, removing and updating any file 
+		- inside the repository is considered a modified state. 
+		- git knows the file has changed, but does not track it. 
+		- this is where the staging state comes in. 
+
+
+	GIT WORKFLOW ( staged state )
+		- let's turn to it now. in order for git to track a file, 
+		- it needs to be put in the staged area. 
+		- once added, any modifications are tracked. 
+		- which offers a security blanket prior to committing the changes. 
+
+
+	GIT WORKFLOW ( committed state )
+		- then, the last state is the committed state. 
+		- committing a file in git is like a save point in many ways. 
+		- git will save the file, and have a snapshot of the current changes. 
+
+
+	GIT WORKFLOW ( example )
+
+		Working directory - Staging area - Committed files - Remote repository
+
+		- a file is added from the working directory to the staging area ( git add )
+		- from the staging area a file is committed ( git commit )
+		- from the committed area, it is pushed to the repository ( git push )
+		- from the repository, the file can be fetched or checked out
+		- fetched meaning pulled to the committed are ( git fetch )
+		- checkecd out meaning pulled down to the Working directory ( git checkout )
+
+
+
+
+
+
+
+
+
+
+
+
+
+Adding & Commiting:
+
+	git status, git add, git restore --staged "file-name", git commit -m "message"
+
+
+	ADD & COMMIT ( git status )
+		- before i add any files or make any changes, 
+		- it's always good practice to check 
+		- if any changes or commits are currently there. 
+		- i can do this by using the "git status" command. 
+
+		- git status also displays what branch i'm on. in this instance, 
+		- i'm prompted that i'm on the branch called main 
+		- and that my branch is up to date with the origin main. 
+		- this means that all the latest files on my local machine 
+		- are exactly the same as what is displayed on the github ui, 
+		- which represents the server that everyone commits to. 
+
+		- git status also tells me that i have nothing to commit 
+		- and that my working tree is clean. 
+		- now, let me show you how to add a simple text file. 
+
+
+
+	ADD & COMMIT ( simple walkthrough )
+		# touch test.txt  --  add a file to working directory  
+
+
+		# git status
+			Untracked files:
+			  (use "git add <file>..." to include in what will be committed)
+			        test.txt
+
+			nothing added to commit but untracked files present (use "git add" to track)
+
+
+		# git add test.txt  --  add file to staging area
+			Changes to be committed:
+			  (use "git restore --staged <file>..." to unstage)
+			        new file:   test.txt
+
+
+		# git restore --staged test.txt  --  remove file from staging area
+
+
+		# git add test.txt  --   add file to staging area
+
+
+		# git commit -m "Adding a new file for testing"  --  commit file with a message
+															 using the message flag "-m"
+			[main a7bf121] Adding a new file for testing
+			 1 file changed, 0 insertions(+), 0 deletions(-)
+			 create mode 100644 test.txt
+
+
+		# git status
+			On branch main
+			Your branch is ahead of 'origin/main' by 1 commit.
+			  (use "git push" to publish your local commits)
+
+			nothing to commit, working tree clean
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Branching WorkFlow:
+
+	git checkout, git branch
+
+
+	CREATING A BRANCH ( git commands )
+		- my next step would be to create a new branch. 
+		- to create this new branch, i use the git checkout command 
+			# git checkout -B feature/lesson  --  create a new branch, move into the branch.
+			# git branch feature/lesson	 -- create a new branch.
+			# git branch -- verify your current branch & shows all the branches that exist.
+			# git checkout <branch-name> -- move into the specified branch
+
+
+
+	CREATING A BRANCH ( pull request )
+		- any changes made will only occur in "feature/lesson"
+		- it's important to remember that the main branch 
+		- has no indication or knowledge of any of these changes 
+		- even when i push code to the remote main repository, 
+
+		- this is because the new branch exists in isolation. 
+		- the new branch needs to be merged back into the main branch 
+		- to recognize changes in the new branch. 
+		- this is where it'll come in with a pull request. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Branching WorkFlow:
+
+	git push -u
+
+
+	CREATING A BRANCH ( pull request )
+		- the mental model of this pull request is this
+		- in the github environment, the new branch send a pull request
+		- to the main branch saying "please add my changes in the main branch"
+		- the main branch responds by either pulling the changes into itself or not.
+
+		- the purpose of a pull request is to obtain 
+		- a peer review of changes made to the branch. 
+		- in other words, to validate that the changes are correct when coding, 
+		- many teams will have conditions around the unit tests and integration tests. 
+		- these conditions will usually include validating 
+		- that the standards have been met for merging back into the main line, 
+		- a team will also check for any issues that might have been missed. 
+
+
+
+	ADD TO BRANCH ( git push branch )
+		- the next step is to add a file to the new branch. 
+			# touch test2.txt  --  create a text file in the new branch
+			# git add test2.txt  --  file to the staging state
+			# git commit -m "Add test2.txt" -- file to the commit state
+			# git push -u origin feature/lesson -- push changes to the remote repository 
+
+		- it's good practice to specify "-u". 
+		- this means that i'm only going to get updates from the upstream, 
+		- and this flag sets what the upstream is.
+
+		- initially it is the the main branch "origin/main". 
+		- now the origin won't be my main branch anymore. instead, it's feature/lesson. 
+
+		- i press the enter key and this pushes 
+		- the new branch up to the remote repository. 
+		- as i am using https, i will be prompted for my login information. 
+
+		- once this action has been completed, 
+		- github will recognize that a new branch has been added. 
+		- it will then prompt me (via a link) to create a pull requests 
+		- that can be compared against another branch, in this case, the main branch. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Branching WorkFlow:
+
+
+	ADD TO BRANCH ( git push -u flag)
+		- the -u flag of the git push command is used 
+		- to set an upstream reference for the current branch. 
+		- when this flag is used, git will automatically track 
+		- the remote branch that the local branch is pushed to, 
+		- so that future git pull commands will automatically 
+		- pull from the correct remote branch. 
+
+		- for example, if you are currently on a local branch 
+		- called "my-branch" and you run the command "git push -u origin my-branch", 
+		- git will set the upstream reference for "my-branch" 
+		- to the "origin/my-branch" remote branch, 
+		- and any future "git pull" commands run on "my-branch" 
+		- will automatically pull from "origin/my-branch".
+
+
+
+	SUBMIT PULL REQUEST 
+		- my next step is to open the github ui. 
+		- github will show my new branch with a prompt. 
+		- click on the green "compare and pull request" button. 
+
+		- a pull request lets the team know that 
+		- i've made new changes that i want them to review 
+		- and that i also want to approve or request changes 
+		- to the actual pull request itself. 
+
+		- another thing to note on the github ui is that 
+		- i'm comparing this with the main branch. 
+		- i've essentially cut a branch from the main called "feature/lesson". 
+		- i've then added a new file called test2.txt. 
+		- it's this file which is the main difference between the two branches. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Branching WorkFlow:
+
+	git pull
+
+
+	SUBMIT PULL REQUEST ( essence )
+		- once approved, you can then merge your changes to the main branch. 
+		- this is much cleaner than everyone working off the main branch. 
+		- it's particularly useful if you have features 
+		- that are closely tied together. 
+
+		- for example, you could be working with a feature 
+		- that crosses over with some code or requires changes 
+		- that most likely will be altered by someone else. 
+
+		- the approach of keeping everything at branch level 
+		- is much easier than having everyone working from the main line. 
+		- in fact, everyone working off the same branch 
+		- is more likely to cause issues. 
+		- having independent branches makes the project easier to manage. 
+
+		- to confirm the changes have been merger
+			# git checkout main  --  move to main branch
+			# git pull  --  pull main branch of remote repository into local machine
+
+
+
+	SUBMIT PULL REQUEST ( branch naming convention )
+		- also, there's no limit to how many branches you can have. 
+		- the team decide on the naming conventions that they use. '
+		- in a lot of cases when adding a new feature, 
+		- you can add the keyword "feature" then followed by the branch name, 
+		- like a url path, such as feature/lesson in this example. 
+
+		- for bug fixing, "fix/" can be used. 
+		- because we have no reviewers in my current project, 
+		- i'm just going to merge the branch. 
+		- then i'll confirm the merge. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Remote Repository and Local Repository:
+
+	git init, git remote, git remote add ...
+
+
+	REMOTE vs LOCAL ( objective )
+		- previously, you learnt how to create a remote repository on github
+		- then cloning that repository on your local machine and working with it.
+		- this time, we would create a git repository on our local machine
+		- this is called a local git repository, 
+		- then link/connect this repository with a remote repository on github.
+		- so that when we push from the local repo
+		- it goes to the linked remote repo
+
+
+
+	REMOTE vs LOCAL ( connecton )
+		- a git remote repository is accessed through a uri 
+		- your local repository becomes a local git repository
+		- by using the "git init" command
+		- but it does yet have a uri. 
+
+		- you need to link your local git repository
+		- with a remote git repository so it can use its uri
+		- you perform this link using the "git remote" command
+
+			# mkdir my-second-repo  --  create an empty local repository
+			# cd my-second-repo  
+
+			# git init  			-- make the local repository a local git repository
+			# git remote -v 		-- check if local git repository is connected 
+							   			with any remote git repository. 
+							   			initially it will not be.
+
+			# git remote add origin https://github.com/NewmanAdesan/my-first-repo.git  --  connect the local git repository to a remote git repository via its uri 
+
+			# git remote set-url origin <remote-repo-url> --
+				this overrides the previous url and sets in another
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Remote Repository and Local Repository:
+	
+	git remote -v, git checkout -B <branch-name>
+
+	REMOTE vs LOCAL ( connection ):
+		- remember the "my-first-repo"
+		- which we cloned from github a while ago right
+
+		- entering the directory and using the "git remote" command
+		- you can see what remote git repository it is connected to
+		- and using the "git remote -v" command, you can see its uri
+			# cd my-first-repo
+			# git remote
+				origin
+
+			# git remote -v
+				origin  https://github.com/NewmanAdesan/my-first-repo.git (fetch)
+				origin  https://github.com/NewmanAdesan/my-first-repo.git (push)
+
+
+
+	REMOTE vs LOCAL ( matching ):
+		- back to our local git repository "my-second-repo"
+		- now that we have connected it with a remote git repository
+
+		- once we call the "git pull" command 
+		- it pulls from this remote repository
+		- actually, it pulls all the branches 
+		- that are in the remote repository 
+		- (you can also specify what branch to pull)
+
+		- but after pull, if you check the directory "my-second-repo"
+		- on your local machine, it is blank
+
+		- you have to create those branches (exact names)
+		- in "my-second-repo" so it can kind of 
+		- mirror/match the branches in "my-first-repo"
+		- which are now on your local machine
+
+		- if you dont do this you wont be able to see
+		- the content of those branches
+			# git pull  -- pulls the entire repository with all its branches
+			# git checkout -B feature/lesson
+			# git checkout -B main
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Resolving Conflicts:
+
+	look at this scenario, two developers are tasked to work
+	on a feature, they each pull the remote repo
+	then create a new branch from it which are named 
+	"feature1" & feature2 respectively,
+
+		dev1# git pull
+		dev1# git checkout -B feature1
+
+		dev2# git pull
+		dev2# git checkout -B feature2
+
+
+
+		dev1# git add Feature.js
+		dev1# git commit -m "chore: added feature 1!!"
+		dev1# git pull origin main
+		dev1# git push -u origin feature1
+
+
+		dev2# git add Feature.js
+		dev2# git commit -m "chore: added feature 2!!"
+		dev2# git pull origin main
+
+				From github.com:demo/demo-repo
+				* branch         main  ->  FETCH_HEAD
+				  901..d2b3c     main  ->  origin/main
+
+				Auto-merging Feature.js
+				CONFLICT (content): Merge conflict in Feature.js
+				Automatic merge failed; fix conflicts and then commit the result.
+
+
+		dev2# git log --merge
+
+				commit 79bca...4e3 (HEAD -> feature2)
+				Author: Developer 2
+				<developer2@demo.com>
+				Date: Sat Jan 29 16:55:40 2022 +0000
+					chore: add feature 2
+
+				commit 678bs...bc0 
+				Author: Developer 1
+				<developer1@demo.com>
+				Date: Sat Jan 29 16:53:40 2022 +0000
+					chore: add feature 1
+
+		dev2# git diff
+		dev2# diff --cc Feature.js
+
+				...
+				  let add = (a, b) => {
+				++<<<<<<< HEAD
+				 + if (a + b > 10) { return 'way too much'}
+				++=======
+				 + if (a + b > 10) { return 'too much'}
+				++>>>>>>> d3b3cc0d9b6...8e
+				   return a + b;
+				}
+
+		dev2# 
+				let add = (a, b) => {
+				  if (a + b > 10) { return 'way too much'}
+				  return a + b;
+				}
+
+
+		dev2# git add Feature.js
+		dev2# git commit -m 'fix merge conflicts"'
+		dev2# git push -u origin feature2
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Workflow:
+
+
+	WORKFLOW ( mental model )
+		- Have you ever applied for a job? You know the process, 
+		- prepare your resume, 
+		- look for jobs, 
+		- submit an application, 
+		- prepare for interviews,
+		- attend the interview. 
+		- That is an example of a workflow, 
+
+
+
+	WORKFLOW ( collaboration )
+		- in computer programming workflows are really important. 
+		- with respect to version control,
+		- a group of people will be working on a project,
+		- the purpose of a workflow is to guide you and other members of your team
+		- so that you all add to the project efficiently and effectively
+
+		- the workflow should not disrupt or cause blockers 
+		- for deployment or testing or for any other developer 
+		- who contributes to the project itself. 
+
+		- choosing a workflow needs careful consideration. 
+		- it can depend on the size of the team, 
+		- the culture of your workplace and also 
+		- the type of product you intend to build or update. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Workflow:
+
+
+	WORKFLOW ( feature branching )
+		- with that in mind, let me explain FEATURE BRANCHING, 
+		- a common workflow used by many developers. 
+
+		- feature branching means you create a new branch 
+		- from the main line and work on this dedicated branch 
+		- until the task is completed. 
+
+		- rules and conditions need to be made in order 
+		- for this branch of code to be kept in a good state. 
+		- every code base has a main repository 
+		- which is essentially the source of truth for the application. 
+		- all changes such as add, edit or delete 
+		- are submitted directly to the feature branch, 
+		- the main branch stays as is.
+
+		- when you are ready and happy with the code you have added, 
+		- you have to commit the changes and then push to the server repository. 
+		- to commit, you push the changes and as it's a feature branch, 
+		- a pull request follows. 
+
+		- the pull request is compared to the main branch, 
+		- so developers who peer reviewed the code 
+		- can see exactly what was changed. 
+		- once it's reviewed and approved, 
+		- it can then be merged into the mainline.
+
+			# git pull
+			# git checkout -b feature/my-new-feature
+			# git add readme.md  OR # git add .
+			# git commit -m 'chore: created new branch with new README file'
+			# git push -u origin feature/my-new-feature
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Git Head:
+
+	.git
+
+	HEAD ( .git folder )
+		- previously you learned about the hidden folder called ".git". 
+		- that is located in each project. 
+		- you know that this folder is responsible 
+		- for keeping track of all changes across the project. 
+			# ls .git
+				COMMIT_EDITMSG  
+				HEAD       
+				config       
+				hooks/  
+				info/  
+				objects/     
+				refs/
+				FETCH_HEAD      
+				ORIG_HEAD  
+				description  
+				index   
+				logs/  
+				packed-refs
+
+
+	HEAD ( head file, refs folder )
+		- how does it know what branch you're currently on? let me explain. 
+		- it keeps a special pointer called HEAD 
+		- which is one of the files inside the .git folder. 
+		- this file refers to the current commit you are viewing. 
+			# git branch
+				 feature/lesson
+			   * main
+
+			# cat .git/HEAD
+				ref: refs/heads/main
+
+			# cat .git/refs/heads/main   --  stores the hash of your latest commit on branch
+				1749f08d61de599d91f137daac483347e130e4ef
+
+			# git checkout feature/lesson
+
+			# cat .git/HEAD
+				ref: refs/heads/feature/lesson
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Git Diff:
+
+
+	git diff <commit-id1> <commit-id2>, 
+	git diff <branch1> <branch2>
+	git log --pretty=oneline
+
+
+
+	- using git diff to compare changes across your 
+	- files, branches and commits. 
+
+
+	- you probably know that the git status command 
+	- tells you which of your files have been changed. 
+	- the git diff command goes a step further and 
+	- tells you what exactly these changes are. 
+
+		# git diff README.md  -- difference btw current state & prev state of file
+
+		# git log --pretty=oneline  --  shows all the commits in pretty way
+			a7bf1213377bc5be0a1a1e8d5c9eeb7758c434d1 Adding a new file for testing
+			d0b8d20c80ded70ddd8efc48eb3edcf9a6dd1066 Initial commit
+
+		# git diff a7...d1 d0...1066 -- difference btw two commits
+
+		# git diff main feature/lesson  --  difference btw two branches
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Git Blame:
+
+
+	BLAME ( typical view )
+		- the git blame command is used to look at changes of a specific file 
+		- and show the dates, times, and users who made the changes. 
+			# git blame test.txt
+				8bfb74ee (NewmanAdesan 2023-01-31 16:50:28 +0100 1) changed first line adding more stuff
+				f50025c6 (NewmanAdesan 2023-01-31 16:37:40 +0100 2) inserting another line
+				48115b09 (unknown      2023-01-31 16:43:48 +0100 3) inserting a third line
+
+		- every line will start with 
+		- the id which references the commit id. its a short form
+		- then the author, 
+		- the date and time when the change was made, 
+		- and the exact line number where the change occurred. 
+		- then the actual change or content is also returned. 
+
+			# git blame -L 5,16 test.txt  -- streamline history to show only history of changes made on lines between 5 & 16
+
+
+	BLAME ()
+		- git blame displays the point it was changed
+		- git log displays detail of the change
+			# git log -p f50025c6
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Forking:
+
+	FORK ( forking vs branching )
+		- in previous lessons, you have touched on workflows such as branching 
+		- and how they can be used to simplify a process for a team. 
+
+		- forking is another type of workflow. 
+		- the key difference between branching and forking 
+		- is that the workflow for forking creates a new repository entirely. 
+
+		- branching cuts a new branch from the same repository each time 
+		- and each member of the team works on the single repository.
+
+
+
+	FORK ( pull request )
+		- once a repository is forked, 
+		- you would have a repository (exact replica) on your github account 
+		- with its entire content and history. you can edit and branch however you like, 
+		- it wont affect the original repository.
+
+		- in order to get his feature back into the original repository, 
+		- you will need to create a PR as normal but instead of comparing with the main branch, 
+		- it needs to be compared with the original repository. 
+
+		- essentially the two repositories are compared against each other. 
+		- the owner of the original repository can then review the PR 
+		- and choose to accept of decline the new feature.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Additional Resources:
+	
+	git add .
+		move all the untracked files in the git repo
+		to the staging area.
+
+
+	git show <commit id> 
+		gives details about a commit
+
+
+	git config --list
+	git config --global user.name "NewmanAdesan"
+	git config --global user.email "newmanadesan@gmail.com"
+		shows a list of global variables in the git repo
+		this is where commit info gets your username & email
+
+
+	git diff test1.txt
+		This works only if test1.txt is the untracked area
+		and shows the different current & previous version 
+		if test1.txt has been moved to the staging area,
+		this command does nothing.
+
+
+	git diff --staged test1.txt
+		This shows the different btw the current & previous
+		version of the file which is already in the staging area
+
+
+	git commit -am "commit message"
+		add and commit all untracked file in one go
+
+
+	git reset HEAD~1
+	git reset <commit-hash>
+		The "git reset" command is used to reset the state 
+		of your Git repository to a specific commit. 
+		The "HEAD-1" argument specifies the commit to reset to, 
+		which in this case is the parent of the current HEAD.
+
+		In other words, the "git reset HEAD-1" command will "undo" 
+		the most recent commit in your repository, 
+		effectively removing it from the branch's history.
+		also EFFECTIVELY REMOVING IT FROM HISTORY UNLIKE "git revert" 
+
+		Note that this operation is destructive 
+		and can permanently destroy work, so it should be used with caution.
+
+
+
+	git revert <commit-hash>
+		git revert is a safe and non-destructive operation 
+		that allows you to undo changes made in a specific commit, 
+		while preserving the project's history and the contents of the repository.
+
+
+
+	git rm <filename>
+		this removes a file from local repository
+		be careful because this will not reflect in the history
+		UNLESS YOU COMMIT the changes
+
+
+	git rebash <branch2>
+		when on branch1, this connects branch2 to branch1 on a linear path
+		that, it adds all the commits of branch2 to branch1
+
+
+	git branch -a
+		show the list of all the branches
+		including the hidden branches 
+
+
+

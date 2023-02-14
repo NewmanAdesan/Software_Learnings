@@ -1,0 +1,1131 @@
+
+
+
+
+Working with Libraries:
+
+	We will quickly go through four main concepts
+		- what are dependencies 
+		- CSS and JavaScript libraries inclusion. 
+		- package manager and 
+		- Bundling tools. 
+
+
+	DEPENDENCIES
+		- by now, you know you write code in your application 
+		- and that this code interacts 
+		- with APIs provided by libraries and frameworks. 
+
+		- since you'll be deploying your application 
+		- to a web server in the end, you must include 
+		- these libraries and frameworks with it. 
+
+		- if you do not include them, 
+		- your application won't be able to call 
+		- the API functions it needs to execute when you run it. 
+		- that is why the libraries and frameworks 
+		- are often referred to as dependencies. your application depends on them. 
+
+		- on the front end, you do this by referencing 
+		- the JavaScript or CSS files in your HTML file.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Working with Libraries:
+
+	LIBRARY INCLUSION ( css library )
+		- a link tag is positioned in the head element
+		- its "href attribute" specifies the location of the library
+		- its "rel attribute" specifies the file included is a "stylesheet"
+
+		- one popular css library you can use 
+		- to develop user interfaces is the Bootstrap library. 
+		- Bootstrap also have a javascript library that enables 
+		- enhanced functionality, such as drop-downs and tooltips. 
+
+
+
+	LIBRARY INCLUSION ( javascript library )
+		- a script tag is positioned in the body element
+		- this is positioned in the body element using a script element
+		- its "src attribute" specifies the location of the library. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Working with Libraries:
+
+	PACKAGE MANAGERS (need)
+		- what happens if your dependency 
+		- also depends on other libraries and frameworks? 
+		- this is known as a dependency tree. 
+
+		- a project could have hundreds of dependencies and its tree, 
+		- it will take a very long time 
+		- to download, setup, and configure all of them. 
+		- how do you deal with this
+
+		- how do you make sure you're using the same versions 
+		- that the rest of your team is using? 
+		- this is where package managers come in. 
+		- we also refer to dependencies as packages.
+
+
+
+
+	PACKAGE MANAGERS
+		- a package manager is a tool 
+		- that automatically downloads and installs dependencies. 
+		- for each dependency, you can specify a version 
+		- of that dependency and the package manager will download it for you.
+
+		- if there is a dependency tree, 
+		- the package manager takes care of that for you. 
+		- it will automatically download all of the dependency tree 
+		- so that you can use APIs without dependency issues.
+
+		- a package manager also provides 
+		- the capability to publish your own packages. 
+	 
+	 	- the most common package manager for front end development 
+		- is the Node Package Manager or npm. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Working with Libraries:
+
+	BUNDLING TOOL
+		- now that all your dependencies are downloaded, 
+		- you need to include them in your HTML file. 
+		- but adding all of them into an HTML file would take forever. 
+		- this is where you will use a bundling tool. 
+
+		- the purpose of a bundler is to automatically 
+		- combine them into a single file. 
+		- if your bundle is significantly large, 
+		- many bundling tool can split your dependencies into multiple bundles.
+
+		- there are many bundle available such as Gulp and Webpack. 
+		- we'll be exploring bundling in more depth later on. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Introduction to Responsive design (intro):
+
+	Have you ever wondered how the size of a website can so easily adjust
+	between different devices like laptops and mobile phones? 
+
+
+	Well, the answer is responsive design. 
+
+
+	Responsive design means that a web page can automatically stretch or shrink
+	depending on the screen is displayed on. 
+
+
+	In the world of web development, you use responsive design every day. 
+	Let me share how it works. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Introduction to Responsive design :
+
+	We would see Four concepts about responsive design 
+		- screen resolution
+		- Need for responsive design
+		- Techniques of responsive design 
+		- Breakpoint concept in responsive design (fixed, fluid, hybrid grids)
+
+
+	SCREEN RESOLUTIONS
+		- phone, tablet and computer screens are made up of 
+		- thousands of tiny lights called pixels. the resolution of your screen 
+		- refers to the number of pixels it contains 
+		- most often expressed as the number of horizontal pixels 
+		- multiplied by the number of vertical pixels. 
+		- For example, a common computer screen resolution 
+		- is 1920 pixels in width 1080 pixels in height. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Introduction to Responsive design :
+
+	RESPONSIVE DESIGN ( the need )
+		- thanks to responsive design websites can be 
+		- correctly displayed on any of your devices. 
+
+		- today we have many different screens with different resolutions, 
+		- which is why responsive design is so important. 
+		- also, we have devices that use complicated techniques 
+		- to achieve high resolution screen like mathematically combining
+		- neighboring pixels into one logical pixel 
+		- to display smoother images and text. 
+	 
+		- given all the possibilities and complicating factors, 
+		- it would be challenging to develop websites 
+		- that appear correctly on all kinds of devices 
+		- if it wasn't for responsive design. 
+
+
+
+
+	RESPONSIVE DESIGN ( three techniques )
+		- responsive design is a set of three practices 
+		- that allows a website to automatically change its visuals. 
+		- allowing a website, to respond based on the device it is displayed on. 
+		
+		- It is the combination of three techniques, 
+		- flexible grids, 
+		- fluid images and 
+		- media queries. 
+
+		- when these elements are used together, 
+		- you build a website that will automatically 
+		- adjust its layout based on the device, 
+		- thus delivering a responsive grid. 
+		- Let's have a look at each of them 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Introduction to Responsive design :
+
+	RESPONSIVE DESIGN ( flexible grids )
+		- flexible grids are made up of columns, gutters and margins. 
+		- The space between the columns is called the GUTTER and 
+		- the spaces between the content and the left and 
+		- right edges of the screen are called MARGINS.
+
+		- the idea of flexible grid is that,
+		- instead of defining website Element sizes based on pixels, 
+		- flexible grids are defined in percentage values, 
+		- allowing them to adjust depending on screen size. 
+
+
+
+
+	RESPONSIVE DESIGN ( fluid images )
+		- by setting the CSS max width property of images to 100%. 
+		- the images will scale down smaller if they're containing column 
+		- becomes narrower than the images size but never grow larger. 
+
+		- this enables an image to scale down to fit 
+		- in a flexibly sized column rather than overflow it 
+		- but not grow larger and become pixelated 
+		- if the column becomes wider than the image.  
+
+
+
+
+	RESPONSIVE DESIGN ( media queries )
+		- finally, there are media queries that are part of CSS. 
+		- They allow developers to query the DISPLAY SIZE,
+		- the ORIENTATION and the ASPECT RATIO
+		- in order to conditionally apply CSS rules. 
+
+		- for example, if you wanted your website background to appear blue 
+		- on a screen size less than or equal to 700 pixels. Like on a mobile phone, 
+		- you could use a media rule to set the background 
+		- depending on the size of the screen. 
+			@media only phone and (max-width: 700)
+			{
+				body { 
+					background-color: blue 
+				}
+			} 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Introduction to Responsive design :
+
+	BREAKPOINT IN RESPONSIVE DESIGN (intro)
+		- In responsive design, 
+		- the pixel value specified is often referred to as the breakpoint. 
+
+		- a breakpoint is the point at which a website's content 
+		- and layout will adapt to provide the best possible user experience. 
+
+		- a Breakpoint can function in different ways 
+		- across three different grids, they are: 
+		- a FIXED GRIDS 
+		- a FLUID or full-width 
+		- an HYBRID GRIDS. 
+		- Let's explore each of these now, 
+
+
+
+
+
+	BREAKPOINT IN RESPONSIVE DESIGN ( fixed grid )
+		- a fixed grid has fixed with columns and flexible margins. 
+		- the fixed grid has a fixed content width 
+		- that doesn't change in a specific breakpoint range 
+		- while the flexible margins occupy the remaining space on screen. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Introduction to Responsive design :
+
+	BREAKPOINT IN RESPONSIVE DESIGN ( fluid grid ) 
+		- then we have fluid or full-width grids 
+		- with fluid width columns and fixed gutters and fixed side margins. 
+		- the fluid grid has a flexible content width 
+		- that goes edge to edge as per the screen size. 
+		- in a fluid grid, columns either grow or shrink to adapt to the available space. 
+
+
+
+
+
+	BREAKPOINT IN RESPONSIVE DESIGN ( hybrid grid ) 
+		- And finally there are hybrid grids 
+		- that have both fluid width and fixed with components. 
+		- Many responsive design frameworks provide multiple CSS rules 
+		- based on different device sizes to provide the best visual experience. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Bootstrap Intro:
+
+	BOOTSTRAP (intro)
+		- bootstrap is often described as a way to "build fast, responsive sites" 
+		- and it is a "feature-packed, powerful, and extensible frontend toolkit". 
+
+		- some people refer to it as a "front-end" framework, 
+		- and some are trying to be more specific 
+		- by referring to it as a "CSS framework" or a “CSS library”. 
+
+
+
+	BOOTSTRAP ( components - reusable code)
+		- simply put, Bootstrap is a library of CSS and JavaScript code 
+		- that you can combine to quickly build visually appealing websites.
+
+		- modern web development is all about components. 
+		- small pieces of reusable code that allow you to build websites quickly. 
+		- bootstrap comes with multiple components 
+		- for very fast construction of multiple components, or parts of components. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Bootstrap Intro:
+
+	BOOTSTRAP ( responsive grid )
+		- another important aspect of modern development is responsive grids 
+		- which allow web pages to adapt their layout and content 
+		- depending on the device in which they are viewed. 
+		- Bootstrap comes with a pre-made set of CSS rules 
+		- for building a responsive grid.
+
+
+
+
+	BOOTSTRAP ( development time )
+		- Bootstrap is very popular amongst developers 
+		- as it saves development time and provides a way for developers 
+		- to build visually appealing prototypes and websites.
+
+		- Bootstrap saves significant time because all the CSS code 
+		- that styles its grid and pre-built components is already written. 
+		- instead of having to have a high level of expertise in various CSS concepts, 
+		- you can just use the existing Bootstrap CSS classes 
+		- to produce nicely-looking websites. 
+		- this is indispensable when you need to quickly iterate on website layouts. 
+
+		- once you know how Bootstrap works, 
+		- you’ll have enough knowledge to tweak its styling 
+		- and a whole new world of development opens up to you. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Bootstrap Intro:
+
+	BOOTSTRAP ( popularity )
+		- since Bootstrap is so popular, understanding how to work with it, 
+		- is a prerequisite in many web development companies. 
+
+		- additionally, you can be safe in knowing that 
+		- both you and your team members have a common design system 
+		- and you don't have to spend time deciding how to build one.
+		- you are free to jump from team to team, from project to project, 
+		- even from one company to another, 
+		- and you don't need to re-learn "their way of doing things".
+
+
+
+	BOOTSTRAP ( end-note )
+		- all of these points make investing time to learn Bootstrap 
+		- a great way to boost your web development skills. 
+		- in this lesson, you’ll be introduced to 
+		- the core concepts of Bootstrap and 
+		- learn how to build web pages using it.
+
+
+
+
+	BOOTSTRAP ( simple example )
+
+			<div class="container">
+				<div class="row">
+
+					<div class="col">
+						<h1>Our Menu</h1>
+						<h2>Falafel</h2>
+						<p>Chickpea, herbs and spices.</p>
+						<img src="falafel.jpeg" class="img-fluid">
+
+						<h2>Pasta Salad</h2>
+						<p>Lettuce, vegetables and mozzarella</p>
+						<img src="salad.jpeg" class="img-fluid">
+					</div>
+
+
+					<div class="col">
+						<h2>Prices</h2>
+						<table class="table">
+							<tr>
+								<td>Falafel</td>
+								<td>$12.00</td>
+							</tr>
+
+							<tr>
+								<td>Pasta Salad</td>
+								<td>$10.00</td>
+							</tr>
+						</table>
+					</div>
+
+				</div>
+			</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Bootstrap in-fix & modifiers :
+ 
+	IN-FIX & MODIFIERS (need)
+		- Bootstrap has quite a large CSS library built 
+		- by Bootstraps developers using thousands of use cases. 
+
+		- how it achieves this is through CSS CLASSES AND THEIR VARIATION 
+		- through in-fixes and modifiers. it is important that you as a developer, 
+		- understand in-fixes and modifiers and you will explore each of these terms. 
+
+		- you will use class in-fixes 
+		- for responsive breakpoints in the Bootstrap grid system, 
+
+
+
+	IN-FIXES
+		- you already know that breakpoints are 
+		- the triggers in bootstrap for how your layout 
+		- changes across device or viewpoint sizes. 
+		- here are the responsive breakpoints available in bootstrap and how we use them. 
+		- know that each has a specific name. 
+
+		- Extra small is for screens less than 576 pixels wide. 
+		- Small is for screens greater than or equal to 576 pixels wide. 
+		- in bootstrap CSS rules, this is abbreviated as SM. 
+		- medium is for screens greater than or equal to 768 pixels wide. 
+		- in bootstrap CSS rules, this is abbreviated as MD. 
+		- large is for screens greater than or equal to 992 pixels wide. 
+		- in bootstrap CSS rules, this is abbreviated as LG. 
+		- extra large is for screens greater than or equal to 1200 pixels wide. 
+		- in bootstrap CSS rules this is abbreviated as XL. 
+		- extra extra large is the screen is greater than or equal to 1400 pixels wide. 
+		- in bootstrap CSS rules, this is abbreviated as XXL. 
+
+		- did you notice that there is no class in-fix or dimension 
+		- for extra small on the list? 
+		- this is because extra small is the default breakpoint in Bootstrap CSS rules. 
+		- as bootstrap is mobile first. We use the abbreviations for these breakpoints 
+		- as in-fixes in the CSS rules for the grid system. 
+		- this basically means you have to insert the abbreviation into the CSS class name.
+		- i will show you how to use this shortly. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Bootstrap in-fix & modifiers :
+
+	MODIFIERS
+		- Bootstrap components provide a pre built 
+		- set of reusable UI styles and elements for your web applications. 
+
+		- let's now learn how to use modifiers through an example that uses an alert element. 
+		- i can have an html file where I set an ".alert-primary" CSS class that is applied to the element. 
+		- ".alert-primary" displays the alert using Bootstraps primary color which is blue. 
+		- the "-primary" part of the class is the modifier. 
+		- if you want to change this to red for example, 
+		- for an error message you will use the "-danger" modifier. 
+
+		- Here is a list of modifiers available in Bootstrap. 
+		- Primary, secondary, success, info, warning, danger, light, dark. 
+		- what differentiates each of these modifiers is the color of the alert
+
+		- Alerts are often used to show information 
+		- that needs immediate attention from users 
+		- such as warnings, errors or confirmation messages. 
+
+
+
+	EXAMPLE CODE
+		- now, let's turn our attention to how this works in code. 
+		- in this html file, I have a six columns CSS class 
+		- applied to a div element. ".col-6"
+		- remember by default, the layout and style will be for Extra-Small
+		- we want to change this rule for large screens. 
+		- to do this, I in-fix LG into the col CSS class, ".col-lg-6"
+
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-6">
+						<div class="alert alert-primary" role="alert">
+							A message
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Bootstrap Grid:
+
+	BOOSTSTRAP GRID (intro)
+		- as you have previously learned building a website using responsive design 
+		- requires a RESPONSIVE GRID and RESPONSIVE BREAKPOINTS. 
+		- bootstrap provides both of these as part of its library. 
+		- the bootstrap grid system helps us to create web page layouts 
+		- through a series of rows and columns that house our content. 
+
+
+
+	BOOSTSTRAP GRID ( concept )
+		- for the grid, bootstrap uses a 12 column grid system 
+		- THAT CAN BE FIXED OR FLUID. 
+		- the bootstrap grid system always has a container, rows and columns. 
+		- the container is the root element of your grid.
+		- bootstraps grid system always starts with the container. 
+		- the container contains pads and aligns your content. 
+		- its width is determined based on the current responsive breakpoint. 
+		- you can add rows and inside each row you can add columns. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Bootstrap Grid:
+
+	BOOSTSTRAP GRID ( responsive grid )
+		- let me demonstrate how we put this all together 
+		- by using little lemons website as an example.
+		- all right, i have opened my joe's burger index.html file. 
+		- in this web page i have added two columns to my row with classes (.col). 
+
+		- bootstrap is smart and will set the two columns to span six columns spaces. 
+		- if i want to control how many spaces a column uses, i can suffix a number. 
+		- let's shrink the price column to four spaces 
+		- and expand the menu column to eight spaces. 
+		- to do this, i add the suffix-4 to the col css class above the prices heading (.col-4). 
+		- i also add the suffix-8 to the col css class above our menu heading (.col-8). 
+
+
+
+	BOOSTSTRAP GRID ( responsive breakpoint - CONCEPT )
+		- but here's the amazing part of bootstrap. 
+		- i can configure my content to use different layouts 
+		- based on the device using the breakpoint specific css rules. 
+		- let's have the menu items column & the pricing table column
+		- stacked on top of each other on mobile devices 
+		- and have them display side by side on desktop devices. 
+
+		- by content, i mean the menu items column & the pricing table column
+		- at mobile view they are stacked on top of each other
+		- at desktop view they are displayed side by side
+
+		- for mobile devices, 
+		- since columns will wrap to new rows, 
+		- if we exceed the 12 column space, we can use this to stack content. 
+		- i'll set the columns to use 12 spaces each 
+		- by adding 12 as a suffix to the col rule for both columns (.col-12). 
+
+		- then for desktop i'll set them to six columns each 
+		- by using a col-lg rule and adding the column sizes-6 as a suffix (.col-lg-6). 
+		- i will save the file by pressing ctrl-s or cmd-s on a mac and open it on my web browser.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Bootstrap Grid:
+
+	BOOSTSTRAP GRID ( responsive breakpoint - VIEW )
+		- notice that now the columns are side by side. 
+		- next i opened my web developer tools by pressing the f-12 key. 
+		- in the top left corner, there is a mobile phone tablet button. 
+
+		- clicking on this button enables the device mode. 
+		- this allows me to simulate different devices. 
+		- i select to view my website on a mobile phone device, amazing. 
+		- my content has stacked vertically on mobile. 
+
+
+
+	BOOSTSTRAP GRID ( responsive breakpoint - END NOTE )
+		- bootstrap has ensured our website will work on a mobile phone 
+		- thanks to its css rules and grid system. 
+		- this will save a lot of development time 
+		- by not needing to develop different content layouts per device. 
+		- bootstraps grid system is very powerful and suitable for most development needs
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Bootstrap Component:
+
+	Bootstrap includes a pre made set of ui elements and styles to help you build your website. 
+	they range from alert messages to navigation menus. these are called bootstrap components. 
+
+
+	Under the "Little Lemon Webpage" folder check out V3.html, 
+	we worked with two of bootstrap ui elements "badge" & "card" components
+
+
+	V3.html
+		- add an extra menu item
+		- add a flag closes to the name of the new item, so we know it was just added
+		  implement this flag using the bootstrap badge component
+		- configure each menu item to be displayed in a card form using the bootstrap card component
+		  card for all menu item will lie in it's own row which has a responsive column width
+		  by that, i mean width_12 for Extra Small, width_6 for Large
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Bootstrap Documentation:
+
+	INTRO
+		- bootstrap comes with detailed documentation on setting up and using the features available in its library. 
+		- the documentation is clear and has many code examples to help you get started.
+		- lets briefly talk about each of the sections in the documentation
+
+
+
+
+	LAYOUT SECTION
+		- the layout section of the documentation describes how to use the grid system of Bootstrap. 
+		- this covers what you've learned so far and includes more advanced usage such as 
+		- OFFSETS, COLUMN-ALIGNMENTS, AUTO-LAYOUT and VARIABLE WIDTH COLUMNS.
+
+	 
+
+
+	CONTENT SECTION
+		- the content section of the documentation describes Bootstrap's default text styling 
+		- and how to use responsive images and tables. 
+		- you've learned the basics of these earlier on and this section goes into further detail.
+
+
+
+
+	FORM SECTION
+		- the forms section of the documentation describes how to build forms using Bootstrap's styles. 
+		- the library has many CSS rules to improve your form's user interface and experience. 
+		- below are some features you'll frequently use as a developer: 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Bootstrap Documentation:
+
+	FORM SECTION (form styling)
+
+		Form Element 			|	 CSS class
+	    ---------------------------------------
+		input form-control
+		input type="checkbox" 	|    form-check-input
+		input type="radio"  	| 	 form-check-input
+		input type="range"  	|    form-range
+		select  	 	 	 	|    form-select	
+
+
+
+	FORM SECTION (switches)
+		- if you've used an app on your mobile device, you're probably familiar with the switch input type.
+		- bootstrap includes CSS rules to style checkbox input elements as switches. 
+		- to do this:
+
+			<div class="form-check form-switch" >
+				<input class="form-check-input type="checkbox"></input>
+			</div>
+
+
+
+	FORM SECTION (input groups)
+		- input groups are useful for providing additional content to the input field. 
+		- for example, if you wanted to request the user to input a US dollar amount, 
+		- you can use an input group to show the dollar symbol and cents amount.
+
+			<div class="input-group">
+				<span class="input-group-text">$</span>
+				<input type="text" class="form-control"></input>
+				<span class="input-group-text">.00</span>
+			</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Bootstrap Documentation:
+
+	FORM SECTION (floating labels)
+		- floating labels help provide form information to the user as part of the input itself. 
+		- these are different from regular form placeholders. 
+		- the information stays visible if the user is interacting with the element or if the element has content.
+
+			<div class="form-floating">
+				<input type="email" class="form-control" id="AddressInput" placeholder="Address">
+				<label for="AddressInput"></label>
+			</div>
+
+
+
+	COMPONENTS SECTION
+		- as you have learned, Bootstrap comes with many 
+		- pre-made UI elements and styles to help speed up your development.
+		- some of these components require Javascript to work, 
+		- while others only require CSS classes applied to HTML elements. 
+		- the Components section of the documentation explains these requirements 
+		- on each component page and provides many code examples.
+
+	  
+
+
