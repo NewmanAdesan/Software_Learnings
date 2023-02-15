@@ -1,0 +1,292 @@
+
+
+
+Video and Audio:
+
+INTRO
+	- how do you, as a developer, add videos and audio to a webpage? 
+	- html video and audio tags are used for embedding media on a webpage 
+
+	- both tags support different file types 
+	- that can be played in the web browser
+	- video tags support: .mp4, .webm, .ogg
+	- audio tags support: .mp3, .wav, .ogg
+
+
+VIDEO ( source tag attributes )
+	- you start with a video tag itself. 
+	- add a source element into the tag. 
+	- the source element has no closing tag. 
+	- add two attributes, "src", also known as source, and "type". 
+
+	- "src" specifies the address of the video file. 
+	- "type" specifies the type of the file like "video/mp4"
+
+	- the video tag allows for multiple sources to be specified. 
+	- thus multiple file types of a video can be specified as a fallback
+	- the web browser will check through the sources
+	- in order and use the first one that it supports. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Video and Audio:
+
+	VIDEO ( video tag attributes )
+		- there are also attributes available for the video tag itself, 
+		- which allow you to customize the video player. 
+
+		- "width" and "height" attibute of the player.
+		- "controls" attribute to enable player controls 
+		- "muted" attribute to mute audio of video 
+
+
+
+	VIDEO ( simple example )
+		<video width="280" height="280" controls>
+			<source src="dance.mp4" type="video/mp4">
+			<source src="dance.ogg" type="video/ogg">
+		</video>
+
+		-
+
+
+	AUDIO ( simple example )
+		- this works very similar to the video tag
+		- "loop" attribute plays audio in a loop
+		<audio loop controls>
+			<source src="music.ogg" type="audio/ogg">
+			<source src="music.mp3" type="audio/mpeg">
+		</audio>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Iframe:
+
+	IFRAME ( intro )
+		- an iframe is an inline HTML element that allows you 
+		- to place or embed content from another website into a webpage. 
+		- defined using the iframe html tag. 
+
+		- it embeds another browsing instance inside the page. 
+		- what this means is that it runs the embedded webpage, 
+		- similar to how a webpage runs in another tab of your web browser. 
+		- it's runs the HTML, CSS, and JavaScript of the embedded webpage. 
+
+		- it is often used to display adverts, 
+		- but it can also be used to embed content 
+		- from another website, such as a social media post.
+
+		<iframe src="www.example.com" width="200" height="150"></iframe>
+
+
+	IFRAME ( security issue )
+		- while iframe is very useful. 
+		- it security has been a concern since its inception 
+		- because it's vulnerable to malicious code and injection. 
+		- as previously mentioned, a webpage can run javaScript code. 
+
+		- it's important to ensure that you trust 
+		- the website you're embedding into your own. 
+
+		- fortunately, there are some attributes 
+		- that can be applied to limit the behavior of the iframe.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Iframe:
+
+	IFRAME ( security attribute - allow )
+		- "allow" attribute, 
+		- limits which browser features the iframe can access. 
+
+		- there are many possible values 
+		- that can be set on the allow attribute. 
+
+		- for now, let's examine how to disable 
+		- camera and microphone access in an iframe. On your iframe element, 
+
+		<iframe
+			src="www.example.com"
+			allow="camera 'none'; microphone 'none'"
+			>
+		</iframe>
+
+
+	IFRAME ( security attribute - sandbox )
+		- "sandbox" attribute. 
+		- similar to the allow attribute, 
+		- there are many values that can be set. 
+
+		- it limits behavior within the iframe, such as 
+		- preventing files from being downloaded 
+		- and preventing pop-up windows. 
+
+		- For now, the important thing to note 
+		- is that when the sandbox attribute is used with an empty value, 
+		- all sandbox restrictions will apply to the iframe. 
+		- individual sandbox restrictions can be removed by adding attributes. 
+
+		- for example, if you want to allow file downloads in the iframe, 
+		- you would allow the allow-downloads value. 
+		<iframe src="..." sandbox="allow-downloads"></iframe>
+
+
+	IFRAME ( end-note )
+		- while these restrictions help to keep your users secure, 
+		- there may still be security vulnerabilities 
+		- in your web browser that the embedded web page can exploit. 
+
+		- therefore, it's always best to be cautious 
+		- when using iframes and ensure that you trust the website that you are embedding.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Iframe:
+
+IFRAME ATTRIBUTES CHEAT SHEET ( sandbox ):
+	- "allow-downloads" Allows the user to download an item 
+	- "allow-forms" Allows the user to submit forms 
+	- "allow-modals" The resource can open modal windows 
+	- "allow-orientation-lock" Lets the resource lock the screen orientation 
+	- "allow-popups" Allows popups to open 
+	- "allow-presentation" Allows a presentation session to start 
+	- "allow-scripts" Lets the resource run scripts without creating popup windows 
+
+
+IFRAME ATTRIBUTES CHEAT SHEET ( srcdoc ):
+	- let's you specify the inline HTML to embed in the <iframe> element.
+	- when defined, this attribute will override the src attribute
+	- <iframe src="my_iframe_src.html" srcdoc="<p>My inline html</p>" ></iframe>
+
+
+IFRAME ATTRIBUTES CHEAT SHEET ( loading ):
+	- let's you specify if the iframe 
+	- should be loaded immediately when the web page loads (eager) or 
+	- loaded when iframe is displayed in the browser (lazy). 
+
+	- this allows you to defer loading iframe content 
+	- if it is further down your web page and 
+	- outside of the display area when the page is initially loaded.
+
+	- <iframe src="my_iframe_src.html" loading="lazy"></iframe>
+
+
+IFRAME ATTRIBUTES CHEAT SHEET ( referrerpolicy ):
+	- a referrer is the HTTP header 
+	- that lets the page know who is loading it. 
+
+	- this attribute indicates which referrer information 
+	- to send when loading the frame resource. 
+
+	- the common values are: 
+	- "no-referrer" the referrer header will not be sent. 
+	- "origin" the referrer will be limited to the origin of the referring page 
+	
+	- "strict-origin" the origin of the document 
+	- is sent as the referrer only when using 
+	- the same protocol security level (HTTPS to HTTPS) 

@@ -74,7 +74,7 @@ Form Validation:
 		- <input type="color"> for color selection
 
 
-	FORM VALIDATION ( requird attribute )
+	FORM VALIDATION ( required attribute )
 		- another example is the html input element required attribute (valueless)
 		- this ensures user supply a value to an input field. 
 		- the web browser will alert a user if a required value is outstanding.
@@ -113,6 +113,17 @@ Form Validation:
 				id="phone" 
 				name="phone" 
 				pattern=”^(?:0|\+?44)(?:\d\s?){9,10}$” > 
+
+
+	FORM VALIDATION ( title attribute ):
+		- when an invalid data is passed into a field,
+		- the value of the title attribute specifies
+		- the pop up message that should be shown
+		- <input 
+				type="text" 
+				name="ssn"
+       			pattern="^\d{3}-\d{2}-\d{4}$"
+       			title="The Social Security Number" />
 
 
 
@@ -253,6 +264,11 @@ Input Types:
 	  - as well as the time in hours and minutes.
 
 
+	COLOR TYPE
+		- a control for specifying a color
+		- opening a color picker when active in supporting browsers.
+
+
 
 
 
@@ -311,6 +327,12 @@ Input Types:
 
 Form Feedback Control With CSS:
 
+	input:invalid, input:valid, input:focus:invalid,
+	:in-range, :out-of-range,
+	:required, :optional,
+
+
+
 	FORM FEEDBACK CONTROL ( intro )
 		- let's focus on the way the browser communicates errors to the users, 
 		- like a form field that turns red when the data is invalid.
@@ -345,6 +367,14 @@ Form Feedback Control With CSS:
 		- now the form will appear normal when the page first loads, 
 		- and when the user starts inputting data, 
 		- the field will turn red if the data is invalid. 
+
+
+	FORM FEEDBACK CONTROL ( others )
+		- :enabled, :disabled, :read-only, :read-write
+		- :placeholder-shown, :default, :checked
+		- :valid, :invalid, :indeterminate
+		- :in-range, :out-of-range
+		- :required, :optional, :blank, :user-invalid
 
 
 
@@ -502,6 +532,8 @@ Radio Buttons:
 		  - such that clicking the text area with select & deselect the button
 
 		  - to select options will be much easier on smaller screens
+		  - labels are used to associate assistive text with an <input>
+		  - it also aids assitive technologies
 
 
 
@@ -713,30 +745,30 @@ Advanced Form Features:
 
 Form Submission:
 
-FORM SUBMISSION ( how )
-	- what happens when forms are submitted in the web browser?
+	FORM SUBMISSION ( how )
+		- what happens when forms are submitted in the web browser?
 
-	- by now, you know that the web browser communicates 
-	- with a web server using a HTTP request response cycle. 
+		- by now, you know that the web browser communicates 
+		- with a web server using a HTTP request response cycle. 
 
-	- this means that the web browser sends requests to the web server, 
-	- and the web server sends back a response. 
+		- this means that the web browser sends requests to the web server, 
+		- and the web server sends back a response. 
 
-	- up to now, the main type of requests you've been introduced to 
-	- were for resources such as HTML documents, images, 
-	- CSS files, and JavaScript files. 
+		- up to now, the main type of requests you've been introduced to 
+		- were for resources such as HTML documents, images, 
+		- CSS files, and JavaScript files. 
 
-	- but it is also possible to send data AS PART of a request. 
-	- this is how form send data to the web server. 
+		- but it is also possible to send data AS PART of a request. 
+		- this is how form send data to the web server. 
 
 
-FORM SUBMISSION ( submission method )
-	- there are two ways a form can send data to the web server 
-	- one using the HTTP GET method,
-	- another using the HTTP POST method. 
+	FORM SUBMISSION ( submission method )
+		- there are two ways a form can send data to the web server 
+		- one using the HTTP GET method,
+		- another using the HTTP POST method. 
 
-	- you can specify which method the form should use 
-	- with the "method" attribute of the form element. 
+		- you can specify which method the form should use 
+		- with the "method" attribute of the form element. 
 
 
 
@@ -778,6 +810,9 @@ Form Submission:
 
 		- the web server receives the HTTP GET request, 
 		- and extracts the form data from the URL.
+
+		- basically with GET browser sends an empty body http request
+		- thus the data has to be appended to the url
 
 		- WHILE THIS IS AN EASY WAY TO SUBMIT DATA
 		- IT HAS THREE KEY PROBLEMS.
