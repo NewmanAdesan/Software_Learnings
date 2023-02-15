@@ -127,7 +127,7 @@ Iframe:
 		- but it can also be used to embed content 
 		- from another website, such as a social media post.
 
-		<iframe src="www.example.com" width="200" height="150"></iframe>
+		<iframe src="www.example.com" width="200" height="1 50"></iframe>
 
 
 	IFRAME ( security issue )
@@ -248,45 +248,124 @@ Iframe:
 
 Iframe:
 
-IFRAME ATTRIBUTES CHEAT SHEET ( sandbox ):
-	- "allow-downloads" Allows the user to download an item 
-	- "allow-forms" Allows the user to submit forms 
-	- "allow-modals" The resource can open modal windows 
-	- "allow-orientation-lock" Lets the resource lock the screen orientation 
-	- "allow-popups" Allows popups to open 
-	- "allow-presentation" Allows a presentation session to start 
-	- "allow-scripts" Lets the resource run scripts without creating popup windows 
+	IFRAME ATTRIBUTES CHEAT SHEET ( sandbox ):
+		- "allow-downloads" Allows the user to download an item 
+		- "allow-forms" Allows the user to submit forms 
+		- "allow-modals" The resource can open modal windows 
+		- "allow-orientation-lock" Lets the resource lock the screen orientation 
+		- "allow-popups" Allows popups to open 
+		- "allow-presentation" Allows a presentation session to start 
+		- "allow-scripts" Lets the resource run scripts without creating popup windows 
 
 
-IFRAME ATTRIBUTES CHEAT SHEET ( srcdoc ):
-	- let's you specify the inline HTML to embed in the <iframe> element.
-	- when defined, this attribute will override the src attribute
-	- <iframe src="my_iframe_src.html" srcdoc="<p>My inline html</p>" ></iframe>
+	IFRAME ATTRIBUTES CHEAT SHEET ( srcdoc ):
+		- let's you specify the inline HTML to embed in the <iframe> element.
+		- when defined, this attribute will override the src attribute
+		- <iframe src="my_iframe_src.html" srcdoc="<p>My inline html</p>" ></iframe>
 
 
-IFRAME ATTRIBUTES CHEAT SHEET ( loading ):
-	- let's you specify if the iframe 
-	- should be loaded immediately when the web page loads (eager) or 
-	- loaded when iframe is displayed in the browser (lazy). 
+	IFRAME ATTRIBUTES CHEAT SHEET ( loading ):
+		- let's you specify if the iframe 
+		- should be loaded immediately when the web page loads (eager) or 
+		- loaded when iframe is displayed in the browser (lazy). 
 
-	- this allows you to defer loading iframe content 
-	- if it is further down your web page and 
-	- outside of the display area when the page is initially loaded.
+		- this allows you to defer loading iframe content 
+		- if it is further down your web page and 
+		- outside of the display area when the page is initially loaded.
 
-	- <iframe src="my_iframe_src.html" loading="lazy"></iframe>
+		- <iframe src="my_iframe_src.html" loading="lazy"></iframe>
 
 
-IFRAME ATTRIBUTES CHEAT SHEET ( referrerpolicy ):
-	- a referrer is the HTTP header 
-	- that lets the page know who is loading it. 
 
-	- this attribute indicates which referrer information 
-	- to send when loading the frame resource. 
 
-	- the common values are: 
-	- "no-referrer" the referrer header will not be sent. 
-	- "origin" the referrer will be limited to the origin of the referring page 
-	
-	- "strict-origin" the origin of the document 
-	- is sent as the referrer only when using 
-	- the same protocol security level (HTTPS to HTTPS) 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Iframe:
+
+	IFRAME ATTRIBUTES CHEAT SHEET ( referrerpolicy ):
+		- a referrer is the HTTP header 
+		- that lets the page know who is loading it. 
+
+		- this attribute indicates which referrer information 
+		- to send when loading the frame resource. 
+
+		- the common values are: 
+		- "no-referrer" the referrer header will not be sent. 
+		- "origin" the referrer will be limited to the origin of the referring page 
+
+		- "strict-origin" the origin of the document 
+		- is sent as the referrer only when using 
+		- the same protocol security level (HTTPS to HTTPS) 
+
+
+	IFRAME ATTRIBUTES CHEAT SHEET ( allow ):
+		- specifies what features or permissions 
+		- are available to the frame, for instance, 
+		- access to the microphone, camera, other APIs and so on
+		- semicolon-separator should be used between features
+
+		- allow="fullscreen” the fullscreen mode can be activated 
+		- allow=“geolocation” lets you access the user’s location 
+
+
+	IFRAME ATTRIBUTES CHEAT SHEET ( others )
+		- name, height, width, title, src 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Canvas Element:
+you've most likely played a video game or watched an animation in your web browser before. perhaps you've wondered how it works well in this video you'll be introduced to the basics of graphics programming in the web browser. there are many authoring tools available to produce animated and video game content for the web browser. but all of these are underpinned by one of four technologies gif. webp 2d canvas and webgl. the graphics interchange format or gif along with the web p image format are used for animated images. an image using this format has no interactivity, but it's popular for embedding animated content and for building two d video games and animations. the two d canvas allows two d graphics to be drawn in the web browser. it's popular for building two d video games and animations. the logic and behavior of an animation or video game is defined using javascript. but what about three d graphics. web g l is a popular technology for building two d and three d animations and advanced graphics. the benefit of webgl is that a dedicated chip in your device called a graphics processing unit? or gpu does the calculations when graphics are rendered to the screen. this allows for complex calculations such as lighting simulation and rendering massive three d worlds. it is important to note that while webgl will always use the gpu, it's not guaranteed that the two d canvas will use the gpu. this will depend on the web browser implementation. webgl is a complex technology and requires a lot of background information so for now let's focus on the canvas element.
