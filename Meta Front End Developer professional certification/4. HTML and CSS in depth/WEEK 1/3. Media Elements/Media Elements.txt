@@ -10,7 +10,7 @@ Video and Audio:
 		- both tags support different file types 
 		- that can be played in the web browser
 		- video tags support: .mp4, .webm, .ogg
-		- audio tags support: .mp3, .wav, .ogg
+		- audio tags support: .mp3, .wav, .ogg, .aac
 
 
 	VIDEO ( source tag attributes )
@@ -225,6 +225,11 @@ Iframe:
 
 		- therefore, it's always best to be cautious 
 		- when using iframes and ensure that you trust the website that you are embedding.
+
+		- keep in mind that the iframe element 
+		- can be used for a lot more than embedding 
+		- a media hosted at another site.
+		- check the iframe documentation page to learn more
 
 
 
@@ -480,3 +485,163 @@ Canvas Element:
 		  </body>
 		</html>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Additionals - Track element:
+	
+	TRACK ELEMENT
+		- the track element can be added 
+		- as a child to any audio or video element 
+		- to link a timed text file to the media content
+
+		- the file linked with the track element 
+		- must be formatted in WebVTT format i.e (.vtt)
+
+		- quite often more than one track file 
+		- is added to a video or audio element 
+		- to provide captions or subtitles in multiple languages
+
+
+	TRACK ELEMENT ( attributes )
+		- "kind" attribute is used to specify 
+		- what type of data is contained in the attached file. 
+		- with values 'subtitles', 'captions', 
+		- 'descriptions', 'chapters', and 'metadata'
+
+		- other attributes are "label", "src", "srclang"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Additionals - video/audio VS iframe:
+
+	VIDEO/AUDIO vs IFRAME ( concept )
+		- audio and video HTML5 elements are a great help
+		- when the content is hosted on your server.
+		- but if the content is hosted on another server
+		- like youtube or vimeo or spotify
+
+		- it is better to use there media hosting service
+		- and embed them in your webpage using the iframe element
+		- because they have optimized media playback in a way that
+		- provides better performance than the native HTML5 element.
+
+
+
+	VIDEO/AUDIO vs IFRAME ( example )
+		- for example youtube has created a video player 
+		- that employs HTML5 by default, 
+		- includes a flash-based fallback for unsupported browsers, 
+		- adjusts the video quality based on the viewers connection speed, 
+		- and provides for buffering and smooth streaming.
+
+		- to get an embed code for a YouTube video, 
+		- simply navigate to the video you want to embed, 
+		- open the contextual menu (right-click on a PC, or Ctrl and click on a Mac)
+		- and select “Copy embed code”. 
+		- when you do this, code that looks like 
+		- what you see below will be copied to your clipboard.
+
+			<iframe width="854" height="480" 
+			  src="https://www.youtube.com/embed/M7lc1UVf-VE" 
+			  frameborder="0" allowfullscreen>
+			</iframe>
+
+
+	VIDEO/AUDIO vs IFRAME ( end-note )
+		- if you want to add media content from a website 
+		- like YouTube, SoundCloud, Spotify, The Internet Archive, 
+		- Vimeo, or any other leading provider of streaming media, 
+		- you should first determine if the provider 
+		- offers an easy way to embed their native media player. 
+
+		- youTube has fully embraced the use of iframes to embed content
+		- spotify is another service that uses iframes to embed media content 
+
+			<iframe 
+				src="https://embed.spotify.com/?uri=spotify%3Atrack%3A4Jzhluc2ZWHgA8ijEMP1HJ" width="300" 
+				height="380" 
+				frameborder="0" 
+				allowtransparency="true">
+			</iframe>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Additionals - Media Plug-In:
+
+	- as it is now, plug-ins will soon be deprecated
+	- as audio, video, iframe elements which html5 provides are taking over
+
+	- therefore, using plugins to deliver media content
+	- is no longer necessary for visitors using a mocern browser
+	- but many websites still offer a flash-based fallback 
+	- for visitors using very old browsers.
+
+	- Adobe Flash and Quicktime are two browser plugin technologies 
+	- that were popular in the past and are still used 
+	- to power media content on the web, 
+	- including playback of audio and video.
+
+	- we use either <object> or <embed> element
+	- to add them to our webpages
