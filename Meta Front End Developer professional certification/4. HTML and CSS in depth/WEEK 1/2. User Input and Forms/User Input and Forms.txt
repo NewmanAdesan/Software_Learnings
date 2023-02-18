@@ -916,9 +916,12 @@ Form Submission:
 		- an absolute path such as /login, 
 		- or a relative path such as login.
 
-		- if it is an absolute path or relative path
-		- the value will be combined with the base address of the current website 
-		- the absolute path starts with a forward slash
+		- if it is an absolute path with "/login"
+		- and the page address is at "https://meta.com/company-info/"
+		- the submission address will still be https://meta.com/login.
+		- if it is a relative path with "login"
+		- the submission address will still be https://meta.com/company-info/login.
+
 
 
 
