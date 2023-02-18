@@ -1,0 +1,86 @@
+
+
+
+Css Web Layout:
+	
+	CSS WEB LAYOUT ( intro )
+		- layout is one of the most important components 
+		- of designing a good web page 
+		- because layouts help divide a page 
+		- into different sections, thus making the page more presentable.
+
+		- css capability has grown 
+		- to allow several layout option
+		- such as boxes, flex boxes, grids
+
+
+	CSS WEB LAYOUT ( css mental model )
+		- CSS can be used to enhance a web page by modifying 
+		- FONTS, COLORS, LAYOUT, SIZE and
+		- other style formatting options 
+		- that make the web page more presentable. 
+
+		- the browser window that is visible 
+		- to the user on the screen is called the VIEWPORT. 
+
+		- the idea behind any CSS web layout 
+		- is to create an optimally designed web page 
+		- that has a good viewport at any given point. 
+
+
+	CSS WEB LAYOUT ( display property - box )
+		- the display property specifies 
+		- the type of box that you want to use 
+		- for a given html element. 
+
+		- it determines if a rendered boxes 
+		- is an inline or block box models, 
+
+
+	CSS WEB LAYOUT ( display property - flex vs grid )
+		- block type are good but evolving requirements 
+		- led to the development of CSS web layouts 
+		- such as flex box and grid
+
+		- they added more FLEXIBILITY and DIMENSIONALITY 
+		- with better options for fine tuning 
+		- specific sections of a web page. 
+
+		- the main difference between the two is that 
+		- flex box is one dimensional while 
+		- grid is two dimensional.
+
+
+	CSS WEB LAYOUT ( flexbox overview )
+		- flex box is short for flexible box model
+		- enabled with a display property with value "flex".
+
+		- flex box adds responsiveness to CSS 
+		- with FLOAT ELEMENTS and POSITIONING 
+
+		- flex box is one dimensional 
+		- this refers to the fact that 
+		- a given flex box container 
+		- will arrange items in either a column 
+		- or a row along its axis. 
+
+		- the flex box container applied over an element 
+		- can flex to shrink or expand. 
+		- thus resulting in a flexible responsive design. 
+
+
+	CSS WEB LAYOUT ( grid overview )
+		- css grid creates a two dimensional grid 
+		- along both the row and column axes. 
+		- enable with the display property set to "grid"
+
+		- while the grid increases dimensionality 
+		- and helps to create an advanced layout with relative ease. 
+		- it can also lead to increased complications later. 
+		- if the element rules are not systematically defined, 
+
+		- there is no strict rule on choosing which layout to use, 
+		- but in general flex boxes are more suitable 
+		- when you want to create flexible elements in smaller spaces 
+		- while grids are more suitable to large scale layouts. 
+

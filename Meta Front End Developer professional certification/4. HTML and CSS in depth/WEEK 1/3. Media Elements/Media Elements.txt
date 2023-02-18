@@ -3,29 +3,29 @@
 
 Video and Audio:
 
-INTRO
-	- how do you, as a developer, add videos and audio to a webpage? 
-	- html video and audio tags are used for embedding media on a webpage 
+	INTRO
+		- how do you, as a developer, add videos and audio to a webpage? 
+		- html video and audio tags are used for embedding media on a webpage 
 
-	- both tags support different file types 
-	- that can be played in the web browser
-	- video tags support: .mp4, .webm, .ogg
-	- audio tags support: .mp3, .wav, .ogg
+		- both tags support different file types 
+		- that can be played in the web browser
+		- video tags support: .mp4, .webm, .ogg
+		- audio tags support: .mp3, .wav, .ogg
 
 
-VIDEO ( source tag attributes )
-	- you start with a video tag itself. 
-	- add a source element into the tag. 
-	- the source element has no closing tag. 
-	- add two attributes, "src", also known as source, and "type". 
+	VIDEO ( source tag attributes )
+		- you start with a video tag itself. 
+		- add a source element into the tag. 
+		- the source element has no closing tag. 
+		- add two attributes, "src", also known as source, and "type". 
 
-	- "src" specifies the address of the video file. 
-	- "type" specifies the type of the file like "video/mp4"
+		- "src" specifies the address of the video file. 
+		- "type" specifies the type of the file like "video/mp4"
 
-	- the video tag allows for multiple sources to be specified. 
-	- thus multiple file types of a video can be specified as a fallback
-	- the web browser will check through the sources
-	- in order and use the first one that it supports. 
+		- the video tag allows for multiple sources to be specified. 
+		- thus multiple file types of a video can be specified as a fallback
+		- the web browser will check through the sources
+		- in order and use the first one that it supports. 
 
 
 
@@ -81,6 +81,15 @@ Video and Audio:
 			<source src="music.ogg" type="audio/ogg">
 			<source src="music.mp3" type="audio/mpeg">
 		</audio>
+
+		- text can be placed in btw the audio tags
+		- they would appear in the event that the browser 
+		- viewing the web page did not support the audio element.
+
+		- "autoplay"
+		- "loop"  loops the audio over and over again
+		- "muted"  mutes the audio on initial load
+		- "preload"
 
 
 
@@ -368,4 +377,106 @@ Iframe:
 
 
 Canvas Element:
-you've most likely played a video game or watched an animation in your web browser before. perhaps you've wondered how it works well in this video you'll be introduced to the basics of graphics programming in the web browser. there are many authoring tools available to produce animated and video game content for the web browser. but all of these are underpinned by one of four technologies gif. webp 2d canvas and webgl. the graphics interchange format or gif along with the web p image format are used for animated images. an image using this format has no interactivity, but it's popular for embedding animated content and for building two d video games and animations. the two d canvas allows two d graphics to be drawn in the web browser. it's popular for building two d video games and animations. the logic and behavior of an animation or video game is defined using javascript. but what about three d graphics. web g l is a popular technology for building two d and three d animations and advanced graphics. the benefit of webgl is that a dedicated chip in your device called a graphics processing unit? or gpu does the calculations when graphics are rendered to the screen. this allows for complex calculations such as lighting simulation and rendering massive three d worlds. it is important to note that while webgl will always use the gpu, it's not guaranteed that the two d canvas will use the gpu. this will depend on the web browser implementation. webgl is a complex technology and requires a lot of background information so for now let's focus on the canvas element.
+
+	CANVAS ( graphics programming intro )
+		- graphics programming in the web browser	
+		- are underpinned by one of four technologies 
+		- GIF, WEBP, 2D CANVAS and WEBGL. 
+
+
+	CANVAS ( gif )
+		- the GIF (graphics interchange format) 
+		- along with the webp image format are used for animated images. 
+		- an image using this format has no interactivity, 
+		- but it's popular for embedding animated content 
+		- and for building 2D video games and animations
+
+
+	CANVAS ( 2D canvas )
+		- 2D CANVAS allows 2D graphics to be drawn in the web browser. 
+		- it's popular for building 2D video games and animations. 
+		- the logic and behavior of an animation or video game 
+		- is defined using javascript. 
+
+	CANVAS ( webgl )
+		- WEBGL is a popular technology 
+		- for building 2D and 3D animations and advanced graphics. 
+		- the benefit of webgl is that a dedicated chip 
+		- in your device called a graphics processing unit? or gpu 
+		- does the calculations when graphics are rendered to the screen. 
+
+		- this allows for complex calculations 
+		- such as lighting, simulation and rendering massive 3D worlds. 
+
+		- it is important to note that 
+		- while webgl will always use the gpu, 
+		- it's not guaranteed that the 2D canvas will use the gpu. 
+		- this will depend on the web browser implementation. 
+
+		- webgl is a complex technology and requires 
+		- a lot of background information so for now 
+		- let's focus on the canvas element.
+
+	CANVAS ( animation example ):
+		- a ball moving from the left end of the canvas
+		- down to the other end of the canvas
+
+		<!DOCTYPE html>
+		<html>
+		  <body>
+
+		    <canvas id="myCanvas" width="640" height="480" style="border:1px solid #000000;">
+		    Your browser does not support the HTML canvas tag.
+		    </canvas>
+
+		    <script>
+		            const canvas = document.getElementById("myCanvas");
+		            const ctx = canvas.getContext("2d");
+
+		     let speed = 4;
+		     let move_speed = speed;
+		     let position = 0;
+		     let radius = 40;
+
+
+		     function moveball(){
+
+
+		        // to move backward position decreases by 4 (-speed)
+		        // moving backward starts at the end of the canvas (640)
+		        if (position + radius > 640){
+		            movespeed = -speed;
+		        }
+
+		        // to move forward position increases by 4 (+speed)
+		        // moving forward starts at the beginning of the canvas (0)
+		        else if (position - radius < 0) {
+		            movespeed = speed
+		        }
+
+		        position += movespeed;
+
+		     }
+
+
+		     function drawball(){
+		        ctx.clearRect(0, 0, 640, 480);
+
+		        ctx.fillStyle="#62687f";
+		        ctx.beginPath();
+		        ctx.arc(position, 50, radius, 0, 2*Math.PI);
+		        ctx.fill();
+		     }
+
+		     function animate(){
+		        moveball();
+		        drawball();
+		        window.requestAnimationFrame(animate);
+		     }
+
+		     window.requestAnimationFrame(animate);
+		    </script>
+
+		  </body>
+		</html>
+
