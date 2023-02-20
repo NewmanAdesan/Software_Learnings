@@ -28,6 +28,34 @@ Css Web Layout:
 		- that has a good viewport at any given point. 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Css Web Layout:
+
 	CSS WEB LAYOUT ( display property - box )
 		- the display property specifies 
 		- the type of box that you want to use 
@@ -50,6 +78,32 @@ Css Web Layout:
 		- flex box is one dimensional while 
 		- grid is two dimensional.
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Css Web Layout:
 
 	CSS WEB LAYOUT ( flexbox overview )
 		- flex box is short for flexible box model
@@ -83,4 +137,51 @@ Css Web Layout:
 		- but in general flex boxes are more suitable 
 		- when you want to create flexible elements in smaller spaces 
 		- while grids are more suitable to large scale layouts. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Flexbox:
+
+	FLEXBOX PROPERTIES ( intro )
+		- a flex box has two axis "main-axis" & "cross-axis"
+		- by default "main-axis" is the x-axis (row)
+		- and "cross-axis" is the y-axis (column)
+
+		- the properties you choose will help better 
+		- control alignment, spacing, direction and 
+		- eventually styling of the container and items present inside it. 
+
+
+	FLEXBOX PROPERTIES ( allignment property )
+		- there are four main properties used to align 
+		- a flex container and items present inside it:  
+
+		- justify-content. For item alignment on main axis.
+		- align-items. For item alignment on cross axis.
+		- align-self. For unique flex items on cross axis.
+		- align-content. Used for packing flex lines and control over space.
 
