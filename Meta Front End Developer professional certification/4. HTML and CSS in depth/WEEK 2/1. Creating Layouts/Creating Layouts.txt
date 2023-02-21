@@ -180,8 +180,14 @@ Flexbox:
 		- there are four main properties used to align 
 		- a flex container and items present inside it:  
 
-		- justify-content. For item alignment on main axis.
-		- align-items. For item alignment on cross axis.
-		- align-self. For unique flex items on cross axis.
+		- justify-content: for item alignment on main axis.
+		- flex-start | flex-end | center | space-between | space-around
+
+		- align-items: for item alignment on cross axis.
+		- flex-start | flex-end | center | baseline | stretch
+		- (up and down when the direction is row, 
+		- left and right if the direction is column)
+
+		- align-self: for unique flex items on cross axis.
 		- align-content. Used for packing flex lines and control over space.
 

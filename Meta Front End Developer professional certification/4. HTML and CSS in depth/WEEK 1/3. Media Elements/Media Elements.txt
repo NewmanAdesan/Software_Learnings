@@ -50,9 +50,6 @@ Video and Audio:
 
 
 
-
-
-
 Video and Audio:
 
 	VIDEO ( video tag attributes )
@@ -114,12 +111,6 @@ Video and Audio:
 
 
 
-
-
-
-
-
-
 Iframe:
 
 	IFRAME ( intro )
@@ -150,12 +141,6 @@ Iframe:
 
 		- fortunately, there are some attributes 
 		- that can be applied to limit the behavior of the iframe.
-
-
-
-
-
-
 
 
 
@@ -254,12 +239,6 @@ Iframe:
 
 
 
-
-
-
-
-
-
 Iframe:
 
 	IFRAME ATTRIBUTES CHEAT SHEET ( sandbox ):
@@ -288,12 +267,6 @@ Iframe:
 		- outside of the display area when the page is initially loaded.
 
 		- <iframe src="my_iframe_src.html" loading="lazy"></iframe>
-
-
-
-
-
-
 
 
 
@@ -348,15 +321,6 @@ Iframe:
 
 	IFRAME ATTRIBUTES CHEAT SHEET ( others )
 		- name, height, width, title, src 
-
-
-
-
-
-
-
-
-
 
 
 
@@ -508,10 +472,6 @@ Canvas Element:
 
 
 
-
-
-
-
 Additionals - Track element:
 	
 	TRACK ELEMENT
@@ -534,6 +494,12 @@ Additionals - Track element:
 		- 'descriptions', 'chapters', and 'metadata'
 
 		- other attributes are "label", "src", "srclang"
+
+
+
+
+
+
 
 
 
@@ -603,7 +569,6 @@ Additionals - video/audio VS iframe:
 				frameborder="0" 
 				allowtransparency="true">
 			</iframe>
-
 
 
 

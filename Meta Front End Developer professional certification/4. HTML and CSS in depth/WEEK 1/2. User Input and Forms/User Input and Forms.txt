@@ -147,6 +147,7 @@ Form Validation:
 
 
 
+
 Input Types:
 
 	HIDDEN TYPE
@@ -167,6 +168,8 @@ Input Types:
 	  - defines a text field for entering a search query. 
 	  - these are functionally identical to text inputs, 
 	  - but may be styled differently depending on the browser.
+
+
 
 
 
@@ -212,6 +215,8 @@ Input Types:
 
 	  - to define the range of acceptable values, 
 	  - use the “min” and “max” properties.
+
+
 
 
 
@@ -290,6 +295,7 @@ Input Types:
 
 
 
+
 Input Types:
 
 	Date Time Types
@@ -300,7 +306,6 @@ Input Types:
 
 	Selection Types
 		CHECKBOX TYPE, RADIO TYPE, SUBMIT TYPE
-
 
 
 
@@ -399,8 +404,6 @@ Form Feedback Control With CSS:
 
 
 
-
-
 Radio Buttons:
 
 	RADIO BUTTONs ( problem statement )
@@ -422,8 +425,6 @@ Radio Buttons:
 		- radio buttons are ideal for this forum 
 		- because they allow me to set up groups of options 
 		- of which only one option and the group can be selected. 
-
-
 
 
 
@@ -558,8 +559,6 @@ Radio Buttons:
 
 
 
-
-
 Advanced Form Features:
 
 	ADVANCED FEATURES ( intro )
@@ -585,8 +584,6 @@ Advanced Form Features:
 		- the owners have told me that they're hoping 
 		- for continued success and growth of the business, 
 		- and so i should plan for more restaurant locations to be added.
-
-
 
 
 
@@ -741,8 +738,6 @@ Advanced Form Features:
 
 
 
-
-
 Form Submission:
 
 	FORM SUBMISSION ( how )
@@ -769,8 +764,6 @@ Form Submission:
 
 		- you can specify which method the form should use 
 		- with the "method" attribute of the form element. 
-
-
 
 
 
@@ -870,8 +863,6 @@ Form Submission:
 
 
 
-
-
 Form Submission:
 
 	"POST" method, form's action attribute
@@ -945,9 +936,6 @@ Form Submission:
 
 
 
-
-
-
 Form Submission:
 
 	other ways, form's method attribute
@@ -973,8 +961,6 @@ Form Submission:
 		- in a text format called JavaScript Object Notation, or JSON. 
 
 		- But that is a topic for another course.
-
-
 
 
 
@@ -1043,8 +1029,6 @@ Browser Difference:
 
 
 
-
-
 Browser Difference:
 
 
@@ -1068,6 +1052,8 @@ Browser Difference:
 		- Bootstrap, Tailwind CSS, and Foundation 
 		- provides CSS rules for forms and ensure visual consistency 
 		- across different devices and browsers. 
+
+
 
 
 
@@ -1143,6 +1129,8 @@ Form Elements:
 
 
 
+
+
 Form Elements:
 
 	FORM ELEMENTS ( datalist element )
@@ -1165,6 +1153,8 @@ Form Elements:
 	FORM ELEMENTS ( optgroup element )
 		- defines a group of related options in a drop-down list. 
 		- its attribute label names the group.
+
+
 
 
 
@@ -1210,6 +1200,8 @@ Form Elements:
 		- defines a clickable button. 
 		- the "onclick" attribute defines the behavior 
 		- when the button is clicked by the user. 
+
+
 
 
 
