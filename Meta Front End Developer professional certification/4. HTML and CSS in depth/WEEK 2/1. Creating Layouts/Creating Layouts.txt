@@ -176,12 +176,13 @@ Flexbox:
 		- eventually styling of the container and items present inside it. 
 
 
-	FLEXBOX PROPERTIES ( allignment property )
+	FLEXBOX PROPERTIES ( allignment properties )
 		- there are four main properties used to align 
 		- a flex container and items present inside it:  
 
 		- justify-content: for item alignment on main axis.
 		- flex-start | flex-end | center | space-between | space-around
+		- basically this guy distributes extra spaces in the container
 
 		- align-items: for item alignment on cross axis.
 		- flex-start | flex-end | center | baseline | stretch
@@ -189,5 +190,477 @@ Flexbox:
 		- left and right if the direction is column)
 
 		- align-self: for unique flex items on cross axis.
+
 		- align-content. Used for packing flex lines and control over space.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Flexbox:
+
+
+	FLEXBOX PROPERTIES ( allignment properties )
+		- gap: this property can be used
+		- to exactly set the gap size between flex items
+		- you can also individually configure the gaps 
+		- in rows and columns using 
+		- row-gap and column-gap properties. 
+
+
+		- order: this property changes the order of the flex item
+		- this only happens visually, it does not change the order
+		- in the html document  
+
+
+	FLEXBOX PROPERTIES ( allignment properties )
+		- flex (flex-grow, flex-shrink, flex-basis)
+		- this property is very handy for responsivity
+		- it is a property that is applied to the items of a flex container
+		- and not to the flex container itself.
+
+		- it specifies if the items should grow/shrink
+		- and how much growth or shrinking should be done relative to others
+		- flex-basis is similar to the width/height of the flex item.
+		- it would override the width/height property of the flex item.
+		- it specify the initial length.
+
+		- it is advised to use the flex property to control the three property
+		- flex: flex-grow flex-shrink flex-basis 
+		- it advisable to use min-height & min-width property
+		- to control how much it shrinks and how much it grows
+		- without this specification, it would shrink as much as it contents
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Flexbox:
+
+	EXAMPLE ( search bar )
+		<div id="container">
+			<img class="icon" src="icons8-search.svg">
+			<input class="searchBox" type="search" name="search" placeholder="Enter text here..">
+			<input class="searchButton" type="button" name="search" value="Search">
+		</div>
+
+		<style type="text/css">
+			
+			#container {
+				display: inline-flex;
+				border: 1px solid #ccc;
+				flex: 1 1 300px;
+				border-radius: 10px;
+			}
+
+			.icon {
+				padding: 0.8rem;
+			}
+
+			.searchBox {
+				border: none;
+			}
+
+			.searchButton {
+				color: white;
+				background: #0f4a8a;
+				border: 0;
+				border-radius: 8px;
+				padding: 0.8rem;
+			}
+		</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Flexbox:
+
+	EXAMPLE ( navigation menu )
+		<div id="container">
+			<li><a href="#">Home</a></li>
+			<li><a href="#">Culinary Blog</a></li>
+			<li><a href="#">Menu</a></li>
+			<li><a href="#">Contact Us</a></li>
+		</div>
+
+		<style type="text/css"> 
+
+			* {
+				margin: 0;
+				padding: 0;
+			} /* this removes any browser specific setting on elements */
+			#container {
+				background-color: #2b2d42;
+				display: flex;
+				flex-flow: row wrap;
+			}
+			#container li {
+				list-style-type: none;
+			}
+			#container a {
+				display: inline-block;
+				padding: 25px;
+				margin: 0 25px;
+				text-align: center;
+				text-decoration: none;
+				color: #ffffff;
+			}
+			#container a:hover {
+				background-color: lightsteelblue;
+			} 
+			
+
+		</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Flex Chart:
+
+	FLEX CHART ( intro )
+		- there are sophisticated data visualization tools 
+		- available today that support web pages 
+		- but it's fairly straightforward to integrate data using CSS. 
+
+		- CSS provides a straightforward way to do this by using flex box, 
+		- with flex boxes, you can generate both 
+		- vertical and horizontal bar charts. 
+		- these bar charts are called flex charts.
+
+
+	FLEX CHART ( flex property )
+		- the most important property for this functionality
+		- is the flex property that in turn has 
+		- the following three sub properties. 
+
+		- flex-grow
+		- specifies how much the item will grow compared to other flexible items
+
+		- flex-shrink
+		- specifies how much the item will shrink compared to other flexible items. 
+
+		- flex-basis 
+		- specifies the initial length of the flexible item. 
+		- width for a row orientation, height for a column orientation
+
+		- flex property can be declared with a shorthand notation
+		- "flex: flex-grow flex-shrink flex-basis" 
+		- "flex: 0 1 auto"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Flex Chart:
+
+	FLEX CHART ( example 1 )
+		<div id="container">
+			<div class="row">
+				<div class="label">Preferred dishes</div>
+				<div class="container">
+					<div class="dish pasta" style="flex-basis:35%">35%</div>
+					<div class="dish pizza" style="flex-basis:50%">50%</div>
+					<div class="dish burrito" style="flex-basis:15%">15%</div>
+				</div>
+				
+			</div>
+		</div>
+
+		<style type="text/css">
+			.row {
+				display: flex;
+				align-items: stretch;
+				border: 2px solid black;
+			}
+
+			.row .label {
+				flex: 0 0 auto;
+				font-family: Verdana, Geneva, Tahoma;
+			}
+
+			.row .container {
+				flex: 1;
+				display: flex;
+				border: 2px solid black;
+				justify-content: flex-start;
+			}
+			.row .dish {
+				display: flex;
+				justify-content: center;
+				align-content: center;
+			}
+
+			.pasta {
+				background-color: #EE9972;
+			}
+
+			.pizza {
+				background-color: #F4CE14;
+			}
+
+			.burrito {
+				background-color: #495E57;
+			}
+		</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Flex Chart:
+
+	FLEX CHART ( example 2 )
+		<div class="columns">
+			<div class="container">
+				<div class="bar male" style="flex-basis: 25%"></div>
+				<div class="bar female" style="flex-basis: 20%"></div>
+			</div>
+			<div class="container">
+				<div class="bar male" style="flex-basis: 45%"></div>
+				<div class="bar female" style="flex-basis: 40%"></div>
+			</div>
+			<div class="container">
+				<div class="bar male" style="flex-basis: 15%"></div>
+				<div class="bar female" style="flex-basis: 50%"></div>
+			</div>
+			<div class="container">
+				<div class="bar male" style="flex-basis: 5%"></div>
+				<div class="bar female" style="flex-basis: 60%"></div>
+			</div>
+		</div>
+
+		<style type="text/css">
+
+			.columns {
+				height: 400px;
+				max-width: 300px;
+				border: 1px solid rgb(0, 0, 0);
+
+				display: flex;
+				align-items: stretch;
+			}
+
+			.container {
+				flex: 1;
+
+				display: flex;
+				flex-direction: column;
+				align-items: stretch;
+				justify-content: flex-end;
+			}
+
+			.bar {
+				border-right: 1px solid white;
+			}
+
+			.male {
+				background: #F4CE14;
+			}
+
+			.female {
+				background: #495E57;
+			}
+
+		</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CSS units of measurement:
+
+	ABSOLUTE UNITS
+
+		Q   Quarter-millimeters   1Q = 1/40th of 1cm
+
+		mm   Millimeters   1mm = 1/10th of 1cm
+
+		cm  Centimeters   1cm = 37.8px = 25.2/64in
+
+		in  Inches   1in = 2.54cm = 96px
+
+		pc  Picas    1pc = 1/6th of 1in
+
+		pt  Points   1pt = 1/72nd of 1in
+
+		px  Pixels   1px = 1/96th of 1in
+
+
+
+	RELATIVE UNITS
+		em  Font size of the parent where present.
+
+		rem  Font size of the root element.
+
+		vw  1% of the viewport width.
+
+		vh  1% of the viewport height.
+
+		vmin  1% of the smaller dimension of viewport.
+
+		vmax  1% of the larger dimension of viewport.
+
+		lh  Value computed for line height of parent element. 
+
+		rlh  Value computed for line height of root element which is <html>. 
+
+		ex  x-co-ordinate or height of the font element.
+
+		ch  Width of the font character.
+
+		%  Denotes a percentage value in relation to its parent element. 
 

@@ -389,6 +389,11 @@ Canvas Element:
 	CANVAS ( animation example ):
 		- a ball moving from the left end of the canvas
 		- down to the other end of the canvas
+		- we model ball with a plain circle
+		- we model ball forward movement 
+		- by increasing the x-position of the circle
+		- we model ball backward movement
+		- by decreasing the y-position of the circle
 
 		<!DOCTYPE html>
 		<html>

@@ -1,0 +1,52 @@
+<div class="columns">
+	<div class="container">
+		<div class="bar male" style="flex-basis: 25%"></div>
+		<div class="bar female" style="flex-basis: 20%"></div>
+	</div>
+	<div class="container">
+		<div class="bar male" style="flex-basis: 45%"></div>
+		<div class="bar female" style="flex-basis: 40%"></div>
+	</div>
+	<div class="container">
+		<div class="bar male" style="flex-basis: 15%"></div>
+		<div class="bar female" style="flex-basis: 50%"></div>
+	</div>
+	<div class="container">
+		<div class="bar male" style="flex-basis: 5%"></div>
+		<div class="bar female" style="flex-basis: 60%"></div>
+	</div>
+</div>
+
+<style type="text/css">
+
+	.columns {
+		height: 400px;
+		max-width: 300px;
+		border: 1px solid rgb(0, 0, 0);
+
+		display: flex;
+		align-items: stretch;
+	}
+
+	.container {
+		flex: 1;
+
+		display: flex;
+		flex-direction: column;
+		align-items: stretch;
+		justify-content: flex-end;
+	}
+
+	.bar {
+		border-right: 1px solid white;
+	}
+
+	.male {
+		background: #F4CE14;
+	}
+
+	.female {
+		background: #495E57;
+	}
+
+</style>
