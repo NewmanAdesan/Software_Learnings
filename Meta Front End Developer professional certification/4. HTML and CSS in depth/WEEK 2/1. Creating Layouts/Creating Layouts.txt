@@ -1333,3 +1333,143 @@ Grid Cheatsheet:
 			center | start
 			this feature allows you align items 
 			with the block and inline directions.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Additionals :
+
+    GRID FRAMEWORK
+        - grid-template-row, gird-template-column
+            (height of each rows & width of each columns)
+            (grid lines naming)
+            (grid unit of measurement - fr, min-content, max-content, auto, minmax())
+            (grid value repetition - repeat(), auto-fill, auto-fit)
+            (min-content, max-content, auto - content-based sizing)
+
+        - grid-template-areas
+            (grid area naming)
+
+        - grid: grid-template-row / grid-template-column
+            (grid shorthand property)
+
+
+    GRID POSITIONING
+        - grid-row-{start|end}, grid-column-{start|end}
+            (position grid item by grid line number or line name)
+            (position grid item by specifying number of cell to span)
+
+        - grid-row: start / end, grid-column: start /end
+            (shorthand to position grid item by line/span)
+
+        - grid-area
+            (position grid item by area name)
+
+        - grid-area: row-start / column-start / row-end / column-end
+            (position grid item by line number or span)
+
+
+    GRID IMPLICIT BEHAVIOUR
+        - without explicit placement instructions, 
+          grid items flow into the grid sequentially
+
+        - creating a named area implicitly 
+        - if the grid lines around that area is the same name
+        - with the “-start” and “-end” suffixes
+
+        - creation of row and column tracks on the fly 
+        - to accommodate items that don’t fit in the defined grid
+        - by default their size will be "auto"
+        - you can change this via the 
+        - "grid-auto-row" & "grid-auto-column" property
+
+
+    GRID IMPLICIT TRACKS
+        - grid-auto-rows, grid-auto-columns
+          explicitly created a 2x2 grid layout
+          placed a grid item at (3,5)
+
+          my explicit grid isn’t big enough to accommodate it, 
+          so tracks get added according to the sizes 
+          i provided in the grid-auto-* properties
+
+          if no value provided in those properties,
+          the default value will be auto (i.e as much as content)
+
+        - grid-auto-flow
+          specify whether you’d like items 
+          to flow in by row or column
+          values: row or column | dense (optional)
+
+          {check textbook for more infor on dense functionality}
+          {learning web design textbook}
+
+
+    GRID ALLIGNMENT
+        - grid-gap, grid-row-gap, grid-column-gap
+          (spaces in-between row tracks and column tracks)
+
+        - justify-items, align-items
+          (aligns all the items in the inline-axis & block-axis respctively)
+
+        - justify-self, align-self
+          (alignment for individual items in the grid)
+          (overides the "*-items" properties)
+
+        - justify-content, align-content
+          this has to do with aligning tracks in the grid container.
+          there may be instances in which the tracks 
+          of your grid do not fill the entire area 
+          of their grid container.
+
+          you can decide how the browser 
+          should handle leftover space 
+          within the container by using the 
+          justify-content (horizontal/inline axis) and 
+          align-content (vertical/block axis) properties. 
+
+        - place-items, place-self, 
+          specifies allignment for the items in the grid cell
+          for both the block axis and the inline axis
+
+
+    GRID MARGIN
+        - you can add margins to a grid item
+        - the item’s margin box will be anchored 
+        - to the cell or grid area, 
+        - and the margin space is preserved.
+
+        - you can use margins to move the item around in the grid area
+        - left margin to “auto” pushes the item to the right
+        - left and right margins to “auto” 
+          (as long as item has a specified width) 
+          centers it horizontally
+        - top and bottom margins to “auto” 
+          and, as long as there’s a specified height, 
+          it centers vertically
+
+        - OFCOURSE YOU HAVE GRID ALIGNMENT PROPERTIES 
+        - TO ACHIEVE THIS AS WELL
