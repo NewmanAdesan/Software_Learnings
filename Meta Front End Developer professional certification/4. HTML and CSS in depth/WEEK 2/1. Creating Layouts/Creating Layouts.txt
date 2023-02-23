@@ -711,6 +711,13 @@ Grid:
 		- grid lines: the horizontal and vertical dividing lines
 		- grid cell: space bordered by four adjacent grid lines
 
+		- each grid lines and grid cells can be labelled
+		- by default each grid line have a number
+		- (1 to 4) for each row & column line 
+		- (-1 to 4 ) when counting backward like the way indexing works
+		- aside this, you can give each grid line & cell a generic name
+		- for better design. more on this later
+
 
 	GRID ( example )
 
@@ -1060,6 +1067,136 @@ Grid:
 
 
 
+Grid Area & Grid Line:
+
+	GRID AREA & LINE ( concept )
+		- grid areas are a way to group one or more grid cells. 
+		- the "grid-template-area" allows you specigy names 
+		- to each grid cell and when you give a set of cells
+		- the same grid naming you create a grid area.
+
+		- do not the area must be in a rectangular shape
+		- not any other shape like an L shape.
+
+		- you can name each grid line and grid cell
+		- and use this names to position grid items unto the grid
+		- via the "grid-area", "grid-{row|column}-{start|end}"
+		- and "grid-{row|column}" properties
+
+
+	GRID AREA & LINE ( example )
+
+		<body>
+			<header>Header</header>
+			<nav class="nav-bar">Navigation</nav>
+			<main>Main area</main>
+			<footer>Footer</footer>
+		</body>
+
+		<style>
+			body {
+				display: grid;
+				height: 200px;
+				grid-template-rows: 30px 1fr 30px;
+				grid-template-columns: 150px 1fr;
+
+				grid-template-areas: "head head"
+									 "nav main"
+									 "footer footer";
+			}
+
+			header {
+				grid-area: head;
+				background-color: lightsalmon;
+			}
+
+			nav-bar {
+				grid-area:nav;
+				background-color: lightblue;
+
+			}
+		</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Grid Area & Grid Line:
+
+	GRID AREA & LINE ( end-note )
+		- grid-areas are convenient when you have 
+		- a clear schematic of what you want in a grid. 
+
+		- it’s also easier to configure individual areas 
+		- if you can address them by their names. 
+
+		- say you are designing a resume on your website, 
+		- you will be able to name the different areas 
+		- such as ‘Bio’, ‘Education’, ‘Work experience’ and so on. 
+
+		- and it’s easier to use these labels 
+		- when you are defining the rules. 
+
+
+	GRID AREA & LINE ( end-note 2 )
+		- how exactly do you use these names and 
+		- where do they come from? 
+
+		- the names that you use inside the grid template areas 
+		- are the HTML tags that you have used. 
+
+		- or, where you need to get more specific, 
+		- you designate a class name to these tags
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Grid Cheatsheet:
 
 	GRID CHEADTSHEET ( grid framework )
@@ -1121,7 +1258,6 @@ Grid Cheatsheet:
 
 Grid Cheatsheet:
 
-
 	GRID CHEADTSHEET ( item positioning )
 		- grid-column: column position /* E.g. 1/2  */
 			allows for specifying where on the grid 
@@ -1169,7 +1305,6 @@ Grid Cheatsheet:
 
 
 Grid Cheatsheet:
-
 
 	GRID CHEADTSHEET ( alignment )
 		- justify-items, justify-self: 
