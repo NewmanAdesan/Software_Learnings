@@ -163,6 +163,76 @@ Css Web Layout:
 
 
 
+CSS units of measurement:
+
+	ABSOLUTE UNITS
+
+		Q   Quarter-millimeters   1Q = 1/40th of 1cm
+
+		mm   Millimeters   1mm = 1/10th of 1cm
+
+		cm  Centimeters   1cm = 37.8px = 25.2/64in
+
+		in  Inches   1in = 2.54cm = 96px
+
+		pc  Picas    1pc = 1/6th of 1in
+
+		pt  Points   1pt = 1/72nd of 1in
+
+		px  Pixels   1px = 1/96th of 1in
+
+
+
+	RELATIVE UNITS
+		em  Font size of the parent where present.
+
+		rem  Font size of the root element.
+
+		vw  1% of the viewport width.
+
+		vh  1% of the viewport height.
+
+		vmin  1% of the smaller dimension of viewport.
+
+		vmax  1% of the larger dimension of viewport.
+
+		lh  Value computed for line height of parent element. 
+
+		rlh  Value computed for line height of root element which is <html>. 
+
+		ex  x-co-ordinate or height of the font element.
+
+		ch  Width of the font character.
+
+		%  Denotes a percentage value in relation to its parent element. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 Flexbox:
 
@@ -180,21 +250,18 @@ Flexbox:
 		- there are four main properties used to align 
 		- a flex container and items present inside it:  
 
-		- justify-content: for item alignment on main axis.
+		- JUSTIFY-CONTENT: for item alignment on main axis.
 		- flex-start | flex-end | center | space-between | space-around
 		- basically this guy distributes extra spaces in the container
 
-		- align-items: for item alignment on cross axis.
+		- ALIGN-ITEMS: for item alignment on cross axis.
 		- flex-start | flex-end | center | baseline | stretch
 		- (up and down when the direction is row, 
 		- left and right if the direction is column)
 
-		- align-self: for unique flex items on cross axis.
+		- ALIGN-SELF: for unique flex items on cross axis.
 
-		- align-content. Used for packing flex lines and control over space.
-
-
-
+		- ALIGN-CONTENT. Used for packing flex lines and control over space.
 
 
 
@@ -223,33 +290,39 @@ Flexbox:
 
 
 	FLEXBOX PROPERTIES ( allignment properties )
-		- gap: this property can be used
+		- GAP: this property can be used
 		- to exactly set the gap size between flex items
 		- you can also individually configure the gaps 
 		- in rows and columns using 
 		- row-gap and column-gap properties. 
 
 
-		- order: this property changes the order of the flex item
+		- ORDER: this property changes the order of the flex item
 		- this only happens visually, it does not change the order
-		- in the html document  
+		- in the html document thus wont affect assitive technology
+		- it operates similarly to "z-index"
 
 
 	FLEXBOX PROPERTIES ( allignment properties )
-		- flex (flex-grow, flex-shrink, flex-basis)
-		- this property is very handy for responsivity
-		- it is a property that is applied to the items of a flex container
+		- FLEX (flex-grow, flex-shrink, flex-basis)
+		- very handy for responsivity, 
+		- applied to the items of a flex container
 		- and not to the flex container itself.
 
-		- it specifies if the items should grow/shrink
-		- and how much growth or shrinking should be done relative to others
-		- flex-basis is similar to the width/height of the flex item.
-		- it would override the width/height property of the flex item.
-		- it specify the initial length.
+		- flex-grow: factor of flex’s main size  
+			enables the flex container to grow proportionally 
+			to the other containers present. 
+
+		- flex-shrink: factor of flex’s main size
+			allows elements to shrink in relation to items around it.
+
+		- flex-basis: auto | factor of main’s size | measurement unit
+			sets the initial main size of an item. 
+			it can be overridden if other stylized elements are configured. 
 
 		- it is advised to use the flex property to control the three property
 		- flex: flex-grow flex-shrink flex-basis 
-		- it advisable to use min-height & min-width property
+		- you can use min-height & min-width property
 		- to control how much it shrinks and how much it grows
 		- without this specification, it would shrink as much as it contents
 
@@ -555,7 +628,7 @@ Flex Chart:
 			</div>
 			<div class="container">
 				<div class="bar male" style="flex-basis: 15%"></div>
-				<div class="bar female" style="flex-basis: 50%"></div>
+				<div class="bar  female" style="flex-basis: 50%"></div>
 			</div>
 			<div class="container">
 				<div class="bar male" style="flex-basis: 5%"></div>
@@ -621,46 +694,507 @@ Flex Chart:
 
 
 
-CSS units of measurement:
-
-	ABSOLUTE UNITS
-
-		Q   Quarter-millimeters   1Q = 1/40th of 1cm
-
-		mm   Millimeters   1mm = 1/10th of 1cm
-
-		cm  Centimeters   1cm = 37.8px = 25.2/64in
-
-		in  Inches   1in = 2.54cm = 96px
-
-		pc  Picas    1pc = 1/6th of 1in
-
-		pt  Points   1pt = 1/72nd of 1in
-
-		px  Pixels   1px = 1/96th of 1in
 
 
+Grid:
 
-	RELATIVE UNITS
-		em  Font size of the parent where present.
+	GRID (intro)
+		- two dimensional design layout that are responsive 
+		- and compatible with browser variations.
 
-		rem  Font size of the root element.
+		- an alternative to other options such as flexboxes and tables
+		- especially when working with larger scale layout
 
-		vw  1% of the viewport width.
+		- grid columns: the vertical tracks
+		- grid rows: the horizontal tracks
+		- grid gutters/gaps: the space between the tracks
+		- grid lines: the horizontal and vertical dividing lines
+		- grid cell: space bordered by four adjacent grid lines
 
-		vh  1% of the viewport height.
 
-		vmin  1% of the smaller dimension of viewport.
+	GRID ( example )
 
-		vmax  1% of the larger dimension of viewport.
+		<div class="container">
+			<div class="box a">A</div>
+			<div class="box b">B</div>
+			<div class="box c">C</div>
+			<div class="box d">D</div>
+			<div class="box e">E</div> 
 
-		lh  Value computed for line height of parent element. 
+		<style>
 
-		rlh  Value computed for line height of root element which is <html>. 
+			/* better visual design for the alphabel box*/
+			body {
+				margin: 20px
+			}
 
-		ex  x-co-ordinate or height of the font element.
+			.box {
+				background-color: #247;
+				color: #fff;
+				margin: 10px;
+				padding: 15px;
+				border-radius: 10px;
+				font-size: 150%;
+			}
 
-		ch  Width of the font character.
+			.container {
 
-		%  Denotes a percentage value in relation to its parent element. 
+				background-color: # 
 
+				/* set up grid framework */
+				display: grid;
+				gird-template-columns: 100px 100px 100px;
+				grid-template-rows: 2fr 1fr;
+				grid-gap: 10px
+
+			}
+
+		</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Grid:
+
+	GRID ( example explanation )
+		Row/Column Specification
+		  - display property to grid gives the container a grid context
+		  - grid-template-columns sets the number & width of columns
+		  - grid-template-rows sets the number & width of rows
+		  - grid-gap sets the spacing between grid items (rows & columns)
+
+		Fractional Value
+		  - the use of fr(fraction). 
+		  - fraction effectively divides the grid. 
+		  - where applied, the grid tracks are divided proportionately 
+		  - to the ratio of all the fraction values present. 
+
+		  - as there are two rows, 
+		  - the defined values are sized in the ratio of two to one. 
+		  - fraction adds flexibility to the grid 
+		  - without needing to deal with actual pixel sizes. 
+		  - fraction and pixel sizes can be used interchangeably 
+
+
+	GRID ( example explanation )
+		Fractional Value
+		  - the grid stretches by default the entire width of the page
+		  - thus making the fractions value to divided and compute ratio 
+		  - on what ever space that is remaining
+
+		  - the height will take as much space as the content in it
+		  - thus 1fr will be the space the item will take based on it's content
+		  - and 2fr will be double that space.
+
+		  - my point is that the way fractionation works 
+		  - on row specification and column specification is quite different
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Grid:
+
+	GRID ( example explanation )
+		Automatic Track Addition
+		  - if we have more grid items
+		  - than can be contained in our specified grid framework
+		  - e.g 7 grid item in a 3x3 grid framework
+
+		  - an implicit behaviour of grid
+		  - is the creation of row and column tracks on the fly 
+		  - to accommodate items that don’t fit in the defined grid
+
+		  - in this case the size of the implicit track will be auto
+		  - that is sized just large enough to accommodate its contents.
+
+		  - we can specify the size to be used for implicit row or columns
+		  - via the "grid-auto-rows" & "grid-auto-columns" property
+
+
+		Grid Functions
+		  - repeat()
+		  - grid-template-columns: 5px 20px 1fr 20px 1fr 20px 1fr 20px 1fr 5px;
+		  - grid-template-columns: 5px repeat(4, 20px 1fr)
+		  - it's basically just a syntactic sugar
+		  - passes the number of repeats required 
+		  - for a given number of rows and columns
+
+		  - minmax()
+		  - sets the minimum and maximum values 
+		  - expected for the sizes of rows and columns
+		  - grid-template-columns: 200px minmax(15em, 45em) 200px;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Grid:
+
+
+	GRID ( design layout )
+	  - there are a number of commonly used grid frameworks and layouts. 
+	  - two such grid design layouts are known as 
+	  - the 12 and 16-column grids. 
+
+	  - they divide the page into 12 and 16 tracks respectively, 
+	  - along the vertical columns. 
+	  - the properties can be modified accordingly 
+	  - to target a specific track.
+
+
+	GRID ( 12 track design example )
+		<div class="parent">
+			<div class="segment twelve">Span 12</div>
+			<div class="segment eight">Span 8</div>
+			<div class="segment four">Span 4</div>
+			<div class="segment six">Span 6</div>
+			<div class="segment seven">Span 7</div>
+			<div class="segment twelve">Span 12</div>
+		</div>
+
+		<style>
+
+			.parent {
+				display: grid;
+				grid-template-columns: repeat(12, 1fr);
+			}
+
+			.segment {
+				display: grid;
+				grid-template-rows: 100px;
+				text-align: center;
+				place-items: center;
+			}
+
+			.twelve {
+				background-color: lightseagreen;
+				grid-column: 1 / span 12;
+			}
+
+			.eight {
+				background-color: bisque;
+				grid-column: 5 / span 8;
+
+			}
+
+			.four {
+				background-color: lightblue;
+				grid-column: 1 / span 4;
+
+			}
+
+			.six {
+				background-color: lightsteelblue;
+				grid-column: 5 / span 6;
+
+			}
+
+			.seven{
+				background-color: lightcoral;
+				grid-column: 3 / span 7;
+
+			}
+
+		</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Grid:
+
+	GRID ( a simple example )
+		<body>
+			<header>Little Lemon</header>
+			<main>Menu</main>
+			<footer>About Us</footer>
+		</body>
+
+		<style>
+
+			body {
+				display: grid;
+				height: 150vh; /* 150% of the viewport height*/
+				grid-template-rows: auto 1fr auto;
+
+				/* 
+				   notice the height setting
+				   makes the (1fr) fractional functionality shine.
+				   remember our previous talk on fractional value
+				*/
+			}
+
+			header, main, footer {
+				text-align: center;
+				padding: 2em;
+			}
+
+			header {
+				background-color: #2C3333;
+			}
+
+			main {
+				background-color: #395B64;
+			}
+
+			footer {
+				background-color: #A5C9CA;
+
+			}
+
+		</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Grid Cheatsheet:
+
+	GRID CHEADTSHEET ( grid framework )
+		- grid-template-rows: 
+			configure your elements so that 
+			they are organized similarly to rows on a table. 
+
+		- grid-template-columns: 
+			configure your elements 
+			but with this setting the elements 
+			are organized like columns on a table. 
+
+		- grid-template-areas: 
+			configure the names of a grid and how they sit 
+			in relation to one another. 
+
+		- grid-column-gap, grid-row-gap, grid-gap:
+			this sets the gap between the columns and/or rows
+
+
+	GRID CHEADTSHEET ( automatic tracks )
+		- grid-auto-rows: 
+			default setting for all row sizes 
+			that have not been explicitly configured. 
+
+		- grid-auto-columns: 
+			default setting for all column sizes 
+			that have not been explicitly configured. 
+
+		- grid-auto-flow:
+			default location for rows 
+			that are not explicitly allocated. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Grid Cheatsheet:
+
+
+	GRID CHEADTSHEET ( item positioning )
+		- grid-column: column position /* E.g. 1/2  */
+			allows for specifying where on the grid 
+			the column is to start and end. 
+
+		- grid-column-start: column start position 
+			determines the starting column position an item is placed on a grid. 
+
+		- grid-column-end: column end position 
+			determines the end column position an item is placed on a grid. 
+
+		- grid-row: row position /* E.g. 1/2  */
+			where on the grid the row is to start and end. 
+
+		- grid-row-start: row start position 
+			determines the starting row position an item is placed on a grid. 
+
+		- grid-row-end: row end position 
+			determines the end row position an item is placed on a grid. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Grid Cheatsheet:
+
+
+	GRID CHEADTSHEET ( alignment )
+		- justify-items, justify-self: 
+			start | center | end | stretch
+			defines the default space that is allot to each item on the grid 
+
+		- align-items, align-self: 
+			start | center | end | stretch
+			defines the default space related to an item along the grid’s block axis  
+
+		- place-items, place-self:
+			start | stretch /* shorthand for two properties above */
+			this feature allows you align items with the block and inline directions.
+
+		- justify-content: 
+			start | center | end | stretch | space-between | space-evenly | space-around
+			defines browser allocation of space to content items 
+			in relation to the main-axis 
+
+		- align-content: 
+			start | center | end | stretch | space-between | space-evenly | space-around
+			defines browser allocation of space to content items 
+			in relation to cross axis and block axis  
+
+		- place-content: 
+			center | start
+			this feature allows you align items 
+			with the block and inline directions.
