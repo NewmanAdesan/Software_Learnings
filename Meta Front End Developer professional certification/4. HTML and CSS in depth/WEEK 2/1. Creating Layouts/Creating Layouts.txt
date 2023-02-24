@@ -799,8 +799,9 @@ Grid:
 		  - where applied, the grid tracks are divided proportionately 
 		  - to the ratio of all the fraction values present. 
 
-		  - as there are two rows, 
-		  - the defined values are sized in the ratio of two to one. 
+		  - it represents a fraction 
+		  - of the remaining space in the grid container.
+
 		  - fraction adds flexibility to the grid 
 		  - without needing to deal with actual pixel sizes. 
 		  - fraction and pixel sizes can be used interchangeably 
@@ -1370,8 +1371,33 @@ Additionals :
             (grid value repetition - repeat(), auto-fill, auto-fit)
             (min-content, max-content, auto - content-based sizing)
 
+            (line with multiple names)
+            grid-template-rows: 
+            					[header-start] 100px 
+            					[header-end content-start] 400px  /* two names */
+            					[footer-start] 100px
+            					[footer-end]; 
+
+			grid-template-columns: 
+								[ads] 200px 
+								[main] minmax(15em, 45em) 
+								[links] max-content;
+
+
+			(names in multiple lines)
+			(though when render they would be uniquely identified)
+			(by their occurence number i.e row-start, row-start 2, row-start 3 ...)
+			grid-template-rows: repeat(3, [row-start] 1fr [row-end]);
+			grid-template-columns: repeat(3, [col-start] 1fr [col-end]);
+
+
         - grid-template-areas
-            (grid area naming)
+             grid area naming
+             grid-template-areas: 
+								 "header header header"
+								 "ads main links"
+								 "footer footer footer";
+
 
         - grid: grid-template-row / grid-template-column
             (grid shorthand property)
@@ -1382,14 +1408,24 @@ Additionals :
             (position grid item by grid line number or line name)
             (position grid item by specifying number of cell to span)
 
+            grid-row-start: 1;
+		    grid-row-end: span 1;
+		    grid-column-start: 1;
+		    grid-column-end: -1;
+
+
         - grid-row: start / end, grid-column: start /end
             (shorthand to position grid item by line/span)
+            grid-row: 2 / span 3;
+			grid-column: span 2;
 
         - grid-area
             (position grid item by area name)
+            grid-area: "header"
 
         - grid-area: row-start / column-start / row-end / column-end
             (position grid item by line number or span)
+            grid-area: 2 / 2 / 3 / 3
 
 
     GRID IMPLICIT BEHAVIOUR
@@ -1405,6 +1441,11 @@ Additionals :
         - by default their size will be "auto"
         - you can change this via the 
         - "grid-auto-row" & "grid-auto-column" property
+
+        - named grid areas will implicitly name 
+          the grid lines along the edges of the area. 
+          those grid lines will be named based on the area name 
+          and suffixed with -start or -end.
 
 
     GRID IMPLICIT TRACKS
@@ -1473,3 +1514,56 @@ Additionals :
 
         - OFCOURSE YOU HAVE GRID ALIGNMENT PROPERTIES 
         - TO ACHIEVE THIS AS WELL
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Additionals :
+
+	LAYERING GRID ITEMS
+		- by default, item 2 would sit on top of item 1; 
+		- however, we’ve created stacking context 
+		- by assigning z-index: 1 to item 1, 
+		- resulting it to sit on top of item 2.
+
+			.item-1, .item-2 {
+				grid-row-start: 1;
+				grid-column-end: span 2;
+			}
+
+			.item-1 { grid-column-start: 1; z-index: 1; }
+			.item-2 { grid-column-start: 2 }
+
+
+	  	- a grid item is positioned and layered on top 
+	  	- using implicit grid line names from the defined grid-template-areas.
+			.overlay {
+				grid-row-start:    header-start;
+				grid-row-end:      content-end;
+				grid-column-start: content-start;
+				grid-column-end:   sidebar-start;
+				z-index: 1;
+			}
