@@ -710,6 +710,12 @@ Grid:
 		- grid gutters/gaps: the space between the tracks
 		- grid lines: the horizontal and vertical dividing lines
 		- grid cell: space bordered by four adjacent grid lines
+		- grid track: space between two grid lines (row track or column track)
+		- grid area: several grid cell tacked together
+		- grid gap: a gutter or alley between tracks. 
+					for sizing purposes these act like a regular track. 
+					you can't place content into a gap 
+					but you can span grid items across it
 
 		- each grid lines and grid cells can be labelled
 		- by default each grid line have a number
@@ -1087,7 +1093,7 @@ Grid Area & Grid Line:
 
 	GRID AREA & LINE ( example )
 
-		<body>
+		<body>c
 			<header>Header</header>
 			<nav class="nav-bar">Navigation</nav>
 			<main>Main area</main>
@@ -1567,3 +1573,6 @@ Additionals :
 				grid-column-end:   sidebar-start;
 				z-index: 1;
 			}
+
+
+	INTRINSIC SIZING KEYWORDS
