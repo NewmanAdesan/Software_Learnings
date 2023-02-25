@@ -1783,42 +1783,42 @@ Additionals :
 
 Additionals Css Viewport:
 
-CSS VIEWPORT ( intro )
-	in simple terms, 
-	viewport helps web browsers to break pages and add them 
-	on a small screen in a readable format (prevents side scroll)
+	CSS VIEWPORT ( intro )
+		in simple terms, 
+		viewport helps web browsers to break pages and add them 
+		on a small screen in a readable format (prevents side scroll)
 
-	adding CSS <meta> tag with viewport is an efficient way 
-	to improve the web pages to look on smaller screens. 
+		adding CSS <meta> tag with viewport is an efficient way 
+		to improve the web pages to look on smaller screens. 
 
-	the ViewPort is not the same size as the original Webpage
+		the ViewPort is not the same size as the original Webpage
 
 
-CSS VIEWPORT ( properties )
-	@viewport {
-		width: device-width;
-		zoom: 1.1;
-		min-zoom: 0.4;
-		max-zoom: 2;
-		user-zoom: fixed;
-	}
+	CSS VIEWPORT ( properties )
+		@viewport {
+			width: device-width;
+			zoom: 1.1;
+			min-zoom: 0.4;
+			max-zoom: 2;
+			user-zoom: fixed;
+		}
 
-	- Width: 
-		adjusts to the device in a normal or landscape view. 
-		it takes values like auto, device-width, 
-		device-height, length, percentage. 
-		width sets shorthand properties namely max and min-width.
+		- Width: 
+			adjusts to the device in a normal or landscape view. 
+			it takes values like auto, device-width, 
+			device-height, length, percentage. 
+			width sets shorthand properties namely max and min-width.
 
-	- Zoom: 
-		it sets for zooming by giving initial-scale in the meta tag. 
-		even this control min and max zoom factor. 
-		a zoom factor 1.0 or 100% implies no zooming. 
-		here the larger values make zoom in 
-		and smaller values do zoom out.
+		- Zoom: 
+			it sets for zooming by giving initial-scale in the meta tag. 
+			even this control min and max zoom factor. 
+			a zoom factor 1.0 or 100% implies no zooming. 
+			here the larger values make zoom in 
+			and smaller values do zoom out.
 
-	- Orientation Descriptor: 
-		helps in making the document display 
-		to view in portrait or landscape.
+		- Orientation Descriptor: 
+			helps in making the document display 
+			to view in portrait or landscape.
 
 
 
