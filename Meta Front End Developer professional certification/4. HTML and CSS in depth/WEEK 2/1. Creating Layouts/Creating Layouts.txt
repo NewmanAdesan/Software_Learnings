@@ -326,6 +326,10 @@ Flexbox:
 		- to control how much it shrinks and how much it grows
 		- without this specification, it would shrink as much as it contents
 
+		- flex: auto     <==>  flex: 1 1 auto
+		- flex: initial  <==>  flex: 0 1 auto
+		- flex: none     <==>  flex: 0 0 auto
+
 
 
 
@@ -1576,3 +1580,245 @@ Additionals :
 
 
 	INTRINSIC SIZING KEYWORDS
+		- Min-Content
+			this will make a track as small as it can be 
+			without the track content overflowing. 
+
+			changing the example grid layout to have three column tracks 
+			all at min-content size will mean they become 
+			as narrow as the longest word or image in the track
+
+
+		- Max-Content 
+			the track will become as wide enough 
+			for all of the content to display in one long unbroken string. 
+			this might cause overflows as the string will not wrap.
+
+			the longest sentence or biggest image
+
+
+		- Fit-Content()
+			this function acts like max-content at first. 
+			however, once the track reaches the size 
+			that you pass into the function, 
+			the content starts to wrap. 
+
+			so fit-content(10em) will create a track that is less than 10em, 
+			if the max-content size is less than 10em, but never larger than 10em.
+
+		- The fr unit
+			a flexible length which describes a share 
+			of the available space in the grid container.
+			it works in a similar way to using flex: auto in flexbox. 
+			it distributes space after the items have been laid out
+
+
+
+		- minmax()
+			sets the minimum and maximum size for a track
+
+			remember with fractional unit, 
+			there is a distribution of available space
+			after giving the content enough room.
+
+			this means if all column tracks have 1fr
+			they may not still have equal share of space.
+
+			using minmax(0, 1fr) will force the tracks 
+			to take and equal share of the space 
+			in the grid container minus gaps.
+
+			as this make the minimum size of the track 0
+
+
+
+		- repeat()
+			repeats any section of your track listing
+			repeat(no_of_times, pattern)
+
+
+		- auto-fill and auto-fit
+			this guys also add responsiveness to the grid
+
+			grid-template-columns: repeat(auto-fill, 200px);
+				the number of columns track is dependent on
+				how many 200px sized element can fit into the 
+				grid container.
+
+			grid-tempate-columns: repeat(auto-fill, minimax(200px, 1fr))
+				the number of columns track is dependent on
+				how many element whose minimum size is 200px
+				and maximum size is minimum size + any free space left
+				can fit into the grid container
+
+			there is little difference btw auto-fill & auto-fit
+			there is no difference btw them when the first track is filled
+
+			with auto-fill, 
+			if only two grid items in the grid container
+			empty tracks will been created taking some space 
+			in the grid container.
+
+			with auto-fit
+			those track collapse down to 0 size
+			this means that the flexible tracks with items
+			now grow to consume the space.
+
+			basically, auto-fill places as many items 
+			into the template as possible, without stretching
+			while auto-fit will  stretch cells to fit the container
+
+
+		- grid-auto-flow
+			by default items in th grid flows row by row
+			this is because this value is set to "row"
+
+			when set to "column" items are filled column 
+			by column.
+
+			do note that this depends on the writing mode
+			and direction of the page
+
+
+		- Spanning tracks
+			grid-column-end: span 2;
+			having not specified a grid-column-start
+			it will use the initial value of "auto"
+			and is placed according to the auto-placement rules.
+
+
+		- Filling Gaps (dense keyword)
+			grid-auto-flow: row dense;
+
+			an AUTO-PLACED layout with some items 
+			spanning multiple tracks may result 
+			in a grid with some unfilled cells. 			
+
+			if there is not enough space to fit an item, 
+			grid will leave a gap and move to the next track
+			hoping to find more space.	
+
+
+		- Stacking items
+			grid items can be positioned on top of each other
+			you can use the z-index property to position 
+			how they are stacked
+
+
+			this is where the "dense keyword" comes in
+			With this value in place, 
+			grid will take items later in the layout 
+			and use them to fill gaps.
+
+			this may mean that the display 
+			becomes disconnected from the logical order.
+
+
+		- Implicit grids
+			explicit grids are grids defined via the "grid-template-*"
+			when you have more grid item that the grid container
+			can contain you have an implicit grid.
+
+			the default numbering of grid lines 
+			does not apply to implicit grids
+
+			"grid-auto-*" specify the track sizing of implicit grids
+
+
+		- Grid Template Areas
+		    grid-template-areas:
+		        "header header header header"
+		        "sidebar content content content"
+		        "sidebar footer footer footer";
+
+		    the value must be a complete grid with no empty cells.
+		    to span tracks repeat the name.
+		    the areas created by repeating the name 
+		    must be rectangular and cannot be disconnected
+
+		    if you break any of the above rules 
+		    the value is treated as invalid and thrown away.
+
+
+		- Empty Grid Areas
+			to leave white space on the grid use a "." 
+			or multiples with no white space between them. 
+
+			for example to leave the very first cell 
+			on the grid empty I could add a series of "." characters:
+
+
+				display: grid;
+				grid-template-columns: repeat(4,1fr);
+			    grid-template-areas:
+			        "....... header header header"
+			        "sidebar content content content"
+			        "sidebar footer footer footer";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Additionals Css Viewport:
+
+CSS VIEWPORT ( intro )
+	in simple terms, 
+	viewport helps web browsers to break pages and add them 
+	on a small screen in a readable format (prevents side scroll)
+
+	adding CSS <meta> tag with viewport is an efficient way 
+	to improve the web pages to look on smaller screens. 
+
+	the ViewPort is not the same size as the original Webpage
+
+
+CSS VIEWPORT ( properties )
+	@viewport {
+		width: device-width;
+		zoom: 1.1;
+		min-zoom: 0.4;
+		max-zoom: 2;
+		user-zoom: fixed;
+	}
+
+	- Width: 
+		adjusts to the device in a normal or landscape view. 
+		it takes values like auto, device-width, 
+		device-height, length, percentage. 
+		width sets shorthand properties namely max and min-width.
+
+	- Zoom: 
+		it sets for zooming by giving initial-scale in the meta tag. 
+		even this control min and max zoom factor. 
+		a zoom factor 1.0 or 100% implies no zooming. 
+		here the larger values make zoom in 
+		and smaller values do zoom out.
+
+	- Orientation Descriptor: 
+		helps in making the document display 
+		to view in portrait or landscape.
+
+
+
