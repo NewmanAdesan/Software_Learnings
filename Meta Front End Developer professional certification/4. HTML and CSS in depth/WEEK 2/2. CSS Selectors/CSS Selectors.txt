@@ -1,0 +1,149 @@
+
+Selector Specificity:
+
+	SPECIFICITY ( intro )
+		- you might accidentally add more than one rule over the same element. 
+		- this results in conflicts as only one rule can be applied to a specific property.
+		- this means there has to be a priority tree.
+		- an hierarchy if you will.
+
+
+	SPECIFICITY ( hierarchy category )
+		- there are four categories in this hierarchy.
+		- inline styles with 1000 points
+		- ID with 100 points
+		- class, attributes & pseudo-classes with 10 points
+		- element, pseudo-element with 1 points
+
+
+	SPECIFICITY ( calculation )
+		- the calculation is simple
+		- #hello {} will be 0100
+		- div {} will be 0001 and
+		- div p.foo {} will be 0012
+
+
+	SPECIFICITY ( more info )
+		- there are a few more guidelines and rules 
+		- that become important especially in cases 
+		- when the score for the different selectors is the same. 
+
+		- Some of these are:
+		- Every selector will have a score and place in the hierarchy
+
+		- in the case of selectors with equal specificity, 
+		- the latest or last written rule is the one that will be applied
+
+		- in general, ID selector should be applied in cases 
+		- where you need to be certain about a rule 
+
+	- universal selectors have zero specificity value
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Combination Selectors:
+
+	COMBINATION SELECTORS
+		- CSS makes it possible to combine more than one selector 
+		- so that you can apply rules to elements 
+		- based on their relationship with one another. 
+
+		- you do this with combination selectors, 
+		- and there are four main types. Namely, 
+
+		- descendant selectors ( space ) 
+		- child selectors ( > )
+		- general sibling selectors ( ~ ) and 
+		- adjacent sibling selectors ( + )
+
+
+	COMBINATION SELECTORS ( general sibling selectors )
+			<div id="blog">
+				<h1>Latest News</h1>
+				<div>	
+					<h1>Weather Forecast</h1>
+					<p>The weather will be sunny</p>
+					<p>Tomorrow will be rainy</p>
+				</div>
+				<h1>Old News</h1>
+			</div>
+
+		- general sibling selectors 
+		- targets all elements of same type after reference element
+		- h1 ~ p { color: blue } 
+		- this selects all p elements that are next siblings of an h1 element
+		- The weather will be sunny, Tomorrow will be rainy,  Old News.
+
+
+	COMBINATION SELECTORS ( adjacent sibling selectors )
+		- adjacent sibling selectors
+		- targets the first element directly following the reference element
+		- div + h1 { color: blue } would only select "Old News"
+		- note that if there was a p tag before "Old News"
+		- "Old News" would not be selected. it has to be "Adjacent"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Pseudo-Classes:
+	
+pseudo-classes are state based selectors
+meaning they allow you select element based on their state
+for example the hover state ":hover"
+
+You use pseudo-class selectors to improve the interactivity of web pages by styling elements in response to user input. In this video, you will explore
+
+
+
+
