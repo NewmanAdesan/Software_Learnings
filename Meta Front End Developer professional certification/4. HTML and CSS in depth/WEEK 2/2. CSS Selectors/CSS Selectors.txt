@@ -62,11 +62,6 @@ Selector Specificity:
 
 
 
-
-
-
-
-
 Combination Selectors:
 
 	COMBINATION SELECTORS
@@ -131,19 +126,142 @@ Combination Selectors:
 
 
 
-
-
-
-
-
 Pseudo-Classes:
 	
-pseudo-classes are state based selectors
-meaning they allow you select element based on their state
-for example the hover state ":hover"
+	PSEUDO-CLASSES ( concept )
+		pseudo-classes are state based selectors
+		meaning they allow you select element based on their state
+		for example the hover state ":hover"
 
-You use pseudo-class selectors to improve the interactivity of web pages by styling elements in response to user input. In this video, you will explore
+		you use pseudo-class selectors 
+		to improve the interactivity of web pages 
+		by styling elements in response to user input.
+
+		selecting an element when it is active or in-focus, 
+		or when a link has already been visited
+
+		targeting specific elements say, 
+		the fifth item in a list, bold items, empty elements, and so on.
+
+	
+	PSEUDO-CLASSES ( concept )
+		- we can group pseudo-classes into three states
+		- actions states
+		- form states
+		- specific position-based states
+
+		- this is the syntax of pseudo-class specification
+				selector:pseudo-class {
+					property: value
+				}
+
+
+	PSEUDO-CLASSES ( action states )
+		- the "action states" pseudo-classes
+		- these pseudo-classes have an effect 
+		- while a user is actively engaging with a HTML element
+
+		- ":hover" 
+		- changes the style of an element when a cursor hovers over it
+
+		- ":active" 
+		- styles an element only while a user 
+		- actively presses and holds the mouse button
+
+		- ":focus" 
+		- which focuses styling on the element that you use it for
+
+
+	PSEUDO-CLASSES ( form states )
+		- the "form states" pseudo-classes
+		- they usually come in pairs and target 
+		- the different states that elements can have. 
+		- form state pseudo-classes include 
+
+		- :disabled and :enabled, 
+		- generally used for buttons, 
+
+		- :checked and :indeterminate, 
+		- that are used for checkboxes, 
+
+		- :valid and :invalid 
+		- used in case of fields like emails and phone numbers
+
+
+	PSEUDO-CLASSES ( specific position-based states )
+
+		- the "specific position-based states" pseudo-classes. 
+		- they allow you to target specific items, 
+		- for instance, a specific list item among the list elements. 
+
+		- :first-of-type, :last-of-type, 
+		- :nth-of-type, and :nth-last-of-type. 
+		- their names makes them pretty straight forward.
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Pseudo-Elements:
+
+	PSEUDO-ELEMENTS ( concept )
+		- pseudo-elements help you style a specific part of an element. 
+		- for example, you can decide to apply styling 
+		- to only the first word or line in a given element. 
+
+		- the syntax of a pseudo-element specification
+			selector::pseudo-element {
+
+			 property: value; 
+
+			}
+
+
+	PSEUDO-ELEMENTS ( some )
+		- ::first-letter
+		- changes the styles of the first letter of an element
+
+		- ::first-line
+		- changes the styles of the first line of an element
+		- do note that the first line of an element changes 
+		- as the viewport changes
+
+		- ::selection
+		- changes the styles when you highlight specific text
+		- that click and drag action you do on an element.
+
+		- ::marker
+		- how do i explain this, this is have the bullet point
+		- are added to your list element
+				li::marker {
+						color: cornflowerblue;
+						content: "<> ";
+						font-size: 1.1em;
+
+		- ::before and ::after
+		- they allow you to add content before and after an element 
+		- in other words, new content can be added 
+		- to a page without adding HTML code for it. 
+		- you can also add styling options for this content.
+
+		- ::placeholder
+		- changes styles for the placeholder
