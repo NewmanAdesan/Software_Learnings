@@ -150,12 +150,11 @@ Attribute Selectors:
 		- [lang|="en"]
 		- selects all elements with a lang attribute 
 		- with value equal to "en" or starting with "en-"
-		
+
 
 		- [attribute~=value]
 		- selects all elements with a title attribute containing the word "flower"
 		- that means two spaces are separated by the word flower
-
 
 
 

@@ -1,0 +1,51 @@
+
+
+
+
+What is an Effect:
+
+	EFFECT ( intro )
+		- applying effects to web pages is an essential skill
+		- for a front end web developer.
+
+		- effect is a change that is a 
+		- result or consequence of an action or other cause
+
+		- animations are a type of effect  
+		- animations are graphics in motion, transitioning over time. 
+
+		- webpage effect started with GIFs (graphics interchange format)
+		- then FLASH came along using browsers plug-in
+		- then came along libraries like JQuerry & Pop Motion among other.
+		- the downside to this libraries is that 
+		- they are hard to learn and can increase 
+		- the development time of websites considerably
+
+		- now with CSS we can produce suprisingly good effects
+		- it is easy to learn and simplifies web development
+
+
+	EFFECT ( common effects - hover effect)
+		- the hover effect is possibly one of the 
+		- most frequently used effects on web pages. 
+
+		- highlighting it in some way when the mouse hovers over it. 
+		- for example, the lightening or darkening of an element 
+		- or even other effects that highlight the placement of the cursor.
+
+
+	EFFECT ( common effects - cursor effect)
+		- another popular effect is changing the appearance of the cursor 
+		- instead of the conventional arrows. 
+
+		- you can add animated effects that change 
+		- the color or gradient and so on. 
+
+
+		- you are surely familiar with sliding galleries and slide shows. 
+		- they are commonly used to display collections of images 
+		- or text boxes and then you get video backgrounds which are commonly added to the top of the screen to illustrate movement, an effect that gained popularity since its introduction is the parallax effect. It gives users the perception of depth and dimension with foreground elements moving faster than the background elements. It is likely that you are familiar with the back to the top effect. It is a simple element like a button that enables quickly scrolling all the way to the top of the page. From the current button placement, developers commonly used element and color transitions to emphasize focus on objects. As users scroll through web pages. Full screen snapping is a quick transition from one page to another that occurs automatically while users are scrolling. Now that you are familiar with some popular effects, let's briefly visit the pros and cons of adding effects on web pages. The primary driving factor of web pages these days is to attract the attention of users web pages that use animation and effects optimally keep the attention of users without overwhelming them
+
+
+
+
