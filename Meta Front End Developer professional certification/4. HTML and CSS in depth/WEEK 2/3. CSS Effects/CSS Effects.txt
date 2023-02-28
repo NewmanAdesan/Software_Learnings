@@ -2,7 +2,7 @@
 
 
 
-What is an Effect:
+Effect:
 
 	EFFECT ( intro )
 		- applying effects to web pages is an essential skill
@@ -15,7 +15,7 @@ What is an Effect:
 		- animations are graphics in motion, transitioning over time. 
 
 		- webpage effect started with GIFs (graphics interchange format)
-		- then FLASH came along using browsers plug-in
+		- then FLASH came along which needed a special browsers plug-in
 		- then came along libraries like JQuerry & Pop Motion among other.
 		- the downside to this libraries is that 
 		- they are hard to learn and can increase 
@@ -23,6 +23,7 @@ What is an Effect:
 
 		- now with CSS we can produce suprisingly good effects
 		- it is easy to learn and simplifies web development
+		- which manipulated formats such as scalable vector graphics(SVG)
 
 
 	EFFECT ( common effects - hover effect)
@@ -33,8 +34,8 @@ What is an Effect:
 		- for example, the lightening or darkening of an element 
 		- or even other effects that highlight the placement of the cursor.
 
-
-	EFFECT ( common effects - cursor effect)
+ 
+	EFFECT ( common effects - cursor effect )
 		- another popular effect is changing the appearance of the cursor 
 		- instead of the conventional arrows. 
 
@@ -42,10 +43,203 @@ What is an Effect:
 		- the color or gradient and so on. 
 
 
+	EFFECT ( common effects - parallax effect )
+		- it gives users the perception of depth and dimension 
+		- with foreground elements moving faster than the background elements.
+
+
+	EFFECT ( common effects - back to the top effect )
+		- it is a simple element like a button 
+		- that enables quickly scrolling all the way 
+		- to the top of the page. from the current button placement
+
+
+	EFFECT ( common effects - slide shows/galleries )
 		- you are surely familiar with sliding galleries and slide shows. 
-		- they are commonly used to display collections of images 
-		- or text boxes and then you get video backgrounds which are commonly added to the top of the screen to illustrate movement, an effect that gained popularity since its introduction is the parallax effect. It gives users the perception of depth and dimension with foreground elements moving faster than the background elements. It is likely that you are familiar with the back to the top effect. It is a simple element like a button that enables quickly scrolling all the way to the top of the page. From the current button placement, developers commonly used element and color transitions to emphasize focus on objects. As users scroll through web pages. Full screen snapping is a quick transition from one page to another that occurs automatically while users are scrolling. Now that you are familiar with some popular effects, let's briefly visit the pros and cons of adding effects on web pages. The primary driving factor of web pages these days is to attract the attention of users web pages that use animation and effects optimally keep the attention of users without overwhelming them
+		- they are commonly used to display collections of images or text boxes 
+		- and then you get video backgrounds which are commonly added 
+		- to the top of the screen to illustrate movement, 
+
+
+	EFFECT ( common effects - full screen snapping effect )
+		- full screen snapping is a quick transition 
+		- from one page to another that occurs 
+		- automatically while users are scrolling.
+
+
+	EFFECT ( common effects - focus )
+		- developers commonly used element and color transitions 
+		- to emphasize focus on objects. As users scroll through web pages.  
+
+
+	EFFECT ( pros )
+		- the primary driving factor of web pages these days 
+		- is to attract the attention of users. 
+		- web pages that use animation and effects 
+		- optimally keep the attention of users without overwhelming them. 
+
+		- effects help highlight the special features on a given page. 
+		- CSS styling and effects improve the creativity and aesthetics of websites
+
+
+	EFFECT ( cons )
+		- too much of it can also lead to distraction 
+		- and drive users away from the page. 
+
+		- besides more animations, increase the size of your CSS files 
+		- which can cause your web page to load slowly in areas with low bandwidth. 
+
+		- nonetheless, effects improve online experiences in general 
+		- and are especially used to create intuitive navigation
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Text Effect:
+
+	TEXT EFFECT ( text-overflow )
+		- With the help of CSS, 
+		- you can make the most of texts by adding interesting effects
+
+		- the "text-overflow" property 
+		- determines how overflowing content
+		- is displayed on your website
+		- when the property is set to "ellipsis",
+		- three dots replaces the clipped text
+
+			| this is a long text, ...| 
+
+			.text {
+				width: 300px;
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis; /* clip */;
+			}
+
+			.text:hover {
+				overflow: visible;
+			}
+
+		- the white-space CSS property controls 
+		- how white-space inside an element is handled
+		- plus we added a nice hover effect that makes the overflow visible
+
+		- the value can be set to "clip"
+		- which simply clips the text without add the three dot "..."
+
+
+
+	TEXT EFFECT ( vertical text )
+		<h1>Vertical Text</h2>
+		<p>The chefs draw inispiratin from italian, Greek and Turkish ...</p
+		<p class="vert">12-15 items</p>
+		<p>that they rotate sesonally</p>
+
+		<style> 
+			.vert{
+				writing-mode: vertical-rl  
+			}
+		</style>
+
+
+	TEXT EFFECT ( text-shadows )
+		<div class="container">
+			<h1 class="glow"> Little  Lemon </h1>
+			<h3 class="glow"> Open for dining !</h3>
+		</div>
+
+		<style>
+			body{
+				text-align: center;
+				font-size: 25px;
+				font-family: "Papyrus";
+				background-color: #070101;
+			}
+
+			.glow {
+				color: rgb(237, 237, 151)
+				text-shadow:	/* x y blur-radius color */
+					0 0 7px #fff,
+					0 0 10px #fff,
+					0 0 31px #fff,
+					0 0 55px rgb(255, 226, 4),
+					0 0 91px rgb(255, 226, 4),
+					0 0 100px rgb(255, 226, 4)
+					0 0 122px rgb(255, 226, 4),
+					0 0 140px rgb(255, 226, 4);
+		</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Transform & Transition:
+
+
+	TRANSFORM & TRANSITION ( intro )
+		- two CSS properties used to create basic animation
+		- are "transform" & "transition"
+
+		- transform property modifies the spatial position of an element. 
+		- for instance, it can change its scale and angle, 
+
+		- but these changes are not very effective or user friendly 
+		- because they are instantaneous to really create the illusion of motion.
+		- this is where the transition property comes in.
+
+		- transition property controls the speed of the transformation
