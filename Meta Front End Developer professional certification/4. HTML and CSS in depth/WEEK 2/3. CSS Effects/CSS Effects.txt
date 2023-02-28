@@ -231,7 +231,7 @@ Text Effect:
 Transform & Transition:
 
 
-	TRANSFORM & TRANSITION ( intro )
+	TRANSFORM & TRANSITION ( transform )
 		- two CSS properties used to create basic animation
 		- are "transform" & "transition"
 
@@ -242,4 +242,15 @@ Transform & Transition:
 		- because they are instantaneous to really create the illusion of motion.
 		- this is where the transition property comes in.
 
+
+	TRANSFORM & TRANSITION ( transform )
+
 		- transition property controls the speed of the transformation
+
+		- they smooth out otherwise abrupt changes to property values 
+		- between two states over time by filling in the frames in between
+
+		- for instance the background of a navigation link
+		- gradually changing from blue to red, 
+		- passing through several shades of purple on the way
+		- when hovered upon.
