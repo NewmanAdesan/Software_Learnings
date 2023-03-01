@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+
+  <!-- link to Google fonts -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rubik&display=swap">
+
+
+  <title>Frontend Mentor | Interactive comments section</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution {
+      font-size: 11px;
+      text-align: center;
+    }
+
+    .attribution a {
+      color: hsl(228, 45%, 44%);
+    }
+
+    body {
+      background-color: hsl(223, 19%, 93%);
+      font-family: "Rubik", sans-serif;
+      font-size: 16px;
+      font-weight: 500;
+
+    }
+
+    /* My Font Weight Classes */
+    .bold {
+      font-weight: 700;
+    }
+
+    .normal {
+      font-weight: 500;
+    }
+
+    .small {
+      font-weight: 400;
+    }
+
+
+    /* Styling Comment Score */
+    .score,
+    .score * {
+      border: 1px solid black;
+    }
+
+    .score {
+      width: fit-content;
+      padding: 0 0.4em;
+      border-radius: 5px
+    }
+
+    .score * {
+      width: 1em;
+      text-align: center;
+      margin-bottom: 0.3em;
+      padding: 0.1em;
+    }
+
+    .score .score-add,
+    .score .score-minus {
+      color: hsl(239, 57%, 85%);
+    }
+
+    .score .score-value {
+      color: hsl(238, 40%, 52%);
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Pull dynamic content from the data.json file -->
+
+  <div class="comment-block">
+    <div class="score">
+      <div class="score-add">+</div>
+      <div class="score-value bold">5</div>
+      <div class="score-minus">-</div>
+    </div>
+    <div class="comment-info">
+      <img class="comment-photo" src="">
+      <span class="comment-name"></span>
+      <span class="comment-time"></span>
+
+    </div>
+    <div class="reply-button bold"></div>
+    <div class="comment-message"></div>
+  </div>
+
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+    Coded by <a href="#">Your Name Here</a>.
+  </div>
+</body>
+
+</html>
