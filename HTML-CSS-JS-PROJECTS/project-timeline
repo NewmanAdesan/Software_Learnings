@@ -1,3 +1,12 @@
 
 3/1/2023 1hour
 3/2/2023 1 + 
+
+1.) styling the comment score interface
+    in such a way that no matter the range of the score
+    be it 1000-10000, 100-1000, 10-100, e.t.c
+    the style of the interface is not greatly affected.
+
+    my implementation was;
+    as the score range changes, 
+    the font size of score value dynamically chages also

@@ -69,8 +69,12 @@
       color: hsl(238, 40%, 52%);
     }
 
-    .gray-blue {
+    .gray {
       color: gray;
+    }
+
+    .red {
+      color: hsl(358, 79%, 66%);
     }
 
 
@@ -138,8 +142,25 @@
       line-height: 1.3em;
     }
 
-    .reply-button {
+    .reply-button,
+    .delete-button {
       margin-left: auto;
+    }
+
+    .clickable:hover {
+      cursor: pointer;
+    }
+
+    .comment-replies .current-user::after {
+      content: "you";
+      font-size: 14px;
+      font-weight: 400;
+
+      background-color: hsl(238, 40%, 52%);
+      color: white;
+      padding: 0.1em 0.4em;
+      margin-left: 0.5em;
+      border-radius: 2px;
     }
 
 
@@ -184,6 +205,28 @@
       font-size: 16px;
       font-weight: 550;
     }
+
+
+    /* Styling Comment Replies */
+
+    .reply-container {
+      display: flex;
+      align-items: stretch;
+      width: 724px;
+      margin: auto;
+
+    }
+
+    .reply-container .comment {
+      width: auto;
+    }
+
+    .reply-vertical-line {
+      border: 2px solid hsl(223, 19%, 93%);
+      margin-left: 2.2em;
+      margin-right: 2.2em;
+      margin-bottom: 0.8em;
+    }
   </style>
 </head>
 
@@ -201,13 +244,13 @@
       <div class="comment-info">
         <img class="comment-photo" src="./images/avatars/image-amyrobson.png">
         <span class="comment-name bold">amyrobson</span>
-        <span class="comment-time gray-blue">1 month ago</span>
-        <div class="reply-button bold blue">
+        <span class="comment-time gray">1 month ago</span>
+        <div class="reply-button clickable bold blue">
           <img src="./images/icon-reply.svg">
           <span>Reply</span>
         </div>
       </div>
-      <div class="comment-message gray-blue">Impressive! Though it seems the drag feature could be improved. But overall
+      <div class="comment-message gray">Impressive! Though it seems the drag feature could be improved. But overall
         it looks
         incredible. You've nailed the design and the responsiveness at various breakpoints works really well.</div>
     </div>
@@ -223,44 +266,76 @@
       <div class="comment-info">
         <img class="comment-photo" src="./images/avatars/image-maxblagun.png">
         <span class="comment-name bold">maxblagun</span>
-        <span class="comment-time gray-blue">2 weeks ago</span>
-        <div class="reply-button bold blue">
+        <span class="comment-time gray">2 weeks ago</span>
+        <div class="reply-button clickable bold blue">
           <img src="./images/icon-reply.svg">
           <span>Reply</span>
         </div>
       </div>
-      <div class="comment-message gray-blue">Woah, your project looks awesome! How long have you been coding for? I'm
+      <div class="comment-message gray">Woah, your project looks awesome! How long have you been coding for? I'm
         still new, but think I want to dive into React as well soon. Perhaps you can give me an insight on where I can
         learn React? Thanks!</div>
     </div>
   </div>
 
-  <div class="comment">
-    <div class="comment-score">
-      <img src=".\images\icon-plus.svg">
-      <div class="score-value bold blue">12</div>
-      <img src=".\images\icon-minus.svg">
-    </div>
-    <div class="comment-block">
-      <div class="comment-info">
-        <img class="comment-photo" src="./images/avatars/image-maxblagun.png">
-        <span class="comment-name bold">maxblagun</span>
-        <span class="comment-time gray-blue">2 weeks ago</span>
-        <div class="reply-button bold blue">
-          <img src="./images/icon-reply.svg">
-          <span>Reply</span>
+  <div class="reply-container">
+    <div class="reply-vertical-line"></div>
+    <div class="comment-replies">
+      <div class="comment">
+        <div class="comment-score">
+          <img src=".\images\icon-plus.svg">
+          <div class="score-value bold blue small-font-size">4</div>
+          <img src=".\images\icon-minus.svg">
+        </div>
+        <div class="comment-block">
+          <div class="comment-info">
+            <img class="comment-photo" src="./images/avatars/image-ramsesmiron.png">
+            <span class="comment-name bold">ramsesmiron</span>
+            <span class="comment-time gray">1 week ago</span>
+            <div class="reply-button clickable bold blue">
+              <img src="./images/icon-reply.svg">
+              <span>Reply</span>
+            </div>
+          </div>
+          <div class="comment-message gray">If you're still new, I'd recommend focusing on the fundamentals of
+            HTML,
+            CSS, and JS before considering React. It's very tempting to jump ahead but lay a solid foundation first.
+          </div>
         </div>
       </div>
-      <div class="comment-message gray-blue">Woah, your project looks awesome! How long have you been coding for? I'm
-        still new, but think I want to dive into React as well soon. Perhaps you can give me an insight on where I can
-        learn React? Thanks!</div>
+
+      <div class="comment">
+        <div class="comment-score">
+          <img src=".\images\icon-plus.svg">
+          <div class="score-value bold blue small-font-size">500</div>
+          <img src=".\images\icon-minus.svg">
+        </div>
+        <div class="comment-block">
+          <div class="comment-info">
+            <img class="comment-photo" src="./images/avatars/image-juliusomo.png">
+            <span class="comment-name current-user bold">juliusomo</span>
+            <span class="comment-time gray">2 days ago</span>
+            <div class="delete-button clickable bold red">
+              <img src="./images/icon-delete.svg">
+              <span>Delete</span>
+            </div>
+            <div class="edit-button clickable bold blue">
+              <img src="./images/icon-edit.svg">
+              <span>Edit</span>
+            </div>
+          </div>
+          <div class="comment-message gray">I couldn't agree more with this. Everything moves so fast and it always
+            seems like everyone knows the newest library/framework. But the fundamentals are what stay constant.</div>
+        </div>
+      </div>
     </div>
   </div>
+
 
   <div class="add-comment">
     <img class="comment-photo" src="./images/avatars/image-juliusomo.png">
-    <textarea class="comment-area" placeholder="Add a comment..."></textarea>
-    <button class="comment-send-button">SEND</button>
+    <textarea class="comment-area clickable" placeholder="Add a comment..."></textarea>
+    <button class="comment-send-button clickable">SEND</button>
   </div>
 
   <div class="attribution">
