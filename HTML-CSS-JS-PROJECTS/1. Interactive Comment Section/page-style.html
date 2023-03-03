@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- displays site properly based on user's device -->
+
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+
+    <!-- link to Google fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rubik&display=swap">
+
+
+    <title>Frontend Mentor | Interactive comments section</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .attribution {
+            font-size: 11px;
+            text-align: center;
+        }
+
+        .attribution a {
+            color: hsl(228, 45%, 44%);
+        }
+
+        body {
+            background-color: hsl(228, 33%, 97%);
+            font-family: "Rubik", sans-serif;
+            font-size: 16px;
+            font-weight: 500;
+
+        }
+
+
+
+        /* My Font Weight Classes */
+        .bold {
+            font-weight: 700;
+        }
+
+        .normal {
+            font-weight: 500;
+        }
+
+        .small {
+            font-weight: 400;
+        }
+
+
+        /* My Font Size Classes */
+        .small-font-size {
+            font-size: 14px;
+        }
+
+        .very-small-font-size {
+            font-size: 12px;
+        }
+
+
+
+        /* My Primary Colors */
+        .blue {
+            color: hsl(238, 40%, 52%);
+        }
+
+        .gray {
+            color: gray;
+        }
+
+        .red {
+            color: hsl(358, 79%, 66%);
+        }
+
+
+
+        /* Styling Comment Block */
+        .comment,
+        .add-comment {
+            display: flex;
+            align-items: flex-start;
+            width: 724px;
+            margin: auto;
+            margin-bottom: 0.8em;
+            padding: 1.5em;
+            border-radius: 10px;
+            background-color: White;
+        }
+
+
+        /* Styling Comment Score */
+
+        .comment-score {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: fit-content;
+            padding: 0.4em;
+            margin-right: 1.5em;
+            border-radius: 5px;
+            background-color: hsl(228, 33%, 97%);
+        }
+
+        .comment-score * {
+            width: 1.5em;
+            text-align: center;
+            padding: 0.3em;
+
+        }
+
+        .score-value {
+            width: fit-content;
+            padding: 0;
+            margin: 1em 0;
+        }
+
+
+
+        /* Styling Comment Info */
+        .comment-info {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.8em;
+        }
+
+        .comment-info>* {
+            margin-right: 1em;
+        }
+
+        .comment-photo {
+            width: 40px;
+            height: 40px;
+        }
+
+        .comment-message {
+            padding-right: 2em;
+            line-height: 1.3em;
+        }
+
+        .reply-button,
+        .delete-button {
+            margin-left: auto;
+        }
+
+        .clickable:hover {
+            cursor: pointer;
+        }
+
+        .comment-replies .current-user::after {
+            content: "you";
+            font-size: 14px;
+            font-weight: 400;
+
+            background-color: hsl(238, 40%, 52%);
+            color: white;
+            padding: 0.1em 0.4em;
+            margin-left: 0.5em;
+            border-radius: 2px;
+        }
+
+
+        /* Styling Comment Addition Area */
+        .add-comment>* {
+            margin-right: 1em;
+
+        }
+
+        .comment-area {
+            resize: none;
+            -moz-resize: none;
+            -webkit-resize: none;
+
+            border: 1px solid hsl(223, 19%, 93%);
+            border-radius: 10px;
+            height: 7em;
+            flex-grow: 1;
+            padding-left: 1em;
+            padding-top: 0.6em;
+        }
+
+        .comment-area,
+        .comment-area::placeholder {
+            font-family: Rubik, sans-serif;
+            font-size: 16px;
+            font-weight: 550;
+            line-height: 1.3em;
+            color: gray;
+        }
+
+        .comment-send-button {
+            background-color: hsl(238, 40%, 52%);
+            color: white;
+            padding: 0.9em 2em;
+            border: none;
+            box-shadow: 0px 0px 4px hsl(238, 40%, 52%);
+            border-radius: 10px;
+
+
+            font-family: Rubik, sans-serif;
+            font-size: 16px;
+            font-weight: 550;
+        }
+
+
+        /* Styling Comment Replies */
+
+        .reply-container {
+            display: flex;
+            align-items: stretch;
+            width: 724px;
+            margin: auto;
+
+        }
+
+        .reply-container .comment {
+            width: auto;
+        }
+
+        .reply-vertical-line {
+            border: 2px solid hsl(223, 19%, 93%);
+            margin-left: 2.2em;
+            margin-right: 2.2em;
+            margin-bottom: 0.8em;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Pull dynamic content from the data.json file -->
+
+    <div class="comment">
+        <div class="comment-score">
+            <img src=".\images\icon-plus.svg">
+            <div class="score-value bold blue very-small-font-size">12000</div>
+            <img src=".\images\icon-minus.svg">
+        </div>
+        <div class="comment-block">
+            <div class="comment-info">
+                <img class="comment-photo" src="./images/avatars/image-amyrobson.png">
+                <span class="comment-name bold">amyrobson</span>
+                <span class="comment-time gray">1 month ago</span>
+                <div class="reply-button clickable bold blue">
+                    <img src="./images/icon-reply.svg">
+                    <span>Reply</span>
+                </div>
+            </div>
+            <div class="comment-message gray">Impressive! Though it seems the drag feature could be improved. But
+                overall
+                it looks
+                incredible. You've nailed the design and the responsiveness at various breakpoints works really well.
+            </div>
+        </div>
+    </div>
+
+    <div class="comment">
+        <div class="comment-score">
+            <img src=".\images\icon-plus.svg">
+            <div class="score-value bold blue small-font-size">500</div>
+            <img src=".\images\icon-minus.svg">
+        </div>
+        <div class="comment-block">
+            <div class="comment-info">
+                <img class="comment-photo" src="./images/avatars/image-maxblagun.png">
+                <span class="comment-name bold">maxblagun</span>
+                <span class="comment-time gray">2 weeks ago</span>
+                <div class="reply-button clickable bold blue">
+                    <img src="./images/icon-reply.svg">
+                    <span>Reply</span>
+                </div>
+            </div>
+            <div class="comment-message gray">Woah, your project looks awesome! How long have you been coding for? I'm
+                still new, but think I want to dive into React as well soon. Perhaps you can give me an insight on where
+                I can
+                learn React? Thanks!</div>
+        </div>
+    </div>
+
+    <div class="reply-container">
+        <div class="reply-vertical-line"></div>
+        <div class="comment-replies">
+            <div class="comment">
+                <div class="comment-score">
+                    <img src=".\images\icon-plus.svg">
+                    <div class="score-value bold blue small-font-size">4</div>
+                    <img src=".\images\icon-minus.svg">
+                </div>
+                <div class="comment-block">
+                    <div class="comment-info">
+                        <img class="comment-photo" src="./images/avatars/image-ramsesmiron.png">
+                        <span class="comment-name bold">ramsesmiron</span>
+                        <span class="comment-time gray">1 week ago</span>
+                        <div class="reply-button clickable bold blue">
+                            <img src="./images/icon-reply.svg">
+                            <span>Reply</span>
+                        </div>
+                    </div>
+                    <div class="comment-message gray">If you're still new, I'd recommend focusing on the fundamentals of
+                        HTML,
+                        CSS, and JS before considering React. It's very tempting to jump ahead but lay a solid
+                        foundation first.
+                    </div>
+                </div>
+            </div>
+
+            <div class="comment">
+                <div class="comment-score">
+                    <img src=".\images\icon-plus.svg">
+                    <div class="score-value bold blue small-font-size">500</div>
+                    <img src=".\images\icon-minus.svg">
+                </div>
+                <div class="comment-block">
+                    <div class="comment-info">
+                        <img class="comment-photo" src="./images/avatars/image-juliusomo.png">
+                        <span class="comment-name current-user bold">juliusomo</span>
+                        <span class="comment-time gray">2 days ago</span>
+                        <div class="delete-button clickable bold red">
+                            <img src="./images/icon-delete.svg">
+                            <span>Delete</span>
+                        </div>
+                        <div class="edit-button clickable bold blue">
+                            <img src="./images/icon-edit.svg">
+                            <span>Edit</span>
+                        </div>
+                    </div>
+                    <div class="comment-message gray">I couldn't agree more with this. Everything moves so fast and it
+                        always
+                        seems like everyone knows the newest library/framework. But the fundamentals are what stay
+                        constant.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="add-comment">
+        <img class="comment-photo" src="./images/avatars/image-juliusomo.png">
+        <textarea class="comment-area clickable" placeholder="Add a comment..."></textarea>
+        <button class="comment-send-button clickable">SEND</button>
+    </div>
+
+    <div class="attribution">
+        Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+        Coded by <a href="#">Your Name Here</a>.
+    </div>
+</body>
+
+</html>

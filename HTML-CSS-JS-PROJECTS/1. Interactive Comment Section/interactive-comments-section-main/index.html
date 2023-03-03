@@ -342,6 +342,97 @@
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
     Coded by <a href="#">Your Name Here</a>.
   </div>
+
+  <script>
+
+    /**
+     * This function fetches JSON data from the file 'data.json' using XMLHttpRequest synchronously.
+     * It then parses the JSON response into a JavaScript object and returns it.
+     *
+     * @returns {Object} The parsed JSON data.
+     */
+    function getData() {
+      // Create a new XMLHttpRequest Object
+      let xhr = new XMLHttpRequest();
+
+      // Set the request URL
+      xhr.open('GET', "./data.json", false)
+
+      // Send the request
+      xhr.send();
+
+      // parse the JSON response
+      const data = JSON.parse(xhr.responseText);
+
+      return data;
+    }
+
+
+    /**
+     * Returns the great-grandfather element of a given DOM element.
+     * 
+     * @param {HTMLElement} element - The DOM element to start from.
+     * @returns {HTMLElement} - The great-grandfather element of the input element.
+     */
+    function greatGrandFather(element) {
+      return element.parentElement.parentElement.parentElement;
+    }
+
+
+    /**
+     * Checks if a given DOM element's class name contains the word "comment".
+     * 
+     * @param {HTMLElement} element - The DOM element to check.
+     * @returns {boolean} - True if the element's class contains the word "comment", false otherwise.
+     */
+    function hasCommentClass(element) {
+      return element.classList.contains("comment") ? true : false;
+    }
+
+
+    /**
+     * This function creates a comment section with a div element
+     * which houses a user image, a text area for comments, and a send button.
+     * 
+     * @param {string} element - The path to the user image file.
+     * @returns {HTMLElement} - The HTMLElement depicting the comment section.
+     */
+    function getCommentSection(currentUserImagePath) {
+      // create a div element
+      let divElement = document.createElement("div");
+
+      // add the class "add-comment" to the div element
+      divElement.classList.add("add-comment");
+
+      // add the inner html to the add-comment section
+      divElement.innerHTML = `
+        <img class="comment-photo" src="${currentUserImagePath}" >
+        <textarea class="comment-area clickable" placeholder="Add a comment..." ></textarea >
+        <button class="comment-send-button clickable">SEND</button>
+      `;
+
+      return divElement;
+    }
+
+
+    /**
+     * This function inserts a new DOM element after a selected element in the DOM tree.
+     * 
+     * @param {HTMLElement} newElement - The new DOM element to be inserted.
+     * @param {HTMLElement} selectedElement - The existing DOM element after which the new element will be inserted.
+     */
+    function insertAfterMe(newElement, selectedElement) {
+      selectedElement.insertAdjacentElement("afterend", newElement);
+    }
+
+
+
+
+
+
+
+
+  </script>
 </body>
 
 </html>
