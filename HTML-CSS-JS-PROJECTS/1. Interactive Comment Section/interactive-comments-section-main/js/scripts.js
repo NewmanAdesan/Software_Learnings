@@ -4,26 +4,29 @@
 
 
 /**
- * This function fetches JSON data from the file 'data.json' using XMLHttpRequest synchronously.
- * It then parses the JSON response into a JavaScript object and returns it.
+ * LOAD THE JSON DATA INTO WORKING ENVIRONMENT
+ * CONVERTING JSON INTO JAVASCRIPT OBJECT
+ * 
+ * fetch JSON data from the file 'data.json' 
+ * using XMLHttpRequest synchronously,
+ * parses the JSON response into a JavaScript object.
  *
- * @returns {Object} The parsed JSON data.
+ * 
  */
-function getData() {
-    // Create a new XMLHttpRequest Object
-    let xhr = new XMLHttpRequest();
 
-    // Set the request URL
-    xhr.open('GET', "./data.json", false)
+// Create a new XMLHttpRequest Object
+let xhr = new XMLHttpRequest();
 
-    // Send the request
-    xhr.send();
+// Set the request URL
+xhr.open('GET', "./data.json", false)
 
-    // parse the JSON response
-    const data = JSON.parse(xhr.responseText);
+// Send the request
+xhr.send();
 
-    return data;
-}
+// parse the JSON response
+const DATA = JSON.parse(xhr.responseText);
+
+
 
 
 /**
@@ -75,10 +78,14 @@ function generateReplyCommentSection(currentUserImagePath) {
 
 /**
  * Generate a comment score section element with an optional score value.
- * @param {number} [score=0] - The score value to display (default is 0).
+ * 
+ * @param {object} commentInformation - Object contains the information about comment.
+ * we destructure it to obtain the score information,
+ * if an empty object is given, the score value will default to 0.
+ * 
  * @returns {HTMLElement} The generated comment score section element.
  */
-function generateCommentScoreSection(score = 0) {
+function generateCommentScoreSection({ score = 0 }) {
     // create a div element 
     let divElement = document.createElement("div");
 
@@ -131,6 +138,47 @@ function generateCommentInfoButtonSection(buttonType) {
                 <span>Edit</span>
             `;
             break;
+    }
+
+    // return the divElement
+    return divElement;
+}
+
+
+/**
+ * Generate comment info section element 
+ * this section consists of the "comment-photo", "comment-name", "comment-time"
+ * and one or two "comment interaction buttons".
+ * 
+ * @param {object} commentInformation - Object contains the information about comment. 
+ * we destructure the object to obtain information we need.
+ * 
+ * @returns {HTMLElement} The generated comment info section button element.
+ */
+function generateCommentInfoSection({ user: { image: { png }, username }, createdAt }) {
+    // create a div element 
+    let divElement = document.createElement("div");
+
+    // add class "comment-info" to div
+    divElement.className = "comment-info";
+
+    // add the "comment-photo", "comment-name", "comment-time" html 
+    divElement.innerHTML = `
+        <img class="comment-photo" src="${png}">
+        <span class="comment-name bold">${username}</span>
+        <span class="comment-time gray">${createdAt}</span>
+    `;
+
+    /* add the comment interaction buttons to the divElement */
+    // if it is the current user that has this comment info section; delete button & edit button
+    if (username === DATA["currentUser"]["username"]) {
+        divElement.appendChild(generateCommentInfoButtonSection("delete"));
+        divElement.appendChild(generateCommentInfoButtonSection("edit"));
+    }
+
+    // if not, maybe using this function to generate comment info section for someone else; reply button
+    else {
+        divElement.appendChild(generateCommentInfoButtonSection("reply"));
     }
 
     // return the divElement
