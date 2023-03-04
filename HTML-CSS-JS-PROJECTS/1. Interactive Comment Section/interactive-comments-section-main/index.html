@@ -11,7 +11,6 @@
   <!-- link to Google fonts -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rubik&display=swap">
 
-
   <title>Frontend Mentor | Interactive comments section</title>
 
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
@@ -81,7 +80,7 @@
 
     /* Styling Comment Block */
     .comment,
-    .add-comment {
+    .reply-comment {
       display: flex;
       align-items: flex-start;
       width: 724px;
@@ -165,7 +164,7 @@
 
 
     /* Styling Comment Addition Area */
-    .add-comment>* {
+    .reply-comment>* {
       margin-right: 1em;
 
     }
@@ -217,7 +216,8 @@
 
     }
 
-    .reply-container .comment {
+    .reply-container .comment,
+    .reply-container .reply-comment {
       width: auto;
     }
 
@@ -331,8 +331,7 @@
     </div>
   </div>
 
-
-  <div class="add-comment">
+  <div class="reply-comment">
     <img class="comment-photo" src="./images/avatars/image-juliusomo.png">
     <textarea class="comment-area clickable" placeholder="Add a comment..."></textarea>
     <button class="comment-send-button clickable">SEND</button>
@@ -391,24 +390,24 @@
 
 
     /**
-     * This function creates a comment section with a div element
+     * This function creates a reply-comment section with a div element with class "reply-comment"
      * which houses a user image, a text area for comments, and a send button.
      * 
      * @param {string} element - The path to the user image file.
      * @returns {HTMLElement} - The HTMLElement depicting the comment section.
      */
-    function getCommentSection(currentUserImagePath) {
+    function generateReplyCommentSection(currentUserImagePath) {
       // create a div element
       let divElement = document.createElement("div");
 
-      // add the class "add-comment" to the div element
-      divElement.classList.add("add-comment");
+      // add the class "reply-comment" to the div element
+      divElement.classList.add("reply-comment");
 
-      // add the inner html to the add-comment section
+      // add the inner html to the reply-comment section
       divElement.innerHTML = `
         <img class="comment-photo" src="${currentUserImagePath}" >
         <textarea class="comment-area clickable" placeholder="Add a comment..." ></textarea >
-        <button class="comment-send-button clickable">SEND</button>
+        <button class="comment-send-button clickable">REPLY</button>
       `;
 
       return divElement;
@@ -424,6 +423,98 @@
     function insertAfterMe(newElement, selectedElement) {
       selectedElement.insertAdjacentElement("afterend", newElement);
     }
+
+
+    /**
+     * This function is called when a reply button is clicked.
+     * it adds a comment section below the comment element associated with the reply button
+     * 
+     * @param {HTMLElement} targetElement - The Dom Element of the Reply Button.
+     */
+    function addReplyCommentSection(targetElement) {
+      // obtain the great-grandparent of the target Element
+      let GGFather = greatGrandFather(targetElement);
+
+      // ensure the great-grandparent contains the class "comments"
+      if (!hasCommentClass(GGFather)) {
+        console.log("The Great Grand Father of the target element does not have the 'comments' class.");
+        return;
+      }
+
+      // obtain a reply comment section element
+      let replyCommentSection = generateReplyCommentSection(getData()["currentUser"]["image"]["png"]);
+
+      // insert reply comment section immediately after grand parent element
+      insertAfterMe(replyCommentSection, GGFather);
+
+      // return the great grand parent element & the comment section element
+      return { GGFather, replyCommentSection };
+    }
+
+
+
+
+
+    /**
+     * Set the Event handler of the reply-button
+     */
+    document.querySelectorAll(".reply-button").forEach((replyButton) => {
+      replyButton.addEventListener('click', () => {
+
+        // if replyButton is not clickable then do nothing
+        if (!replyButton.classList.contains("clickable")) {
+          return;
+        }
+
+        // add a reply comment section to the great grand parent element of the reply button
+        const { GGFather, replyCommentSection } = addReplyCommentSection(replyButton);
+
+
+        /**
+         * This function is a click event handler added to the body element.
+         * if the textarea of the reply comment section has no value
+         * and if we clicked on anywhere outside the reply comment section element
+         * then the reply comment section will be removed from the DOM tree.
+         * 
+         */
+        const handleClick = (event) => {
+          // Get the Element that trigger the click event
+          let targetElement = event.target;
+
+          // Exit function if clicked element is the reply button. since this click adds the reply comment section
+          if (targetElement.parentElement == replyButton) {
+
+            // Make the reply button unclickable
+            replyButton.classList.remove("clickable");
+            return;
+          }
+
+          // Check if there is no reply text in the comment section
+          if (replyCommentSection.querySelector("textarea").value == "") {
+
+            // Check if the click area is outside the reply comment section
+            if (!replyCommentSection.contains(targetElement)) {
+
+              // Removes the reply comment section
+              replyCommentSection.remove();
+
+              // Remove the click handler form body
+              document.querySelector("body").removeEventListener('click', handleClick);
+
+              // Make the reply button clickable
+              if (!replyButton.classList.contains("clickable")) {
+                replyButton.classList.add("clickable");
+              }
+            }
+          }
+        }
+
+
+        // Add the click handler to the body element
+        document.querySelector("body").addEventListener('click', handleClick);
+      })
+    })
+
 
 
 

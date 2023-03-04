@@ -1,0 +1,34 @@
+<style>
+    .parent {
+        width: 200px;
+        height: 200px;
+        background-color: aqua;
+    }
+
+    .child {
+        width: 100px;
+        height: 100px;
+        background-color: lightsalmon;
+    }
+</style>
+
+<body>
+    <div class="parent A">
+        <div class="child">Click me</div>
+    </div>
+
+    <div class="parent B">
+        <div class="child">Click me</div>
+    </div>
+
+    <script>
+        let bodyElement = document.querySelector("body");
+        let A = document.querySelector(".A");
+        console.log(A);
+        console.log(A.nextElementSibling);
+
+        bodyElement.addEventListener('click', (event) => {
+            console.log(event.target)
+        })
+    </script>
+</body>
