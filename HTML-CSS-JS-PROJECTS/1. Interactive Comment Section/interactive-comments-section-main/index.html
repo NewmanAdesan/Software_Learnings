@@ -4,241 +4,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- displays site properly based on user's device -->
 
+  <!-- link the favicon icon -->
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
 
   <!-- link to Google fonts -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rubik&display=swap">
 
+  <!-- Link to external stylesheet -->
+  <link rel="stylesheet" type="text/css" href="css/styles.css">
+
   <title>Frontend Mentor | Interactive comments section</title>
-
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    * {
-      box-sizing: border-box;
-    }
-
-    .attribution {
-      font-size: 11px;
-      text-align: center;
-    }
-
-    .attribution a {
-      color: hsl(228, 45%, 44%);
-    }
-
-    body {
-      background-color: hsl(228, 33%, 97%);
-      font-family: "Rubik", sans-serif;
-      font-size: 16px;
-      font-weight: 500;
-
-    }
-
-
-
-    /* My Font Weight Classes */
-    .bold {
-      font-weight: 700;
-    }
-
-    .normal {
-      font-weight: 500;
-    }
-
-    .small {
-      font-weight: 400;
-    }
-
-
-    /* My Font Size Classes */
-    .small-font-size {
-      font-size: 14px;
-    }
-
-    .very-small-font-size {
-      font-size: 12px;
-    }
-
-
-
-    /* My Primary Colors */
-    .blue {
-      color: hsl(238, 40%, 52%);
-    }
-
-    .gray {
-      color: gray;
-    }
-
-    .red {
-      color: hsl(358, 79%, 66%);
-    }
-
-
-
-    /* Styling Comment Block */
-    .comment,
-    .reply-comment {
-      display: flex;
-      align-items: flex-start;
-      width: 724px;
-      margin: auto;
-      margin-bottom: 0.8em;
-      padding: 1.5em;
-      border-radius: 10px;
-      background-color: White;
-    }
-
-
-    /* Styling Comment Score */
-
-    .comment-score {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      width: fit-content;
-      padding: 0.4em;
-      margin-right: 1.5em;
-      border-radius: 5px;
-      background-color: hsl(228, 33%, 97%);
-    }
-
-    .comment-score * {
-      width: 1.5em;
-      text-align: center;
-      padding: 0.3em;
-
-    }
-
-    .score-value {
-      width: fit-content;
-      padding: 0;
-      margin: 1em 0;
-    }
-
-
-
-    /* Styling Comment Info */
-    .comment-info {
-      display: flex;
-      align-items: center;
-      margin-bottom: 0.8em;
-    }
-
-    .comment-info>* {
-      margin-right: 1em;
-    }
-
-    .comment-photo {
-      width: 40px;
-      height: 40px;
-    }
-
-    .comment-message {
-      padding-right: 2em;
-      line-height: 1.3em;
-    }
-
-    .reply-button,
-    .delete-button {
-      margin-left: auto;
-    }
-
-    .clickable:hover {
-      cursor: pointer;
-    }
-
-    .comment-replies .current-user::after {
-      content: "you";
-      font-size: 14px;
-      font-weight: 400;
-
-      background-color: hsl(238, 40%, 52%);
-      color: white;
-      padding: 0.1em 0.4em;
-      margin-left: 0.5em;
-      border-radius: 2px;
-    }
-
-
-    /* Styling Comment Addition Area */
-    .reply-comment>* {
-      margin-right: 1em;
-
-    }
-
-    .comment-area {
-      resize: none;
-      -moz-resize: none;
-      -webkit-resize: none;
-
-      border: 1px solid hsl(223, 19%, 93%);
-      border-radius: 10px;
-      height: 7em;
-      flex-grow: 1;
-      padding-left: 1em;
-      padding-top: 0.6em;
-    }
-
-    .comment-area,
-    .comment-area::placeholder {
-      font-family: Rubik, sans-serif;
-      font-size: 16px;
-      font-weight: 550;
-      line-height: 1.3em;
-      color: gray;
-    }
-
-    .comment-send-button {
-      background-color: hsl(238, 40%, 52%);
-      color: white;
-      padding: 0.9em 2em;
-      border: none;
-      box-shadow: 0px 0px 4px hsl(238, 40%, 52%);
-      border-radius: 10px;
-
-
-      font-family: Rubik, sans-serif;
-      font-size: 16px;
-      font-weight: 550;
-    }
-
-
-    /* Styling Comment Replies */
-
-    .reply-container {
-      display: flex;
-      align-items: stretch;
-      width: 724px;
-      margin: auto;
-
-    }
-
-    .reply-container .comment,
-    .reply-container .reply-comment {
-      width: auto;
-    }
-
-    .reply-vertical-line {
-      border: 2px solid hsl(223, 19%, 93%);
-      margin-left: 2.2em;
-      margin-right: 2.2em;
-      margin-bottom: 0.8em;
-    }
-  </style>
 </head>
 
 <body>
 
   <!-- Pull dynamic content from the data.json file -->
-
   <div class="comment">
     <div class="comment-score">
-      <img src=".\images\icon-plus.svg">
+      <img src="./images/icon-plus.svg">
       <div class="score-value bold blue very-small-font-size">12000</div>
-      <img src=".\images\icon-minus.svg">
+      <img src="./images/icon-minus.svg">
     </div>
     <div class="comment-block">
       <div class="comment-info">
@@ -258,9 +44,9 @@
 
   <div class="comment">
     <div class="comment-score">
-      <img src=".\images\icon-plus.svg">
+      <img src="./images/icon-plus.svg">
       <div class="score-value bold blue small-font-size">500</div>
-      <img src=".\images\icon-minus.svg">
+      <img src="./images/icon-minus.svg">
     </div>
     <div class="comment-block">
       <div class="comment-info">
@@ -283,9 +69,9 @@
     <div class="comment-replies">
       <div class="comment">
         <div class="comment-score">
-          <img src=".\images\icon-plus.svg">
+          <img src="./images/icon-plus.svg">
           <div class="score-value bold blue small-font-size">4</div>
-          <img src=".\images\icon-minus.svg">
+          <img src="./images/icon-minus.svg">
         </div>
         <div class="comment-block">
           <div class="comment-info">
@@ -306,9 +92,9 @@
 
       <div class="comment">
         <div class="comment-score">
-          <img src=".\images\icon-plus.svg">
+          <img src="./images/icon-plus.svg">
           <div class="score-value bold blue small-font-size">500</div>
-          <img src=".\images\icon-minus.svg">
+          <img src="./images/icon-minus.svg">
         </div>
         <div class="comment-block">
           <div class="comment-info">
@@ -342,188 +128,9 @@
     Coded by <a href="#">Your Name Here</a>.
   </div>
 
-  <script>
 
-    /**
-     * This function fetches JSON data from the file 'data.json' using XMLHttpRequest synchronously.
-     * It then parses the JSON response into a JavaScript object and returns it.
-     *
-     * @returns {Object} The parsed JSON data.
-     */
-    function getData() {
-      // Create a new XMLHttpRequest Object
-      let xhr = new XMLHttpRequest();
-
-      // Set the request URL
-      xhr.open('GET', "./data.json", false)
-
-      // Send the request
-      xhr.send();
-
-      // parse the JSON response
-      const data = JSON.parse(xhr.responseText);
-
-      return data;
-    }
-
-
-    /**
-     * Returns the great-grandfather element of a given DOM element.
-     * 
-     * @param {HTMLElement} element - The DOM element to start from.
-     * @returns {HTMLElement} - The great-grandfather element of the input element.
-     */
-    function greatGrandFather(element) {
-      return element.parentElement.parentElement.parentElement;
-    }
-
-
-    /**
-     * Checks if a given DOM element's class name contains the word "comment".
-     * 
-     * @param {HTMLElement} element - The DOM element to check.
-     * @returns {boolean} - True if the element's class contains the word "comment", false otherwise.
-     */
-    function hasCommentClass(element) {
-      return element.classList.contains("comment") ? true : false;
-    }
-
-
-    /**
-     * This function creates a reply-comment section with a div element with class "reply-comment"
-     * which houses a user image, a text area for comments, and a send button.
-     * 
-     * @param {string} element - The path to the user image file.
-     * @returns {HTMLElement} - The HTMLElement depicting the comment section.
-     */
-    function generateReplyCommentSection(currentUserImagePath) {
-      // create a div element
-      let divElement = document.createElement("div");
-
-      // add the class "reply-comment" to the div element
-      divElement.classList.add("reply-comment");
-
-      // add the inner html to the reply-comment section
-      divElement.innerHTML = `
-        <img class="comment-photo" src="${currentUserImagePath}" >
-        <textarea class="comment-area clickable" placeholder="Add a comment..." ></textarea >
-        <button class="comment-send-button clickable">REPLY</button>
-      `;
-
-      return divElement;
-    }
-
-
-    /**
-     * This function inserts a new DOM element after a selected element in the DOM tree.
-     * 
-     * @param {HTMLElement} newElement - The new DOM element to be inserted.
-     * @param {HTMLElement} selectedElement - The existing DOM element after which the new element will be inserted.
-     */
-    function insertAfterMe(newElement, selectedElement) {
-      selectedElement.insertAdjacentElement("afterend", newElement);
-    }
-
-
-    /**
-     * This function is called when a reply button is clicked.
-     * it adds a comment section below the comment element associated with the reply button
-     * 
-     * @param {HTMLElement} targetElement - The Dom Element of the Reply Button.
-     */
-    function addReplyCommentSection(targetElement) {
-      // obtain the great-grandparent of the target Element
-      let GGFather = greatGrandFather(targetElement);
-
-      // ensure the great-grandparent contains the class "comments"
-      if (!hasCommentClass(GGFather)) {
-        console.log("The Great Grand Father of the target element does not have the 'comments' class.");
-        return;
-      }
-
-      // obtain a reply comment section element
-      let replyCommentSection = generateReplyCommentSection(getData()["currentUser"]["image"]["png"]);
-
-      // insert reply comment section immediately after grand parent element
-      insertAfterMe(replyCommentSection, GGFather);
-
-      // return the great grand parent element & the comment section element
-      return { GGFather, replyCommentSection };
-    }
-
-
-
-
-
-    /**
-     * Set the Event handler of the reply-button
-     */
-    document.querySelectorAll(".reply-button").forEach((replyButton) => {
-      replyButton.addEventListener('click', () => {
-
-        // if replyButton is not clickable then do nothing
-        if (!replyButton.classList.contains("clickable")) {
-          return;
-        }
-
-        // add a reply comment section to the great grand parent element of the reply button
-        const { GGFather, replyCommentSection } = addReplyCommentSection(replyButton);
-
-
-        /**
-         * This function is a click event handler added to the body element.
-         * if the textarea of the reply comment section has no value
-         * and if we clicked on anywhere outside the reply comment section element
-         * then the reply comment section will be removed from the DOM tree.
-         * 
-         */
-        const handleClick = (event) => {
-          // Get the Element that trigger the click event
-          let targetElement = event.target;
-
-          // Exit function if clicked element is the reply button. since this click adds the reply comment section
-          if (targetElement.parentElement == replyButton) {
-
-            // Make the reply button unclickable
-            replyButton.classList.remove("clickable");
-            return;
-          }
-
-          // Check if there is no reply text in the comment section
-          if (replyCommentSection.querySelector("textarea").value == "") {
-
-            // Check if the click area is outside the reply comment section
-            if (!replyCommentSection.contains(targetElement)) {
-
-              // Removes the reply comment section
-              replyCommentSection.remove();
-
-              // Remove the click handler form body
-              document.querySelector("body").removeEventListener('click', handleClick);
-
-              // Make the reply button clickable
-              if (!replyButton.classList.contains("clickable")) {
-                replyButton.classList.add("clickable");
-              }
-            }
-          }
-        }
-
-
-        // Add the click handler to the body element
-        document.querySelector("body").addEventListener('click', handleClick);
-      })
-    })
-
-
-
-
-
-
-
-
-
-  </script>
+  <!-- Link to external script -->
+  <script src="js/scripts.js"></script>
 </body>
 
 </html>

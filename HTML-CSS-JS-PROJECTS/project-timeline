@@ -10,3 +10,6 @@
     my implementation was;
     as the score range changes, 
     the font size of score value dynamically chages also
+
+
+2.) String.raw and polyfilling

@@ -11,6 +11,9 @@
         background-color: lightsalmon;
     }
 </style>
+<script>
+    let a = 5;
+</script>
 
 <body>
     <div class="parent A">
@@ -22,13 +25,5 @@
     </div>
 
     <script>
-        let bodyElement = document.querySelector("body");
-        let A = document.querySelector(".A");
-        console.log(A);
-        console.log(A.nextElementSibling);
-
-        bodyElement.addEventListener('click', (event) => {
-            console.log(event.target)
-        })
     </script>
 </body>
