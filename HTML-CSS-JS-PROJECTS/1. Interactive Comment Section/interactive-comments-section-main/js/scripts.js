@@ -52,13 +52,25 @@ function hasCommentClass(element) {
 
 
 /**
+ * This function inserts a new DOM element after a selected element in the DOM tree.
+ * 
+ * @param {HTMLElement} newElement - The new DOM element to be inserted.
+ * @param {HTMLElement} selectedElement - The existing DOM element after which the new element will be inserted.
+ */
+function insertAfterMe(newElement, selectedElement) {
+    selectedElement.insertAdjacentElement("afterend", newElement);
+}
+
+
+/**
  * This function creates a reply-comment section with a div element with class "reply-comment"
  * which houses a user image, a text area for comments, and a send button.
  * 
- * @param {string} element - The path to the user image file.
+ * @param {object} DATA - This object contains data about the current user.
+ * we would destructure it to obtain the user profile image
  * @returns {HTMLElement} - The HTMLElement depicting the comment section.
  */
-function generateReplyCommentSection(currentUserImagePath) {
+function generateReplyCommentSection({ currentUser: { image: { png } } }) {
     // create div element
     let divElement = document.createElement("div");
 
@@ -67,7 +79,7 @@ function generateReplyCommentSection(currentUserImagePath) {
 
     // add the inner html 
     divElement.innerHTML = `
-    <img class="comment-photo" src="${currentUserImagePath}" >
+    <img class="comment-photo" src="${png}" >
     <textarea class="comment-area clickable" placeholder="Add a comment..." ></textarea >
     <button class="comment-send-button clickable">REPLY</button>
   `;
@@ -153,7 +165,7 @@ function generateCommentInfoButtonSection(buttonType) {
  * @param {object} commentInformation - Object contains the information about comment. 
  * we destructure the object to obtain information we need.
  * 
- * @returns {HTMLElement} The generated comment info section button element.
+ * @returns {HTMLElement} The generated comment info section element.
  */
 function generateCommentInfoSection({ user: { image: { png }, username }, createdAt }) {
     // create a div element 
@@ -187,13 +199,27 @@ function generateCommentInfoSection({ user: { image: { png }, username }, create
 
 
 /**
- * This function inserts a new DOM element after a selected element in the DOM tree.
+ * Generate comment message section element 
+ * this section consists of the comment "message content" 
+ * and the comment "recipient username".
  * 
- * @param {HTMLElement} newElement - The new DOM element to be inserted.
- * @param {HTMLElement} selectedElement - The existing DOM element after which the new element will be inserted.
+ * @param {object} commentInformation - Object contains the information about comment. 
+ * we destructure the object to obtain information we need.
+ * i.e "message content" & "recipient username".
+ * 
+ * @returns {HTMLElement} The generated comment message section element.
  */
-function insertAfterMe(newElement, selectedElement) {
-    selectedElement.insertAdjacentElement("afterend", newElement);
+function generateCommentMessageSection({ content, replyingTo }) {
+    // create div element
+    let divElement = document.createElement("div");
+
+    // add class "comment-message gray"
+    divElement.className = "comment-message gray";
+
+    // add inner html
+    divElement.innerHTML = `<span class="reply-to bold blue">@${replyingTo}</span> ${content}`;
+
+    return divElement;
 }
 
 
@@ -214,10 +240,15 @@ function addReplyCommentSection(targetElement) {
     }
 
     // obtain a reply comment section element
-    let replyCommentSection = generateReplyCommentSection(getData()["currentUser"]["image"]["png"]);
+    let replyCommentSection = generateReplyCommentSection(DATA);
 
     // insert reply comment section immediately after grand parent element
     insertAfterMe(replyCommentSection, GGFather);
+
+    // make the reply comment show -> this is done because we control the transitioning via "opacity property"
+    setTimeout(() => {
+        replyCommentSection.classList.add("show");
+    }, 1);
 
     // return the great grand parent element & the comment section element
     return { GGFather, replyCommentSection };

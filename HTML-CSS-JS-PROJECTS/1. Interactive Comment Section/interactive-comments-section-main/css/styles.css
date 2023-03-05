@@ -147,6 +147,16 @@ body {
 
 
 /* Styling Comment Addition Area */
+
+.reply-comment {
+    opacity: 0;
+    transition: opacity 0.3s ease-in;
+}
+
+.reply-comment.show {
+    opacity: 1;
+}
+
 .reply-comment>* {
     margin-right: 1em;
 
