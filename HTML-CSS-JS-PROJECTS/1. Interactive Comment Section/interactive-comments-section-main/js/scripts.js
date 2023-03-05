@@ -62,6 +62,13 @@ function insertAfterMe(newElement, selectedElement) {
 }
 
 
+function createDOMElement(html) {
+    const range = document.createRange();
+    const fragment = range.createContextualFragment(html);
+    return fragment.firstChild;
+}
+
+
 /**
  * This function creates a reply-comment section with a div element with class "reply-comment"
  * which houses a user image, a text area for comments, and a send button.
@@ -71,18 +78,12 @@ function insertAfterMe(newElement, selectedElement) {
  * @returns {HTMLElement} - The HTMLElement depicting the comment section.
  */
 function generateReplyCommentSection({ currentUser: { image: { png } } }) {
-    // create div element
-    let divElement = document.createElement("div");
-
-    // add class "reply-comment"
-    divElement.classList.add("reply-comment");
-
-    // add the inner html 
-    divElement.innerHTML = `
-    <img class="comment-photo" src="${png}" >
-    <textarea class="comment-area clickable" placeholder="Add a comment..." ></textarea >
-    <button class="comment-send-button clickable">REPLY</button>
-  `;
+    // create reply-comment section DOM Element
+    let divElement = createDOMElement(`<div class="reply-comment">
+    <img class="comment-photo" src="${png}">
+    <textarea class="comment-area page-font-styles clickable" placeholder="Add a comment..."></textarea>
+    <button class="comment-send-button page-font-styles clickable">SEND</button>
+  </div>`);
 
     return divElement;
 }
@@ -98,18 +99,22 @@ function generateReplyCommentSection({ currentUser: { image: { png } } }) {
  * @returns {HTMLElement} The generated comment score section element.
  */
 function generateCommentScoreSection({ score = 0 }) {
-    // create a div element 
-    let divElement = document.createElement("div");
-
-    // add class "comment-score"
-    divElement.className = "comment-score";
-
-    // add inner html
-    divElement.innerHTML = `
-    <img src="./images/icon-plus.svg">
-    <div class="score-value bold blue small-font-size">${score}</div>
-    <img src="./images/icon-minus.svg">
-  `;
+    // create comment-score section DOM Element
+    let divElement;
+    if (score > 0 && score < 1000) {
+        divElement = createDOMElement(`<div class="comment-score">
+        <img src="./images/icon-plus.svg">
+        <div class="score-value bold blue small-font-size">${score}</div>
+        <img src="./images/icon-minus.svg">
+      </div>`);
+    }
+    else {
+        divElement = createDOMElement(`<div class="comment-score">
+        <img src="./images/icon-plus.svg">
+        <div class="score-value bold blue very-small-font-size">${score}</div>
+        <img src="./images/icon-minus.svg">
+      </div>`);
+    }
 
     return divElement;
 }
@@ -124,31 +129,31 @@ function generateCommentScoreSection({ score = 0 }) {
  * @returns {HTMLElement} The generated comment info section button element.
  */
 function generateCommentInfoButtonSection(buttonType) {
-    // create a div element 
-    let divElement = document.createElement("div");
+    // create comment info button section DOM Element 
+    let divElement;
 
     // add class & inner html to the divElement based on buttonType
     switch (buttonType) {
         case "delete":
-            divElement.className = "delete-button clickable bold red";
-            divElement.innerHTML = `
-                <img src="./images/icon-delete.svg">
-                <span>Delete</span>
-            `;
+            divElement = createDOMElement(`<div class="delete-button clickable bold red">
+                    <img src="./images/icon-delete.svg">
+                    <span>Delete</span>
+                </div>
+            `);
             break;
         case "reply":
-            divElement.className = "reply-button clickable bold blue";
-            divElement.innerHTML = `
-                <img src="./images/icon-reply.svg">
-                <span>Reply</span>
-            `;
+            divElement = createDOMElement(`<div class="reply-button clickable bold blue">
+                    <img src="./images/icon-reply.svg">
+                    <span>Reply</span>
+                </div>
+            `);
             break;
         case "edit":
-            divElement.className = "edit-button clickable bold blue";
-            divElement.innerHTML = `
-                <img src="./images/icon-edit.svg">
-                <span>Edit</span>
-            `;
+            divElement = createDOMElement(`<div class="edit-button clickable bold blue">
+                    <img src="./images/icon-edit.svg">
+                    <span>Edit</span>
+                </div>
+            `);
             break;
     }
 
@@ -168,18 +173,12 @@ function generateCommentInfoButtonSection(buttonType) {
  * @returns {HTMLElement} The generated comment info section element.
  */
 function generateCommentInfoSection({ user: { image: { png }, username }, createdAt }) {
-    // create a div element 
-    let divElement = document.createElement("div");
-
-    // add class "comment-info" to div
-    divElement.className = "comment-info";
-
-    // add the "comment-photo", "comment-name", "comment-time" html 
-    divElement.innerHTML = `
+    // create comment info section DOM Element
+    let divElement = createDOMElement(`<div class="comment-info">
         <img class="comment-photo" src="${png}">
         <span class="comment-name bold">${username}</span>
         <span class="comment-time gray">${createdAt}</span>
-    `;
+  </div>`);
 
     /* add the comment interaction buttons to the divElement */
     // if it is the current user that has this comment info section; delete button & edit button
@@ -209,17 +208,64 @@ function generateCommentInfoSection({ user: { image: { png }, username }, create
  * 
  * @returns {HTMLElement} The generated comment message section element.
  */
-function generateCommentMessageSection({ content, replyingTo }) {
-    // create div element
-    let divElement = document.createElement("div");
+function generateCommentMessageSection({ content, replyingTo = "" }) {
+    // create comment info section DOM Element
+    let divElement = createDOMElement(`<div class="comment-message gray">
+        <span class="bold blue">${replyingTo}</span> ${content}
+    </div>`);
 
-    // add class "comment-message gray"
-    divElement.className = "comment-message gray";
+    // CASE: function used to generate comment message section for a comment replying to another comment
+    if (replyingTo != "") {
+        divElement.firstElementChild.classList.add("reply-to");
+    }
 
-    // add inner html
-    divElement.innerHTML = `<span class="reply-to bold blue">@${replyingTo}</span> ${content}`;
-
+    // return the Element
     return divElement;
+}
+
+
+/**
+ * Generate comment block section element 
+ * this section consists of the comment-info section 
+ * and the comment-message section.
+ * 
+ * @param {object} commentInformation - Object contains the information about comment. 
+ * @returns {HTMLElement} The generated comment block section element.
+ */
+function generateCommentBlockSection(commentInformation) {
+    // create comment block div container
+    let divElement = createDOMElement(`<div class="comment-block"></div>`);
+
+    // add Comment Info Section to the Comment block
+    divElement.appendChild(generateCommentInfoSection(commentInformation));
+
+    // add Comment Message Section to the Comment block
+    divElement.appendChild(generateCommentMessageSection(commentInformation));
+
+    // return the Element
+    return divElement;
+}
+
+
+/**
+ * Generate reply container section element.
+ * every comment section should have a reply container 
+ * where replies to the comment will be rendered
+ * a comment with no replies would have no reply container YET.
+ * 
+ * 
+ *  @returns {HTMLElement} The generated reply container section element.
+ */
+function generateReplyContainerSection() {
+    // create reply container section DOM Element
+    let divElement = createDOMElement(`<div class="reply-container">
+        <div class="reply-vertical-line"></div>
+        <div class="comment-replies"></div>
+    </div>`);
+
+    // return the Element
+    return divElement;
+
 }
 
 

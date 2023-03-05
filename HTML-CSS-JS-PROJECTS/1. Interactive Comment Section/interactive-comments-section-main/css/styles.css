@@ -13,10 +13,13 @@
 
 body {
     background-color: hsl(228, 33%, 97%);
+
+}
+
+.page-font-styles {
     font-family: "Rubik", sans-serif;
     font-size: 16px;
     font-weight: 500;
-
 }
 
 
@@ -175,7 +178,6 @@ body {
     padding-top: 0.6em;
 }
 
-.comment-area,
 .comment-area::placeholder {
     font-family: Rubik, sans-serif;
     font-size: 16px;
@@ -191,11 +193,6 @@ body {
     border: none;
     box-shadow: 0px 0px 4px hsl(238, 40%, 52%);
     border-radius: 10px;
-
-
-    font-family: Rubik, sans-serif;
-    font-size: 16px;
-    font-weight: 550;
 }
 
 
@@ -219,4 +216,11 @@ body {
     margin-left: 2.2em;
     margin-right: 2.2em;
     margin-bottom: 0.8em;
+}
+
+.reply-to::before {
+    content: "@";
+    font-family: Rubik, sans-serif;
+    font-size: 16px;
+    font-weight: 700;
 }
