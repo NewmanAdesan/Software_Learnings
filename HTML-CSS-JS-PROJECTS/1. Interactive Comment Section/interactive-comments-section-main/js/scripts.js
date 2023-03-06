@@ -248,10 +248,55 @@ function generateCommentBlockSection(commentInformation) {
 
 
 /**
+ * Generate comment section element.
+ * a comment section consists of a "comment score section"
+ * and a "comment block section".
+ * 
+ * @param {object} commentInformation - Object contains the information about comment.
+ * @returns {HTMLElement} The generated comment section element.
+ */
+function generateCommentSection(commentInformation) {
+    // create Comment section div Element
+    let divElement = createDOMElement(`<div class="comment"></div>`);
+
+    // add the comment score section
+    divElement.appendChild(generateCommentScoreSection(commentInformation));
+
+    // add the comment block section
+    divElement.appendChild(generateCommentBlockSection(commentInformation));
+
+    // return the Element
+    return divElement;
+
+}
+
+
+/**
  * Generate reply container section element.
  * every comment section should have a reply container 
  * where replies to the comment will be rendered
  * a comment with no replies would have no reply container YET.
+ * 
+ * 
+ *  @returns {HTMLElement} The generated reply container section element.
+ */
+function generateReplyContainerSection() {
+    // create reply container section DOM Element
+    let divElement = createDOMElement(`<div class="reply-container">
+        <div class="reply-vertical-line"></div>
+        <div class="comment-replies"></div>
+    </div>`);
+
+    // return the Element
+    return divElement;
+
+}
+
+
+/**
+ * Generate comment section element.
+ * a comment section consists of a "comment score section"
+ * and a "comment block section".
  * 
  * 
  *  @returns {HTMLElement} The generated reply container section element.
