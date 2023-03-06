@@ -107,6 +107,10 @@ body {
 
 
 /* Styling Comment Info */
+.comment-block {
+    width: 100%;
+}
+
 .comment-info {
     display: flex;
     align-items: center;
@@ -207,8 +211,9 @@ body {
 }
 
 .reply-container .comment,
-.reply-container .reply-comment {
-    width: auto;
+.reply-container .comment-replies,
+.reply-container .comment-replies .reply-comment {
+    width: 100%;
 }
 
 .reply-vertical-line {
