@@ -358,6 +358,93 @@ function addReplyCommentSection(targetElement) {
 }
 
 
+/**
+ * This function is an Event Handler for the Edit button 
+ * it replaces the "comment message section" with an "edit section"
+ * which instead consist of a textarea element and and update button
+ * 
+ * we also added a feature, such that whilst we are is editing 
+ * if click outside the editing box, it would automatically be updated
+ * 
+ * @param {HTMLElement} editButton - The Edit button section element.
+ */
+function handleEditButton(editButton) {
+
+    // comment section of edit button
+    let commentSection = greatGrandFather(editButton);
+
+    // comment message section element 
+    let commentMessageSection = commentSection.querySelector(".comment-message");
+    if (!commentMessageSection) return;
+
+    // message
+    let message = commentMessageSection.querySelector("span").nextSibling.textContent.trim();
+
+    // replying to
+    let replyingTo = commentMessageSection.querySelector("span").textContent.trim();
+
+    // comment area section element (textarea element)
+    let commentArea = createDOMElement(`<div><textarea style="width: 100%" class="comment-area page-font-styles clickable" placeholder="Add a comment..."></textarea>
+    <button style="margin-left:77%; margin-top:0.6em;" class="comment-update-button page-font-styles clickable">UPDATE</button></div>`);
+
+    commentArea.querySelector("textarea").value = message.replace(/\n\s+/g, " ");
+
+    // Event handler for the update button
+    let updateButton = commentArea.querySelector(".comment-update-button");
+    updateButton.addEventListener('click', () => {
+        handleUpdateButton(updateButton, replyingTo);
+    });
+
+    // replace the comment message section with the edit section
+    commentMessageSection.parentNode.replaceChild(commentArea, commentMessageSection);
+
+    // Updates edit if we click outside the edit box
+    const handleClick = (event) => {
+        // Element that trigger the click event
+        let targetElement = event.target;
+
+        if (targetElement.parentElement == editButton) {
+            // Make the edit button unclickable
+            editButton.classList.remove("clickable");
+            return;
+        }
+
+        if (!commentArea.contains(targetElement)) {
+            handleUpdateButton(updateButton, replyingTo);
+            document.querySelector("body").removeEventListener('click', handleClick);
+            editButton.classList.add("clickable");
+        }
+    }
+
+    document.querySelector("body").addEventListener('click', handleClick);
+
+}
+
+
+/**
+ * This function is an Event Handler for the "update button" in the "edit section"
+ * it generate a new "comment message section" based on the new content
+ * and replaces the "edit section"
+ * 
+ * @param {HTMLElement} updateButton - The update button element.
+ * @param {string} replyingTo - the recipient username of the comment
+ */
+function handleUpdateButton(updateButton, replyingTo) {
+    // get the edited message
+    let editedMessage = updateButton.previousElementSibling.value;
+    if (editedMessage == "") greatGrandFather(updateButton).remove();
+
+    // parent of update Button
+    let commentArea = updateButton.parentNode;
+
+    // generate Comment Message Section for edited message
+    let commentMessage = generateCommentMessageSection({ content: editedMessage, replyingTo });
+
+    // replacing the edit section
+    commentArea.parentNode.replaceChild(commentMessage, commentArea);
+}
+
+
 
 
 
@@ -380,6 +467,43 @@ document.querySelectorAll(".reply-button").forEach((replyButton) => {
         // add a reply comment section to the great grand parent element of the reply button
         const { GGFather, replyCommentSection } = addReplyCommentSection(replyButton);
 
+
+        /**
+         * This function is a click event handler added to the body element.
+         * if the textarea of the reply comment section has no value
+         * and if we clicked on anywhere outside the reply comment section element
+         * then the reply comment section will be removed from the DOM tree.
+         * 
+         */
+        const handleClick = (event) => {
+            // Get the Element that trigger the click event
+            let targetElement = event.target;
+
+            // Exit function if clicked element is the reply button. since this click adds the reply comment section
+            if (targetElement.parentElement == replyButton) {
+                // Make the reply button unclickable
+                replyButton.classList.remove("clickable");
+                return;
+            }
+
+            // Check if there is no reply text in the comment section
+            // AND the click area is outside the reply comment section
+            if ((replyCommentSection.querySelector("textarea").value == "") && (!replyCommentSection.contains(targetElement))) {
+
+                // Removes the reply comment section
+                replyCommentSection.remove();
+
+                // Remove the click handler form body
+                document.querySelector("body").removeEventListener('click', handleClick);
+
+                // Make the reply button clickable
+                if (!replyButton.classList.contains("clickable")) {
+                    replyButton.classList.add("clickable");
+                }
+            }
+        }
+
+
         /**
          * Because this replyCommentSection is dynamically generated by javascript
          * we have to add the event listener for the send button of the replyCommentSection
@@ -400,6 +524,13 @@ document.querySelectorAll(".reply-button").forEach((replyButton) => {
             // use comment information to create a comment section element
             let commentSection = generateCommentSection(commentInformation);
 
+            // Event handler for the edit button
+            let editButton = commentSection.querySelector(".edit-button");
+            editButton.addEventListener('click', () => {
+                handleEditButton(editButton);
+            });
+
+
             // generate a reply container if none exist EXCEPT if reply comment section is already in a reply container
             if (replyCommentSection.matches('.reply-container *')) {
                 // comment section place after the comment
@@ -416,52 +547,17 @@ document.querySelectorAll(".reply-button").forEach((replyButton) => {
             // remove reply comment section
             replyCommentSection.remove();
 
+            // Make the reply button clickable back
+            if (!replyButton.classList.contains("clickable")) {
+                replyButton.classList.add("clickable");
+            }
+
         };
-
-
-        /**
-         * This function is a click event handler added to the body element.
-         * if the textarea of the reply comment section has no value
-         * and if we clicked on anywhere outside the reply comment section element
-         * then the reply comment section will be removed from the DOM tree.
-         * 
-         */
-        const handleClick = (event) => {
-            // Get the Element that trigger the click event
-            let targetElement = event.target;
-
-            // Exit function if clicked element is the reply button. since this click adds the reply comment section
-            if (targetElement.parentElement == replyButton) {
-
-                // Make the reply button unclickable
-                replyButton.classList.remove("clickable");
-                return;
-            }
-
-            // Check if there is no reply text in the comment section
-            if (replyCommentSection.querySelector("textarea").value == "") {
-
-                // Check if the click area is outside the reply comment section
-                if (!replyCommentSection.contains(targetElement)) {
-
-                    // Removes the reply comment section
-                    replyCommentSection.remove();
-
-                    // Remove the click handler form body
-                    document.querySelector("body").removeEventListener('click', handleClick);
-
-                    // Make the reply button clickable
-                    if (!replyButton.classList.contains("clickable")) {
-                        replyButton.classList.add("clickable");
-                    }
-                }
-            }
-        }
 
         // Add the click handler to the body element
         document.querySelector("body").addEventListener('click', handleClick);
 
-        // Add click handler to the button of the reply comment section
+        // Add click handler to the send button of the reply comment section
         replyCommentSection.querySelector(".comment-send-button").addEventListener('click', handleSendButton);
 
     })
@@ -490,4 +586,17 @@ document.querySelectorAll(".comment-send-button").forEach((CommentSendButton) =>
     })
 
 });
+
+
+/**
+ * Set the Evenet Handler of the Edit button
+ *
+ */
+document.querySelectorAll(".edit-button").forEach((editButton) => {
+    editButton.addEventListener('click', () => {
+        handleEditButton(editButton);
+    })
+});
+
+
 
