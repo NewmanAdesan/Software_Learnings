@@ -166,11 +166,16 @@ function generateCommentInfoButtonSection(buttonType) {
     // add class & inner html to the divElement based on buttonType
     switch (buttonType) {
         case "delete":
-            divElement = createDOMElement(`<div class="delete-button clickable bold red">
+            divElement = createDOMElement(`<div type="button" class="delete-button clickable bold red" data-bs-toggle="modal" data-bs-target="#myModal">
                     <img src="./images/icon-delete.svg">
                     <span>Delete</span>
                 </div>
             `);
+
+            // make delete button a bootstrap modal button
+            divElement.setAttribute("type", "button");
+            divElement.setAttribute("data-bs-toggle", "modal");
+            divElement.setAttribute("data-bs-target", "#myModal");
             break;
         case "reply":
             divElement = createDOMElement(`<div class="reply-button clickable bold blue">

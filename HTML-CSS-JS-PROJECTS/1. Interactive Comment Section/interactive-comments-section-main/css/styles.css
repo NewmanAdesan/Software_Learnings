@@ -234,3 +234,26 @@ body {
     font-size: 16px;
     font-weight: 700;
 }
+
+
+.modal-content {
+    display: block;
+    width: 400px;
+    padding: 1.5em;
+}
+
+.modal-content div:not(:last-child) {
+    margin-bottom: 0.8em;
+}
+
+.modal-content .delete-modal-heading {
+    font-size: 20px;
+}
+
+.modal-content button {
+    width: 45%;
+}
+
+.modal-content .no-cancel-button {
+    margin-right: 2%;
+}

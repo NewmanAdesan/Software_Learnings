@@ -13,3 +13,16 @@
 
 
 2.) String.raw and polyfilling
+
+
+
+Delete button Modal
+Rendering
+Edit JSON
+ReadMe
+Github Repository
+
+
+work on the bug for reply button of comment with an existing reply container
+work on the bug for edit button of current user basic comment (not a reply comment)
+work on the "yes, delete" button implementation
