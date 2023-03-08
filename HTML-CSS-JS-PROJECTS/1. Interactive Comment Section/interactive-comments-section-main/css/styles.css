@@ -236,6 +236,8 @@ body {
 }
 
 
+
+/* Personalizing Bootstrap Modal Component */
 .modal-content {
     display: block;
     width: 400px;
@@ -256,4 +258,16 @@ body {
 
 .modal-content .no-cancel-button {
     margin-right: 2%;
+}
+
+
+
+
+.reply-comment {
+    opacity: 0;
+    transition: opacity 0.3s ease-in;
+}
+
+.reply-comment.show {
+    opacity: 1;
 }

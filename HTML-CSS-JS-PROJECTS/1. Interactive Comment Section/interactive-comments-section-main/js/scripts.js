@@ -327,39 +327,63 @@ function generateReplyContainerSection() {
 
     // return the Element
     return divElement;
+}
+
+
+/**
+ * This function Generates an Edit Section Element. when the "edit button" is clicked, 
+ * the initial comment message section would be converted 
+ * to an edit section consisting of a text area and an update button.
+ * the update button would convert the "edit section element"
+ * back to a "comment message section element"
+ * 
+ * @param {strin} message - the content of the comment message section
+ * @param {string} replyingTo - the recipient username of the comment message.
+ * 
+ * @return {HTMLElement} editSection - the generated Edit Section Element
+ * @return {HTMLElement} updateButton - the update button of the Edit Section Element
+ */
+function generateEditSection(message, replyingTo) {
+
+    let editSection = createDOMElement(`<div><textarea style="width: 100%" class="comment-area page-font-styles clickable" placeholder="Add a comment..."></textarea>
+    <button style="margin-left:77%; margin-top:0.6em;" class="comment-update-button page-font-styles clickable">UPDATE</button></div>`);
+
+    editSection.querySelector("textarea").value = message.replace(/\n\s+/g, " ");
+
+    // Event handler for the update button
+    let updateButton = editSection.querySelector(".comment-update-button");
+    updateButton.addEventListener('click', () => {
+        handleUpdateButton(updateButton, replyingTo);
+    });
+
+    return { editSection, updateButton };
 
 }
 
 
 /**
- * This function is called when a reply button is clicked.
- * it adds a comment section below the comment element associated with the reply button
- * 
- * @param {HTMLElement} targetElement - The Dom Element of the Reply Button.
+ * Obtains the Score value of a comment section and increments it by one
  */
-function addReplyCommentSection(targetElement) {
-    // obtain the great-grandparent of the target Element
-    let GGFather = greatGrandFather(targetElement);
+function increaseCommentScore(commentSection) {
 
-    // ensure the great-grandparent contains the class "comments"
-    if (!hasCommentClass(GGFather)) {
-        console.log("The Great Grand Father of the target element does not have the 'comments' class.");
-        return;
-    }
+    let commentScore = commentSection.querySelector(".score-value");
 
-    // obtain a reply comment section element
-    let replyCommentSection = generateReplyCommentSection(DATA);
+    let newScore = Number(commentScore.textContent.trim());
 
-    // insert reply comment section immediately after grand parent element
-    insertAfterMe(replyCommentSection, GGFather);
+    commentScore.textContent = `${newScore + 1}`;
+}
 
-    // make the reply comment show -> this is done because we control the transitioning via "opacity property"
-    setTimeout(() => {
-        replyCommentSection.classList.add("show");
-    }, 1);
 
-    // return the great grand parent element & the comment section element
-    return { GGFather, replyCommentSection };
+/**
+ * Obtains the Score value of a comment section and decrements it by one
+ */
+function decreaseCommentScore(commentSection) {
+
+    let commentScore = commentSection.querySelector(".score-value");
+
+    let newScore = Number(commentScore.textContent.trim());
+
+    if (newScore !== 0) commentScore.textContent = `${newScore - 1}`;
 }
 
 
@@ -389,35 +413,26 @@ function handleEditButton(editButton) {
     let replyingTo = commentMessageSection.querySelector("span").textContent.trim();
 
     // comment area section element (textarea element)
-    let commentArea = createDOMElement(`<div><textarea style="width: 100%" class="comment-area page-font-styles clickable" placeholder="Add a comment..."></textarea>
-    <button style="margin-left:77%; margin-top:0.6em;" class="comment-update-button page-font-styles clickable">UPDATE</button></div>`);
-
-    commentArea.querySelector("textarea").value = message.replace(/\n\s+/g, " ");
-
-    // Event handler for the update button
-    let updateButton = commentArea.querySelector(".comment-update-button");
-    updateButton.addEventListener('click', () => {
-        handleUpdateButton(updateButton, replyingTo);
-    });
+    let { editSection, updateButton } = generateEditSection(message, replyingTo);
 
     // replace the comment message section with the edit section
-    commentMessageSection.parentNode.replaceChild(commentArea, commentMessageSection);
+    commentMessageSection.parentNode.replaceChild(editSection, commentMessageSection);
 
     // Updates edit if we click outside the edit box
     const handleClick = (event) => {
         // Element that trigger the click event
         let targetElement = event.target;
 
-        if (targetElement.parentElement == editButton) {
-            // Make the edit button unclickable
-            editButton.classList.remove("clickable");
-            return;
-        }
+        // when edit button initial click triggers it, nothing should happen
+        if (targetElement.parentElement == editButton) return;
 
-        if (!commentArea.contains(targetElement)) {
-            handleUpdateButton(updateButton, replyingTo);
+        // when the update button is clicked; remove the click event on the body
+        else if (targetElement == updateButton) document.querySelector("body").removeEventListener('click', handleClick);
+
+        // when outside the edit section is clicked; automatically update edit
+        else if (!editSection.contains(targetElement)) {
+            handleUpdateButton(updateButton, replyingTo, message);
             document.querySelector("body").removeEventListener('click', handleClick);
-            editButton.classList.add("clickable");
         }
     }
 
@@ -434,19 +449,72 @@ function handleEditButton(editButton) {
  * @param {HTMLElement} updateButton - The update button element.
  * @param {string} replyingTo - the recipient username of the comment
  */
-function handleUpdateButton(updateButton, replyingTo) {
+function handleUpdateButton(updateButton, replyingTo, previousMessage) {
     // get the edited message
     let editedMessage = updateButton.previousElementSibling.value;
-    if (editedMessage == "") greatGrandFather(updateButton).remove();
 
     // parent of update Button
     let commentArea = updateButton.parentNode;
 
     // generate Comment Message Section for edited message
-    let commentMessage = generateCommentMessageSection({ content: editedMessage, replyingTo });
+    let commentMessage
+    if (editedMessage == "") {
+        commentMessage = generateCommentMessageSection({ content: previousMessage, replyingTo });
+    } else {
+        commentMessage = generateCommentMessageSection({ content: editedMessage, replyingTo });
+    }
 
     // replacing the edit section
     commentArea.parentNode.replaceChild(commentMessage, commentArea);
+}
+
+
+/**
+ * This function is an Event Handler for the "delete button" in the "edit section"
+ * this button is actually linked to a bootstrap modal component
+ * additionally when this button is clicked we will add a class called "show-modal" to it
+ * 
+ * on the modal, there is a "yes, delete" button which dismisses the modal
+ * additionally we would add an Event Handler to it that would obtain the "show-modal" element
+ * then remove the comment section of the show-modal element. 
+ * 
+ */
+function handleDeleteButton(deleteButton) {
+    deleteButton.classList.add("show-modal");
+}
+
+function handleModalDeleteButton() {
+    let showModalDeleteButton = document.querySelector(".show-modal");
+    greatGrandFather(showModalDeleteButton).remove();
+}
+
+function handleModalDontDeleteButton() {
+    let showModalDeleteButton = document.querySelector(".show-modal");
+    showModalDeleteButton.classList.remove("show-modal");
+
+}
+
+
+/**
+ * This function is called when a reply button is clicked.
+ * it adds a comment section below the comment element associated with the reply button
+ * 
+ * @param {HTMLElement} targetElement - The Dom Element after which the reply comment Section will be added.
+ */
+function addReplyCommentSectionAfter(GGFather) {
+    // obtain a reply comment section element
+    let replyCommentSection = generateReplyCommentSection(DATA);
+
+    // insert reply comment section immediately after grand parent element
+    insertAfterMe(replyCommentSection, GGFather);
+
+    // make the reply comment show, transitioning in smoothly
+    setTimeout(() => {
+        replyCommentSection.classList.add("show");
+    }, 1);
+
+    // return the reply comment section element
+    return replyCommentSection;
 }
 
 
@@ -464,47 +532,45 @@ function handleUpdateButton(updateButton, replyingTo) {
 document.querySelectorAll(".reply-button").forEach((replyButton) => {
     replyButton.addEventListener('click', () => {
 
-        // if replyButton is not clickable then do nothing
-        if (!replyButton.classList.contains("clickable")) {
-            return;
-        }
+        // comment section element of the reply button
+        let GGFather = greatGrandFather(replyButton);
 
-        // add a reply comment section to the great grand parent element of the reply button
-        const { GGFather, replyCommentSection } = addReplyCommentSection(replyButton);
+        // if the reply button has been clicked once; 
+        // nothing happens if clicked again and again unless the event handler of the first is done.
+        // we know if it has been clicked once if the nextElementSibling is a reply comment section
+        if (GGFather.nextElementSibling.classList.contains("reply-comment")) return;
+
+
+        // add a reply comment section after the comment section element of the reply button
+        const replyCommentSection = addReplyCommentSectionAfter(GGFather);
 
 
         /**
-         * This function is a click event handler added to the body element.
-         * if the textarea of the reply comment section has no value
-         * and if we clicked on anywhere outside the reply comment section element
-         * then the reply comment section will be removed from the DOM tree.
+         * Adding a Feature, such that 
+         * if there is no content in the reply comment section
+         * and the user clicks on an area outside the reply comment section
+         * the generated reply comment section will be deleted
+         * 
+         * we will place a click event handler on the body of the html
          * 
          */
         const handleClick = (event) => {
             // Get the Element that trigger the click event
             let targetElement = event.target;
 
-            // Exit function if clicked element is the reply button. since this click adds the reply comment section
-            if (targetElement.parentElement == replyButton) {
-                // Make the reply button unclickable
-                replyButton.classList.remove("clickable");
-                return;
-            }
+            // Exit function if clicked element is the reply button. 
+            // since this initial adds click adds the reply comment section
+            if (targetElement.parentElement == replyButton) return;
 
-            // Check if there is no reply text in the comment section
-            // AND the click area is outside the reply comment section
+
+            // when no content and click area is outside
             if ((replyCommentSection.querySelector("textarea").value == "") && (!replyCommentSection.contains(targetElement))) {
 
                 // Removes the reply comment section
                 replyCommentSection.remove();
 
-                // Remove the click handler form body
+                // Remove the click handler on body
                 document.querySelector("body").removeEventListener('click', handleClick);
-
-                // Make the reply button clickable
-                if (!replyButton.classList.contains("clickable")) {
-                    replyButton.classList.add("clickable");
-                }
             }
         }
 
@@ -514,13 +580,13 @@ document.querySelectorAll(".reply-button").forEach((replyButton) => {
          * we have to add the event listener for the send button of the replyCommentSection
          * right here, right now 
          */
-        const handleSendButton = (event) => {
+        const handleSendButton = () => {
 
             // return; if textarea element is empty
             if (replyCommentSection.querySelector("textarea").value === "") return;
 
             // generate comment information from the reply comment section
-            // an object with attributes that describe the comment
+            // this is an object with attributes that describe the comment
             let commentInformation = generateCommentInformation(replyCommentSection);
 
             // add the "replyingTo" attribute to the commentInformation
@@ -535,29 +601,39 @@ document.querySelectorAll(".reply-button").forEach((replyButton) => {
                 handleEditButton(editButton);
             });
 
+            // Event handler for the delete button
+            let deleteButton = commentSection.querySelector(".delete-button");
+            deleteButton.addEventListener('click', () => {
+                handleDeleteButton(deleteButton);
+            });
 
-            // generate a reply container if none exist EXCEPT if reply comment section is already in a reply container
+            // if the comment to reply to
+            // is also a reply to another comment
             if (replyCommentSection.matches('.reply-container *')) {
-                // comment section place after the comment
                 insertAfterMe(commentSection, replyCommentSection.previousElementSibling);
             }
-            else if (!replyCommentSection.nextElementSibling.classList.contains("reply-container")) {
-                // insert reply container
-                insertAfterMe(generateReplyContainerSection(), replyCommentSection);
 
-                // comment section placed in reply container
+            // if the comment to reply to
+            // is not a reply to another comment
+            else {
+
+                // if the comment to reply to 
+                // does not have a reply container, insert one
+                if (!replyCommentSection.nextElementSibling.classList.contains("reply-container")) {
+                    insertAfterMe(generateReplyContainerSection(), replyCommentSection);
+                }
+
+                // place comment section inside reply container's "comment-replies" element 
                 replyCommentSection.nextElementSibling.querySelector(".comment-replies").appendChild(commentSection);
             }
 
             // remove reply comment section
             replyCommentSection.remove();
 
-            // Make the reply button clickable back
-            if (!replyButton.classList.contains("clickable")) {
-                replyButton.classList.add("clickable");
-            }
-
+            // increment the "comment-score" of the comment replied to
+            increaseCommentScore(GGFather);
         };
+
 
         // Add the click handler to the body element
         document.querySelector("body").addEventListener('click', handleClick);
@@ -586,8 +662,20 @@ document.querySelectorAll(".comment-send-button").forEach((CommentSendButton) =>
         // create a comment section element from comment information
         let commentSection = generateCommentSection(commentInformation);
 
+        // Event handler for the edit button
+        let editButton = commentSection.querySelector(".edit-button");
+        editButton.addEventListener('click', () => {
+            handleEditButton(editButton);
+        });
+
+        // Event handler for the delete button
+        let deleteButton = commentSection.querySelector(".delete-button");
+        deleteButton.addEventListener('click', () => {
+            handleDeleteButton(deleteButton);
+        });
+
         // replace the reply comment section with the comment section
-        replyCommentSection.parentNode.replaceChild(commentSection, replyCommentSection);
+        replyCommentSection.parentNode.insertBefore(commentSection, replyCommentSection);
     })
 
 });
@@ -601,6 +689,22 @@ document.querySelectorAll(".edit-button").forEach((editButton) => {
     editButton.addEventListener('click', () => {
         handleEditButton(editButton);
     })
+});
+
+
+
+/**
+ * Set the Event Handler for the Modal delete button
+ */
+document.querySelector(".yes-delete-button").addEventListener('click', () => {
+    handleModalDeleteButton();
+});
+
+/**
+ * Set the Event Handler for the Modal dont delete button
+ */
+document.querySelector(".no-cancel-button").addEventListener('click', () => {
+    handleModalDontDeleteButton();
 });
 
 
