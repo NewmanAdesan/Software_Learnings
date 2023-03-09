@@ -30,6 +30,56 @@ const DATA = JSON.parse(xhr.responseText);
 
 
 /**
+ * RENDERING
+ */
+
+// a copy of DATA comments property
+let comments = [].concat(DATA.comments);
+
+// sort the list of comments by their score in descending order
+comments.sort((a, b) => {
+    return b.score - a.score;
+});
+
+comments.forEach((commentInformation) => {
+    // create a comment section for the comment
+    let commentSection = generateCommentSection(commentInformation);
+
+    // add comment section before the script element
+    document.querySelector("body").insertBefore(commentSection, document.querySelector(".attribution"));
+
+    // if CommentInformation replies property is not empty
+    if (commentInformation["replies"].length > 0) {
+        // place a reply container after the comment section
+        let replyContainer = generateReplyContainerSection();
+        insertAfterMe(replyContainer, commentSection);
+
+        // for each comment in replies property
+        commentInformation["replies"].forEach((replyCommentInformation) => {
+
+            // create a comment section for them
+            let replyCommentSection = generateCommentSection(replyCommentInformation);
+
+            // place them in the reply container
+            replyContainer.querySelector(".comment-replies").appendChild(replyCommentSection);
+
+        });
+    }
+
+})
+
+
+// create a reply comment section for the current user
+let userReplyCommentSection = generateReplyCommentSection(DATA);
+userReplyCommentSection.classList.add("show");
+
+// add the users replycomment section to the body
+document.querySelector("body").insertBefore(userReplyCommentSection, document.querySelector(".attribution"));
+
+
+
+
+/**
  * Returns the great-grandfather element of a given DOM element.
  * 
  * @param {HTMLElement} element - The DOM element to start from.
@@ -682,7 +732,7 @@ document.querySelectorAll(".comment-send-button").forEach((CommentSendButton) =>
 
 
 /**
- * Set the Evenet Handler of the Edit button
+ * Set the Evenet Handler for comment Edit button
  *
  */
 document.querySelectorAll(".edit-button").forEach((editButton) => {
@@ -692,6 +742,16 @@ document.querySelectorAll(".edit-button").forEach((editButton) => {
 });
 
 
+/**
+* Set the Evenet Handler of the Delet button
+*
+*/
+document.querySelectorAll(".delete-button").forEach((deleteButton) => {
+    deleteButton.addEventListener('click', () => {
+        handleDeleteButton(deleteButton);
+    });
+});
+
 
 /**
  * Set the Event Handler for the Modal delete button
@@ -700,12 +760,22 @@ document.querySelector(".yes-delete-button").addEventListener('click', () => {
     handleModalDeleteButton();
 });
 
+
 /**
  * Set the Event Handler for the Modal dont delete button
  */
 document.querySelector(".no-cancel-button").addEventListener('click', () => {
     handleModalDontDeleteButton();
 });
+
+
+
+
+
+
+
+
+
 
 
 

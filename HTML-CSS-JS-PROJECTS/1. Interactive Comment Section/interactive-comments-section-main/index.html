@@ -27,116 +27,13 @@
 <body class="page-font-styles">
 
   <!-- Pull dynamic content from the data.json file -->
-  <div class="comment">
-    <div class="comment-score">
-      <img src="./images/icon-plus.svg">
-      <div class="score-value bold blue very-small-font-size">12000</div>
-      <img src="./images/icon-minus.svg">
-    </div>
-    <div class="comment-block">
-      <div class="comment-info">
-        <img class="comment-photo" src="./images/avatars/image-amyrobson.png">
-        <span class="comment-name bold">amyrobson</span>
-        <span class="comment-time gray">1 month ago</span>
-        <div class="reply-button clickable bold blue">
-          <img src="./images/icon-reply.svg">
-          <span>Reply</span>
-        </div>
-      </div>
-      <div class="comment-message gray">Impressive! Though it seems the drag feature could be improved. But overall it
-        looks incredible. You've nailed the design and the responsiveness at various breakpoints works really well.
-      </div>
-    </div>
-  </div>
-
-  <div class="comment">
-    <div class="comment-score">
-      <img src="./images/icon-plus.svg">
-      <div class="score-value bold blue small-font-size">500</div>
-      <img src="./images/icon-minus.svg">
-    </div>
-    <div class="comment-block">
-      <div class="comment-info">
-        <img class="comment-photo" src="./images/avatars/image-maxblagun.png">
-        <span class="comment-name bold">maxblagun</span>
-        <span class="comment-time gray">2 weeks ago</span>
-        <div class="reply-button clickable bold blue">
-          <img src="./images/icon-reply.svg">
-          <span>Reply</span>
-        </div>
-      </div>
-      <div class="comment-message gray">Woah, your project looks awesome! How long have you been coding for? I'm
-        still new, but think I want to dive into React as well soon. Perhaps you can give me an insight on where I can
-        learn React? Thanks!</div>
-    </div>
-  </div>
-
-  <div class="reply-container">
-    <div class="reply-vertical-line"></div>
-    <div class="comment-replies">
-      <div class="comment">
-        <div class="comment-score">
-          <img src="./images/icon-plus.svg">
-          <div class="score-value bold blue small-font-size">4</div>
-          <img src="./images/icon-minus.svg">
-        </div>
-        <div class="comment-block">
-          <div class="comment-info">
-            <img class="comment-photo" src="./images/avatars/image-ramsesmiron.png">
-            <span class="comment-name bold">ramsesmiron</span>
-            <span class="comment-time gray">1 week ago</span>
-            <div class="reply-button clickable bold blue">
-              <img src="./images/icon-reply.svg">
-              <span>Reply</span>
-            </div>
-          </div>
-          <div class="comment-message gray"><span class="reply-to bold blue">maxblagun</span> If you're still new, I'd
-            recommend focusing on the fundamentals of HTML, CSS, and JS before considering React. It's very tempting to
-            jump ahead but lay a solid foundation first.
-          </div>
-        </div>
-      </div>
-
-      <div class="comment">
-        <div class="comment-score">
-          <img src="./images/icon-plus.svg">
-          <div class="score-value bold blue small-font-size">500</div>
-          <img src="./images/icon-minus.svg">
-        </div>
-        <div class="comment-block">
-          <div class="comment-info">
-            <img class="comment-photo" src="./images/avatars/image-juliusomo.png">
-            <span class="comment-name current-user bold">juliusomo</span>
-            <span class="comment-time gray">2 days ago</span>
-            <div class="delete-button clickable bold red">
-              <img src="./images/icon-delete.svg">
-              <span>Delete</span>
-            </div>
-            <div class="edit-button clickable bold blue">
-              <img src="./images/icon-edit.svg">
-              <span>Edit</span>
-            </div>
-          </div>
-          <div class="comment-message gray"><span class="reply-to bold blue">ramsesmiron</span> I couldn't agree more
-            with this. Everything moves so fast and it always seems like everyone knows the newest library/framework.
-            But the fundamentals are what stay constant.</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="reply-comment show">
-    <img class="comment-photo" src="./images/avatars/image-juliusomo.png">
-    <textarea class="comment-area page-font-styles clickable " placeholder="Add a comment..."></textarea>
-    <button class="comment-send-button page-font-styles clickable">SEND</button>
-  </div>
 
   <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
     Coded by <a href="#">Your Name Here</a>.
   </div>
 
-  <!-- Bootstrap modal for delete button-->
+  <!-- Bootstrap modal for comments delete button-->
   <!-- The Modal -->
   <div class="modal" id="myModal" tabindex="-1" role="dialog" data-bs-backdrop="static" data-bs-keyboard="false">
     <div class=" modal-dialog modal-dialog-centered">
