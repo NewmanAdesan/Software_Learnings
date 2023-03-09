@@ -112,11 +112,58 @@ function insertAfterMe(newElement, selectedElement) {
 }
 
 
+/**
+ * This function creates a DOM Element based on the string "html"
+ * 
+ * @param {string} html - html syntax in string format
+ * @param {HTMLElement} - the DOM Element 
+ */
 function createDOMElement(html) {
     const range = document.createRange();
     const fragment = range.createContextualFragment(html);
     return fragment.firstChild;
 }
+
+
+/**
+ * This function calculates the time difference 
+ * between the current date and a given date string 
+ * and returns a string describing the difference in years, months, weeks,
+ * days, hours, minutes, or seconds without accounting for leap years. 
+ * 
+ * While ignoring leap years introduces a small error in the result, 
+ * this error is negligible for most practical purposes, 
+ * and does not significantly affect the accuracy of the output. 
+ * Therefore, accounting for leap years is not necessary in this function.
+ * 
+ * @param {string} DateString - A string representing the date (e.g. "2022-01-01")
+ * @returns {string} - A string representing the time difference between the two dates
+ */
+function getDateDiff(DateString) {
+    const now = new Date();
+    const then = new Date(DateString);
+    const diff = Math.abs(now.getTime() - then.getTime());
+    const units = [
+        { label: 'year', divisor: 365 * 24 * 60 * 60 * 1000 },
+        { label: 'month', divisor: 30 * 24 * 60 * 60 * 1000 },
+        { label: 'week', divisor: 7 * 24 * 60 * 60 * 1000 },
+        { label: 'day', divisor: 24 * 60 * 60 * 1000 },
+        { label: 'hour', divisor: 60 * 60 * 1000 },
+        { label: 'minute', divisor: 60 * 1000 },
+        { label: 'second', divisor: 1000 },
+    ];
+
+    for (const unit of units) {
+        const count = Math.floor(diff / unit.divisor);
+        if (count > 0) {
+            return `${count} ${unit.label}${count === 1 ? '' : 's'} ago`;
+        }
+    }
+
+    return 'now';
+
+}
+
 
 
 /**
@@ -263,7 +310,7 @@ function generateCommentInfoSection({ user: { image: { png }, username }, create
     let divElement = createDOMElement(`<div class="comment-info">
         <img class="comment-photo" src="${png}">
         <span class="comment-name bold">${username}</span>
-        <span class="comment-time gray">${createdAt}</span>
+        <span class="comment-time gray">${getDateDiff(createdAt)}</span>
   </div>`);
 
 
@@ -381,17 +428,21 @@ function generateReplyContainerSection() {
 
 
 /**
- * This function Generates an Edit Section Element. when the "edit button" is clicked, 
- * the initial comment message section would be converted 
- * to an edit section consisting of a text area and an update button.
- * the update button would convert the "edit section element"
- * back to a "comment message section element"
+ * This function generates an Edit Section Element. 
+ * When the "edit" button is clicked, the initial comment message section 
+ * would be converted to an edit section 
+ * consisting of a text area and an update button. 
  * 
- * @param {strin} message - the content of the comment message section
- * @param {string} replyingTo - the recipient username of the comment message.
+ * The update button would update the comment message 
+ * with the new content entered in the text area 
+ * and convert the "edit section element" back to a "comment message section element". 
  * 
- * @return {HTMLElement} editSection - the generated Edit Section Element
- * @return {HTMLElement} updateButton - the update button of the Edit Section Element
+ * @param {string} message - The content of the comment message section
+ * @param {string} replyingTo - The recipient username of the comment message
+ * 
+ * @return {Object} - An object containing two properties:
+ *      - editSection: The generated Edit Section Element
+ *      - updateButton: The update button of the Edit Section Element
  */
 function generateEditSection(message, replyingTo) {
 
@@ -679,9 +730,6 @@ document.querySelectorAll(".reply-button").forEach((replyButton) => {
 
             // remove reply comment section
             replyCommentSection.remove();
-
-            // increment the "comment-score" of the comment replied to
-            increaseCommentScore(GGFather);
         };
 
 
