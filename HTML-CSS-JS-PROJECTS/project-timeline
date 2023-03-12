@@ -15,10 +15,16 @@
 2.) String.raw and polyfilling
 
 
-
-Delete button Modal
-Rendering
-Edit JSON
+generated the html and css of how the page will look with its comments and reply assuming it was dynamically generated
+implemented Event handling for all interactive buttons
+    - the comment reply button
+    - the comment send reply button
+    - the reply edit button
+    - the reply delete button
+    - upvote and downvote button
+implemented dynamic tracking of comment or reply post
+Rendering - generated the html of the page dynamically
+Edit JSON - 
 ReadMe
 Github Repository
 
@@ -27,3 +33,5 @@ Github Repository
 work on the "UPVOTE and DOWNVOTE" button implementation
 implement the createdAt so it is more responsive
 Edit JSON
+
+the layout and styles of page

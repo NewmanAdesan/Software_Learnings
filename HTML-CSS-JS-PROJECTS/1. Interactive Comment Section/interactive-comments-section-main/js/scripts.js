@@ -29,9 +29,10 @@ const DATA = JSON.parse(xhr.responseText);
 
 
 
-/**
- * RENDERING
- */
+
+/***********************************
+ * INITIAL RENDERING OF THE WEBPAGE
+ ***********************************/
 
 // a copy of DATA comments property
 let comments = [].concat(DATA.comments);
@@ -77,6 +78,11 @@ userReplyCommentSection.classList.add("show");
 document.querySelector("body").insertBefore(userReplyCommentSection, document.querySelector(".attribution"));
 
 
+
+
+/************************************
+ *         UTILITY FUNCTIONS
+ ************************************/
 
 
 /**
@@ -165,6 +171,21 @@ function getDateDiff(DateString) {
 }
 
 
+/**
+ * When a new Comment information is created,
+ * a unique identification number is given to it.
+ */
+function getNewID() {
+    DATA["totalComments"] += 1;
+    return DATA["totalComments"];
+}
+
+
+
+
+/********************************************
+ * FUNCTIONS FOR GENERATING WEBPAGE ELEMENTS
+ ********************************************/
 
 /**
  * This function creates a reply-comment section with a div element with class "reply-comment"
@@ -200,12 +221,13 @@ function generateReplyCommentSection({ currentUser: { image: { png } } }) {
 function generateCommentInformation(replyCommentSection) {
     let commentInformation = {
         content: replyCommentSection.querySelector("textarea").value,
-        createdAt: "today",
+        createdAt: String((new Date()).toJSON()),
         user: {
             image: {
                 png: replyCommentSection.querySelector("img").getAttribute("src")
             }
         },
+        score: 0
 
     }
 
@@ -227,21 +249,24 @@ function generateCommentInformation(replyCommentSection) {
  * @returns {HTMLElement} The generated comment score section element.
  */
 function generateCommentScoreSection({ score = 0 }) {
+
     // create comment-score section DOM Element
-    let divElement;
+    let divElement = createDOMElement(`<div class="comment-score">
+    <svg class="icon-plus clickable" width="11" height="11" xmlns="http://www.w3.org/2000/svg">
+        <path d="M6.33 10.896c.137 0 .255-.05.354-.149.1-.1.149-.217.149-.354V7.004h3.315c.136 0 .254-.05.354-.149.099-.1.148-.217.148-.354V5.272a.483.483 0 0 0-.148-.354.483.483 0 0 0-.354-.149H6.833V1.4a.483.483 0 0 0-.149-.354.483.483 0 0 0-.354-.149H4.915a.483.483 0 0 0-.354.149c-.1.1-.149.217-.149.354v3.37H1.08a.483.483 0 0 0-.354.15c-.1.099-.149.217-.149.353v1.23c0 .136.05.254.149.353.1.1.217.149.354.149h3.333v3.39c0 .136.05.254.15.353.098.1.216.149.353.149H6.33Z" fill="#C5C6EF"/>
+    </svg>
+    <div class="score-value bold blue">${score}</div>
+    <svg class="icon-minus clickable" width="11" height="3" xmlns="http://www.w3.org/2000/svg">
+        <path d="M9.256 2.66c.204 0 .38-.056.53-.167.148-.11.222-.243.222-.396V.722c0-.152-.074-.284-.223-.395a.859.859 0 0 0-.53-.167H.76a.859.859 0 0 0-.53.167C.083.437.009.57.009.722v1.375c0 .153.074.285.223.396a.859.859 0 0 0 .53.167h8.495Z" fill="#C5C6EF"/>
+    </svg>
+  </div>`);
+
+
     if (score > 0 && score < 1000) {
-        divElement = createDOMElement(`<div class="comment-score">
-        <img src="./images/icon-plus.svg">
-        <div class="score-value bold blue small-font-size">${score}</div>
-        <img src="./images/icon-minus.svg">
-      </div>`);
+        divElement.querySelector(".score-value").classList.add("small-font-size");
     }
     else {
-        divElement = createDOMElement(`<div class="comment-score">
-        <img src="./images/icon-plus.svg">
-        <div class="score-value bold blue very-small-font-size">${score}</div>
-        <img src="./images/icon-minus.svg">
-      </div>`);
+        divElement.querySelector(".score-value").classList.add("very-small-font-size");
     }
 
     return divElement;
@@ -316,7 +341,7 @@ function generateCommentInfoSection({ user: { image: { png }, username }, create
 
     /* add the comment interaction buttons to the divElement */
     // if it is the current user that has this comment info section; delete button & edit button
-    if (username === DATA["currentUser"]["username"]) {
+    if (username == DATA["currentUser"]["username"]) {
         divElement.querySelector('span.comment-name').classList.add("current-user");
         divElement.appendChild(generateCommentInfoButtonSection("delete"));
         divElement.appendChild(generateCommentInfoButtonSection("edit"));
@@ -394,6 +419,9 @@ function generateCommentSection(commentInformation) {
     // create Comment section div Element
     let divElement = createDOMElement(`<div class="comment"></div>`);
 
+    // a hidden tag that specifies the id of the comment section
+    divElement.appendChild(createDOMElement(`<span class="hide id">${commentInformation["id"]}<span>`))
+
     // add the comment score section
     divElement.appendChild(generateCommentScoreSection(commentInformation));
 
@@ -462,6 +490,13 @@ function generateEditSection(message, replyingTo) {
 }
 
 
+
+
+/********************************************
+ * FUNCTIONS FOR HANDLING BUTTON INTERACTIONS
+ ********************************************/
+
+
 /**
  * Obtains the Score value of a comment section and increments it by one
  */
@@ -472,6 +507,8 @@ function increaseCommentScore(commentSection) {
     let newScore = Number(commentScore.textContent.trim());
 
     commentScore.textContent = `${newScore + 1}`;
+
+    updateDataIncreaseScore(commentSection);
 }
 
 
@@ -484,7 +521,9 @@ function decreaseCommentScore(commentSection) {
 
     let newScore = Number(commentScore.textContent.trim());
 
-    if (newScore !== 0) commentScore.textContent = `${newScore - 1}`;
+    if (newScore > 0) commentScore.textContent = `${newScore - 1}`;
+
+    updateDataDecreaseScore(commentSection);
 }
 
 
@@ -567,16 +606,24 @@ function handleUpdateButton(updateButton, replyingTo, previousMessage) {
 
     // replacing the edit section
     commentArea.parentNode.replaceChild(commentMessage, commentArea);
+
+    // 
+    updateDataEditComment(
+        commentMessage.parentNode.parentNode,
+        commentMessage.querySelector("span").nextSibling.textContent.trim()
+    );
 }
 
 
 /**
  * This function is an Event Handler for the "delete button" in the "edit section"
  * this button is actually linked to a bootstrap modal component
- * additionally when this button is clicked we will add a class called "show-modal" to it
+ * additionally when this button is clicked we add a class called "show-modal" to it
  * 
- * on the modal, there is a "yes, delete" button which dismisses the modal
- * additionally we would add an Event Handler to it that would obtain the "show-modal" element
+ * this "show-modal" class acts as a tag. HOW?
+ * on the modal, there is a "yes, delete" button 
+ * this button would dismiss the modal,
+ * additionally we would add an Event Handler that would obt
  * then remove the comment section of the show-modal element. 
  * 
  */
@@ -585,14 +632,58 @@ function handleDeleteButton(deleteButton) {
 }
 
 function handleModalDeleteButton() {
+    // the delete button that triggered the delete modal
     let showModalDeleteButton = document.querySelector(".show-modal");
-    greatGrandFather(showModalDeleteButton).remove();
+
+    // comment section element of the delete button
+    let commentSection = greatGrandFather(showModalDeleteButton);
+
+    // remove comment section information from our data of comments
+    updateDataDeleteComment(commentSection);
+
+    // remove comment section from the DOM
+    commentSection.remove();
 }
 
 function handleModalDontDeleteButton() {
+    // the delete button that triggered the delete modal
     let showModalDeleteButton = document.querySelector(".show-modal");
+
+    // remove "show-modal" tag since the modal is now gone
     showModalDeleteButton.classList.remove("show-modal");
 
+}
+
+
+/**
+ * This function is an event handler.
+ * it increases the score of the comment section
+ * which the plus icon is clicked.
+ * 
+ * @param {HTMLElement} plusIcon - HTMLElement containing the plus icon for upvoting
+ */
+function handleUpvoteButton(plusIcon) {
+    // get the comment section of the plus icon
+    let commentSection = plusIcon.parentNode.parentNode;
+
+    // increase the score value of the comment section
+    increaseCommentScore(commentSection);
+}
+
+
+/**
+ * This function is an event handler.
+ * it decreases the score of the comment section
+ * which the minus icon is clicked.
+ * 
+ * @param {HTMLElement} minusIcon - HTMLElement containing the minus icon for upvoting
+ */
+function handleDownvoteButton(minusIcon) {
+    // get the comment section of the plus icon
+    let commentSection = minusIcon.parentNode.parentNode;
+
+    // increase the score value of the comment section
+    decreaseCommentScore(commentSection);
 }
 
 
@@ -601,6 +692,7 @@ function handleModalDontDeleteButton() {
  * it adds a comment section below the comment element associated with the reply button
  * 
  * @param {HTMLElement} targetElement - The Dom Element after which the reply comment Section will be added.
+ * @return {HTMLElement} replyCommentSection
  */
 function addReplyCommentSectionAfter(GGFather) {
     // obtain a reply comment section element
@@ -621,11 +713,226 @@ function addReplyCommentSectionAfter(GGFather) {
 
 
 
+/********************************************
+ * FUNCTIONS FOR MANIPULATING THE DATABASE
+ ********************************************/
+
+
+/**
+ * This function gets the id of a comment section element
+ * 
+ * @param {HTMLElement} commentSection - HTMLElement depicting a comment section
+ */
+function getCommentSectionID(commentSection) {
+    return Number(commentSection.querySelector(".id").textContent.trim());
+}
+
+
+/**
+ * This function returns the index of a comment information
+ * whose "id" property is the same as the "id" parameter
+ * 
+ * @param {Array} commentList - an array of comment information(object)
+ * @param {Number} id 
+ * @returns {Number} - returns the index of the object
+ */
+function searchForCommentViaID(commentList, id) {
+    return commentList.findIndex((commentInformation) => commentInformation["id"] == id);
+
+}
+
+/**
+ * This function adds information about a comment into our data of comments.
+ * 
+ * through a reply comment section, a comment which is a reply is generated.
+ * the reply comment section is always below the comment it is replying to.
+ * 
+ * a reply comment can come in two ways,
+ * it is either replying to a standard comment OR
+ * it is replying to a comment that is replying to another comment 
+ * i.e it is replying to a reply comment
+ * 
+ * in the first case;
+ * the reply comment "comment information" 
+ * would be added (at the back) to the replies property
+ * of the standard comment "comment information"
+ * 
+ * in the second case;
+ * the reply comment "comment information"
+ * would be added beside the reply comment "comment information" it is replying to
+ * 
+ * @param {Object} commentInformation - an object whose property contains information about a comment
+ * @param {HTMLElement} replyCommentSection - html element of the reply comment section used to generate the comment
+ */
+function updateDataAddComment(commentInformation, replyCommentSection) {
+    // get the comment section that would receive the reply
+    let commentSection = replyCommentSection.previousElementSibling;
+
+    // get the id of the commentSection
+    let id = getCommentSectionID(commentSection);
+
+    // comment information is a reply to a comment which is a reply to another.
+    if (commentSection.matches(".reply-container *")) {
+        for (comment of DATA["comments"]) {
+            // search for the comment section information in list of replies
+            let index = searchForCommentViaID(comment["replies"], id);
+
+            // place new comment information next to the comment section information
+            if (index >= 0) {
+                comment["replies"].splice(index + 1, 0, commentInformation);
+            }
+        }
+    }
+
+    // comment information is a reply to a comment which is not a reply to another
+    else {
+        // search for the comment section information in list of comments
+        let index = searchForCommentViaID(DATA["comments"], id);
+
+        // place new comment information inside the comment section information list of replies
+        if (index >= 0) {
+            DATA["comments"][index]["replies"].push(commentInformation);
+        }
+    }
+}
+
+
+/**
+ * This Function deletes a comment section information from the data of comment
+ * it uses the id of the comment section element to know which comment information
+ * in the data of comments to delete
+ * 
+ * @param {HTMLElement} commentSection -  HTMLElement depicting a comment section
+ */
+function updateDataDeleteComment(commentSection) {
+    // get the id of the comment section
+    let id = getCommentSectionID(commentSection);
+
+    // get the comment information that correspond to that id and delete it
+    if (commentSection.matches(".reply-container *")) {
+        for (comment of DATA["comments"]) {
+            // search for the comment section information in list of replies
+            let index = searchForCommentViaID(comment["replies"], id);
+
+            // delete the comment section information
+            if (index >= 0) {
+                comment["replies"].splice(index, 1);
+            }
+        }
+    }
+
+    // if the comment section is not a reply
+    else {
+        // search for the comment section information in list of comments
+        let index = searchForCommentViaID(DATA["comments"], id);
+
+        // delete the comment section information
+        if (index >= 0) {
+            DATA["comments"].splice(index, 1);
+        }
+    }
+}
+
+
+/**
+ * This Function updates the data of comment,
+ * by obtain the comment information that corresponds to the comment section element
+ * and increasing the score value of the comment information by one
+ * 
+ * @param {HTMLElement} commentSection - HTMLElement corresponding to the comment section
+ */
+function updateDataIncreaseScore(commentSection) {
+
+    // get the id of the comment section
+    let id = getCommentSectionID(commentSection);
+
+    // search through every comment information in the data for matching id
+    for (comment of DATA["comments"]) {
+
+        // check the comment
+        if (comment["id"] == id) {
+            comment["score"] += 1;
+        }
+
+        // check the comment list of replies
+        else {
+            let index = searchForCommentViaID(comment["replies"], id);
+            if (index >= 0) comment["replies"][index]["score"] += 1;
+        }
+    }
+
+}
+
+
+/**
+ * This Function updates the data of comment,
+ * by obtain the comment information that corresponds to the comment section element
+ * and decreasing the score value of the comment information by one
+ * 
+ * @param {HTMLElement} commentSection - HTMLElement corresponding to the comment section
+ */
+function updateDataDecreaseScore(commentSection) {
+
+    // get the id of the comment section
+    let id = getCommentSectionID(commentSection);
+
+    // search through every comment information in the data for matching id
+    for (comment of DATA["comments"]) {
+
+        // check the comment
+        if (comment["id"] == id) {
+            if (comment["score"] > 0) comment["score"] -= 1;
+        }
+
+        // check the comment list of replies
+        else {
+            let index = searchForCommentViaID(comment["replies"], id);
+            if (index >= 0) {
+                if (comment["score"] > 0) comment["replies"][index]["score"] -= 1;
+            };
+        }
+    }
+
+}
+
+
+/**
+ * This Function updates the data of comment,
+ * by obtain the comment information that corresponds to the comment section element
+ * and changing the comment content of the comment information.
+ * 
+ * @param {HTMLElement} commentSection - HTMLElement corresponding to the comment section
+ * @param {string} newContent - new content for the comment
+ */
+function updateDataEditComment(commentSection, newContent) {
+
+    // get the id of the comment section
+    let id = getCommentSectionID(commentSection);
+
+    // search through every comment information in the data for matching id
+    for (comment of DATA["comments"]) {
+
+        // check the comment
+        if (comment["id"] == id) {
+            comment["content"] = newContent;
+        }
+
+        // check the comment list of replies
+        else {
+            let index = searchForCommentViaID(comment["replies"], id);
+            if (index >= 0) {
+                comment["replies"][index]["content"] = newContent;
+            };
+        }
+    }
+}
 
 
 
 
-
+/********************************************
+ *      SETTING UP THE EVENT HANDLERS
+ ********************************************/
 
 /**
  * Set the Event handler of the reply-button
@@ -690,8 +997,11 @@ document.querySelectorAll(".reply-button").forEach((replyButton) => {
             // this is an object with attributes that describe the comment
             let commentInformation = generateCommentInformation(replyCommentSection);
 
-            // add the "replyingTo" attribute to the commentInformation
+            // add the "replyingTo" property to the commentInformation
             commentInformation["replyingTo"] = GGFather.querySelector(".comment-name").textContent;
+
+            // add "id" property to the commentInformation
+            commentInformation["id"] = getNewID();
 
             // use comment information to create a comment section element
             let commentSection = generateCommentSection(commentInformation);
@@ -708,10 +1018,22 @@ document.querySelectorAll(".reply-button").forEach((replyButton) => {
                 handleDeleteButton(deleteButton);
             });
 
+            // Event handler for the upvote button
+            let upvoteButton = commentSection.querySelector(".icon-plus");
+            upvoteButton.addEventListener('click', () => {
+                handleUpvoteButton(upvoteButton);
+            })
+
+            // Event handler for the downvote button
+            let downvoteButton = commentSection.querySelector(".icon-minus");
+            downvoteButton.addEventListener('click', () => {
+                handleDownvoteButton(downvoteButton);
+            })
+
             // if the comment to reply to
             // is also a reply to another comment
             if (replyCommentSection.matches('.reply-container *')) {
-                insertAfterMe(commentSection, replyCommentSection.previousElementSibling);
+                insertAfterMe(commentSection, replyCommentSection);
             }
 
             // if the comment to reply to
@@ -727,6 +1049,9 @@ document.querySelectorAll(".reply-button").forEach((replyButton) => {
                 // place comment section inside reply container's "comment-replies" element 
                 replyCommentSection.nextElementSibling.querySelector(".comment-replies").appendChild(commentSection);
             }
+
+            // update DATA; add comment information
+            updateDataAddComment(commentInformation, replyCommentSection);
 
             // remove reply comment section
             replyCommentSection.remove();
@@ -757,6 +1082,12 @@ document.querySelectorAll(".comment-send-button").forEach((CommentSendButton) =>
         // generate comment information from the reply comment section
         let commentInformation = generateCommentInformation(replyCommentSection);
 
+        // add id to the commentInformation
+        commentInformation["id"] = getNewID();
+
+        // reset the textarea value
+        replyCommentSection.querySelector("textarea").value = "";
+
         // create a comment section element from comment information
         let commentSection = generateCommentSection(commentInformation);
 
@@ -772,8 +1103,25 @@ document.querySelectorAll(".comment-send-button").forEach((CommentSendButton) =>
             handleDeleteButton(deleteButton);
         });
 
+        // Event handler for the upvote button
+        let upvoteButton = commentSection.querySelector(".icon-plus");
+        upvoteButton.addEventListener('click', () => {
+            handleUpvoteButton(upvoteButton);
+        })
+
+        // Event handler for the downvote button
+        let downvoteButton = commentSection.querySelector(".icon-minus");
+        downvoteButton.addEventListener('click', () => {
+            handleDownvoteButton(downvoteButton);
+        })
+
         // replace the reply comment section with the comment section
         replyCommentSection.parentNode.insertBefore(commentSection, replyCommentSection);
+
+        // add comment information to data of comments
+        DATA["comments"].push(commentInformation);
+
+        console.log(DATA);
     })
 
 });
@@ -791,7 +1139,7 @@ document.querySelectorAll(".edit-button").forEach((editButton) => {
 
 
 /**
-* Set the Evenet Handler of the Delet button
+* Set the Evenet Handler of the Delete button
 *
 */
 document.querySelectorAll(".delete-button").forEach((deleteButton) => {
@@ -816,14 +1164,22 @@ document.querySelector(".no-cancel-button").addEventListener('click', () => {
     handleModalDontDeleteButton();
 });
 
+/** 
+ * Set the Event Handler for Upvoting
+ */
+document.querySelectorAll(".icon-plus").forEach((plusIcon) => {
+    plusIcon.addEventListener('click', () => {
+        handleUpvoteButton(plusIcon);
+    })
 
+})
 
+/** 
+ * Set the Event Handler for Downvoting
+ */
+document.querySelectorAll(".icon-minus").forEach((minusIcon) => {
+    minusIcon.addEventListener('click', () => {
+        handleDownvoteButton(minusIcon);
+    })
 
-
-
-
-
-
-
-
-
+})

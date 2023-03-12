@@ -22,6 +22,10 @@ body {
     font-weight: 500;
 }
 
+.hide {
+    display: none;
+}
+
 
 
 /* My Font Weight Classes */
@@ -91,17 +95,20 @@ body {
     background-color: hsl(228, 33%, 97%);
 }
 
-.comment-score * {
-    width: 1.5em;
-    text-align: center;
-    padding: 0.3em;
+.comment-score svg:hover path {
+    fill: hsl(228, 45%, 44%);
+}
 
+.comment-score svg {
+    box-sizing: content-box;
+    padding: 3px;
 }
 
 .score-value {
     width: fit-content;
+    text-align: center;
     padding: 0;
-    margin: 1em 0;
+    margin: 0.6em 0;
 }
 
 
